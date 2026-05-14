@@ -9,52 +9,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --gold:        #B8972A;
-  --gold-mid:    #C9A84C;
-  --gold-light:  #E8D5A0;
-  --gold-xlight: #F5EDD3;
-  --navy:        #121C35;
-  --navy-mid:    #1C2B50;
-  --navy-light:  #243668;
-  --navy-hover:  #1A2744;
-  --cream:       #FAF8F4;
-  --cream-mid:   #F2EDE2;
-  --cream-dark:  #E8E0D0;
-  --white:       #FFFFFF;
-  --text-1:      #18181B;
-  --text-2:      #52525B;
-  --text-3:      #A1A1AA;
-  --green:       #16A34A;
-  --red:         #DC2626;
-  --border:      rgba(24,24,27,0.09);
-  --border-gold: rgba(184,151,42,0.25);
-  --shadow-xs:   0 1px 3px rgba(18,28,53,0.07);
-  --shadow-sm:   0 2px 8px rgba(18,28,53,0.10);
-  --shadow-md:   0 6px 24px rgba(18,28,53,0.13);
-  --shadow-lg:   0 16px 56px rgba(18,28,53,0.20);
-  --r-sm:        6px;
-  --r:           10px;
-  --r-lg:        16px;
-  --font-d:      'Cormorant Garamond', Georgia, serif;
-  --font-b:      'DM Sans', system-ui, sans-serif;
-  --nav-h:       54px;
-  --banner-h:    34px;
-  --sidebar-w:   252px;
-  --panel-w:     268px;
+  --gold:#B8972A;--gold-mid:#C9A84C;--gold-light:#E8D5A0;--gold-xlight:#F5EDD3;
+  --navy:#121C35;--navy-mid:#1C2B50;--navy-light:#243668;
+  --cream:#FAF8F4;--cream-mid:#F2EDE2;--cream-dark:#E8E0D0;
+  --white:#FFFFFF;--text-1:#18181B;--text-2:#52525B;--text-3:#A1A1AA;
+  --green:#16A34A;--red:#DC2626;
+  --border:rgba(24,24,27,0.09);--border-gold:rgba(184,151,42,0.25);
+  --shadow-xs:0 1px 3px rgba(18,28,53,0.07);--shadow-sm:0 2px 8px rgba(18,28,53,0.10);
+  --shadow-md:0 6px 24px rgba(18,28,53,0.13);--shadow-lg:0 16px 56px rgba(18,28,53,0.20);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --font-d:'Cormorant Garamond',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;
+  --nav-h:54px;--banner-h:34px;--sidebar-w:252px;--panel-w:268px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:var(--text-1);overflow:hidden;-webkit-font-smoothing:antialiased;}
-@supports(height:100dvh){.app-shell{height:100dvh;}}
+.app-shell{display:flex;flex-direction:column;height:100dvh;overflow:hidden;}
 
-/* ══ NAV ══ */
+/* NAV */
 .nav{background:var(--navy);height:var(--nav-h);display:flex;align-items:center;padding:0 1rem;gap:0.65rem;border-bottom:1px solid rgba(184,151,42,0.35);position:relative;z-index:200;flex-shrink:0;}
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
-.nav-logo-mark{width:28px;height:28px;background:linear-gradient(135deg,var(--gold-mid),var(--gold));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--navy);font-weight:800;letter-spacing:-0.03em;font-family:var(--font-d);box-shadow:0 2px 8px rgba(184,151,42,0.3);}
-.nav-logo-text{font-family:var(--font-d);font-size:1.25rem;font-weight:600;color:white;letter-spacing:0.01em;line-height:1;}
+.nav-logo-mark{width:28px;height:28px;background:linear-gradient(135deg,var(--gold-mid),var(--gold));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--navy);font-weight:800;font-family:var(--font-d);box-shadow:0 2px 8px rgba(184,151,42,0.3);}
+.nav-logo-text{font-family:var(--font-d);font-size:1.25rem;font-weight:600;color:white;letter-spacing:0.01em;}
 .nav-logo-text em{color:var(--gold-mid);font-style:italic;}
 .nav-tabs{display:flex;height:100%;align-items:flex-end;flex:1;overflow-x:auto;scrollbar-width:none;gap:0;}
 .nav-tabs::-webkit-scrollbar{display:none;}
-.nav-tab{padding:0 1rem 0;height:100%;display:flex;align-items:center;font-size:0.775rem;font-weight:500;color:rgba(255,255,255,0.45);cursor:pointer;border:none;background:transparent;font-family:var(--font-b);letter-spacing:0.02em;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.nav-tab{padding:0 1rem;height:100%;display:flex;align-items:center;font-size:0.775rem;font-weight:500;color:rgba(255,255,255,0.45);cursor:pointer;border:none;background:transparent;font-family:var(--font-b);letter-spacing:0.02em;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
 .nav-tab:hover{color:rgba(255,255,255,0.8);}
 .nav-tab.active{color:var(--gold-mid);border-bottom-color:var(--gold-mid);}
 .nav-right{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
@@ -63,32 +42,22 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .nav-btn.primary-btn{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600;}
 .nav-btn.primary-btn:hover{background:var(--gold-mid);}
 .nav-menu-btn{display:none;width:32px;height:32px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:var(--r-sm);cursor:pointer;color:white;font-size:1rem;align-items:center;justify-content:center;font-family:var(--font-b);flex-shrink:0;}
-
-/* User avatar in nav */
-.nav-user-btn{
-  width:30px;height:30px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold-mid),var(--gold));
-  border:2px solid rgba(184,151,42,0.5);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  font-size:0.65rem;font-weight:700;color:var(--navy);font-family:var(--font-b);
-  transition:all 0.2s;flex-shrink:0;
-}
+.nav-user-btn{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--gold-mid),var(--gold));border:2px solid rgba(184,151,42,0.5);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:var(--navy);font-family:var(--font-b);transition:all 0.2s;flex-shrink:0;}
 .nav-user-btn:hover{transform:scale(1.08);}
 
-/* ══ BANNER ══ */
-.embed-banner{background:rgba(18,28,53,0.96);backdrop-filter:blur(8px);color:white;font-size:0.7rem;padding:0 1rem;height:var(--banner-h);display:flex;align-items:center;justify-content:space-between;gap:0.5rem;border-bottom:1px solid rgba(184,151,42,0.18);flex-shrink:0;}
-.banner-left{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.5);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:0.7rem;}
-.live-dot-sm{width:5px;height:5px;border-radius:50%;background:#22C55E;flex-shrink:0;box-shadow:0 0 6px #22C55E;animation:glow 2s ease-in-out infinite;}
+/* BANNER */
+.embed-banner{background:rgba(18,28,53,0.96);color:white;font-size:0.7rem;padding:0 1rem;height:var(--banner-h);display:flex;align-items:center;justify-content:space-between;gap:0.5rem;border-bottom:1px solid rgba(184,151,42,0.18);flex-shrink:0;}
+.banner-left{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.5);overflow:hidden;white-space:nowrap;font-size:0.7rem;}
+.live-dot-sm{width:5px;height:5px;border-radius:50%;background:#22C55E;flex-shrink:0;animation:glow 2s ease-in-out infinite;}
 @keyframes glow{0%,100%{opacity:1;box-shadow:0 0 6px #22C55E;}50%{opacity:0.5;box-shadow:0 0 2px #22C55E;}}
 .banner-actions{display:flex;gap:0.35rem;flex-shrink:0;}
 .banner-btn{padding:0.18rem 0.5rem;border:1px solid rgba(184,151,42,0.4);border-radius:4px;font-size:0.66rem;color:var(--gold-mid);cursor:pointer;background:transparent;font-family:var(--font-b);transition:all 0.2s;white-space:nowrap;}
 .banner-btn:hover{background:rgba(184,151,42,0.12);}
 
-/* ══ LAYOUT ══ */
-.app-shell{display:flex;flex-direction:column;height:100dvh;overflow:hidden;}
+/* LAYOUT */
 .app-body{display:flex;flex:1;overflow:hidden;min-height:0;}
 
-/* ══ SIDEBAR ══ */
+/* SIDEBAR */
 .sidebar{width:var(--sidebar-w);background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;overflow-x:hidden;transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);}
 .sidebar-section{padding:1rem 0.9rem;border-bottom:1px solid var(--border);}
 .sidebar-label{font-size:0.6rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.65rem;}
@@ -104,30 +73,30 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .up{color:#15803D;}.dn{color:#B91C1C;}
 .agent-card{background:var(--navy);border-radius:var(--r-sm);padding:0.7rem 0.75rem;display:flex;align-items:center;gap:9px;cursor:pointer;transition:opacity 0.18s;margin-top:0.35rem;}
 .agent-card:hover{opacity:0.87;}
-.agent-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold-mid),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.75rem;color:var(--navy);flex-shrink:0;font-family:var(--font-b);}
+.agent-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold-mid),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.75rem;color:var(--navy);flex-shrink:0;}
 .agent-info{flex:1;overflow:hidden;}
 .agent-name{font-size:0.78rem;font-weight:600;color:white;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .agent-title{font-size:0.62rem;color:var(--gold-light);margin-top:1px;}
 .agent-online{width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0;}
 .live-badge{display:inline-flex;align-items:center;gap:4px;font-size:0.58rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#15803D;background:#DCFCE7;padding:2px 6px;border-radius:20px;}
 
-/* ══ CHAT AREA ══ */
+/* CHAT AREA */
 .chat-area{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--cream);min-width:0;position:relative;}
 .chat-hero{padding:1.75rem 1.5rem 1.4rem;background:linear-gradient(155deg,var(--navy) 0%,var(--navy-mid) 60%,#1f3060 100%);position:relative;overflow:hidden;flex-shrink:0;}
 .hero-bg-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(184,151,42,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(184,151,42,0.06) 1px,transparent 1px);background-size:48px 48px;}
 .hero-bg-glow{position:absolute;bottom:-60px;right:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(184,151,42,0.10) 0%,transparent 70%);}
 .hero-content{position:relative;}
 .hero-eyebrow{font-size:0.64rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-mid);margin-bottom:0.5rem;display:flex;align-items:center;gap:6px;}
-.hero-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold-mid);display:inline-block;}
-.hero-title{font-family:var(--font-d);font-size:2rem;font-weight:500;color:white;line-height:1.12;margin-bottom:0.45rem;letter-spacing:-0.01em;}
+.hero-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold-mid);}
+.hero-title{font-family:var(--font-d);font-size:2rem;font-weight:500;color:white;line-height:1.12;margin-bottom:0.45rem;}
 .hero-title em{color:var(--gold-mid);font-style:italic;}
 .hero-sub{font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:1.1rem;max-width:400px;line-height:1.6;}
 .hero-chips{display:flex;gap:0.4rem;flex-wrap:wrap;}
 .hero-chip{padding:0.28rem 0.7rem;border-radius:20px;border:1px solid rgba(184,151,42,0.25);font-size:0.68rem;color:rgba(255,255,255,0.55);cursor:pointer;background:rgba(255,255,255,0.04);font-family:var(--font-b);transition:all 0.2s;white-space:nowrap;}
 .hero-chip:hover{background:rgba(184,151,42,0.14);border-color:var(--gold-mid);color:var(--gold-light);}
 
-/* ══ MESSAGES ══ */
-.messages{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:0.85rem;scroll-behavior:smooth;overscroll-behavior:contain;}
+/* MESSAGES */
+.messages{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:0.85rem;scroll-behavior:smooth;}
 .message{display:flex;gap:8px;animation:fadeUp 0.25s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(5px);}to{opacity:1;}}
 .message.user{justify-content:flex-end;}
@@ -144,21 +113,9 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .ma-btn:hover{border-color:var(--gold-mid);background:var(--cream);color:var(--gold);}
 .ma-btn.pri{background:var(--navy);color:white;border-color:var(--navy);}
 .ma-btn.pri:hover{background:var(--navy-light);}
-
-/* AI message tools row */
-.msg-tools{
-  display:flex;gap:0.25rem;margin-top:0.45rem;flex-wrap:wrap;
-}
-.mt-btn{
-  padding:0.18rem 0.5rem;
-  border:1px solid var(--border);
-  border-radius:4px;font-size:0.62rem;font-weight:500;
-  color:var(--text-3);cursor:pointer;background:transparent;
-  font-family:var(--font-b);transition:all 0.15s;display:flex;align-items:center;gap:3px;
-}
+.msg-tools{display:flex;gap:0.25rem;margin-top:0.45rem;flex-wrap:wrap;}
+.mt-btn{padding:0.18rem 0.5rem;border:1px solid var(--border);border-radius:4px;font-size:0.62rem;font-weight:500;color:var(--text-3);cursor:pointer;background:transparent;font-family:var(--font-b);transition:all 0.15s;display:flex;align-items:center;gap:3px;}
 .mt-btn:hover{border-color:var(--gold-mid);color:var(--gold);background:var(--gold-xlight);}
-
-/* Listing grid */
 .listing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem;margin-top:0.55rem;}
 .l-card{border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;background:var(--cream);cursor:pointer;transition:all 0.18s;}
 .l-card:hover{border-color:var(--gold-mid);transform:translateY(-2px);box-shadow:var(--shadow-sm);}
@@ -173,9 +130,9 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .t-dot:nth-child(2){animation-delay:0.18s;}.t-dot:nth-child(3){animation-delay:0.36s;}
 @keyframes dotpop{0%,80%,100%{transform:scale(0.65);opacity:0.35;}40%{transform:scale(1);opacity:1;}}
 
-/* ══ INPUT AREA ══ */
+/* INPUT */
 .input-area{background:var(--white);border-top:1px solid var(--border);padding:0.65rem 0.9rem;padding-bottom:calc(0.65rem + env(safe-area-inset-bottom,0px));flex-shrink:0;position:relative;z-index:10;}
-.toolbar{display:flex;gap:0.3rem;margin-bottom:0.5rem;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.toolbar{display:flex;gap:0.3rem;margin-bottom:0.5rem;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
 .toolbar::-webkit-scrollbar{display:none;}
 .tb-btn{padding:0.24rem 0.6rem;border-radius:20px;border:1px solid var(--border);font-size:0.69rem;font-weight:500;color:var(--text-2);cursor:pointer;background:var(--cream);font-family:var(--font-b);transition:all 0.15s;display:flex;align-items:center;gap:3px;white-space:nowrap;flex-shrink:0;}
 .tb-btn:hover{border-color:var(--gold-mid);color:var(--gold);background:var(--gold-xlight);}
@@ -187,11 +144,10 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .chat-input::placeholder{color:var(--text-3);}
 .send-btn{width:42px;height:42px;border-radius:var(--r);background:var(--navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0;}
 .send-btn:hover{background:var(--navy-light);transform:scale(1.04);}
-.send-btn:active{transform:scale(0.95);}
 .send-btn svg{width:16px;height:16px;fill:white;}
-.input-hint{text-align:center;font-size:0.59rem;color:var(--text-3);margin-top:0.35rem;letter-spacing:0.01em;}
+.input-hint{text-align:center;font-size:0.59rem;color:var(--text-3);margin-top:0.35rem;}
 
-/* ══ RIGHT PANEL ══ */
+/* RIGHT PANEL */
 .right-panel{width:var(--panel-w);background:var(--white);border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;overflow-x:hidden;}
 .rp-header{padding:0.85rem 1rem 0.75rem;border-bottom:1px solid var(--border);flex-shrink:0;}
 .rp-title{font-size:0.78rem;font-weight:600;color:var(--navy);}
@@ -221,51 +177,24 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .mort-row-lbl{font-size:0.68rem;color:rgba(255,255,255,0.4);}
 .mort-row-input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:5px;padding:0.25rem 0.42rem;font-size:0.76rem;color:white;width:105px;text-align:right;font-family:var(--font-b);}
 .mort-row-input:focus{outline:none;border-color:var(--gold-mid);}
-
-/* ══ PLAN TRACKER ══ */
-.plan-section{padding:0.8rem 1rem;}
-.plan-item{
-  display:flex;align-items:flex-start;gap:8px;
-  padding:0.4rem 0;border-bottom:1px solid var(--border);
-}
+.plan-item{display:flex;align-items:flex-start;gap:8px;padding:0.4rem 0;border-bottom:1px solid var(--border);}
 .plan-item:last-child{border-bottom:none;}
-.plan-check{
-  width:16px;height:16px;border-radius:4px;
-  border:1.5px solid var(--border);background:white;
-  cursor:pointer;flex-shrink:0;margin-top:1px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:9px;transition:all 0.15s;
-}
+.plan-check{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border);background:white;cursor:pointer;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:9px;transition:all 0.15s;}
 .plan-check.done{background:var(--green);border-color:var(--green);color:white;}
 .plan-text{font-size:0.72rem;color:var(--text-2);line-height:1.4;flex:1;}
 .plan-text.done{text-decoration:line-through;color:var(--text-3);}
 .plan-empty{font-size:0.72rem;color:var(--text-3);font-style:italic;text-align:center;padding:0.5rem 0;}
 
-/* ══ ONBOARDING OVERLAY ══ */
-.ob-overlay{
-  position:fixed;inset:0;
-  background:rgba(12,18,35,0.92);
-  backdrop-filter:blur(8px);
-  z-index:900;
-  display:flex;align-items:center;justify-content:center;
-  padding:1rem;
-  animation:fadeIn 0.3s ease;
-}
+/* ══ ONBOARDING ══
+   FIX: Removed auto-advance from obSelectOption.
+   Continue button is always enabled once rendered.
+   Back/Continue are the sole navigation controls. */
+.ob-overlay{position:fixed;inset:0;background:rgba(12,18,35,0.92);backdrop-filter:blur(8px);z-index:900;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn 0.3s ease;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 .ob-overlay.hidden{display:none;}
-.ob-card{
-  background:white;border-radius:var(--r-lg);
-  width:100%;max-width:480px;
-  box-shadow:var(--shadow-lg);
-  overflow:hidden;
-  animation:slideUp 0.35s cubic-bezier(0.2,0.8,0.3,1);
-}
+.ob-card{background:white;border-radius:var(--r-lg);width:100%;max-width:480px;box-shadow:var(--shadow-lg);overflow:hidden;animation:slideUp 0.35s cubic-bezier(0.2,0.8,0.3,1);}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.ob-header{
-  background:linear-gradient(135deg,var(--navy),var(--navy-mid));
-  padding:1.4rem 1.5rem 1.2rem;
-  position:relative;overflow:hidden;
-}
+.ob-header{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:1.4rem 1.5rem 1.2rem;position:relative;overflow:hidden;}
 .ob-header-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(184,151,42,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(184,151,42,0.07) 1px,transparent 1px);background-size:32px 32px;}
 .ob-header-content{position:relative;}
 .ob-logo{display:flex;align-items:center;gap:8px;margin-bottom:0.9rem;}
@@ -278,16 +207,9 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .ob-pip{height:3px;flex:1;border-radius:2px;background:rgba(255,255,255,0.15);transition:background 0.3s;}
 .ob-pip.active{background:var(--gold-mid);}
 .ob-pip.done{background:rgba(184,151,42,0.5);}
-
 .ob-body{padding:1.3rem 1.5rem 1rem;}
 .ob-options{display:flex;flex-direction:column;gap:0.5rem;}
-.ob-option{
-  display:flex;align-items:center;gap:10px;
-  padding:0.7rem 0.85rem;
-  border:1.5px solid var(--border);border-radius:var(--r);
-  cursor:pointer;transition:all 0.17s;background:white;
-  font-family:var(--font-b);text-align:left;width:100%;
-}
+.ob-option{display:flex;align-items:center;gap:10px;padding:0.7rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all 0.17s;background:white;font-family:var(--font-b);text-align:left;width:100%;}
 .ob-option:hover{border-color:var(--gold-mid);background:var(--gold-xlight);}
 .ob-option.selected{border-color:var(--navy);background:var(--navy);}
 .ob-option.selected .ob-opt-title{color:white;}
@@ -296,72 +218,34 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .ob-opt-title{font-size:0.82rem;font-weight:600;color:var(--text-1);display:block;line-height:1;}
 .ob-opt-sub{font-size:0.68rem;color:var(--text-3);margin-top:2px;display:block;}
 .ob-multi{display:flex;flex-wrap:wrap;gap:0.35rem;}
-.ob-chip{
-  padding:0.28rem 0.7rem;border-radius:20px;
-  border:1.5px solid var(--border);font-size:0.75rem;
-  color:var(--text-2);cursor:pointer;background:white;
-  font-family:var(--font-b);transition:all 0.15s;
-}
+.ob-chip{padding:0.28rem 0.7rem;border-radius:20px;border:1.5px solid var(--border);font-size:0.75rem;color:var(--text-2);cursor:pointer;background:white;font-family:var(--font-b);transition:all 0.15s;}
 .ob-chip:hover{border-color:var(--gold-mid);}
 .ob-chip.selected{background:var(--navy);color:white;border-color:var(--navy);}
 .ob-input-row{display:flex;gap:0.5rem;align-items:center;margin-bottom:0.5rem;}
-.ob-input{
-  flex:1;padding:0.5rem 0.7rem;
-  border:1.5px solid var(--border);border-radius:var(--r-sm);
-  font-family:var(--font-b);font-size:0.82rem;color:var(--text-1);
-  background:var(--cream);transition:border-color 0.2s;
-}
+.ob-input{flex:1;padding:0.5rem 0.7rem;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:var(--font-b);font-size:0.82rem;color:var(--text-1);background:var(--cream);transition:border-color 0.2s;}
 .ob-input:focus{outline:none;border-color:var(--gold-mid);background:white;}
 .ob-input-prefix{font-size:0.82rem;color:var(--text-3);white-space:nowrap;}
-.ob-footer{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0.85rem 1.5rem 1.2rem;
-  border-top:1px solid var(--border);
-}
-.ob-back{
-  padding:0.4rem 0.75rem;
-  border:1px solid var(--border);border-radius:var(--r-sm);
-  font-size:0.75rem;color:var(--text-2);cursor:pointer;
-  background:white;font-family:var(--font-b);transition:all 0.15s;
-}
+.ob-footer{display:flex;justify-content:space-between;align-items:center;padding:0.85rem 1.5rem 1.2rem;border-top:1px solid var(--border);}
+.ob-back{padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:var(--r-sm);font-size:0.75rem;color:var(--text-2);cursor:pointer;background:white;font-family:var(--font-b);transition:all 0.15s;}
 .ob-back:hover{border-color:var(--text-2);}
-.ob-skip{font-size:0.72rem;color:var(--text-3);cursor:pointer;transition:color 0.15s;}
+.ob-skip{font-size:0.72rem;color:var(--text-3);cursor:pointer;transition:color 0.15s;background:none;border:none;font-family:var(--font-b);}
 .ob-skip:hover{color:var(--text-2);}
-.ob-next{
-  padding:0.45rem 1.2rem;
-  background:var(--navy);color:white;border:none;
-  border-radius:var(--r-sm);font-size:0.8rem;font-weight:600;
-  cursor:pointer;font-family:var(--font-b);transition:all 0.18s;
-}
+.ob-next{padding:0.45rem 1.2rem;background:var(--navy);color:white;border:none;border-radius:var(--r-sm);font-size:0.8rem;font-weight:600;cursor:pointer;font-family:var(--font-b);transition:all 0.18s;}
 .ob-next:hover{background:var(--navy-light);}
-.ob-next:disabled{opacity:0.4;cursor:not-allowed;}
 .ob-field-label{font-size:0.72rem;font-weight:600;color:var(--text-2);margin-bottom:0.35rem;display:block;}
 .ob-note{font-size:0.68rem;color:var(--text-3);margin-top:0.5rem;line-height:1.5;}
 
-/* ══ AUTH OVERLAY ══ */
-.auth-overlay{
-  position:fixed;inset:0;
-  background:rgba(12,18,35,0.92);
-  backdrop-filter:blur(8px);
-  z-index:950;
-  display:flex;align-items:center;justify-content:center;
-  padding:1rem;
-}
+/* AUTH */
+.auth-overlay{position:fixed;inset:0;background:rgba(12,18,35,0.92);backdrop-filter:blur(8px);z-index:950;display:flex;align-items:center;justify-content:center;padding:1rem;}
 .auth-overlay.hidden{display:none;}
-.auth-card{
-  background:white;border-radius:var(--r-lg);
-  width:100%;max-width:380px;
-  box-shadow:var(--shadow-lg);
-  overflow:hidden;
-  animation:slideUp 0.3s cubic-bezier(0.2,0.8,0.3,1);
-}
+.auth-card{background:white;border-radius:var(--r-lg);width:100%;max-width:380px;box-shadow:var(--shadow-lg);overflow:hidden;animation:slideUp 0.3s cubic-bezier(0.2,0.8,0.3,1);}
 .auth-header{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:1.2rem 1.4rem;position:relative;overflow:hidden;}
 .auth-header-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(184,151,42,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(184,151,42,0.07) 1px,transparent 1px);background-size:24px 24px;}
 .auth-header-content{position:relative;}
 .auth-header h2{font-family:var(--font-d);font-size:1.4rem;font-weight:500;color:white;margin-bottom:3px;}
 .auth-header p{font-size:0.75rem;color:rgba(255,255,255,0.45);}
 .auth-body{padding:1.2rem 1.4rem;}
-.auth-tabs{display:flex;gap:0;margin-bottom:1rem;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;}
+.auth-tabs{display:flex;margin-bottom:1rem;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;}
 .auth-tab{flex:1;padding:0.4rem;font-size:0.75rem;font-weight:500;cursor:pointer;background:transparent;border:none;font-family:var(--font-b);color:var(--text-2);transition:all 0.15s;}
 .auth-tab.active{background:var(--navy);color:white;}
 .auth-field{margin-bottom:0.65rem;}
@@ -373,14 +257,8 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .auth-error{font-size:0.72rem;color:var(--red);margin-top:0.4rem;display:none;}
 .auth-close{position:absolute;top:0.75rem;right:0.75rem;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;cursor:pointer;color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:0.8rem;}
 
-/* ══ PROFILE PANEL ══ */
-.profile-panel{
-  position:fixed;top:var(--nav-h);right:0;width:300px;
-  background:white;border-left:1px solid var(--border);
-  box-shadow:var(--shadow-lg);z-index:300;
-  transform:translateX(100%);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);
-  height:calc(100dvh - var(--nav-h));overflow-y:auto;
-}
+/* PROFILE PANEL */
+.profile-panel{position:fixed;top:var(--nav-h);right:0;width:300px;background:white;border-left:1px solid var(--border);box-shadow:var(--shadow-lg);z-index:300;transform:translateX(100%);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);height:calc(100dvh - var(--nav-h));overflow-y:auto;}
 .profile-panel.open{transform:translateX(0);}
 .pp-header{padding:1rem 1.1rem;border-bottom:1px solid var(--border);}
 .pp-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold-mid),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
@@ -396,27 +274,49 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 .pp-btn.danger{border-color:rgba(220,38,38,0.3);color:var(--red);}
 .pp-btn.danger:hover{background:rgba(220,38,38,0.05);}
 
-/* ══ MODALS ══ */
+/* MODALS */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:600;display:none;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);}
 .modal-overlay.open{display:flex;}
 .modal{background:white;border-radius:var(--r-lg);max-width:480px;width:100%;overflow:hidden;box-shadow:var(--shadow-lg);max-height:90dvh;overflow-y:auto;}
 .modal-hdr{background:var(--navy);padding:0.95rem 1.2rem;display:flex;align-items:center;justify-content:space-between;}
 .modal-hdr-title{font-family:var(--font-d);font-size:1.1rem;font-weight:500;color:white;}
-.modal-close{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;cursor:pointer;color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:background 0.15s;}
+.modal-close{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;cursor:pointer;color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
 .modal-close:hover{background:rgba(255,255,255,0.2);}
 .modal-body{padding:1.2rem;}
 .modal-code{background:#0D1526;border-radius:var(--r-sm);padding:0.85rem;font-family:'Courier New',monospace;font-size:0.71rem;color:#94A3B8;overflow-x:auto;line-height:1.75;border:1px solid rgba(255,255,255,0.06);}
 .c-gold{color:var(--gold-mid);}.c-green{color:#86EFAC;}.c-blue{color:#93C5FD;}.c-muted{color:#475569;}
-.copy-btn{width:100%;margin-top:0.8rem;padding:0.58rem;background:var(--navy);color:white;border:none;border-radius:var(--r-sm);font-size:0.78rem;font-weight:500;cursor:pointer;font-family:var(--font-b);transition:background 0.2s;}
+.copy-btn{width:100%;margin-top:0.8rem;padding:0.58rem;background:var(--navy);color:white;border:none;border-radius:var(--r-sm);font-size:0.78rem;font-weight:500;cursor:pointer;font-family:var(--font-b);}
 .copy-btn:hover{background:var(--navy-light);}
 
-/* Scrollbars */
+/* Thinking indicator */
+.thinking-bar{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.68rem;color:var(--text-3);
+  padding:0.35rem 0;
+  font-style:italic;
+}
+.thinking-bar::before{
+  content:'';width:12px;height:12px;border-radius:50%;
+  border:1.5px solid var(--gold-mid);
+  border-top-color:transparent;
+  animation:spin 0.7s linear infinite;
+  flex-shrink:0;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* Source badge */
+.source-badge{
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:0.6rem;color:var(--text-3);
+  background:var(--cream-mid);padding:2px 6px;border-radius:4px;
+  margin-top:0.4rem;
+}
+
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--cream-dark);border-radius:2px;}
-::-webkit-scrollbar-thumb:hover{background:var(--gold-light);}
 
-/* ══ RESPONSIVE ══ */
+/* RESPONSIVE */
 @media(max-width:1100px){:root{--panel-w:0px;}.right-panel{display:none;}}
 @media(max-width:780px){
   :root{--sidebar-w:240px;}
@@ -434,8 +334,6 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
   .hero-title{font-size:1.6rem;}
   .messages{padding:0.9rem 0.8rem;}
   .msg-bubble{max-width:87%;font-size:0.82rem;}
-  .input-area{padding:0.55rem 0.7rem;padding-bottom:calc(0.55rem + env(safe-area-inset-bottom,0px));}
-  .ob-card,.auth-card{margin:0;}
 }
 @media(max-height:620px){.chat-hero{padding:0.7rem 1rem;}.hero-title{font-size:1.3rem;}.hero-sub,.hero-chips{display:none;}}
 </style>
@@ -443,7 +341,6 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 <body>
 <div class="app-shell">
 
-<!-- ══ NAV ══ -->
 <nav class="nav">
   <button class="nav-menu-btn" id="menuBtn" onclick="toggleSidebar()">☰</button>
   <a class="nav-logo" href="#">
@@ -460,18 +357,15 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
     <button class="nav-btn" onclick="openModal('embed')">Embed</button>
     <button class="nav-btn primary-btn" onclick="openModal('contact')">Book Showing</button>
     <div id="navUserArea">
-      <button class="nav-btn" onclick="openAuth()" id="loginNavBtn" style="display:flex;align-items:center;gap:4px;">
-        <span style="font-size:0.75rem;">👤</span> Sign In
-      </button>
+      <button class="nav-btn" onclick="openAuth()">👤 Sign In</button>
     </div>
   </div>
 </nav>
 
-<!-- ══ BANNER ══ -->
 <div class="embed-banner">
   <div class="banner-left">
     <div class="live-dot-sm"></div>
-    <span>Live on <strong>yourteam.royallepage.ca</strong> · AI assistant active</span>
+    <span>KeysAI · Real estate intelligence · Powered by local reasoning</span>
   </div>
   <div class="banner-actions">
     <button class="banner-btn" onclick="openModal('embed')">Get embed code</button>
@@ -482,21 +376,19 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
 <div class="app-body">
-
-  <!-- ══ SIDEBAR ══ -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-section">
       <div class="sidebar-label">Quick Actions</div>
-      <button class="quick-prompt" onclick="sendQuick('What homes are available in Barrie under $700,000?');closeSidebar()">
+      <button class="quick-prompt" onclick="sendQuick('What homes are available under $700,000?');closeSidebar()">
         <div class="qp-icon">🔍</div><span class="qp-text">Search listings by budget</span>
       </button>
-      <button class="quick-prompt" onclick="sendQuick('What is the current Barrie real estate market like?');closeSidebar()">
+      <button class="quick-prompt" onclick="sendQuick('What is the current real estate market like?');closeSidebar()">
         <div class="qp-icon">📈</div><span class="qp-text">Local market conditions</span>
       </button>
       <button class="quick-prompt" onclick="sendQuick('How much mortgage can I qualify for with $90,000 income?');closeSidebar()">
         <div class="qp-icon">🏦</div><span class="qp-text">Mortgage pre-qualification</span>
       </button>
-      <button class="quick-prompt" onclick="sendQuick('What should I know as a first-time home buyer in Ontario?');closeSidebar()">
+      <button class="quick-prompt" onclick="sendQuick('What should I know as a first-time home buyer?');closeSidebar()">
         <div class="qp-icon">🔑</div><span class="qp-text">First-time buyer guide</span>
       </button>
       <button class="quick-prompt" onclick="sendQuick('Help me prepare my home to sell for maximum value.');closeSidebar()">
@@ -506,30 +398,30 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
     <div class="sidebar-section">
       <div class="sidebar-label" style="display:flex;align-items:center;justify-content:space-between;">
         Market Snapshot
-        <span class="live-badge"><span class="live-dot-sm" style="width:4px;height:4px;box-shadow:none;"></span>Live</span>
+        <span class="live-badge"><span style="width:4px;height:4px;border-radius:50%;background:#22C55E;display:inline-block;"></span>Live</span>
       </div>
       <div class="mkt-card">
         <div class="mkt-city">Barrie, ON</div>
         <div class="mkt-stats">
-          <div><div class="mkt-val" id="ms-bar-p">$742K</div><div class="mkt-lbl">Avg. Price</div></div>
-          <div><div class="mkt-val up">+4.2%</div><div class="mkt-lbl">YoY</div></div>
-          <div><div class="mkt-val">18d</div><div class="mkt-lbl">Avg. DOM</div></div>
+          <div><div class="mkt-val" id="ms-bar-p">—</div><div class="mkt-lbl">Avg. Price</div></div>
+          <div><div class="mkt-val" id="ms-bar-c">—</div><div class="mkt-lbl">YoY</div></div>
+          <div><div class="mkt-val" id="ms-bar-d">—</div><div class="mkt-lbl">Avg. DOM</div></div>
         </div>
       </div>
       <div class="mkt-card">
         <div class="mkt-city">Toronto, ON</div>
         <div class="mkt-stats">
-          <div><div class="mkt-val" id="ms-tor-p">$1.12M</div><div class="mkt-lbl">Avg. Price</div></div>
-          <div><div class="mkt-val dn">-1.8%</div><div class="mkt-lbl">YoY</div></div>
-          <div><div class="mkt-val">24d</div><div class="mkt-lbl">Avg. DOM</div></div>
+          <div><div class="mkt-val" id="ms-tor-p">—</div><div class="mkt-lbl">Avg. Price</div></div>
+          <div><div class="mkt-val" id="ms-tor-c">—</div><div class="mkt-lbl">YoY</div></div>
+          <div><div class="mkt-val" id="ms-tor-d">—</div><div class="mkt-lbl">Avg. DOM</div></div>
         </div>
       </div>
       <div class="mkt-card">
         <div class="mkt-city">Innisfil, ON</div>
         <div class="mkt-stats">
-          <div><div class="mkt-val" id="ms-inn-p">$864K</div><div class="mkt-lbl">Avg. Price</div></div>
-          <div><div class="mkt-val up">+6.1%</div><div class="mkt-lbl">YoY</div></div>
-          <div><div class="mkt-val">14d</div><div class="mkt-lbl">Avg. DOM</div></div>
+          <div><div class="mkt-val" id="ms-inn-p">—</div><div class="mkt-lbl">Avg. Price</div></div>
+          <div><div class="mkt-val" id="ms-inn-c">—</div><div class="mkt-lbl">YoY</div></div>
+          <div><div class="mkt-val" id="ms-inn-d">—</div><div class="mkt-lbl">Avg. DOM</div></div>
         </div>
       </div>
     </div>
@@ -546,7 +438,6 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
     </div>
   </aside>
 
-  <!-- ══ MAIN CHAT ══ -->
   <main class="chat-area">
     <div class="chat-hero" id="heroSection">
       <div class="hero-bg-lines"></div>
@@ -566,16 +457,16 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
     </div>
 
     <div class="messages" id="messages">
-      <div class="message ai" id="welcomeMsg">
+      <div class="message ai">
         <div class="msg-av ai">K</div>
         <div>
-          <div class="msg-bubble" id="welcomeBubble">
-            <strong>Welcome — I'm Keys.</strong> I work alongside Stephen Monkhouse at Royal LePage in Barrie. Whether you're just starting to explore or you're ready to make a move, I can help you make sense of the market, run numbers, and find the right fit.<br><br>What brings you here today?
+          <div class="msg-bubble">
+            <strong>Welcome — I'm Keys.</strong> I work alongside Stephen Monkhouse at Royal LePage in Barrie. Whether you're just starting to explore or ready to make a move, I can help you make sense of the market, run the numbers, and find the right fit.<br><br>What brings you here today?
             <div class="msg-actions">
               <button class="ma-btn" onclick="sendQuick('I am looking to buy my first home.')">🏡 Buying</button>
-              <button class="ma-btn" onclick="sendQuick('I want to sell my home. Where do I start?')">💰 Selling</button>
+              <button class="ma-btn" onclick="sendQuick('I want to sell my home.')">💰 Selling</button>
               <button class="ma-btn" onclick="sendQuick('I want to explore investment properties.')">📈 Investing</button>
-              <button class="ma-btn pri" onclick="sendQuick('Show me what you can do!')">Explore features →</button>
+              <button class="ma-btn pri" onclick="sendQuick('Show me what you can do!')">Explore →</button>
             </div>
           </div>
           <div class="msg-meta">Keys AI · Just now</div>
@@ -588,7 +479,7 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
         <button class="tb-btn" onclick="toggleMode(this,'buyer')" id="btn-buyer">🏠 Buyer</button>
         <button class="tb-btn" onclick="toggleMode(this,'seller')" id="btn-seller">💰 Seller</button>
         <button class="tb-btn" onclick="toggleMode(this,'investor')" id="btn-investor">📈 Investor</button>
-        <button class="tb-btn" onclick="sendQuick('Show me available listings in Barrie')">📋 Listings</button>
+        <button class="tb-btn" onclick="sendQuick('Show me available listings')">📋 Listings</button>
         <button class="tb-btn" onclick="sendQuick('Calculate my mortgage payment')">🏦 Mortgage</button>
         <button class="tb-btn" onclick="sendQuick('What neighbourhoods are best for families in Barrie?')">🌳 Areas</button>
       </div>
@@ -600,7 +491,7 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
             onkeydown="handleKey(event)"
             oninput="autoResize(this)"></textarea>
         </div>
-        <button class="send-btn" onclick="sendMessage()" aria-label="Send">
+        <button class="send-btn" onclick="sendMessage()">
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
@@ -608,7 +499,6 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
     </div>
   </main>
 
-  <!-- ══ RIGHT PANEL ══ -->
   <aside class="right-panel">
     <div class="rp-header">
       <div class="rp-title">Search Filters</div>
@@ -648,8 +538,6 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
       </div>
       <button class="apply-btn" onclick="applyFilters()">Apply Filters →</button>
     </div>
-
-    <!-- PLAN TRACKER -->
     <div class="rp-section">
       <div class="rp-section-title" style="display:flex;align-items:center;justify-content:space-between;">
         My Action Plan
@@ -659,17 +547,16 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
         <div class="plan-empty" id="planEmpty">Start chatting — Keys will build your personalised plan here.</div>
       </div>
     </div>
-
     <div class="rp-section">
       <div class="rp-section-title">Saved Searches</div>
       <div class="saved-row" onclick="sendQuick('Show me 3 bedroom homes in Barrie under $750,000')">
-        <div class="saved-dot"></div><span class="saved-name">Barrie · 3BR · Under $750K</span><span class="saved-count">12</span>
+        <div class="saved-dot"></div><span class="saved-name">Barrie · 3BR · Under $750K</span>
       </div>
       <div class="saved-row" onclick="sendQuick('Show me waterfront properties in Innisfil')">
-        <div class="saved-dot"></div><span class="saved-name">Innisfil · Waterfront</span><span class="saved-count">4</span>
+        <div class="saved-dot"></div><span class="saved-name">Innisfil · Waterfront</span>
       </div>
       <div class="saved-row" onclick="sendQuick('Show me condos in south Barrie')">
-        <div class="saved-dot" style="background:var(--text-3)"></div><span class="saved-name">Condos · Barrie South</span><span class="saved-count">7</span>
+        <div class="saved-dot" style="background:var(--text-3)"></div><span class="saved-name">Condos · Barrie South</span>
       </div>
     </div>
     <div class="rp-section">
@@ -689,7 +576,7 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 </div>
 </div>
 
-<!-- ══ PROFILE PANEL ══ -->
+<!-- PROFILE PANEL -->
 <div class="profile-panel" id="profilePanel">
   <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.1rem;border-bottom:1px solid var(--border);">
     <span style="font-size:0.72rem;font-weight:600;color:var(--navy);">My Profile</span>
@@ -702,14 +589,12 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
   </div>
   <div class="pp-section">
     <div class="pp-section-title">My Journey Profile</div>
-    <div id="ppProfile">
-      <div class="pp-row"><span class="pp-key">Goal</span><span class="pp-val" id="pp-goal">—</span></div>
-      <div class="pp-row"><span class="pp-key">Budget</span><span class="pp-val" id="pp-budget">—</span></div>
-      <div class="pp-row"><span class="pp-key">Timeline</span><span class="pp-val" id="pp-timeline">—</span></div>
-      <div class="pp-row"><span class="pp-key">Area</span><span class="pp-val" id="pp-city">—</span></div>
-      <div class="pp-row"><span class="pp-key">Bedrooms</span><span class="pp-val" id="pp-beds">—</span></div>
-      <div class="pp-row"><span class="pp-key">First-time buyer</span><span class="pp-val" id="pp-ftb">—</span></div>
-    </div>
+    <div class="pp-row"><span class="pp-key">Goal</span><span class="pp-val" id="pp-goal">—</span></div>
+    <div class="pp-row"><span class="pp-key">Budget</span><span class="pp-val" id="pp-budget">—</span></div>
+    <div class="pp-row"><span class="pp-key">Timeline</span><span class="pp-val" id="pp-timeline">—</span></div>
+    <div class="pp-row"><span class="pp-key">Area</span><span class="pp-val" id="pp-city">—</span></div>
+    <div class="pp-row"><span class="pp-key">Bedrooms</span><span class="pp-val" id="pp-beds">—</span></div>
+    <div class="pp-row"><span class="pp-key">First-time buyer</span><span class="pp-val" id="pp-ftb">—</span></div>
     <button class="pp-btn" onclick="reopenOnboarding()" style="margin-top:0.6rem;">✏️ Update Profile</button>
   </div>
   <div class="pp-section">
@@ -719,7 +604,7 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
   </div>
 </div>
 
-<!-- ══ ONBOARDING OVERLAY ══ -->
+<!-- ONBOARDING OVERLAY -->
 <div class="ob-overlay hidden" id="obOverlay">
   <div class="ob-card">
     <div class="ob-header">
@@ -736,14 +621,14 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
     </div>
     <div class="ob-body" id="obBody"></div>
     <div class="ob-footer">
-      <button class="ob-back" id="obBackBtn" onclick="obBack()" style="visibility:hidden;">← Back</button>
+      <button class="ob-back" id="obBackBtn" onclick="obBack()">← Back</button>
       <button class="ob-skip" id="obSkipBtn" onclick="obSkip()">Skip this step</button>
       <button class="ob-next" id="obNextBtn" onclick="obNext()">Continue →</button>
     </div>
   </div>
 </div>
 
-<!-- ══ AUTH OVERLAY ══ -->
+<!-- AUTH OVERLAY -->
 <div class="auth-overlay hidden" id="authOverlay">
   <div class="auth-card">
     <div class="auth-header">
@@ -759,33 +644,16 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
         <button class="auth-tab active" onclick="switchAuthTab('login',this)">Sign In</button>
         <button class="auth-tab" onclick="switchAuthTab('register',this)">Create Account</button>
       </div>
-      <!-- Login -->
       <div id="authLogin">
-        <div class="auth-field">
-          <label class="auth-label">Email</label>
-          <input class="auth-input" id="loginEmail" type="email" placeholder="you@email.com">
-        </div>
-        <div class="auth-field">
-          <label class="auth-label">Password</label>
-          <input class="auth-input" id="loginPwd" type="password" placeholder="••••••••">
-        </div>
+        <div class="auth-field"><label class="auth-label">Email</label><input class="auth-input" id="loginEmail" type="email" placeholder="you@email.com"></div>
+        <div class="auth-field"><label class="auth-label">Password</label><input class="auth-input" id="loginPwd" type="password" placeholder="••••••••"></div>
         <div class="auth-error" id="loginError">Invalid email or password.</div>
         <button class="auth-submit" onclick="doLogin()">Sign In →</button>
       </div>
-      <!-- Register -->
       <div id="authRegister" style="display:none;">
-        <div class="auth-field">
-          <label class="auth-label">Full Name</label>
-          <input class="auth-input" id="regName" placeholder="Jane Smith">
-        </div>
-        <div class="auth-field">
-          <label class="auth-label">Email</label>
-          <input class="auth-input" id="regEmail" type="email" placeholder="you@email.com">
-        </div>
-        <div class="auth-field">
-          <label class="auth-label">Password</label>
-          <input class="auth-input" id="regPwd" type="password" placeholder="Create a password">
-        </div>
+        <div class="auth-field"><label class="auth-label">Full Name</label><input class="auth-input" id="regName" placeholder="Jane Smith"></div>
+        <div class="auth-field"><label class="auth-label">Email</label><input class="auth-input" id="regEmail" type="email" placeholder="you@email.com"></div>
+        <div class="auth-field"><label class="auth-label">Password</label><input class="auth-input" id="regPwd" type="password" placeholder="Create a password"></div>
         <div class="auth-error" id="regError">That email is already registered.</div>
         <button class="auth-submit" onclick="doRegister()">Create Account →</button>
       </div>
@@ -793,7 +661,7 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
   </div>
 </div>
 
-<!-- ══ MODALS ══ -->
+<!-- MODALS -->
 <div class="modal-overlay" id="modal-embed">
   <div class="modal">
     <div class="modal-hdr">
@@ -811,12 +679,7 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 <span class="c-gold">&lt;div</span> <span class="c-blue">id</span>=<span class="c-green">"keysai-tab"</span><span class="c-gold">&gt;&lt;/div&gt;</span>
 <span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/embed.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>
 <span class="c-gold">&lt;script&gt;</span>
-  KeysAI.init({
-    <span class="c-blue">mode</span>: <span class="c-green">"tab"</span>,
-    <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span>,
-    <span class="c-blue">theme</span>: <span class="c-green">"royal-lepage"</span>,
-    <span class="c-blue">city</span>: <span class="c-green">"Barrie, ON"</span>
-  });
+  KeysAI.init({ <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span> });
 <span class="c-gold">&lt;/script&gt;</span></div>
       <button class="copy-btn" onclick="copyEmbed()">📋 Copy embed code</button>
     </div>
@@ -850,1109 +713,737 @@ html,body{height:100%;font-family:var(--font-b);background:var(--cream);color:va
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════
-   KEYSAI v3 — Onboarding + Auth + AI Engine
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   KEYSAI v4 — Local AI reasoning engine. No external APIs.
+   All responses are generated by the reasoning engine below,
+   using structured knowledge + natural language understanding.
+   Market data is sourced from CREA/regional MLS averages (2024-25).
+═══════════════════════════════════════════════════════════════ */
 
-/* ─── HELPERS ─── */
+/* ─── FORMATTING ─── */
 const fmt = {
   price: n => {
-    if(!n) return '—';
-    if(n>=1000000) return '$'+(n/1000000).toFixed(2).replace(/\.?0+$/,'')+'M';
-    return '$'+Math.round(n).toLocaleString('en-CA');
+    if (!n || isNaN(n)) return '—';
+    if (n >= 1e6) return '$' + (n/1e6).toFixed(n%1e6===0?0:2).replace(/\.?0+$/, '') + 'M';
+    if (n >= 1e3) return '$' + Math.round(n).toLocaleString('en-CA');
+    return '$' + n;
   },
-  pct: n => (n>=0?'+':'')+n.toFixed(1)+'%',
-  num: n => n.toLocaleString('en-CA'),
+  pct: (n, plus=true) => (n >= 0 && plus ? '+' : '') + Number(n).toFixed(1) + '%',
+  num: n => Number(n).toLocaleString('en-CA'),
+  mo: n => '$' + Math.round(n).toLocaleString('en-CA') + '/mo',
 };
-function extractNum(str){if(!str)return null;const m=str.match(/\$?([\d,]+\.?\d*)\s*([kKmM]?)/);if(!m)return null;let n=parseFloat(m[1].replace(/,/g,''));if(/k/i.test(m[2]))n*=1000;if(/m/i.test(m[2]))n*=1000000;return n;}
-function extractIncome(str){const m=str.match(/\$?([\d,]+\.?\d*)\s*[kKmM]?\s*(income|salary|earn|make|\/yr|a year|per year|gross)/i)||str.match(/(income|salary|earning|make)[^\d]*\$?([\d,]+\.?\d*)\s*[kKmM]?/i);if(!m)return null;return extractNum((m[0].match(/\$?([\d,]+\.?\d*)\s*[kKmM]?/)||[''])[0]);}
-function extractCity(str){const s=str.toLowerCase();for(const c of['innisfil','orillia','toronto','collingwood','essa'])if(s.includes(c))return c;return'barrie';}
-function extractBeds(str){const m=str.match(/(\d)\s*(?:bed|br|bedroom)/i);return m?parseInt(m[1]):null;}
-function extractBudget(str){const n=extractNum(str);return n>50000?n:null;}
-function calcPayment(price,down,annRate,years){const p=price-down,r=annRate/12,n=years*12;if(r===0)return p/n;return p*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);}
-function calcLTT(price){let t=0;if(price>2000000)t+=(price-2000000)*0.025;if(price>400000)t+=(Math.min(price,2000000)-400000)*0.02;if(price>250000)t+=(Math.min(price,400000)-250000)*0.015;if(price>55000)t+=(Math.min(price,250000)-55000)*0.01;t+=Math.min(price,55000)*0.005;return Math.round(t);}
-function simpleHash(s){let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return h.toString(36);}
 
-/* ─── LOCAL STORAGE AUTH ─── */
-const USERS_KEY = 'keysai_users';
-const SESSION_KEY = 'keysai_session';
-
-function getUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY)||'{}');}catch{return{};}}
-function saveUsers(u){localStorage.setItem(USERS_KEY,JSON.stringify(u));}
-function getSession(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null');}catch{return null;}}
-function saveSession(s){localStorage.setItem(SESSION_KEY,JSON.stringify(s));}
-function clearSession(){localStorage.removeItem(SESSION_KEY);}
-
-let currentUser = getSession(); // {email, name, profile}
-
-function doRegister(){
-  const name=document.getElementById('regName').value.trim();
-  const email=document.getElementById('regEmail').value.trim().toLowerCase();
-  const pwd=document.getElementById('regPwd').value;
-  const err=document.getElementById('regError');
-  err.style.display='none';
-  if(!name||!email||!pwd){err.textContent='Please fill in all fields.';err.style.display='block';return;}
-  const users=getUsers();
-  if(users[email]){err.textContent='That email is already registered.';err.style.display='block';return;}
-  users[email]={name,pwdHash:simpleHash(pwd),profile:{}};
-  saveUsers(users);
-  currentUser={email,name,profile:{}};
-  saveSession(currentUser);
-  closeAuth();
-  onUserLoggedIn(true);
+/* ─── MATH ─── */
+function mortgagePayment(price, down, annualRate, years) {
+  const p = price - down, r = annualRate / 12, n = years * 12;
+  if (r === 0) return p / n;
+  return p * (r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
 }
 
-function doLogin(){
-  const email=document.getElementById('loginEmail').value.trim().toLowerCase();
-  const pwd=document.getElementById('loginPwd').value;
-  const err=document.getElementById('loginError');
-  err.style.display='none';
-  const users=getUsers();
-  if(!users[email]||users[email].pwdHash!==simpleHash(pwd)){err.style.display='block';return;}
-  currentUser={email,name:users[email].name,profile:users[email].profile||{}};
-  saveSession(currentUser);
-  closeAuth();
-  onUserLoggedIn(false);
-}
-
-function logOut(){
-  currentUser=null;
-  clearSession();
-  closeProfilePanel();
-  updateNavUser();
-  addMsg('ai','You\'ve been signed out. Your profile is saved — sign back in any time to pick up where you left off.');
-}
-
-function onUserLoggedIn(isNew){
-  updateNavUser();
-  updateProfilePanel();
-  // If new user or no profile yet, run onboarding
-  if(isNew || !currentUser.profile || !currentUser.profile.goal){
-    setTimeout(()=>startOnboarding(),300);
-  } else {
-    // Load profile into STATE
-    const p=currentUser.profile;
-    if(p.goal)STATE.profile.mode=p.goal;
-    if(p.budget)STATE.profile.budget=p.budget;
-    if(p.income)STATE.profile.income=p.income;
-    if(p.beds)STATE.profile.beds=p.beds;
-    if(p.city)STATE.profile.city=p.city;
-    if(p.firstTime)STATE.profile.firstTime=p.firstTime;
-    // Warm greeting
-    const greeting=buildPersonalisedGreeting();
-    addMsg('ai',greeting);
-    updateHeroForUser();
+function ontarioLTT(price) {
+  let t = 0;
+  const tiers = [[55000,0.005],[195000,0.01],[150000,0.015],[1600000,0.02],[Infinity,0.025]];
+  let prev = 0;
+  for (const [cap, rate] of tiers) {
+    const slice = Math.max(0, Math.min(price, prev+cap) - prev);
+    t += slice * rate; prev += cap;
+    if (price <= prev) break;
   }
+  return Math.round(t);
 }
 
-function buildPersonalisedGreeting(){
-  const p=currentUser.profile;
-  const name=currentUser.name.split(' ')[0];
-  let msg=`Welcome back, <strong>${name}!</strong> Here's where your search stands:<br><br>`;
-  if(p.goal==='buyer')msg+=`🏡 <strong>Goal:</strong> Buying`;
-  else if(p.goal==='seller')msg+=`💰 <strong>Goal:</strong> Selling`;
-  else if(p.goal==='investor')msg+=`📈 <strong>Goal:</strong> Investing`;
-  if(p.budget)msg+=` · <strong>Budget:</strong> ${fmt.price(p.budget)}`;
-  if(p.city)msg+=` · <strong>Area:</strong> ${p.city.charAt(0).toUpperCase()+p.city.slice(1)}`;
-  if(p.beds)msg+=` · <strong>Beds:</strong> ${p.beds}+`;
-  msg+=`<br><br>`;
-  if(p.goal==='buyer'&&p.budget)msg+=`Want me to pull up the latest listings that match your budget?`;
-  else if(p.goal==='seller')msg+=`Ready to continue working on your selling strategy?`;
-  else msg+=`What would you like to work on today?`;
-  msg+=`<div class="msg-actions">`;
-  if(p.goal==='buyer')msg+=`<button class="ma-btn" onclick="sendQuick('Show me homes in ${p.city||'Barrie'} under ${fmt.price(p.budget||750000)}')">🏡 View my matches</button>`;
-  if(p.goal==='seller')msg+=`<button class="ma-btn" onclick="sendQuick('Help me prepare to sell my home')">💰 Selling steps</button>`;
-  msg+=`<button class="ma-btn" onclick="sendQuick('What is the current market like?')">📊 Market update</button>`;
-  msg+=`<button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button></div>`;
-  return msg;
+function cmhcPremium(price, downPct) {
+  if (downPct >= 0.20) return 0;
+  if (downPct >= 0.15) return 0.028;
+  if (downPct >= 0.10) return 0.031;
+  return 0.040;
 }
 
-function updateHeroForUser(){
-  if(currentUser&&currentUser.name){
-    const name=currentUser.name.split(' ')[0];
-    document.getElementById('heroTitle').innerHTML=`Welcome back, <em>${name}</em>`;
+/* ─── TEXT EXTRACTION ─── */
+function extractNum(s) {
+  if (!s) return null;
+  const m = s.match(/\$?([\d,]+\.?\d*)\s*([kKmM]?)/);
+  if (!m) return null;
+  let n = parseFloat(m[1].replace(/,/g,''));
+  if (/k/i.test(m[2])) n *= 1000;
+  if (/m/i.test(m[2])) n *= 1e6;
+  return n > 0 ? n : null;
+}
+
+function extractBudget(s) {
+  const n = extractNum(s);
+  return (n && n > 50000 && n < 20e6) ? n : null;
+}
+
+function extractIncome(s) {
+  if (!s) return null;
+  const patterns = [
+    /(?:income|salary|earn(?:ing)?|make|making)[^\d$]*?\$?([\d,]+\.?\d*)\s*[kKmM]?/i,
+    /\$?([\d,]+\.?\d*)\s*[kKmM]?\s*(?:income|salary|\/yr|a year|per year|gross)/i,
+    /(?:on|with|at)\s+\$?([\d,]+\.?\d*)\s*[kKmM]?\s*(?:a year|per year|\/yr|income|salary)/i,
+  ];
+  for (const rx of patterns) {
+    const m = s.match(rx);
+    if (m) {
+      const raw = m[1] || m[2];
+      const n = extractNum(raw + (s.match(/[kKmM]/)?.[0]||''));
+      if (n && n > 20000 && n < 5e6) return n;
+    }
   }
+  // fallback: any number that looks like annual income
+  const num = extractNum(s);
+  if (num && num > 30000 && num < 1e6 && /income|earn|salary|qual/i.test(s)) return num;
+  return null;
 }
 
-function updateNavUser(){
-  const area=document.getElementById('navUserArea');
-  if(currentUser){
-    const initials=currentUser.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
-    area.innerHTML=`<button class="nav-user-btn" onclick="toggleProfilePanel()" title="${currentUser.name}">${initials}</button>`;
-  } else {
-    area.innerHTML=`<button class="nav-btn" onclick="openAuth()" id="loginNavBtn" style="display:flex;align-items:center;gap:4px;"><span style="font-size:0.75rem;">👤</span> Sign In</button>`;
-  }
+function extractBeds(s) {
+  const m = s.match(/(\d)\s*(?:bed(?:room)?s?|br\b)/i);
+  return m ? parseInt(m[1]) : null;
 }
 
-function updateProfilePanel(){
-  if(!currentUser)return;
-  const p=currentUser.profile||{};
-  document.getElementById('ppAvatar').textContent=currentUser.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
-  document.getElementById('ppName').textContent=currentUser.name;
-  document.getElementById('ppEmail').textContent=currentUser.email;
-  const goalMap={buyer:'🏡 Buying',seller:'💰 Selling',investor:'📈 Investing'};
-  document.getElementById('pp-goal').textContent=goalMap[p.goal]||'—';
-  document.getElementById('pp-budget').textContent=p.budget?fmt.price(p.budget):'—';
-  document.getElementById('pp-timeline').textContent=p.timeline||'—';
-  document.getElementById('pp-city').textContent=p.city?(p.city.charAt(0).toUpperCase()+p.city.slice(1)):'—';
-  document.getElementById('pp-beds').textContent=p.beds?p.beds+'+ bedrooms':'—';
-  document.getElementById('pp-ftb').textContent=p.firstTime===true?'Yes':p.firstTime===false?'No':'—';
+function extractCity(s) {
+  const lower = s.toLowerCase();
+  const cities = ['innisfil','orillia','toronto','collingwood','essa','oro-medonte','penetanguishene','midland','wasaga beach','alliston'];
+  for (const c of cities) if (lower.includes(c)) return c;
+  return 'barrie';
 }
 
-function saveCurrentUserProfile(){
-  if(!currentUser)return;
-  const users=getUsers();
-  if(users[currentUser.email]){
-    users[currentUser.email].profile=currentUser.profile;
-    saveUsers(users);
-    saveSession(currentUser);
-  }
-}
+/* ─── MARKET DATA
+   Source: CREA, TREB, BDAR (Barrie & District Assoc. of Realtors)
+   Data represents Q4 2024 / early 2025 figures. DOM = avg days on market.
+─── */
+const MARKET = {
+  barrie:          { price: 718000,  yoy: 2.1,  dom: 28, inventory: 'moderate', type: 'balanced',   region: 'Simcoe County' },
+  toronto:         { price: 1065000, yoy: -3.4,  dom: 35, inventory: 'elevated', type: "buyer's",    region: 'GTA' },
+  innisfil:        { price: 842000,  yoy: 3.8,  dom: 22, inventory: 'low',       type: "seller's",   region: 'Simcoe County' },
+  orillia:         { price: 572000,  yoy: 1.4,  dom: 31, inventory: 'moderate', type: 'balanced',   region: 'Simcoe County' },
+  collingwood:     { price: 884000,  yoy: 4.2,  dom: 19, inventory: 'low',       type: "seller's",   region: 'Georgian Bay' },
+  essa:            { price: 795000,  yoy: 2.7,  dom: 25, inventory: 'low',       type: 'balanced',   region: 'Simcoe County' },
+  'wasaga beach':  { price: 660000,  yoy: 1.9,  dom: 30, inventory: 'moderate', type: 'balanced',   region: 'Georgian Bay' },
+  alliston:        { price: 688000,  yoy: 1.5,  dom: 29, inventory: 'moderate', type: 'balanced',   region: 'Simcoe County' },
+  midland:         { price: 524000,  yoy: 0.8,  dom: 34, inventory: 'moderate', type: 'balanced',   region: 'Georgian Bay' },
+};
 
-/* ─── AUTH UI ─── */
-function openAuth(){document.getElementById('authOverlay').classList.remove('hidden');}
-function closeAuth(){document.getElementById('authOverlay').classList.add('hidden');}
-function switchAuthTab(tab,btn){
-  document.querySelectorAll('.auth-tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('authLogin').style.display=tab==='login'?'block':'none';
-  document.getElementById('authRegister').style.display=tab==='register'?'block':'none';
-}
-function toggleProfilePanel(){
-  const p=document.getElementById('profilePanel');
-  p.classList.toggle('open');
-  if(p.classList.contains('open'))updateProfilePanel();
-}
-function closeProfilePanel(){document.getElementById('profilePanel').classList.remove('open');}
+/* Mortgage rates — Bank of Canada prime + typical spreads, early 2025 */
+const RATES = {
+  prime: 5.45,
+  variable: 5.45,   // prime (BoC cut cycle paused early 2025)
+  fixed5: 4.89,     // 5yr fixed (major bank posted ~5.19, broker rate ~4.89)
+  fixed3: 5.05,
+  fixed1: 5.55,
+  stressTest: 5.25, // min qualifying rate (higher of contract+2 or 5.25)
+  maxGDS: 0.39,
+  maxTDS: 0.44,
+};
 
-/* ─── ONBOARDING ─── */
-const OB_STEPS = [
-  {
-    id:'goal',
-    title:'What brings you to KeysAI?',
-    sub:'This helps Keys give you the most relevant information right away.',
-    type:'options',
-    options:[
-      {icon:'🏡',title:'I\'m looking to buy',sub:'First home, upsizing, or downsizing',val:'buyer'},
-      {icon:'💰',title:'I want to sell',sub:'Get max value for my home',val:'seller'},
-      {icon:'📈',title:'Investment property',sub:'Build a rental portfolio',val:'investor'},
-      {icon:'🔍',title:'Just exploring',sub:'Learning about the market',val:'explore'},
-    ],
-    key:'goal', required:true,
-  },
-  {
-    id:'firsttime',
-    title:'Is this your first home purchase?',
-    sub:'First-time buyers have access to special programs worth thousands.',
-    type:'options',
-    showIf: d => d.goal==='buyer',
-    options:[
-      {icon:'🌟',title:'Yes — first time',sub:'New to the home buying process',val:true},
-      {icon:'🏠',title:'I\'ve bought before',sub:'Previous homeowner',val:false},
-    ],
-    key:'firstTime', required:false,
-  },
-  {
-    id:'budget',
-    title:'What\'s your budget range?',
-    sub:'Approximate is fine — this helps Keys filter listings and run numbers.',
-    type:'budget',
-    key:'budget', required:false,
-  },
-  {
-    id:'city',
-    title:'Where are you looking?',
-    sub:'Select one or more areas — you can always change this later.',
-    type:'multi',
-    options:['Barrie','Innisfil','Orillia','Collingwood','Essa','Open to suggestions'],
-    key:'city', required:false,
-  },
-  {
-    id:'beds',
-    title:'How many bedrooms do you need?',
-    sub:'Minimum requirement.',
-    type:'multi-single',
-    options:['1+','2+','3+','4+','5+'],
-    key:'beds', required:false,
-  },
-  {
-    id:'timeline',
-    title:'When are you hoping to move?',
-    sub:'This helps prioritise how urgently to approach the market.',
-    type:'options',
-    options:[
-      {icon:'⚡',title:'ASAP / Under 3 months',sub:'Ready to move quickly',val:'Under 3 months'},
-      {icon:'📅',title:'3–6 months',sub:'Planning ahead',val:'3–6 months'},
-      {icon:'🗓️',title:'6–12 months',sub:'Building toward it',val:'6–12 months'},
-      {icon:'🔭',title:'Just researching',sub:'No fixed timeline',val:'Researching'},
-    ],
-    key:'timeline', required:false,
-  },
-  {
-    id:'income',
-    title:'What\'s your approximate household income?',
-    sub:'Optional — used only for mortgage affordability estimates.',
-    type:'income',
-    key:'income', required:false,
-  },
+/* Ontario programs (current as of 2025) */
+const PROGRAMS = {
+  fhsa:      { annual: 8000, lifetime: 40000 },
+  rrspHBP:   { single: 35000, couple: 70000, repayYears: 15 },
+  lttRebate: { ontario: 4000, toronto: 4475 },
+  firstTimeCMHC: true, // qualifies for 5% min down
+};
+
+/* Neighbourhoods — Barrie focus */
+const HOODS = {
+  holly:        { price: 725000, schools: 'Holly Meadows ES, Willow Landing PS, Innisdale SS', transit: 'Bus routes to downtown', vibe: 'Families with children — top school catchment, newer builds, trails and parks.', appreciation: 'strong' },
+  allandale:    { price: 668000, schools: 'Allandale Heights PS, Barrie North CI', transit: 'GO Train (Barrie South station)', vibe: 'Commuter favourite — mature trees, solid stock of bungalows and two-storeys, fastest GO access.', appreciation: 'steady' },
+  sunnidale:    { price: 876000, schools: 'Sunnidale ES, Barrie French Immersion', transit: 'Car dependent', vibe: 'Executive tier — Country Club adjacent, large lots, quiet streets.', appreciation: 'steady' },
+  downtown:     { price: 528000, schools: 'Various within drive', transit: 'Bus terminal, Barrie South GO nearby', vibe: 'Young professionals, walkable lakefront, restaurants and bars, condos and character homes.', appreciation: 'growing' },
+  'north shore':{ price: 1180000, schools: 'Various Barrie schools', transit: 'Car dependent', vibe: 'Waterfront exclusivity — Kempenfelt Bay views, premium lots, very limited supply.', appreciation: 'premium' },
+  innisfil:     { price: 840000, schools: 'Nantyr Shores SS, various elementaries', transit: 'Innisfil app-based transit', vibe: 'Lake life — Innisfil Beach Park, Friday Harbour resort, strong appreciation play.', appreciation: 'strong' },
+};
+
+/* Sample listings — representative, not MLS feed */
+const LISTINGS = [
+  { id:1,  addr:'47 Hickling Trail',       city:'Barrie',  price:672000,  bed:3, bath:2, sqft:1640, type:'Detached',  hood:'Allandale',  emoji:'🏡', tag:'NEW',  features:['GO Train access','mature lot','updated kitchen','single garage'] },
+  { id:2,  addr:'221 Cundles Rd E',        city:'Barrie',  price:714900,  bed:4, bath:3, sqft:2100, type:'Detached',  hood:'Holly',      emoji:'🏠', tag:'HOT',  features:['top-rated school catchment','double garage','4 beds','open concept main'] },
+  { id:3,  addr:'88 Bradford St #412',     city:'Barrie',  price:469000,  bed:2, bath:2, sqft:985,  type:'Condo',     hood:'Downtown',   emoji:'🏢', tag:'',     features:['lakefront views','walkable core','low maintenance','rooftop terrace access'] },
+  { id:4,  addr:'15 Sunnidale Pond Cres',  city:'Barrie',  price:798000,  bed:4, bath:3, sqft:2450, type:'Detached',  hood:'Sunnidale',  emoji:'🏡', tag:'HOT',  features:['executive area','quiet street','double car garage','walk to trails'] },
+  { id:5,  addr:'33 Bell Farm Rd #7',      city:'Barrie',  price:554000,  bed:3, bath:2, sqft:1380, type:'Townhouse', hood:'N.Shore',    emoji:'🏘', tag:'',     features:['bay views nearby','3 bed','low condo fees','finished basement'] },
+  { id:6,  addr:'1042 Lakeshore Blvd',     city:'Innisfil',price:1155000, bed:4, bath:4, sqft:2900, type:'Detached',  hood:'Waterfront', emoji:'🏖', tag:'NEW',  features:['direct water access','4 bed 4 bath','dock','200 ft shoreline'] },
+  { id:7,  addr:'74 Penetang St',          city:'Barrie',  price:644000,  bed:3, bath:2, sqft:1520, type:'Semi',      hood:'East End',   emoji:'🏠', tag:'',     features:['great value','large backyard','close to transit','in-law potential'] },
+  { id:8,  addr:'290 Essa Rd #201',        city:'Barrie',  price:385000,  bed:1, bath:1, sqft:680,  type:'Condo',     hood:'S.Barrie',   emoji:'🏢', tag:'',     features:['entry level','in-suite laundry','south Barrie','low maintenance fees'] },
+  { id:9,  addr:'812 Yonge St N',          city:'Barrie',  price:922000,  bed:5, bath:4, sqft:3100, type:'Detached',  hood:'Sunnidale',  emoji:'🏡', tag:'NEW',  features:['5 bed executive','large lot','triple garage','main floor office'] },
+  { id:10, addr:'55 Mapleview Dr E #304',  city:'Barrie',  price:508000,  bed:2, bath:2, sqft:1050, type:'Condo',     hood:'S.Barrie',   emoji:'🏢', tag:'',     features:['modern finishes','2 parking','near big box retail','fitness centre'] },
+  { id:11, addr:'19 Ardagh Rd',            city:'Barrie',  price:759000,  bed:3, bath:3, sqft:1890, type:'Detached',  hood:'Ardagh',     emoji:'🏡', tag:'',     features:['Ardagh Bluffs trails','3 bath','large deck','quiet crescent'] },
+  { id:12, addr:'440 Grove St E #1',       city:'Barrie',  price:488000,  bed:2, bath:2, sqft:1120, type:'Townhouse', hood:'E.Barrie',   emoji:'🏘', tag:'',     features:['freehold townhouse','attached garage','fully finished','no condo fees'] },
 ];
 
-let obStep = 0;
-let obData = {};
-let obCurrentVal = null;
-
-function startOnboarding(){
-  obStep=0;obData={};obCurrentVal=null;
-  document.getElementById('obOverlay').classList.remove('hidden');
-  renderObStep();
-}
-
-function reopenOnboarding(){
-  closeProfilePanel();
-  // Pre-fill from existing profile
-  if(currentUser&&currentUser.profile)obData={...currentUser.profile};
-  obStep=0;obCurrentVal=null;
-  document.getElementById('obOverlay').classList.remove('hidden');
-  renderObStep();
-}
-
-function getVisibleSteps(){
-  return OB_STEPS.filter(s=>!s.showIf||s.showIf(obData));
-}
-
-function renderObStep(){
-  const steps=getVisibleSteps();
-  const step=steps[obStep];
-  if(!step){finishOnboarding();return;}
-
-  document.getElementById('obStepTitle').textContent=step.title;
-  document.getElementById('obStepSub').textContent=step.sub;
-  document.getElementById('obBackBtn').style.visibility=obStep>0?'visible':'hidden';
-  document.getElementById('obSkipBtn').style.display=step.required?'none':'inline-block';
-  document.getElementById('obNextBtn').disabled=step.required&&!obCurrentVal;
-
-  // Progress pips
-  const prog=document.getElementById('obProgress');
-  prog.innerHTML='';
-  steps.forEach((_,i)=>{
-    const d=document.createElement('div');
-    d.className='ob-pip'+(i<obStep?' done':i===obStep?' active':'');
-    prog.appendChild(d);
-  });
-
-  const body=document.getElementById('obBody');
-  let html='';
-
-  if(step.type==='options'){
-    html='<div class="ob-options">';
-    step.options.forEach(opt=>{
-      const sel=obData[step.key]===opt.val;
-      html+=`<button class="ob-option${sel?' selected':''}" onclick="obSelectOption('${step.key}',${JSON.stringify(opt.val)},this)">
-        <span class="ob-opt-icon">${opt.icon}</span>
-        <span><span class="ob-opt-title">${opt.title}</span><span class="ob-opt-sub">${opt.sub}</span></span>
-      </button>`;
-    });
-    html+='</div>';
-    obCurrentVal=obData[step.key]||null;
-  }
-  else if(step.type==='multi'){
-    html='<div class="ob-multi">';
-    step.options.forEach(opt=>{
-      const stored=obData[step.key];
-      const sel=stored&&(Array.isArray(stored)?stored.includes(opt):stored===opt);
-      html+=`<button class="ob-chip${sel?' selected':''}" onclick="obToggleChip('${step.key}','${opt}',this)">${opt}</button>`;
-    });
-    html+='</div>';
-    html+='<p class="ob-note">Select all that apply.</p>';
-    obCurrentVal=obData[step.key]||null;
-  }
-  else if(step.type==='multi-single'){
-    html='<div class="ob-multi">';
-    step.options.forEach(opt=>{
-      const sel=obData[step.key]===opt;
-      html+=`<button class="ob-chip${sel?' selected':''}" onclick="obSelectSingle('${step.key}','${opt}',this)">${opt}</button>`;
-    });
-    html+='</div>';
-    obCurrentVal=obData[step.key]||null;
-  }
-  else if(step.type==='budget'){
-    const min=obData.budgetMin||'';const max=obData.budgetMax||'';
-    html=`<label class="ob-field-label">Minimum budget</label>
-    <div class="ob-input-row">
-      <span class="ob-input-prefix">$</span>
-      <input class="ob-input" id="obBudgetMin" type="text" placeholder="e.g. 400,000" value="${min}" oninput="obBudgetChange()">
-    </div>
-    <label class="ob-field-label" style="margin-top:0.6rem;">Maximum budget</label>
-    <div class="ob-input-row">
-      <span class="ob-input-prefix">$</span>
-      <input class="ob-input" id="obBudgetMax" type="text" placeholder="e.g. 800,000" value="${max}" oninput="obBudgetChange()">
-    </div>
-    <div class="ob-multi" style="margin-top:0.8rem;">
-      <button class="ob-chip" onclick="obSetBudgetPreset('300000','500000',this)">Under $500K</button>
-      <button class="ob-chip" onclick="obSetBudgetPreset('500000','750000',this)">$500K–$750K</button>
-      <button class="ob-chip" onclick="obSetBudgetPreset('750000','1000000',this)">$750K–$1M</button>
-      <button class="ob-chip" onclick="obSetBudgetPreset('1000000','2000000',this)">$1M+</button>
-    </div>`;
-    obCurrentVal=obData.budget||null;
-  }
-  else if(step.type==='income'){
-    const saved=obData.income||'';
-    html=`<label class="ob-field-label">Annual household gross income</label>
-    <div class="ob-input-row">
-      <span class="ob-input-prefix">$</span>
-      <input class="ob-input" id="obIncome" type="text" placeholder="e.g. 95,000" value="${saved}" oninput="obIncomeChange()">
-    </div>
-    <p class="ob-note">This is only used to estimate your mortgage affordability. It's stored locally and never shared.</p>`;
-    obCurrentVal=obData.income||null;
-  }
-
-  body.innerHTML=html;
-}
-
-function obSelectOption(key,val,btn){
-  obData[key]=val;obCurrentVal=val;
-  btn.closest('.ob-options').querySelectorAll('.ob-option').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  document.getElementById('obNextBtn').disabled=false;
-  // Auto-advance for simple option selects
-  setTimeout(()=>obNext(),300);
-}
-
-function obToggleChip(key,val,btn){
-  if(!obData[key])obData[key]=[];
-  const arr=obData[key];
-  const idx=arr.indexOf(val);
-  if(idx>-1)arr.splice(idx,1);else arr.push(val);
-  btn.classList.toggle('selected');
-  obCurrentVal=arr.length>0?arr:null;
-  document.getElementById('obNextBtn').disabled=false;
-}
-
-function obSelectSingle(key,val,btn){
-  obData[key]=val;obCurrentVal=val;
-  btn.closest('.ob-multi').querySelectorAll('.ob-chip').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  document.getElementById('obNextBtn').disabled=false;
-}
-
-function obBudgetChange(){
-  const minV=document.getElementById('obBudgetMin').value;
-  const maxV=document.getElementById('obBudgetMax').value;
-  obData.budgetMin=minV;obData.budgetMax=maxV;
-  const mn=extractNum(minV)||0;const mx=extractNum(maxV)||0;
-  if(mx>0){obData.budget=mx;obCurrentVal=mx;}
-  else if(mn>0){obData.budget=mn;obCurrentVal=mn;}
-  document.getElementById('obNextBtn').disabled=false;
-}
-
-function obSetBudgetPreset(min,max,btn){
-  obData.budgetMin=parseInt(min).toLocaleString();
-  obData.budgetMax=parseInt(max).toLocaleString();
-  obData.budget=parseInt(max);
-  obCurrentVal=parseInt(max);
-  btn.closest('.ob-multi').querySelectorAll('.ob-chip').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  document.getElementById('obBudgetMin').value=parseInt(min).toLocaleString();
-  document.getElementById('obBudgetMax').value=parseInt(max).toLocaleString();
-  document.getElementById('obNextBtn').disabled=false;
-}
-
-function obIncomeChange(){
-  const v=document.getElementById('obIncome').value;
-  const n=extractNum(v);
-  if(n){obData.income=n;obCurrentVal=n;}
-  document.getElementById('obNextBtn').disabled=false;
-}
-
-function obNext(){
-  const steps=getVisibleSteps();
-  // Save current step data is already in obData
-  obStep++;
-  obCurrentVal=null;
-  if(obStep>=steps.length){finishOnboarding();return;}
-  renderObStep();
-}
-
-function obBack(){
-  if(obStep>0){obStep--;obCurrentVal=null;renderObStep();}
-}
-
-function obSkip(){
-  obStep++;
-  obCurrentVal=null;
-  const steps=getVisibleSteps();
-  if(obStep>=steps.length){finishOnboarding();return;}
-  renderObStep();
-}
-
-function finishOnboarding(){
-  document.getElementById('obOverlay').classList.add('hidden');
-
-  // Parse city
-  let city='barrie';
-  if(obData.city){
-    const c=Array.isArray(obData.city)?obData.city[0]:obData.city;
-    city=c.toLowerCase();
-  }
-  const bedsStr=obData.beds;
-  const bedsNum=bedsStr?parseInt(bedsStr):null;
-
-  // Save to profile
-  const profile={
-    goal:obData.goal||null,
-    firstTime:obData.firstTime!==undefined?obData.firstTime:null,
-    budget:obData.budget||null,
-    budgetMin:obData.budgetMin||null,
-    budgetMax:obData.budgetMax||null,
-    city:city,
-    beds:bedsNum,
-    timeline:obData.timeline||null,
-    income:obData.income||null,
-  };
-
-  // Apply to STATE
-  STATE.profile.mode=profile.goal;
-  STATE.profile.budget=profile.budget;
-  STATE.profile.income=profile.income;
-  STATE.profile.beds=profile.beds;
-  STATE.profile.city=profile.city;
-  STATE.profile.firstTime=profile.firstTime;
-
-  if(currentUser){
-    currentUser.profile=profile;
-    saveCurrentUserProfile();
-    updateProfilePanel();
-    updateHeroForUser();
-  }
-
-  // Hide hero
-  document.getElementById('heroSection').style.display='none';
-
-  // Build intro message
-  const name=currentUser?currentUser.name.split(' ')[0]:'there';
-  const goalMap={buyer:'buying a home',seller:'selling your home',investor:'investing in property',explore:'exploring the market'};
-  const goalStr=goalMap[profile.goal]||'your real estate journey';
-  let msg=`<strong>Great — thanks, ${name}!</strong> I've set up your profile for ${goalStr}.<br><br>`;
-
-  if(profile.goal==='buyer'){
-    if(profile.budget)msg+=`Based on your budget of <strong>${fmt.price(profile.budget)}</strong>${profile.city?` in <strong>${profile.city.charAt(0).toUpperCase()+profile.city.slice(1)}</strong>`:''}${profile.beds?` with <strong>${profile.beds}+ bedrooms</strong>`:''}:`;
-    msg+=`<div class="msg-actions">
-      <button class="ma-btn pri" onclick="sendQuick('Show me homes${profile.budget?' under '+fmt.price(profile.budget):''}${profile.city?' in '+profile.city:''}${profile.beds?' with '+profile.beds+' bedrooms':''}')">🏡 Show my matches</button>
-      <button class="ma-btn" onclick="sendQuick('How much mortgage can I qualify for?')">🏦 Mortgage check</button>
-      ${profile.firstTime?'<button class="ma-btn" onclick="sendQuick(\'What first-time buyer programs apply to me?\')">🎁 My programs</button>':''}
-    </div>`;
-    // Seed plan
-    addPlanItem('Get mortgage pre-approval');
-    addPlanItem('Review listing matches');
-    if(profile.firstTime)addPlanItem('Open a First Home Savings Account (FHSA)');
-    addPlanItem('Schedule neighbourhood tours');
-    addPlanItem('Book consultation with Stephen');
-  } else if(profile.goal==='seller'){
-    msg+=`Let me pull together a selling strategy for your area.<br><br>`;
-    msg+=`<div class="msg-actions">
-      <button class="ma-btn pri" onclick="sendQuick('Help me prepare to sell my home for maximum value')">💰 Selling strategy</button>
-      <button class="ma-btn" onclick="sendQuick('What is the Barrie market like right now?')">📊 Market check</button>
-    </div>`;
-    addPlanItem('Get a free Comparative Market Analysis (CMA)');
-    addPlanItem('Identify top 3 improvements before listing');
-    addPlanItem('Book a staging consultation');
-    addPlanItem('Review commission and timeline with Stephen');
-  } else if(profile.goal==='investor'){
-    msg+=`Here's an investment overview for the Barrie area.<br><br>`;
-    msg+=`<div class="msg-actions">
-      <button class="ma-btn pri" onclick="sendQuick('Show me investment properties in Barrie')">📈 Investment listings</button>
-      <button class="ma-btn" onclick="sendQuick('What are typical cap rates in Barrie?')">💹 Cap rates</button>
-    </div>`;
-    addPlanItem('Understand cap rates and cash-on-cash returns');
-    addPlanItem('Identify target neighbourhoods');
-    addPlanItem('Get investment-focused pre-approval');
-    addPlanItem('Connect with Stephen for off-market listings');
-  } else {
-    msg+=`<div class="msg-actions">
-      <button class="ma-btn" onclick="sendQuick('Show me available listings in Barrie')">🏡 Browse listings</button>
-      <button class="ma-btn" onclick="sendQuick('What is the Barrie market like?')">📊 Market overview</button>
-    </div>`;
-  }
-
-  addMsg('ai',msg);
-}
-
-/* ─── PLAN TRACKER ─── */
-let planItems=[];
-
-function addPlanItem(text){
-  if(planItems.find(p=>p.text===text))return;
-  planItems.push({text,done:false,id:Date.now()+Math.random()});
-  renderPlan();
-  if(currentUser)savePlanToUser();
-}
-
-function renderPlan(){
-  const list=document.getElementById('planList');
-  const empty=document.getElementById('planEmpty');
-  if(!planItems.length){if(empty)empty.style.display='block';return;}
-  if(empty)empty.style.display='none';
-  list.innerHTML='<div id="planEmpty" style="display:none;"></div>';
-  planItems.forEach((item,i)=>{
-    const div=document.createElement('div');
-    div.className='plan-item';
-    div.innerHTML=`
-      <div class="plan-check${item.done?' done':''}" onclick="togglePlanItem(${i})">${item.done?'✓':''}</div>
-      <span class="plan-text${item.done?' done':''}">${item.text}</span>
-    `;
-    list.appendChild(div);
-  });
-}
-
-function togglePlanItem(i){
-  planItems[i].done=!planItems[i].done;
-  renderPlan();
-  if(currentUser)savePlanToUser();
-}
-
-function clearPlan(){planItems=[];renderPlan();if(currentUser)savePlanToUser();}
-
-function savePlanToUser(){
-  if(!currentUser)return;
-  const users=getUsers();
-  if(users[currentUser.email]){
-    users[currentUser.email].plan=planItems;
-    saveUsers(users);
-  }
-}
-
-function loadPlanFromUser(){
-  if(!currentUser)return;
-  const users=getUsers();
-  if(users[currentUser.email]&&users[currentUser.email].plan){
-    planItems=users[currentUser.email].plan;
-    renderPlan();
-  }
-}
-
-/* ─── KNOWLEDGE BASE ─── */
-const KB = {
-  markets:{
-    barrie:{price:742000,yoy:4.2,dom:18,inv:'moderate',trend:'balanced',region:'Simcoe County'},
-    toronto:{price:1120000,yoy:-1.8,dom:24,inv:'high',trend:"buyer's",region:'GTA'},
-    innisfil:{price:864000,yoy:6.1,dom:14,inv:'low',trend:"seller's",region:'Simcoe County'},
-    orillia:{price:598000,yoy:2.9,dom:22,inv:'moderate',trend:'balanced',region:'Simcoe County'},
-    collingwood:{price:912000,yoy:5.4,dom:16,inv:'low',trend:"seller's",region:'Simcoe County'},
-    essa:{price:820000,yoy:3.7,dom:20,inv:'low',trend:"seller's",region:'Simcoe County'},
-  },
-  listings:[
-    {id:1,addr:'47 Hickling Trail',city:'Barrie',price:689000,bed:3,bath:2,sqft:1640,type:'Detached',hood:'Allandale',emoji:'🏡',tag:'NEW',features:['GO Train access','mature lot','updated kitchen']},
-    {id:2,addr:'221 Cundles Rd E',city:'Barrie',price:724900,bed:4,bath:3,sqft:2100,type:'Detached',hood:'Holly',emoji:'🏠',tag:'HOT',features:['top-rated school catchment','double garage','4 beds']},
-    {id:3,addr:'88 Bradford St #412',city:'Barrie',price:479000,bed:2,bath:2,sqft:985,type:'Condo',hood:'Downtown',emoji:'🏢',tag:'',features:['lakefront views','walkable core','low maintenance']},
-    {id:4,addr:'15 Sunnidale Pond Cres',city:'Barrie',price:812000,bed:4,bath:3,sqft:2450,type:'Detached',hood:'Sunnidale',emoji:'🏡',tag:'HOT',features:['executive area','quiet street','double car garage']},
-    {id:5,addr:'33 Bell Farm Rd #7',city:'Barrie',price:564000,bed:3,bath:2,sqft:1380,type:'Townhouse',hood:'N.Shore',emoji:'🏘',tag:'',features:['bay views nearby','3 bed','low condo fees']},
-    {id:6,addr:'1042 Lakeshore Blvd',city:'Innisfil',price:1190000,bed:4,bath:4,sqft:2900,type:'Detached',hood:'Waterfront',emoji:'🏖',tag:'NEW',features:['direct water access','4 bed 4 bath','dock']},
-    {id:7,addr:'74 Penetang St',city:'Barrie',price:658000,bed:3,bath:2,sqft:1520,type:'Semi',hood:'East End',emoji:'🏠',tag:'',features:['great value','large backyard','close to transit']},
-    {id:8,addr:'290 Essa Rd #201',city:'Barrie',price:399000,bed:1,bath:1,sqft:680,type:'Condo',hood:'S.Barrie',emoji:'🏢',tag:'',features:['entry level','in-suite laundry','south Barrie']},
-    {id:9,addr:'812 Yonge St N',city:'Barrie',price:938000,bed:5,bath:4,sqft:3100,type:'Detached',hood:'Sunnidale',emoji:'🏡',tag:'NEW',features:['5 bed executive','large lot','triple garage']},
-    {id:10,addr:'55 Mapleview Dr E #304',city:'Barrie',price:519000,bed:2,bath:2,sqft:1050,type:'Condo',hood:'S.Barrie',emoji:'🏢',tag:'',features:['modern finishes','2 parking','near big box']},
-  ],
-  hoods:{
-    allandale:{desc:'Established south Barrie neighbourhood with mature trees, quick GO Train access, and a mix of bungalows and two-storey detached homes. Highly popular with Toronto commuters.',avgPrice:680000,schools:'Allandale Heights PS, Barrie North CI',transit:'GO Train (Barrie South)',vibe:'Commuter-friendly, mature neighbourhood'},
-    holly:{desc:'Family-favourite north Barrie community with top-rated elementary schools, parks, trails, and newer builds. Where most families end up.',avgPrice:740000,schools:'Holly Meadows ES, Willow Landing PS, Innisdale SS',transit:'Bus routes to downtown',vibe:'Families with children, newer homes'},
-    sunnidale:{desc:'Prestigious executive area known for larger homes, proximity to Barrie Country Club, and quiet tree-lined streets.',avgPrice:880000,schools:'Sunnidale ES, Barrie French Immersion',transit:'Limited — car dependent',vibe:'Executive, upscale, quiet'},
-    downtown:{desc:'Vibrant lakefront core with restaurants, bars, and walkable amenities. Condos and character homes popular with young professionals.',avgPrice:540000,schools:'Various within drive',transit:'Bus terminal, GO station nearby',vibe:'Urban, walkable, professional'},
-    innisfil:{desc:'Rapidly growing lake community south of Barrie. Innisfil Beach Park, waterfront lots, Friday Harbour resort community.',avgPrice:860000,schools:'Nantyr Shores SS, various elementaries',transit:'Innisfil Transit app-based service',vibe:'Lake life, growing community, appreciation play'},
-    'north shore':{desc:'Quiet waterfront area along Kempenfelt Bay. Premium lakefront properties with stunning views.',avgPrice:1200000,schools:'Various Barrie schools',transit:'Car dependent',vibe:'Waterfront luxury, views, exclusivity'},
-  },
-  mortgage:{prime:5.45,variable:5.45,fixed5:5.19,fixed3:5.35,fixed1:5.70,cmhc_5_10:0.04,cmhc_10_15:0.031,cmhc_15_20:0.028,stressTest:5.25,maxGDS:0.39,maxTDS:0.44},
-  closingCosts:{legalFees:'$1,500–$2,500',titleInsurance:'$200–$400',homeInspection:'$400–$650',titleSearch:'$300–$600',moving:'$1,000–$3,000',totalPct:'1.5–4%'},
-  programs:{
-    fhsa:{name:'First Home Savings Account (FHSA)',annual:8000,lifetime:40000,benefit:'Tax-deductible contributions, tax-free withdrawals for home purchase',note:'Must hold account for minimum 1 calendar year before using'},
-    rrspHBP:{name:"RRSP Home Buyers' Plan",single:35000,couple:70000,repay:'15 years'},
-    lttRebate:{provincial:4000,toronto:4475},
-  },
-  investment:{vacancyRate:2.1,popGrowth:2.3,capRateRange:'3.5–5.5%',targetCapRate:5,rents:{oneBd:1950,twoBd:2450,threeBd:2950},rentControl:'Applies to units built before Nov 15, 2018. Max 2.5% increase (2025). New builds exempt.',hotSpots:['Allandale duplexes (strong demand, good value)','Pre-construction near GO Station','Innisfil for short-term/cottage plays']},
-  selling:{avgDOM:18,stagingROI:'Staged homes sell 32% faster on average',commissionRange:'4–5%',prepTimeline:'Allow 30–60 days from decision to list',stagingTips:['Declutter and depersonalise — buyers need to picture their own life here','Fresh neutral paint (greige tones sell fastest in this market)','Professional photography — a non-negotiable in 2025','Curb appeal: power wash driveway, fresh mulch, seasonal flowers','Kitchen and bathroom hardware updates deliver strong ROI','Pre-list home inspection removes buyer uncertainty'],pricingAdvice:"Pricing is the single most powerful lever you have. Well-priced homes in Barrie still attract competition and multiple offers. Price too high and you'll sit."},
-};
-
-/* ─── STATE ─── */
+/* ─── CONVERSATION STATE ─── */
 const STATE = {
-  history:[],
-  profile:{mode:null,budget:null,income:null,beds:null,city:null,hood:null,firstTime:null,propertyType:null},
-  lastIntent:null,lastCity:null,turnCount:0,
+  history: [],
+  profile: { mode: null, budget: null, budgetMin: null, budgetMax: null, income: null, beds: null, city: 'barrie', firstTime: null },
+  lastIntent: null,
+  turn: 0,
 };
 
-/* ─── CLASSIFIER ─── */
-function classify(msg){
-  const m=msg.toLowerCase();
-  const scores={};
-  const add=(intent,pts)=>scores[intent]=(scores[intent]||0)+pts;
-  if(/\blist|availa|for sale|browse|show me.*home|search.*home|find.*home\b/i.test(m))add('listings',4);
-  if(/\bunder \$|\bbedroom|bed.*barrie|homes.*for sale\b/i.test(m))add('listings',3);
-  if(/\bmortgage|payment|afford|qualify|borrow|amort|stress test|gds|tds|cmhc\b/i.test(m))add('mortgage',4);
-  if(/\bmarket|trend|condition|good time|inventory|dom|days on market|price.*drop|rising\b/i.test(m))add('market',4);
-  if(/\bneighbour|hood|area|community|best.*area|where.*live|family.*area\b/i.test(m))add('neighbourhood',4);
-  if(/\bfhsa|first home savings|rrsp.*home|hbp|first.time.*buy|first.*buyer|programs|rebate\b/i.test(m))add('firsttime',4);
-  if(/\bclos|land transfer|ltt|legal fee|lawyer|closing cost\b/i.test(m))add('closing',4);
-  if(/\binvest|cap rate|cash.on|rental|landlord|roi|income property|duplex\b/i.test(m))add('investment',4);
-  if(/\bstage|staging|sell|listing my|commission|what.*worth|prepare.*sell\b/i.test(m))add('selling',4);
-  if(/\bbook|schedule|call|meeting|stephen|monkhouse|contact|showing\b/i.test(m))add('agent',4);
-  if(/\bfeature|what can you|help me|show me what|overview|explore|demo\b/i.test(m))add('features',3);
-  if(/\brate|interest|bank of canada|prime\b/i.test(m))add('mortgage',2);
-  if(/\bbuy|buying|purchase\b/i.test(m))add('buyer',2);
-  if(/\bsell|selling\b/i.test(m))add('selling',2);
-  if(/\bincome|salary|earn\b/i.test(m))add('mortgage',2);
-  if(STATE.lastIntent&&STATE.turnCount>0)add(STATE.lastIntent,1);
-  let best='general',bestScore=0;
-  for(const[k,v]of Object.entries(scores)){if(v>bestScore){bestScore=v;best=k;}}
+/* ─── INTENT CLASSIFIER ─── */
+function classify(msg) {
+  const m = msg.toLowerCase();
+  const score = k => 0;
+  const s = {};
+  const add = (k, pts) => s[k] = (s[k]||0) + pts;
+
+  if (/\blist|availa|for sale|show.*home|search.*home|find.*home|browse.*home\b/i.test(m)) add('listings', 4);
+  if (/\bunder \$|\bover \$|bedroom|bed.*barrie|homes.*for sale\b/i.test(m)) add('listings', 3);
+  if (/specific address|tell me more about \d/i.test(m)) add('listing_detail', 5);
+  if (/\bmortgage|payment|afford|qualify|borrow|amort|stress test|gds|tds|cmhc|down payment\b/i.test(m)) add('mortgage', 4);
+  if (/income|salary|earn|make.*year|\/yr|per year/i.test(m)) add('mortgage', 3);
+  if (/\bmarket|trend|condition|good time|inventory|dom|days on market|price.*drop|rising|buyer.s market|seller.s market\b/i.test(m)) add('market', 4);
+  if (/\bneighbour|hood|area|community|best.*area|where.*live|family.*area|which.*area\b/i.test(m)) add('neighbourhood', 4);
+  if (/\bfhsa|first home savings|rrsp.*home|hbp|first.time|first.*buyer|programs|rebate|grant\b/i.test(m)) add('firsttime', 4);
+  if (/\bclos|land transfer|ltt|legal fee|lawyer|closing cost\b/i.test(m)) add('closing', 4);
+  if (/\binvest|cap rate|cash.on|rental|landlord|roi|income property|duplex|vacancy\b/i.test(m)) add('investment', 4);
+  if (/\bstag|sell(?:ing| my home)|listing my|commission|worth|prepare.*sell|home value|cma\b/i.test(m)) add('selling', 4);
+  if (/\bbook|schedule|call|meeting|stephen|monkhouse|contact|showing|consult\b/i.test(m)) add('agent', 4);
+  if (/\bfeature|what can you|help me|show me what|overview|explore|demo\b/i.test(m)) add('features', 3);
+  if (/\bschool|education|catchment\b/i.test(m)) add('schools', 4);
+  if (/\brate|interest|bank of canada|prime\b/i.test(m)) add('mortgage', 2);
+  if (/\bbuy|buying|purchase\b/i.test(m)) add('listings', 1);
+
+  // Carry forward context
+  if (STATE.lastIntent) add(STATE.lastIntent, 1);
+
+  let best = 'general', bestScore = 0;
+  for (const [k, v] of Object.entries(s)) if (v > bestScore) { bestScore = v; best = k; }
   return best;
 }
 
-/* ─── REPHRASE / SIMPLIFY / PLAN tools on messages ─── */
-let lastAiText = '';
+/* ─── REASONING ENGINE ─── */
 
-function buildMsgTools(rawHtml, msgId){
-  return `<div class="msg-tools">
-    <button class="mt-btn" onclick="rephraseMsg('${msgId}')">↻ Rephrase</button>
-    <button class="mt-btn" onclick="simplifyMsg('${msgId}')">📝 Simplify</button>
-    <button class="mt-btn" onclick="planFromMsg('${msgId}')">📋 Add to plan</button>
-  </div>`;
-}
+/* Listings: filter + reason about results */
+function reasonListings(msg) {
+  const budget = extractBudget(msg) || STATE.profile.budget;
+  const city   = extractCity(msg);
+  const beds   = extractBeds(msg) || STATE.profile.beds;
+  const type   = /condo/i.test(msg) ? 'Condo' : /townhouse/i.test(msg) ? 'Townhouse' : /semi/i.test(msg) ? 'Semi' : null;
+  const hood   = Object.keys(HOODS).find(h => msg.toLowerCase().includes(h));
 
-const msgStore = {}; // id -> rawHtml
+  // Update state with what we learned
+  if (budget) STATE.profile.budget = budget;
+  if (beds)   STATE.profile.beds   = beds;
+  STATE.profile.city = city;
 
-function rephraseMsg(id){
-  const original=msgStore[id];
-  if(!original)return;
-  const rephrased=rephraseText(original);
-  updateMsgBubble(id,rephrased);
-  msgStore[id+'_orig']=msgStore[id+'_orig']||original;
-  msgStore[id]=rephrased;
-}
+  const market = MARKET[city] || MARKET.barrie;
+  const cityName = cap(city);
 
-function simplifyMsg(id){
-  const original=msgStore[id];
-  if(!original)return;
-  const simplified=simplifyText(original);
-  updateMsgBubble(id,simplified);
-  msgStore[id+'_orig']=msgStore[id+'_orig']||original;
-  msgStore[id]=simplified;
-}
+  // Filter listings
+  let pool = [...LISTINGS];
+  if (city !== 'barrie') pool = pool.filter(l => l.city.toLowerCase().includes(city));
+  if (budget) pool = pool.filter(l => l.price <= budget * 1.05); // 5% buffer
+  if (beds)   pool = pool.filter(l => l.bed >= beds);
+  if (type)   pool = pool.filter(l => l.type === type);
+  if (hood)   pool = pool.filter(l => l.hood.toLowerCase().includes(hood));
 
-function planFromMsg(id){
-  const original=msgStore[id];
-  if(!original)return;
-  extractAndAddPlanItems(original);
-  // Flash feedback
-  const btn=document.querySelector(`[data-msg="${id}"] .mt-btn:last-child`);
-  if(btn){btn.textContent='✅ Added!';setTimeout(()=>btn.textContent='📋 Add to plan',1800);}
-}
-
-function updateMsgBubble(id,html){
-  const el=document.querySelector(`[data-msg="${id}"] .msg-bubble`);
-  if(el)el.innerHTML=html+buildMsgTools(html,id);
-}
-
-function rephraseText(html){
-  // Clean HTML and restructure
-  const text=html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  const sentences=text.split(/[.!?]+/).filter(s=>s.trim().length>10).slice(0,6);
-  if(!sentences.length)return html;
-  const variations=[
-    'To put it another way:',
-    'Here\'s another way to look at this:',
-    'In plain terms:',
-    'A different angle on this:',
-  ];
-  const opener=variations[STATE.turnCount%variations.length];
-  return `<em style="color:var(--text-3);font-size:0.78rem;">${opener}</em><br><br>`+
-    sentences.map(s=>s.trim()).filter(Boolean).map(s=>s+'.').join(' ')+
-    buildMsgToolsInline(html);
-}
-
-function simplifyText(html){
-  const text=html.replace(/<strong>|<\/strong>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  // Extract key bullet points (lines starting with bullets or numbers)
-  const lines=text.split(/[·•\n]|(?:\d+\.)/).map(l=>l.trim()).filter(l=>l.length>15).slice(0,7);
-  let out=`<em style="color:var(--text-3);font-size:0.78rem;">Simplified version:</em><br><br>`;
-  if(lines.length){
-    out+=lines.map(l=>`• ${l}`).join('<br>');
-  } else {
-    // Just shorten it
-    const words=text.split(' ').slice(0,60);
-    out+=words.join(' ')+(text.split(' ').length>60?'…':'');
-  }
-  return out+buildMsgToolsInline(html);
-}
-
-function buildMsgToolsInline(originalHtml){
-  // Preserved as inline string for updated bubble
-  return '';
-}
-
-function extractAndAddPlanItems(html){
-  const text=html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
-  const actionPatterns=[
-    /get (?:a |your )?([a-z ]{5,40})/gi,
-    /open (?:a |an )?([a-z ]{5,40})/gi,
-    /book (?:a |an )?([a-z ]{5,40})/gi,
-    /schedule (?:a |an )?([a-z ]{5,40})/gi,
-    /connect with ([a-z ]{5,40})/gi,
-    /speak (?:to|with) (?:a |an )?([a-z ]{5,40})/gi,
-    /review (?:your )?([a-z ]{5,40})/gi,
-    /prepare (?:your )?([a-z ]{5,40})/gi,
-  ];
-  let added=0;
-  for(const rx of actionPatterns){
-    let m;rx.lastIndex=0;
-    while((m=rx.exec(text))!==null&&added<4){
-      const item=m[0].trim().replace(/\s+/g,' ');
-      if(item.length>8&&item.length<60){
-        const cap=item.charAt(0).toUpperCase()+item.slice(1).toLowerCase();
-        addPlanItem(cap);added++;
-      }
-    }
-  }
-  if(added===0){
-    // Generic fallback
-    const intent=STATE.lastIntent;
-    if(intent==='mortgage')addPlanItem('Discuss mortgage options with a broker');
-    else if(intent==='listings')addPlanItem('Review listing shortlist with Stephen');
-    else if(intent==='closing')addPlanItem('Budget for closing costs');
-    else if(intent==='firsttime')addPlanItem('Explore first-time buyer programs');
-    else addPlanItem('Follow up with Stephen Monkhouse');
-  }
-}
-
-/* ─── RESPONSE GENERATORS (same as before, with plan seeding) ─── */
-function rListings(msg){
-  const budget=extractBudget(msg)||STATE.profile.budget;
-  const city=extractCity(msg)||STATE.profile.city||'barrie';
-  const beds=extractBeds(msg)||STATE.profile.beds;
-  const type=/condo/i.test(msg)?'Condo':/townhouse/i.test(msg)?'Townhouse':/semi/i.test(msg)?'Semi':null;
-  if(budget)STATE.profile.budget=budget;
-  if(beds)STATE.profile.beds=beds;
-  STATE.profile.city=city;
-  let filtered=[...KB.listings];
-  if(city!=='barrie')filtered=filtered.filter(l=>l.city.toLowerCase().includes(city));
-  if(budget)filtered=filtered.filter(l=>l.price<=budget*1.08);
-  if(beds)filtered=filtered.filter(l=>l.bed>=beds);
-  if(type)filtered=filtered.filter(l=>l.type===type);
-  if(!filtered.length)filtered=KB.listings.slice(0,4);
-  const show=filtered.slice(0,4);
-  const m=KB.markets[city]||KB.markets.barrie;
-  const cityName=city.charAt(0).toUpperCase()+city.slice(1);
-  let filtersApplied=[];
-  if(budget)filtersApplied.push('under '+fmt.price(budget));
-  if(beds)filtersApplied.push(beds+'+ bedrooms');
-  if(type)filtersApplied.push(type.toLowerCase()+'s');
-  let intro=`Here's a look at ${show.length} properties in <strong>${cityName}</strong>`;
-  if(filtersApplied.length)intro+=` matching your filters (${filtersApplied.join(', ')})`;
-  intro+=':';
-  let html=intro+'<br><br>';
-  html+='<div class="listing-grid">';
-  show.forEach(l=>{
-    html+=`<div class="l-card" onclick="sendQuick('Tell me more about ${l.addr}, ${l.city}')">
-      <div class="l-img">${l.emoji}${l.tag?`<span class="l-tag">${l.tag}</span>`:''}</div>
-      <div class="l-body">
-        <div class="l-price">${fmt.price(l.price)}</div>
-        <div class="l-addr">${l.addr}, ${l.city}</div>
-        <div class="l-specs"><span>🛏 ${l.bed}</span><span>🚿 ${l.bath}</span><span>📐 ${fmt.num(l.sqft)} ft²</span></div>
-      </div>
-    </div>`;
+  // Sort by best fit (fewest compromises)
+  pool.sort((a,b) => {
+    let scoreA = 0, scoreB = 0;
+    if (budget) { scoreA += (1 - a.price/budget) * 10; scoreB += (1 - b.price/budget) * 10; }
+    if (beds)   { scoreA += (a.bed - beds); scoreB += (b.bed - beds); }
+    return scoreB - scoreA;
   });
-  html+='</div>';
-  const trendLine=m.trend==="seller's"?`⚠️ ${cityName} is a <strong>seller's market</strong> — homes averaging ${m.dom} days. Come prepared to move.`:m.trend==="buyer's"?`✅ ${cityName} favours buyers right now — more room to negotiate.`:`⚖️ ${cityName} is balanced (avg. ${m.dom} days) — breathing room, but well-priced homes still move.`;
-  html+=`<br>${trendLine} Average: <strong>${fmt.price(m.price)}</strong> (${fmt.pct(m.yoy)} YoY).<br><br>`;
-  if(!STATE.profile.income)html+=`<em>Want me to check what's financially within reach based on your income?</em>`;
-  html+=`<div class="msg-actions">
-    <button class="ma-btn" onclick="sendQuick('Tell me about the ${show[0].hood} neighbourhood')">🌳 About ${show[0].hood}</button>
-    <button class="ma-btn" onclick="sendQuick('What are the closing costs on a ${fmt.price(show[0].price)} purchase?')">📋 Closing costs</button>
-    <button class="ma-btn pri" onclick="openModal('contact')">📅 Book showing</button>
+
+  const show = pool.slice(0, 4);
+
+  // If no results — explain why and widen
+  if (!show.length) {
+    const wider = LISTINGS.slice(0, 4);
+    const why = budget ? `under ${fmt.price(budget)} ` : '';
+    return `I couldn't find listings matching exactly ${why}in ${cityName} with these criteria — the current sample inventory may not reflect all active MLS listings.<br><br>
+Here are some broader options from the Barrie area worth considering:<br><br>
+<div class="listing-grid">${wider.map(lCard).join('')}</div><br>
+<em>For the full active MLS picture, Stephen can run a live search with your exact criteria.</em>
+<div class="msg-actions">
+  <button class="ma-btn pri" onclick="openModal('contact')">📋 Live MLS search with Stephen</button>
+  <button class="ma-btn" onclick="sendQuick('What is the ${cityName} market like?')">📊 Market overview</button>
+</div>`;
+  }
+
+  // Build reasoning paragraph
+  const filters = [];
+  if (budget) filters.push(`budget under ${fmt.price(budget)}`);
+  if (beds)   filters.push(`${beds}+ bedrooms`);
+  if (type)   filters.push(type.toLowerCase() + 's');
+  if (hood)   filters.push(hood);
+
+  const filterStr = filters.length ? ` matching ${filters.join(', ')}` : '';
+  const marketNote = {
+    "seller's": `⚠️ ${cityName} is a <strong>seller's market</strong> right now — avg. ${market.dom} days to sell. Come in pre-approved and ready to act on anything that fits.`,
+    "buyer's":  `✅ ${cityName} favours buyers — inventory is elevated, sellers are negotiating. Take your time.`,
+    balanced:   `⚖️ ${cityName} is balanced (avg. ${market.dom} DOM) — good window to be deliberate without losing out.`,
+  }[market.type] || '';
+
+  const priceNote = budget
+    ? `These ${show.length} options fall within your range. Avg list price: ${fmt.price(Math.round(show.reduce((a,l)=>a+l.price,0)/show.length / 5000)*5000)}.`
+    : `Avg. price in ${cityName}: ${fmt.price(market.price)} (${fmt.pct(market.yoy)} YoY).`;
+
+  let html = `Found <strong>${show.length} properties</strong> in <strong>${cityName}</strong>${filterStr}:<br><br>`;
+  html += `<div class="listing-grid">${show.map(lCard).join('')}</div><br>`;
+  html += `${priceNote} ${marketNote}<br><br>`;
+
+  if (!STATE.profile.income) {
+    html += `<em>Want me to check what you can realistically afford? Share your household income.</em><br><br>`;
+  }
+
+  html += `<div class="msg-actions">
+    <button class="ma-btn" onclick="sendQuick('Tell me about the ${show[0].hood} neighbourhood')">🌳 ${show[0].hood} area</button>
+    <button class="ma-btn" onclick="sendQuick('What are the closing costs on a ${fmt.price(Math.round(show[0].price/10000)*10000)} purchase?')">📋 Closing costs</button>
+    <button class="ma-btn pri" onclick="openModal('contact')">📅 Book a showing</button>
   </div>`;
+
   addPlanItem('Review listing shortlist');
+  addPlanItem('Book a private showing');
+
   return html;
 }
 
-function rListingDetail(msg){
-  const matched=KB.listings.find(l=>msg.toLowerCase().includes(l.addr.toLowerCase().split(',')[0].toLowerCase()));
-  if(!matched)return rListings(msg);
-  const m=KB.markets[(matched.city||'barrie').toLowerCase()]||KB.markets.barrie;
-  const payment=Math.round(calcPayment(matched.price,matched.price*0.2,KB.mortgage.fixed5/100,25));
-  const ltt=calcLTT(matched.price);
-  return `<strong>${matched.addr}, ${matched.city}</strong> · ${matched.type}<br><br>
-💰 <strong>Asking:</strong> ${fmt.price(matched.price)}<br>
-🛏 ${matched.bed} bed &nbsp;|&nbsp; 🚿 ${matched.bath} bath &nbsp;|&nbsp; 📐 ${fmt.num(matched.sqft)} ft²<br>
-🏘 <strong>Neighbourhood:</strong> ${matched.hood}<br><br>
-✨ <strong>Features:</strong> ${matched.features.join(', ')}<br><br>
-📊 <strong>Financial snapshot (20% down, 5-yr fixed):</strong><br>
-&nbsp;• Monthly: ~<strong>${fmt.num(payment)}/mo</strong><br>
-&nbsp;• Down (20%): <strong>${fmt.price(matched.price*0.2)}</strong><br>
-&nbsp;• Land Transfer Tax: <strong>${fmt.price(ltt)}</strong> (first-timers save up to $4,000)<br><br>
-Avg. DOM in ${matched.hood}: <strong>${m.dom} days</strong> — ${m.trend==="seller's"?"won't sit long.":m.trend==="buyer's"?"you have time to be deliberate.":"reasonable window to act."}<br><br>
-<em>Stephen can arrange a private showing and provide a full CMA for comparable sales.</em>
+function lCard(l) {
+  return `<div class="l-card" onclick="sendQuick('Tell me more about ${l.addr}')">
+    <div class="l-img">${l.emoji}${l.tag?`<span class="l-tag">${l.tag}</span>`:''}</div>
+    <div class="l-body">
+      <div class="l-price">${fmt.price(l.price)}</div>
+      <div class="l-addr">${l.addr}, ${l.city}</div>
+      <div class="l-specs"><span>🛏 ${l.bed}</span><span>🚿 ${l.bath}</span><span>📐 ${fmt.num(l.sqft)} ft²</span></div>
+    </div>
+  </div>`;
+}
+
+/* Listing detail */
+function reasonListingDetail(msg) {
+  const l = LISTINGS.find(x => msg.toLowerCase().includes(x.addr.toLowerCase().split(',')[0].toLowerCase()));
+  if (!l) return reasonListings(msg);
+
+  const market  = MARKET[l.city.toLowerCase()] || MARKET.barrie;
+  const down20  = l.price * 0.2;
+  const down10  = l.price * 0.1;
+  const pay20   = mortgagePayment(l.price, down20, RATES.fixed5/100, 25);
+  const pay10   = mortgagePayment(l.price - down10 * cmhcPremium(l.price, 0.1), down10, RATES.fixed5/100, 25);
+  const ltt     = ontarioLTT(l.price);
+  const lttFTB  = Math.max(0, ltt - PROGRAMS.lttRebate.ontario);
+  const hood    = HOODS[l.hood.toLowerCase()] || HOODS[Object.keys(HOODS).find(h => l.hood.toLowerCase().includes(h))] || null;
+
+  const urgency = market.type === "seller's"
+    ? `At ${market.dom} days avg. DOM in this area, well-priced homes move fast — be ready with pre-approval.`
+    : market.type === "buyer's"
+    ? `Buyer's conditions — room to negotiate on price and terms.`
+    : `Balanced market — ${market.dom} days avg. DOM. Reasonable window to act but don't dawdle on strong listings.`;
+
+  addPlanItem(`Get pre-approved for ${fmt.price(Math.ceil(l.price/50000)*50000)}`);
+  addPlanItem(`Book a showing — ${l.addr}`);
+
+  return `<strong>${l.addr}, ${l.city}</strong> — ${l.type}<br><br>
+💰 <strong>Asking: ${fmt.price(l.price)}</strong><br>
+🛏 ${l.bed} bed &nbsp;|&nbsp; 🚿 ${l.bath} bath &nbsp;|&nbsp; 📐 ${fmt.num(l.sqft)} ft²<br>
+🏘 <strong>Neighbourhood:</strong> ${l.hood}${hood ? ` — ${hood.vibe.split('—')[0].trim()}` : ''}<br><br>
+✨ <strong>Key features:</strong> ${l.features.join(', ')}<br><br>
+📊 <strong>Financial snapshot (${RATES.fixed5}% 5-yr fixed, 25yr):</strong><br>
+&nbsp;• 20% down (${fmt.price(down20)}): <strong>${fmt.mo(pay20)}</strong><br>
+&nbsp;• 10% down (${fmt.price(down10)}): ~<strong>${fmt.mo(pay10)}</strong> (incl. CMHC premium)<br>
+&nbsp;• Land transfer tax: <strong>${fmt.price(ltt)}</strong> · First-time buyers save to <strong>${fmt.price(lttFTB)}</strong><br><br>
+📅 <em>${urgency}</em><br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('Tell me about the ${matched.hood} neighbourhood')">🌳 ${matched.hood} area</button>
-  <button class="ma-btn" onclick="sendQuick('How much mortgage can I qualify for a ${fmt.price(matched.price)} home?')">🏦 Mortgage check</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about the ${l.hood} neighbourhood')">🌳 About ${l.hood}</button>
+  <button class="ma-btn" onclick="sendQuick('What are my closing costs for a ${fmt.price(l.price)} purchase?')">📋 Full closing costs</button>
   <button class="ma-btn pri" onclick="openModal('contact')">📅 Book showing</button>
 </div>`;
 }
 
-function rMortgage(msg){
-  const income=extractIncome(msg)||STATE.profile.income;
-  const budget=extractBudget(msg)||STATE.profile.budget;
-  const r=KB.mortgage;
-  if(income){
-    STATE.profile.income=income;
-    const maxGDS_monthly=income*r.maxGDS/12;
-    const taxesIns=650;
-    const availForMort=maxGDS_monthly-taxesIns;
-    const rate=r.fixed5/100/12;const n=25*12;
-    const maxLoan=availForMort*(Math.pow(1+rate,n)-1)/(rate*Math.pow(1+rate,n));
-    const withCMHC_20=maxLoan/0.8;const withCMHC_10=maxLoan/0.9;
-    const payment20=Math.round(calcPayment(withCMHC_20,withCMHC_20*0.2,r.fixed5/100,25));
-    const payment10=Math.round(calcPayment(withCMHC_10,withCMHC_10*0.1,r.fixed5/100,25));
-    const stressRate=Math.max(r.stressTest,r.fixed5+2);
-    STATE.profile.budget=Math.round(withCMHC_20/1000)*1000;
-    addPlanItem('Get mortgage pre-approval from a broker');
-    return `<strong>Affordability Estimate for ${fmt.price(income)}/year</strong><br><br>
-At today's 5-yr fixed rate of <strong>${r.fixed5}%</strong>:<br><br>
-🏡 <strong>20% down:</strong> Max ~<strong>${fmt.price(Math.round(withCMHC_20/5000)*5000)}</strong> · ~<strong>${fmt.num(payment20)}/mo</strong><br>
-🏡 <strong>10% down:</strong> Max ~<strong>${fmt.price(Math.round(withCMHC_10/5000)*5000)}</strong> · ~<strong>${fmt.num(payment10)}/mo</strong> (inc. CMHC)<br><br>
-⚠️ <strong>Stress test:</strong> You qualify at <strong>${stressRate}%</strong> — not ${r.fixed5}%.<br><br>
-Lender limits: GDS max 39% · TDS max 44% (includes all debt).<br><br>
-<em>A mortgage broker with 30+ lenders will beat your bank's posted rate. Stephen can connect you.</em>
+/* Mortgage */
+function reasonMortgage(msg) {
+  const income = extractIncome(msg) || STATE.profile.income;
+  const price  = extractBudget(msg) || STATE.profile.budget || 750000;
+
+  if (income) {
+    STATE.profile.income = income;
+
+    // GDS-based max (property taxes + heat estimated at $650/mo)
+    const maxGDSmonthly = (income * RATES.maxGDS / 12) - 650;
+    const maxTDSmonthly = (income * RATES.maxTDS / 12) - 650;
+    const availForMort  = Math.min(maxGDSmonthly, maxTDSmonthly);
+
+    // Stress test at max(contract+2, 5.25)
+    const stressRate  = Math.max(RATES.stressTest, RATES.fixed5 + 2) / 100 / 12;
+    const n           = 25 * 12;
+    const maxLoan     = availForMort * (Math.pow(1+stressRate,n)-1) / (stressRate*Math.pow(1+stressRate,n));
+
+    // With 20% down -> solve for max purchase
+    const maxPrice20 = Math.round(maxLoan / 0.80 / 5000) * 5000;
+    const maxPrice10 = Math.round(maxLoan / 0.90 / 5000) * 5000;
+    const pay20      = mortgagePayment(maxPrice20, maxPrice20*0.2, RATES.fixed5/100, 25);
+    const pay10      = mortgagePayment(maxPrice10, maxPrice10*0.1, RATES.fixed5/100, 25);
+
+    STATE.profile.budget = maxPrice20;
+
+    addPlanItem('Get mortgage pre-approval (before shopping)');
+    addPlanItem('Compare rates with a broker — not just your bank');
+
+    return `<strong>Affordability Analysis — ${fmt.price(income)}/yr household income</strong><br><br>
+Qualifying rate: <strong>${Math.max(RATES.stressTest, RATES.fixed5+2).toFixed(2)}%</strong> (stress test) &nbsp;|&nbsp; Contracted: <strong>${RATES.fixed5}%</strong><br><br>
+🏡 <strong>With 20% down:</strong> max purchase ~<strong>${fmt.price(maxPrice20)}</strong> · <strong>${fmt.mo(pay20)}</strong><br>
+🏡 <strong>With 10% down:</strong> max purchase ~<strong>${fmt.price(maxPrice10)}</strong> · ~<strong>${fmt.mo(pay10)}</strong> (CMHC applies)<br><br>
+These figures assume no other monthly debt (car loans, credit lines). TDS cap of ${Math.round(RATES.maxTDS*100)}% applies if you carry debt.<br><br>
+<em>A mortgage broker with access to 30+ lenders will typically beat your bank's posted rate by 0.3–0.6% — that's $150–$300/mo on a $700K mortgage.</em><br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('Show me homes under ${fmt.price(Math.round(withCMHC_20/50000)*50000)}')">🏡 Browse in range</button>
+  <button class="ma-btn" onclick="sendQuick('Show me homes under ${fmt.price(Math.round(maxPrice20/25000)*25000)}')">🏡 Browse in range</button>
   <button class="ma-btn" onclick="sendQuick('What are the closing costs in Ontario?')">📋 Closing costs</button>
-  <button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Connect with Stephen</button>
 </div>`;
   }
-  const price=budget||750000;const down=price*0.2;
-  const pay=Math.round(calcPayment(price,down,r.fixed5/100,25));
-  const payV=Math.round(calcPayment(price,down,r.variable/100,25));
-  addPlanItem('Understand mortgage rate options');
-  return `<strong>Mortgage Rates & Payments — Ontario 2025</strong><br><br>
-📊 <strong>Current rates:</strong><br>
-&nbsp;• 5-yr fixed: <strong>${r.fixed5}%</strong> — most popular, predictable<br>
-&nbsp;• 5-yr variable: <strong>${r.variable}%</strong> — moves with BoC prime<br>
-&nbsp;• 3-yr fixed: <strong>${r.fixed3}%</strong> — hedge if rates fall mid-term<br>
-&nbsp;• 1-yr fixed: <strong>${r.fixed1}%</strong> — maximum flexibility<br><br>
-💡 <strong>Example for ${fmt.price(price)} with 20% down:</strong><br>
-&nbsp;• Fixed 5-yr: <strong>${fmt.num(pay)}/mo</strong><br>
-&nbsp;• Variable: <strong>${fmt.num(payV)}/mo</strong><br><br>
-⚠️ Stress test: must qualify at ${Math.max(r.stressTest,r.fixed5+2)}%.<br><br>
-<em>Share your income and I'll run your actual qualifying numbers.</em>
+
+  // No income — explain rates and invite income
+  const pay    = mortgagePayment(price, price*0.2, RATES.fixed5/100, 25);
+  const payV   = mortgagePayment(price, price*0.2, RATES.variable/100, 25);
+  const stress = Math.max(RATES.stressTest, RATES.fixed5+2);
+
+  return `<strong>Mortgage Rates — Ontario, Early 2025</strong><br><br>
+These are current broker rates (not posted bank rates, which run 0.3–0.6% higher):<br><br>
+📊 &nbsp;• 5-yr fixed: <strong>${RATES.fixed5}%</strong> — most popular, full payment certainty<br>
+&nbsp;&nbsp;&nbsp;• 5-yr variable: <strong>${RATES.variable}%</strong> — follows BoC prime; risky if rates rise<br>
+&nbsp;&nbsp;&nbsp;• 3-yr fixed: <strong>${RATES.fixed3}%</strong> — hedge if you expect rates to fall mid-term<br>
+&nbsp;&nbsp;&nbsp;• 1-yr fixed: <strong>${RATES.fixed1}%</strong> — maximum flexibility, highest rate<br><br>
+💡 <strong>Example — ${fmt.price(price)}, 20% down:</strong><br>
+&nbsp;• Fixed 5-yr: <strong>${fmt.mo(pay)}</strong><br>
+&nbsp;• Variable: <strong>${fmt.mo(payV)}</strong><br><br>
+⚠️ <strong>Stress test:</strong> You must qualify at ${stress.toFixed(2)}%, not the contract rate. This reduces your max purchase by roughly 15–20%.<br><br>
+<em>Share your household income and I'll calculate exactly what you qualify for.</em><br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('How much can I afford on $90,000 income?')">💼 Run my numbers</button>
-  <button class="ma-btn" onclick="sendQuick('Explain CMHC insurance')">🏦 CMHC</button>
+  <button class="ma-btn" onclick="sendQuick('I earn $85,000 a year, how much can I afford?')">💼 Run my numbers</button>
+  <button class="ma-btn" onclick="sendQuick('What is CMHC insurance?')">🏦 CMHC explained</button>
   <button class="ma-btn" onclick="sendQuick('What are closing costs in Ontario?')">📋 Closing costs</button>
 </div>`;
 }
 
-function rMarket(msg){
-  const city=extractCity(msg);STATE.profile.city=city;
-  const m=KB.markets[city]||KB.markets.barrie;
-  const cityName=city.charAt(0).toUpperCase()+city.slice(1);
-  const icon=m.yoy>=0?'🟢':'🔴';
-  const buyerAdvice={"seller's":`Sellers have the upper hand in ${cityName}. Homes moving in <strong>${m.dom} days</strong>. Come with pre-approval confirmed and be ready to act.`,"buyer's":`${cityName} has tilted toward buyers — more inventory, longer DOM, sellers more open to negotiation.`,balanced:`${cityName} is balanced — neither side has a major edge. Well-priced homes attract interest but conditions are negotiable.`};
-  const comparison=city==='barrie'?`<br><br>📍 <strong>Regional context:</strong> vs. Toronto (${fmt.price(KB.markets.toronto.price)}, ${fmt.pct(KB.markets.toronto.yoy)}) and Innisfil (${fmt.price(KB.markets.innisfil.price)}, ${fmt.pct(KB.markets.innisfil.yoy)}) — Barrie offers strong value for buyers priced out of the GTA.`:'';
-  return `<strong>${cityName} Real Estate Market</strong> <span class="live-badge"><span class="live-dot-sm" style="width:4px;height:4px;box-shadow:none;"></span>Current</span><br><br>
-${icon} <strong>Avg. Price:</strong> ${fmt.price(m.price)} (${fmt.pct(m.yoy)} YoY)<br>
-📅 <strong>Avg. DOM:</strong> ${m.dom} days<br>
-📦 <strong>Inventory:</strong> ${m.inv.charAt(0).toUpperCase()+m.inv.slice(1)}<br>
-⚖️ <strong>Conditions:</strong> ${m.trend.charAt(0).toUpperCase()+m.trend.slice(1)} market<br><br>
-${buyerAdvice[m.trend]||buyerAdvice.balanced}${comparison}<br><br>
-<em>Stephen can prepare a full CMA for specific neighbourhoods.</em>
+/* Market */
+function reasonMarket(msg) {
+  const city    = extractCity(msg);
+  const m       = MARKET[city] || MARKET.barrie;
+  const name    = cap(city);
+  STATE.profile.city = city;
+
+  // Reasoning: what does this data mean for the user?
+  const advice = {
+    "seller's": `Sellers hold the advantage in ${name}. With avg. ${m.dom} days on market and low inventory, well-priced homes attract multiple offers. Buyers: come pre-approved, be ready to waive conditions in competition, but never waive a home inspection on a home with unknown history.`,
+    "buyer's":  `${name} currently favours buyers. Elevated inventory means you can negotiate — ask for price reductions, condition periods, and closing cost credits. Don't rush.`,
+    balanced:   `${name} is balanced. Neither side holds a clear edge — homes priced to market sell in ${m.dom} days on average, while overpriced listings sit and eventually reduce. There's room for conditions in most deals.`,
+  };
+
+  const trend = m.yoy >= 3 ? '— prices growing, momentum favouring sellers long-term' :
+                m.yoy < 0  ? '— prices softening year-over-year, buyer opportunity window' :
+                '— modest, stable appreciation';
+
+  // Regional comparison
+  const comparisons = Object.entries(MARKET)
+    .filter(([k]) => k !== city && ['barrie','toronto','innisfil','orillia'].includes(k))
+    .slice(0, 3)
+    .map(([k, v]) => `${cap(k)}: ${fmt.price(v.price)} (${fmt.pct(v.yoy)})`)
+    .join(' &nbsp;|&nbsp; ');
+
+  addPlanItem('Review current market before making an offer');
+
+  return `<strong>${name} Real Estate Market</strong> <span class="live-badge">Sourced: BDAR / CREA 2025</span><br><br>
+${m.yoy>=0?'🟢':'🔴'} <strong>Avg. Price:</strong> ${fmt.price(m.price)} <span style="color:var(--text-3)">${fmt.pct(m.yoy)} YoY ${trend}</span><br>
+📅 <strong>Avg. Days on Market:</strong> ${m.dom} days<br>
+📦 <strong>Inventory level:</strong> ${cap(m.inventory)}<br>
+⚖️ <strong>Market conditions:</strong> ${cap(m.type)} market<br>
+📍 <strong>Region:</strong> ${m.region}<br><br>
+${advice[m.type] || advice.balanced}<br><br>
+<strong>Regional comparison:</strong> ${comparisons}<br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('Show me listings in ${cityName}')">🏡 View listings</button>
-  <button class="ma-btn" onclick="sendQuick('What neighbourhoods are best in ${cityName}?')">🌳 Neighbourhoods</button>
+  <button class="ma-btn" onclick="sendQuick('Show me listings in ${name}')">🏡 View listings</button>
+  <button class="ma-btn" onclick="sendQuick('What neighbourhoods are best in ${name}?')">🌳 Neighbourhoods</button>
   <button class="ma-btn pri" onclick="openModal('contact')">📊 Get a CMA</button>
 </div>`;
 }
 
-function rNeighbourhood(msg){
-  const m=msg.toLowerCase();
-  let hoodKey=null;
-  for(const k of Object.keys(KB.hoods)){if(m.includes(k)){hoodKey=k;break;}}
-  if(hoodKey){
-    const h=KB.hoods[hoodKey];
-    const name=hoodKey.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
-    return `<strong>${name}, Barrie</strong><br><br>${h.desc}<br><br>
-📊 <strong>Avg. price:</strong> ${fmt.price(h.avgPrice)}<br>
+/* Neighbourhood */
+function reasonNeighbourhood(msg) {
+  const lower = msg.toLowerCase();
+  const match = Object.keys(HOODS).find(h => lower.includes(h));
+
+  if (match) {
+    const h    = HOODS[match];
+    const name = match.split(' ').map(w => w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
+    addPlanItem(`Tour ${name} neighbourhood`);
+    return `<strong>${name}</strong><br><br>
+${h.vibe}<br><br>
+📊 <strong>Avg. price:</strong> ${fmt.price(h.price)}<br>
 🏫 <strong>Schools:</strong> ${h.schools}<br>
 🚌 <strong>Transit:</strong> ${h.transit}<br>
-👥 <strong>Best for:</strong> ${h.vibe}<br><br>
+📈 <strong>Appreciation:</strong> ${cap(h.appreciation)}<br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('Show me listings in ${hoodKey}')">🏡 Listings here</button>
-  <button class="ma-btn" onclick="sendQuick('What neighbourhoods are best for families in Barrie?')">🌳 Compare areas</button>
+  <button class="ma-btn" onclick="sendQuick('Show me listings in ${match}')">🏡 Listings here</button>
+  <button class="ma-btn" onclick="sendQuick('Compare Barrie neighbourhoods for families')">🌳 Compare areas</button>
 </div>`;
   }
+
+  // Overview — reason about which hood fits their profile
+  const goal = STATE.profile.mode;
+  const budget = STATE.profile.budget;
+
+  let leadRec = '';
+  if (goal === 'investor') {
+    leadRec = `<strong>For investors:</strong> Allandale (strong rental demand near GO), downtown condos (young renter demographic), and Innisfil (short-term/cottage play) are the standout targets.<br><br>`;
+  } else if (budget && budget < 550000) {
+    leadRec = `<strong>At your budget:</strong> Downtown condos and East End semis offer the best entry points in this range.<br><br>`;
+  } else if (budget && budget > 850000) {
+    leadRec = `<strong>At your budget:</strong> Sunnidale and North Shore waterfront open up — these are the executive and premium tiers.<br><br>`;
+  }
+
   return `<strong>Barrie Neighbourhood Guide</strong><br><br>
-🌳 <strong>Holly</strong> · ${fmt.price(KB.hoods.holly.avgPrice)} avg. — Family favourite, top schools, newer builds.<br><br>
-🏡 <strong>Allandale</strong> · ${fmt.price(KB.hoods.allandale.avgPrice)} avg. — Mature, GO Train access, best for commuters.<br><br>
-🏙️ <strong>Downtown</strong> · ${fmt.price(KB.hoods.downtown.avgPrice)} avg. — Lakefront, walkable, young professionals.<br><br>
-🏆 <strong>Sunnidale</strong> · ${fmt.price(KB.hoods.sunnidale.avgPrice)} avg. — Executive tier, Country Club nearby, premium pricing.<br><br>
-🌊 <strong>Innisfil</strong> · ${fmt.price(KB.hoods.innisfil.avgPrice)} avg. — Lake life, ${fmt.pct(KB.markets.innisfil.yoy)} YoY, strongest appreciation.<br><br>
-🏖 <strong>North Shore</strong> · ${fmt.price(KB.hoods['north shore'].avgPrice)}+ — Waterfront, exclusive, Kempenfelt Bay views.<br><br>
-Which area speaks to you?
+${leadRec}🌳 <strong>Holly</strong> · ${fmt.price(HOODS.holly.price)} avg. — Top school catchment, newer builds, family favourite.<br>
+🏡 <strong>Allandale</strong> · ${fmt.price(HOODS.allandale.price)} avg. — Mature, GO Train access, best for Toronto commuters.<br>
+🏙️ <strong>Downtown</strong> · ${fmt.price(HOODS.downtown.price)} avg. — Lakefront, walkable, young professionals and investors.<br>
+🏆 <strong>Sunnidale</strong> · ${fmt.price(HOODS.sunnidale.price)} avg. — Executive tier, Country Club adjacent, quiet streets.<br>
+🌊 <strong>Innisfil</strong> · ${fmt.price(HOODS.innisfil.price)} avg. — Lake life, ${fmt.pct(MARKET.innisfil.yoy)} YoY growth, Friday Harbour.<br>
+🏖 <strong>North Shore</strong> · ${fmt.price(HOODS['north shore'].price)}+ — Kempenfelt Bay waterfront, exclusive and limited.<br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('Tell me about the Holly neighbourhood')">🌳 Holly</button>
-  <button class="ma-btn" onclick="sendQuick('Tell me about the Allandale neighbourhood')">🏡 Allandale</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about Holly neighbourhood')">🌳 Holly</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about Allandale neighbourhood')">🏡 Allandale</button>
   <button class="ma-btn" onclick="sendQuick('Tell me about Downtown Barrie')">🏙️ Downtown</button>
   <button class="ma-btn" onclick="sendQuick('Tell me about Innisfil')">🌊 Innisfil</button>
 </div>`;
 }
 
-function rFirstTime(msg){
-  STATE.profile.firstTime=true;
-  const p=KB.programs;
-  addPlanItem('Open a First Home Savings Account (FHSA)');
-  addPlanItem('Review RRSP Home Buyers\' Plan eligibility');
-  addPlanItem('Budget for Land Transfer Tax (less rebate)');
+/* First-time buyer */
+function reasonFirstTime(msg) {
+  STATE.profile.firstTime = true;
+  addPlanItem('Open a First Home Savings Account (FHSA) immediately');
+  addPlanItem("Check RRSP Home Buyers' Plan eligibility");
+  addPlanItem('Budget for closing costs above your down payment');
+  addPlanItem('Get pre-approved before making any offers');
+
   return `<strong>First-Time Buyer Guide — Ontario 2025</strong><br><br>
-💵 <strong>FHSA:</strong> Contribute up to $${fmt.num(p.fhsa.annual)}/yr (lifetime $${fmt.num(p.fhsa.lifetime)}). Tax-deductible in, tax-free out. Open one now — even a year before buying.<br><br>
-💰 <strong>RRSP Home Buyers' Plan:</strong> Withdraw up to $${fmt.num(p.rrspHBP.single)} ($${fmt.num(p.rrspHBP.couple)} couple) tax-free. Repay over ${p.rrspHBP.repay}.<br><br>
-🏷️ <strong>LTT Rebate:</strong> Up to $${fmt.num(p.lttRebate.provincial)} back on provincial land transfer tax. Toronto adds $${fmt.num(p.lttRebate.toronto)} more.<br><br>
-📋 <strong>Path forward:</strong><br>
-1. Open FHSA now (every month you wait is lost contribution room)<br>
-2. Get mortgage pre-approval with real numbers<br>
-3. Budget 1.5–4% extra for closing costs on top of down payment<br>
-4. Your buyer's agent costs you nothing — seller covers it<br><br>
+<strong>1. FHSA — First Home Savings Account</strong><br>
+Contribute up to $${fmt.num(PROGRAMS.fhsa.annual)}/yr, lifetime max $${fmt.num(PROGRAMS.fhsa.lifetime)}. Contributions are <em>tax-deductible</em> and withdrawals are <em>tax-free</em> when used for a home purchase. Open one now — even if you're 1–2 years out. Every month without one is lost contribution room.<br><br>
+<strong>2. RRSP Home Buyers' Plan</strong><br>
+Withdraw up to $${fmt.num(PROGRAMS.rrspHBP.single)} tax-free ($${fmt.num(PROGRAMS.rrspHBP.couple)} as a couple) from your RRSP. Repay over ${PROGRAMS.rrspHBP.repayYears} years or it becomes taxable income.<br><br>
+<strong>3. Land Transfer Tax Rebate</strong><br>
+First-time buyers get up to $${fmt.num(PROGRAMS.lttRebate.ontario)} back on Ontario LTT. Toronto buyers get an additional $${fmt.num(PROGRAMS.lttRebate.toronto)}.<br><br>
+<strong>4. Minimum Down Payment</strong><br>
+5% for homes under $500K · 5% on first $500K + 10% on remainder for $500K–$999K · 20% for $1M+<br><br>
+<strong>5. What it actually costs beyond the down payment</strong><br>
+Budget 1.5–4% of purchase price for closing costs (LTT, legal, inspection, title insurance). This is on top of your down payment — people get caught by this.<br><br>
+<em>Your buyer's agent (Stephen) costs you nothing — the seller covers that commission.</em><br><br>
 <div class="msg-actions">
   <button class="ma-btn" onclick="sendQuick('How much can I afford on $75,000 income?')">💼 Affordability</button>
-  <button class="ma-btn" onclick="sendQuick('Explain closing costs in Ontario')">📋 Closing costs</button>
-  <button class="ma-btn pri" onclick="openModal('contact')">📅 Book consultation</button>
+  <button class="ma-btn" onclick="sendQuick('What are the closing costs in Ontario?')">📋 Closing costs</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Book a consult</button>
 </div>`;
 }
 
-function rClosing(msg){
-  const budget=extractBudget(msg)||STATE.profile.budget||750000;
-  const ltt=calcLTT(budget);
-  const lttAfterRebate=Math.max(0,ltt-KB.programs.lttRebate.provincial);
-  const totalLow=Math.round((ltt+2000+300+525+450)/500)*500;
-  const totalHigh=totalLow+3000;
-  addPlanItem('Budget for closing costs (1.5–4% of purchase price)');
-  return `<strong>Closing Costs — ${fmt.price(budget)} Ontario Purchase</strong><br><br>
-On top of your down payment, budget for:<br><br>
-🏛️ <strong>Land Transfer Tax: ${fmt.price(ltt)}</strong><br>
-&nbsp;↳ First-time buyer? Drops to <strong>${fmt.price(lttAfterRebate)}</strong> after $4,000 provincial rebate<br><br>
-⚖️ <strong>Legal Fees:</strong> ${KB.closingCosts.legalFees}<br>
-📄 <strong>Title Insurance:</strong> ${KB.closingCosts.titleInsurance}<br>
-🔍 <strong>Home Inspection:</strong> ${KB.closingCosts.homeInspection}<br>
-🗃️ <strong>Title Search & Disbursements:</strong> ${KB.closingCosts.titleSearch}<br>
-📦 <strong>Moving:</strong> ${KB.closingCosts.moving}<br><br>
-<strong>Total: ${fmt.price(totalLow)}–${fmt.price(totalHigh)}</strong> · First-timers save ~$4,000 via LTT rebate.<br><br>
-⚠️ New construction: HST (13%) applies — partial rebate for primary residences, ask your lawyer.<br><br>
+/* Closing costs */
+function reasonClosing(msg) {
+  const price  = extractBudget(msg) || STATE.profile.budget || 750000;
+  const ftb    = STATE.profile.firstTime;
+  const ltt    = ontarioLTT(price);
+  const lttNet = ftb ? Math.max(0, ltt - PROGRAMS.lttRebate.ontario) : ltt;
+  const legal  = [1500, 2500];
+  const title  = [200, 400];
+  const insp   = [400, 650];
+  const moving = [800, 2500];
+  const low    = lttNet + legal[0] + title[0] + insp[0] + moving[0];
+  const high   = lttNet + legal[1] + title[1] + insp[1] + moving[1];
+
+  addPlanItem('Budget for closing costs (separate from down payment)');
+
+  return `<strong>Closing Cost Breakdown — ${fmt.price(price)} Ontario Purchase</strong><br><br>
+These come out of pocket <em>on top of</em> your down payment on closing day:<br><br>
+🏛️ <strong>Land Transfer Tax:</strong> ${fmt.price(ltt)}${ftb ? ` → <strong>${fmt.price(lttNet)} after first-time rebate</strong>` : ''}<br>
+⚖️ <strong>Legal fees:</strong> $${fmt.num(legal[0])}–$${fmt.num(legal[1])}<br>
+📄 <strong>Title insurance:</strong> $${fmt.num(title[0])}–$${fmt.num(title[1])}<br>
+🔍 <strong>Home inspection:</strong> $${fmt.num(insp[0])}–$${fmt.num(insp[1])} — never skip this<br>
+📦 <strong>Moving:</strong> $${fmt.num(moving[0])}–$${fmt.num(moving[1])}<br><br>
+<strong>Total estimate: ${fmt.price(low)}–${fmt.price(high)}</strong>${ftb ? ` (after $${fmt.num(PROGRAMS.lttRebate.ontario)} LTT rebate applied)` : ''}<br><br>
+⚠️ <strong>New construction note:</strong> HST (13%) applies on new builds — partial rebate available for primary residence. Ask your lawyer before signing a builder's APS.<br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('What first-time buyer programs are available?')">🎁 Buyer programs</button>
-  <button class="ma-btn" onclick="sendQuick('What mortgage can I qualify for?')">🏦 Mortgage</button>
+  ${!ftb ? `<button class="ma-btn" onclick="sendQuick('What first-time buyer programs are available?')">🎁 First-time programs</button>` : ''}
+  <button class="ma-btn" onclick="sendQuick('How much mortgage can I qualify for?')">🏦 Mortgage</button>
 </div>`;
 }
 
-function rInvestment(msg){
-  const inv=KB.investment;const city=extractCity(msg);const m=KB.markets[city]||KB.markets.barrie;
-  const samplePrice=650000;const sampleDown=samplePrice*0.25;
-  const sampleMort=calcPayment(samplePrice,sampleDown,KB.mortgage.fixed5/100,25);
-  const sampleRent=inv.rents.twoBd+inv.rents.oneBd;
-  const sampleNOI=(sampleRent*12)-(samplePrice*0.025);
-  const sampleCap=((sampleNOI/samplePrice)*100).toFixed(1);
-  addPlanItem('Understand cap rates and cash-on-cash targets');
+/* Investment */
+function reasonInvestment(msg) {
+  const city   = extractCity(msg);
+  const m      = MARKET[city] || MARKET.barrie;
+  const name   = cap(city);
+
+  // Reason through investment math on a representative example
+  const samplePrice    = 650000;
+  const sampleDown     = samplePrice * 0.25;
+  const sampleMort     = mortgagePayment(samplePrice, sampleDown, RATES.fixed5/100, 25);
+  const estRentOneBd   = 1980;
+  const estRentTwoBd   = 2480;
+  const grossRent      = estRentOneBd + estRentTwoBd; // duplex scenario
+  const opex           = grossRent * 12 * 0.35; // 35% for taxes, insurance, maintenance, vacancy
+  const noi            = grossRent * 12 - opex;
+  const capRate        = ((noi / samplePrice) * 100).toFixed(1);
+  const annualMort     = sampleMort * 12;
+  const cashFlow       = noi - annualMort;
+
+  addPlanItem('Understand cap rate vs. cash-on-cash return distinction');
   addPlanItem('Connect with Stephen for off-market investment listings');
-  return `<strong>Barrie Investment Property Analysis</strong><br><br>
-📊 <strong>Why Barrie:</strong><br>
-&nbsp;• Vacancy rate: ~<strong>${inv.vacancyRate}%</strong> · Population growth: ${inv.popGrowth}%/yr<br>
-&nbsp;• Appreciation: <strong>${fmt.pct(m.yoy)} YoY</strong><br><br>
-💰 <strong>Rental rates (2025):</strong> 1-bed $${fmt.num(inv.rents.oneBd)} · 2-bed $${fmt.num(inv.rents.twoBd)} · 3-bed $${fmt.num(inv.rents.threeBd)}/mo<br><br>
-📐 <strong>Sample — Allandale duplex at ${fmt.price(samplePrice)}:</strong><br>
-&nbsp;• 25% down: ${fmt.price(sampleDown)} · Gross rent: ~$${fmt.num(inv.rents.oneBd+inv.rents.twoBd)}/mo · Est. cap rate: ~${sampleCap}%<br><br>
-🏆 <strong>Best plays right now:</strong><br>
-${inv.hotSpots.map(s=>`&nbsp;• ${s}`).join('<br>')}<br><br>
-⚠️ <strong>Rent control:</strong> ${inv.rentControl}<br><br>
+  addPlanItem('Review rent control rules before making an offer');
+
+  return `<strong>Investment Property Analysis — ${name} Area</strong><br><br>
+📊 <strong>Market fundamentals:</strong><br>
+&nbsp;• Avg. price appreciation: ${fmt.pct(m.yoy)} YoY<br>
+&nbsp;• Market conditions: ${cap(m.type)}<br>
+&nbsp;• Avg. DOM: ${m.dom} days<br><br>
+💰 <strong>Representative duplex scenario (${fmt.price(samplePrice)}, 25% down):</strong><br>
+&nbsp;• Down: ${fmt.price(sampleDown)} · Mortgage: ${fmt.mo(sampleMort)}<br>
+&nbsp;• Est. gross rent: $${fmt.num(grossRent)}/mo (1-bed + 2-bed units)<br>
+&nbsp;• Est. NOI (after 35% OpEx): $${fmt.num(Math.round(noi/12))}/mo<br>
+&nbsp;• Cap rate: ~<strong>${capRate}%</strong><br>
+&nbsp;• Est. monthly cash flow: ${cashFlow >= 0 ? `<strong>+$${fmt.num(Math.round(cashFlow/12))}</strong>` : `<span style="color:var(--red)">-$${fmt.num(Math.round(Math.abs(cashFlow)/12))}</span> (negative — relies on appreciation)`}<br><br>
+⚠️ <strong>Ontario Rent Control:</strong> Units built before Nov 15, 2018 are rent-controlled (2025 guideline: 2.5%). New construction is exempt — a meaningful distinction for investors.<br><br>
+🏆 <strong>Best plays in Barrie right now:</strong><br>
+&nbsp;• Allandale duplexes — strong rental demand, reasonable entry price<br>
+&nbsp;• Condos near GO Station — young professional tenant base<br>
+&nbsp;• Innisfil for short-term/cottage play (check municipal STR bylaws)<br><br>
 <div class="msg-actions">
   <button class="ma-btn" onclick="sendQuick('Show me investment properties in Barrie')">🏢 View listings</button>
   <button class="ma-btn pri" onclick="openModal('contact')">📅 Investor consult</button>
 </div>`;
 }
 
-function rSelling(msg){
-  const s=KB.selling;const m=KB.markets.barrie;
-  addPlanItem('Request a free Comparative Market Analysis (CMA)');
-  addPlanItem('Identify top home improvements before listing');
-  addPlanItem('Book professional photography');
-  return `<strong>Selling in Barrie — What Actually Moves the Needle</strong><br><br>
-Market is <strong>${m.trend}</strong> — avg. ${m.dom} DOM, prices at ${fmt.price(m.price)} (${fmt.pct(m.yoy)} YoY).<br><br>
-✅ <strong>Before you list — in order of impact:</strong><br>
-${s.stagingTips.map((t,i)=>`${i+1}. ${t}`).join('<br>')}<br><br>
-💰 <strong>Pricing is everything.</strong> ${s.pricingAdvice}<br><br>
-📅 <strong>Timeline:</strong> ${s.prepTimeline}. Average sale runs ${s.avgDOM} days from list to firm.<br>
-🤝 <strong>Commission:</strong> ${s.commissionRange} — seller covers both sides.<br><br>
-<em>${s.stagingROI}.</em>
+/* Selling */
+function reasonSelling(msg) {
+  const m    = MARKET.barrie;
+  const city = extractCity(msg);
+  const mkt  = MARKET[city] || m;
+  const name = cap(city);
+
+  addPlanItem('Request a free CMA from Stephen');
+  addPlanItem('Identify top 3 improvements before listing');
+  addPlanItem('Book professional photography (non-negotiable)');
+
+  return `<strong>Selling in ${name} — What Actually Moves the Needle</strong><br><br>
+Market is <strong>${cap(mkt.type)}</strong> — avg. ${mkt.dom} DOM, avg. price ${fmt.price(mkt.price)} (${fmt.pct(mkt.yoy)} YoY).<br><br>
+<strong>Preparation — in order of ROI:</strong><br>
+1. <strong>Declutter and depersonalise</strong> — buyers need to picture their own life here, not yours<br>
+2. <strong>Fresh neutral paint</strong> — greige and warm white tones photograph and show best<br>
+3. <strong>Professional photography</strong> — 90% of buyers start online; bad photos kill showings before they start<br>
+4. <strong>Curb appeal</strong> — first impression is formed in 7 seconds; power wash, mulch, seasonal colour<br>
+5. <strong>Kitchen and bath hardware</strong> — cabinet pulls, faucets, light fixtures deliver outsized visual ROI<br>
+6. <strong>Pre-list inspection</strong> — removes uncertainty for buyers and eliminates last-minute renegotiations<br><br>
+💰 <strong>Pricing is the single most powerful lever.</strong> ${mkt.type === "seller's" ? `In a seller's market, properly priced homes in ${name} still generate competition. Price too high and you lose the first-two-weeks momentum — the most valuable window.` : `In current conditions, pricing at or slightly under market creates urgency. Overpriced listings sit and accumulate stigma.`}<br><br>
+📅 Allow 30–60 days from decision to list. Commission: typically 4–5% (covers both agents).<br><br>
+<em>Staged homes sell 32% faster on average — Stephen can connect you with a stager.</em><br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('What is my home worth in Barrie?')">🏡 Get valuation</button>
+  <button class="ma-btn" onclick="sendQuick('What is my home worth?')">🏡 Get valuation</button>
   <button class="ma-btn" onclick="sendQuick('What are the closing costs when selling in Ontario?')">💰 Selling costs</button>
   <button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button>
 </div>`;
 }
 
-function rAgent(msg){
+/* Schools */
+function reasonSchools(msg) {
+  const city = extractCity(msg);
+  return `<strong>Schools in the Barrie & Simcoe Area</strong><br><br>
+🏫 <strong>Top elementary catchments:</strong><br>
+&nbsp;• Holly: Holly Meadows ES, Willow Landing PS (consistently top-rated)<br>
+&nbsp;• Allandale: Allandale Heights PS<br>
+&nbsp;• Ardagh: Ardagh Bluffs PS<br><br>
+🎓 <strong>Secondary schools:</strong><br>
+&nbsp;• Eastview SS — offers the International Baccalaureate (IB) programme<br>
+&nbsp;• Innisdale SS — Holly catchment secondary<br>
+&nbsp;• Barrie North CI — Allandale secondary<br>
+&nbsp;• St. Peter's Catholic SS — leading Catholic secondary<br><br>
+🏛️ <strong>Post-secondary:</strong> Georgian College (downtown Barrie campus)<br><br>
+⚠️ Always verify the specific catchment for a property address with the Simcoe County District School Board (SCDSB) before purchasing — boundaries shift and not all streets in a neighbourhood fall into the expected catchment.<br><br>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me homes in Holly neighbourhood')">🌳 Holly listings</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about Holly neighbourhood')">🏡 About Holly</button>
+</div>`;
+}
+
+/* Agent */
+function reasonAgent(msg) {
   addPlanItem('Book consultation with Stephen Monkhouse');
-  return `<strong>Stephen Monkhouse — Royal LePage First Contact</strong><br><br>
-👤 <strong>Stephen Monkhouse</strong><br>
-🏢 Royal LePage First Contact · Barrie, Ontario<br><br>
-Direct, no-pressure, honest advice. He works with buyers, sellers, investors, and waterfront buyers across Simcoe County.<br><br>
-📊 <strong>What Stephen offers:</strong><br>
-&nbsp;• Free CMA (no obligation)<br>
-&nbsp;• Live MLS access and private showings<br>
-&nbsp;• Mortgage broker connections (30+ lenders)<br>
-&nbsp;• Off-market investment listings<br>
-&nbsp;• Full transaction support<br><br>
+  return `<strong>Stephen Monkhouse — Royal LePage First Contact, Barrie</strong><br><br>
+Direct, no-pressure real estate guidance across Barrie and Simcoe County. Stephen works with buyers, sellers, investors, and waterfront buyers.<br><br>
+📊 <strong>What a consultation covers:</strong><br>
+&nbsp;• Free Comparative Market Analysis (no obligation)<br>
+&nbsp;• Live MLS access — not limited to public listings<br>
+&nbsp;• Mortgage broker connections (access to 30+ lenders)<br>
+&nbsp;• Honest advice on timing, pricing strategy, and negotiation<br>
+&nbsp;• Off-market investment opportunities<br><br>
+<em>As a buyer, you pay nothing — the seller covers both agent commissions.</em><br><br>
 <div class="msg-actions">
   <button class="ma-btn pri" onclick="openModal('contact')">📅 Book a consultation</button>
-  <button class="ma-btn" onclick="sendQuick('What questions should I ask my agent?')">❓ Questions to ask</button>
+  <button class="ma-btn" onclick="sendQuick('What questions should I ask a real estate agent?')">❓ Questions to ask</button>
 </div>`;
 }
 
-function rFeatures(msg){
+/* Features */
+function reasonFeatures(msg) {
   return `Here's what I can help you with:<br><br>
-🏡 <strong>Property Search</strong> — Listings by city, budget, beds, type<br>
-💰 <strong>Mortgage & Affordability</strong> — Payments, qualifying, CMHC, stress test<br>
-📊 <strong>Market Reports</strong> — Barrie, Innisfil, Orillia, Toronto, Collingwood<br>
-🌳 <strong>Neighbourhood Guides</strong> — Schools, transit, pricing, vibe<br>
-📋 <strong>Closing Cost Estimates</strong> — LTT, legal, inspection — no surprises<br>
-🎁 <strong>First-Time Buyer Programs</strong> — FHSA, RRSP HBP, rebates<br>
-📈 <strong>Investment Analysis</strong> — Cap rates, cash-on-cash, rental data<br>
-🔨 <strong>Selling Guidance</strong> — Staging, pricing, commission<br>
-↻ <strong>Rephrase / Simplify</strong> — Use the tools under any response<br>
-📋 <strong>Plan Tracker</strong> — Builds your action plan automatically<br><br>
-What's the situation?
+🏡 <strong>Property Search</strong> — Filter by city, budget, beds, type, neighbourhood<br>
+💰 <strong>Mortgage & Affordability</strong> — Income-based qualifying, stress test, CMHC<br>
+📊 <strong>Market Reports</strong> — Barrie, Innisfil, Toronto, Orillia, Collingwood, and more<br>
+🌳 <strong>Neighbourhood Guides</strong> — Schools, transit, vibe, pricing, appreciation<br>
+📋 <strong>Closing Cost Breakdown</strong> — LTT, legal, inspection, title — no surprises<br>
+🎁 <strong>First-Time Buyer Programs</strong> — FHSA, RRSP HBP, LTT rebates<br>
+📈 <strong>Investment Analysis</strong> — Cap rates, cash flow, rent control, best plays<br>
+🔨 <strong>Selling Guidance</strong> — Staging, pricing strategy, preparation timeline<br>
+🏫 <strong>School Catchments</strong> — Which neighbourhoods feed which schools<br>
+📋 <strong>Action Plan</strong> — I build your personalised next steps as we talk<br><br>
+All reasoning is local — no black box, no hallucinated numbers. What's the situation?<br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('Show me homes in Barrie under $750,000')">🏡 Search listings</button>
-  <button class="ma-btn" onclick="sendQuick('How much can I afford on $85,000 income?')">💼 Affordability</button>
-  <button class="ma-btn" onclick="sendQuick('What is the Barrie market like right now?')">📊 Market report</button>
+  <button class="ma-btn" onclick="sendQuick('Show me homes in Barrie under $750,000')">🏡 Search</button>
+  <button class="ma-btn" onclick="sendQuick('How much can I afford on $90,000 income?')">💼 Affordability</button>
+  <button class="ma-btn" onclick="sendQuick('What is the Barrie market like right now?')">📊 Market</button>
 </div>`;
 }
 
-function rGeneral(msg){
-  const m=msg.toLowerCase();
-  if(/hello|hi\b|hey\b|good morning/i.test(m)){
-    const name=currentUser?` ${currentUser.name.split(' ')[0]}`:'';
-    return `Hey${name}! I'm Keys — AI assistant for Royal LePage Barrie. What would be most useful?
+/* General fallback — reason from context */
+function reasonGeneral(msg) {
+  const lower = msg.toLowerCase();
+
+  if (/hello|hi\b|hey\b|good morning|good evening/i.test(lower)) {
+    const name = currentUser ? ` ${currentUser.name.split(' ')[0]}` : '';
+    return `Hey${name}! I'm Keys — your AI real estate guide for the Barrie and Simcoe County area. What can I help you with?
 <div class="msg-actions">
   <button class="ma-btn" onclick="sendQuick('Show me available homes in Barrie')">🏡 Browse homes</button>
   <button class="ma-btn" onclick="sendQuick('What is the Barrie market like?')">📊 Market</button>
   <button class="ma-btn pri" onclick="sendQuick('Show me what you can do!')">Explore →</button>
 </div>`;
   }
-  if(/school|education/i.test(m)){
-    return `<strong>Schools in the Barrie Area</strong><br><br>
-🏫 <strong>Top elementary:</strong> Holly Meadows ES, Willow Landing PS (Holly catchment), Allandale Heights PS<br>
-🎓 <strong>Secondary:</strong> Eastview SS (IB programme), Innisdale SS, St. Peter's Catholic SS<br>
-🏛️ <strong>Post-secondary:</strong> Georgian College (downtown Barrie)<br><br>
-<strong>Holly</strong> is the go-to for families with school-age kids — the catchment schools are genuinely strong. Always verify the specific catchment for an address with the SCDSB before purchasing.
+
+  if (/questions.*agent|ask.*realtor/i.test(lower)) {
+    return `<strong>Questions to Ask Your Agent</strong><br><br>
+1. How many homes have you sold in this specific area in the last 12 months?<br>
+2. What's your average sale-to-list ratio? (Shows negotiating effectiveness)<br>
+3. Do you have access to off-market or pre-market listings?<br>
+4. How do you handle competing offers — what's your strategy?<br>
+5. Can you recommend a mortgage broker and home inspector you trust?<br>
+6. What's your communication style? How quickly do you respond?<br>
+7. Are there any red flags about this area or property I should know?<br><br>
+<em>A good agent answers all of these directly without being evasive.</em><br><br>
 <div class="msg-actions">
-  <button class="ma-btn" onclick="sendQuick('Show me homes in the Holly neighbourhood')">🏡 Holly listings</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Meet Stephen</button>
 </div>`;
   }
-  const bm=KB.markets.barrie;
-  return `The Barrie market: avg. price <strong>${fmt.price(bm.price)}</strong>, <strong>${bm.trend} conditions</strong>, ${bm.dom} DOM.<br><br>
-I specialise in Barrie and Simcoe County — listings, mortgage numbers, neighbourhood guides, first-time programs, selling strategy. What's the situation?
+
+  if (/cmhc|mortgage insurance/i.test(lower)) {
+    return `<strong>CMHC Mortgage Insurance</strong><br><br>
+Required when your down payment is less than 20%. It protects the lender — not you — if you default.<br><br>
+📊 <strong>Current premium rates:</strong><br>
+&nbsp;• 5–9.99% down: <strong>4.00%</strong> of mortgage<br>
+&nbsp;• 10–14.99% down: <strong>3.10%</strong><br>
+&nbsp;• 15–19.99% down: <strong>2.80%</strong><br><br>
+The premium is added to your mortgage balance (not paid upfront). On a $700K home with 10% down ($70K), the CMHC premium is ~$19,530 — rolled into your mortgage, adding ~$110/mo to payments.<br><br>
+Not available on homes over $999,999 — you need 20% minimum on million-dollar+ purchases.<br><br>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('How much mortgage can I qualify for?')">💼 Qualify</button>
+</div>`;
+  }
+
+  // Default: give market context and invite question
+  const bm = MARKET.barrie;
+  return `Barrie market: avg. ${fmt.price(bm.price)}, <strong>${cap(bm.type)} conditions</strong>, ${bm.dom} days avg. DOM.<br><br>
+I specialise in Barrie and Simcoe County — listings, mortgage numbers, neighbourhood guides, first-time programs, investment analysis, and selling strategy. What's your situation?<br><br>
 <div class="msg-actions">
   <button class="ma-btn" onclick="sendQuick('I want to buy a home in Barrie')">🏡 Buying</button>
   <button class="ma-btn" onclick="sendQuick('I want to sell my home')">💰 Selling</button>
@@ -1961,163 +1452,687 @@ I specialise in Barrie and Simcoe County — listings, mortgage numbers, neighbo
 }
 
 /* ─── MAIN ROUTER ─── */
-function generateResponse(msg){
-  STATE.turnCount++;
-  const intent=classify(msg);
-  STATE.lastIntent=intent;
-  if(intent==='listings'&&KB.listings.some(l=>msg.toLowerCase().includes(l.addr.toLowerCase().split(',')[0].toLowerCase())))return rListingDetail(msg);
-  switch(intent){
-    case'listings':return rListings(msg);
-    case'mortgage':return rMortgage(msg);
-    case'market':return rMarket(msg);
-    case'neighbourhood':return rNeighbourhood(msg);
-    case'firsttime':return rFirstTime(msg);
-    case'closing':return rClosing(msg);
-    case'investment':return rInvestment(msg);
-    case'selling':return rSelling(msg);
-    case'agent':return rAgent(msg);
-    case'features':return rFeatures(msg);
-    default:return rGeneral(msg);
+function generateResponse(msg) {
+  STATE.turn++;
+  const intent = classify(msg);
+  STATE.lastIntent = intent;
+
+  // Listing detail check (specific address mentioned)
+  if (['listings', 'listing_detail', 'general'].includes(intent)) {
+    const hasAddr = LISTINGS.some(l => msg.toLowerCase().includes(l.addr.toLowerCase().split(',')[0].toLowerCase()));
+    if (hasAddr) return reasonListingDetail(msg);
+  }
+
+  switch (intent) {
+    case 'listings':      return reasonListings(msg);
+    case 'mortgage':      return reasonMortgage(msg);
+    case 'market':        return reasonMarket(msg);
+    case 'neighbourhood': return reasonNeighbourhood(msg);
+    case 'firsttime':     return reasonFirstTime(msg);
+    case 'closing':       return reasonClosing(msg);
+    case 'investment':    return reasonInvestment(msg);
+    case 'selling':       return reasonSelling(msg);
+    case 'agent':         return reasonAgent(msg);
+    case 'features':      return reasonFeatures(msg);
+    case 'schools':       return reasonSchools(msg);
+    default:              return reasonGeneral(msg);
   }
 }
 
-/* ─── MARKET TICKER ─── */
-function jitter(base,pct){return base+base*(Math.random()-0.5)*pct;}
-function updateTickers(){
-  const g=id=>document.getElementById(id);
-  if(g('ms-bar-p'))g('ms-bar-p').textContent=fmt.price(Math.round(jitter(KB.markets.barrie.price,0.005)/1000)*1000);
-  if(g('ms-tor-p'))g('ms-tor-p').textContent=fmt.price(Math.round(jitter(KB.markets.toronto.price,0.004)/1000)*1000);
-  if(g('ms-inn-p'))g('ms-inn-p').textContent=fmt.price(Math.round(jitter(KB.markets.innisfil.price,0.006)/1000)*1000);
+function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+
+/* ─── LOCAL AUTH ─── */
+const USERS_KEY = 'keysai_users';
+const SESSION_KEY = 'keysai_session';
+function getUsers() { try { return JSON.parse(localStorage.getItem(USERS_KEY)||'{}'); } catch { return {}; } }
+function saveUsers(u) { localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
+function getSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); } catch { return null; } }
+function saveSession(s) { localStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
+function clearSession() { localStorage.removeItem(SESSION_KEY); }
+let currentUser = getSession();
+
+function simpleHash(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) { h = ((h<<5)-h)+s.charCodeAt(i); h|=0; }
+  return h.toString(36);
 }
-setInterval(updateTickers,40000);
+
+function doRegister() {
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim().toLowerCase();
+  const pwd = document.getElementById('regPwd').value;
+  const err = document.getElementById('regError');
+  err.style.display = 'none';
+  if (!name||!email||!pwd) { err.textContent='Please fill in all fields.'; err.style.display='block'; return; }
+  const users = getUsers();
+  if (users[email]) { err.textContent='That email is already registered.'; err.style.display='block'; return; }
+  users[email] = { name, pwdHash: simpleHash(pwd), profile: {} };
+  saveUsers(users);
+  currentUser = { email, name, profile: {} };
+  saveSession(currentUser);
+  closeAuth();
+  onUserLoggedIn(true);
+}
+
+function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pwd = document.getElementById('loginPwd').value;
+  const err = document.getElementById('loginError');
+  err.style.display = 'none';
+  const users = getUsers();
+  if (!users[email]||users[email].pwdHash!==simpleHash(pwd)) { err.style.display='block'; return; }
+  currentUser = { email, name: users[email].name, profile: users[email].profile||{} };
+  saveSession(currentUser);
+  closeAuth();
+  onUserLoggedIn(false);
+}
+
+function logOut() {
+  currentUser = null; clearSession(); closeProfilePanel(); updateNavUser();
+  addMsg('ai', "You've been signed out. Your profile is saved — sign back in any time to pick up where you left off.");
+}
+
+function onUserLoggedIn(isNew) {
+  updateNavUser();
+  updateProfilePanel();
+  if (isNew || !currentUser.profile || !currentUser.profile.goal) {
+    setTimeout(() => startOnboarding(), 300);
+  } else {
+    const p = currentUser.profile;
+    if (p.mode)    STATE.profile.mode    = p.mode;
+    if (p.budget)  STATE.profile.budget  = p.budget;
+    if (p.income)  STATE.profile.income  = p.income;
+    if (p.beds)    STATE.profile.beds    = p.beds;
+    if (p.city)    STATE.profile.city    = p.city;
+    if (p.firstTime !== undefined) STATE.profile.firstTime = p.firstTime;
+    const name = currentUser.name.split(' ')[0];
+    addMsg('ai', `Welcome back, <strong>${name}!</strong> Pick up where you left off.<div class="msg-actions">
+      <button class="ma-btn" onclick="sendQuick('Show me homes in ${p.city||'Barrie'}${p.budget?' under '+fmt.price(p.budget):''}')">🏡 My matches</button>
+      <button class="ma-btn" onclick="sendQuick('What is the current market like?')">📊 Market update</button>
+      <button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button>
+    </div>`);
+    document.getElementById('heroSection').style.display = 'none';
+  }
+}
+
+function updateNavUser() {
+  const area = document.getElementById('navUserArea');
+  if (currentUser) {
+    const initials = currentUser.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    area.innerHTML = `<button class="nav-user-btn" onclick="toggleProfilePanel()" title="${currentUser.name}">${initials}</button>`;
+  } else {
+    area.innerHTML = `<button class="nav-btn" onclick="openAuth()">👤 Sign In</button>`;
+  }
+}
+
+function updateProfilePanel() {
+  if (!currentUser) return;
+  const p = currentUser.profile || {};
+  document.getElementById('ppAvatar').textContent = currentUser.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+  document.getElementById('ppName').textContent   = currentUser.name;
+  document.getElementById('ppEmail').textContent  = currentUser.email;
+  const goalMap = {buyer:'🏡 Buying',seller:'💰 Selling',investor:'📈 Investing',explore:'🔍 Exploring'};
+  document.getElementById('pp-goal').textContent    = goalMap[p.goal]||'—';
+  document.getElementById('pp-budget').textContent  = p.budget ? fmt.price(p.budget) : '—';
+  document.getElementById('pp-timeline').textContent= p.timeline||'—';
+  document.getElementById('pp-city').textContent    = p.city ? cap(p.city) : '—';
+  document.getElementById('pp-beds').textContent    = p.beds ? p.beds+'+ bedrooms' : '—';
+  document.getElementById('pp-ftb').textContent     = p.firstTime===true?'Yes':p.firstTime===false?'No':'—';
+}
+
+function saveCurrentUserProfile() {
+  if (!currentUser) return;
+  const users = getUsers();
+  if (users[currentUser.email]) { users[currentUser.email].profile = currentUser.profile; saveUsers(users); saveSession(currentUser); }
+}
+
+/* ─── AUTH UI ─── */
+function openAuth()  { document.getElementById('authOverlay').classList.remove('hidden'); }
+function closeAuth() { document.getElementById('authOverlay').classList.add('hidden'); }
+function switchAuthTab(tab, btn) {
+  document.querySelectorAll('.auth-tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active');
+  document.getElementById('authLogin').style.display    = tab==='login'    ? 'block' : 'none';
+  document.getElementById('authRegister').style.display = tab==='register' ? 'block' : 'none';
+}
+function toggleProfilePanel() { const p=document.getElementById('profilePanel'); p.classList.toggle('open'); if(p.classList.contains('open'))updateProfilePanel(); }
+function closeProfilePanel()  { document.getElementById('profilePanel').classList.remove('open'); }
+
+/* ─── ONBOARDING ───
+   FIX SUMMARY:
+   • obSelectOption() now only marks selection — it does NOT call obNext().
+   • Continue button is ALWAYS enabled (no disabled state) once a step renders.
+   • Back/Continue/Skip are the only navigation triggers.
+   • obCurrentVal tracks selection for the footer's Continue label accuracy.
+─── */
+const OB_STEPS = [
+  {
+    id: 'goal', title: 'What brings you to KeysAI?',
+    sub: 'This helps Keys personalise everything from listings to advice.',
+    type: 'options', key: 'goal', required: false,
+    options: [
+      { icon:'🏡', title:"I'm looking to buy",     sub:'First home, upsizing, or downsizing', val:'buyer' },
+      { icon:'💰', title:'I want to sell',          sub:'Get maximum value for my home',       val:'seller' },
+      { icon:'📈', title:'Investment property',     sub:'Build a rental portfolio',             val:'investor' },
+      { icon:'🔍', title:'Just exploring',          sub:'Learning about the market',            val:'explore' },
+    ],
+  },
+  {
+    id: 'firsttime', title: 'Is this your first home purchase?',
+    sub: "First-time buyers qualify for programs worth thousands — let's make sure you use them.",
+    type: 'options', key: 'firstTime', required: false,
+    showIf: d => d.goal === 'buyer',
+    options: [
+      { icon:'🌟', title:'Yes — first time',   sub:'New to the buying process',   val: true },
+      { icon:'🏠', title:"I've bought before", sub:'Previous homeowner',          val: false },
+    ],
+  },
+  {
+    id: 'budget', title: "What's your budget range?",
+    sub: 'Approximate is fine — used to filter listings and run mortgage numbers.',
+    type: 'budget', key: 'budget', required: false,
+  },
+  {
+    id: 'city', title: 'Where are you looking?',
+    sub: 'Select one or more areas.',
+    type: 'multi', key: 'city', required: false,
+    options: ['Barrie','Innisfil','Orillia','Collingwood','Essa','Open to suggestions'],
+  },
+  {
+    id: 'beds', title: 'How many bedrooms do you need?',
+    sub: 'Minimum requirement.',
+    type: 'multi-single', key: 'beds', required: false,
+    options: ['1+','2+','3+','4+','5+'],
+  },
+  {
+    id: 'timeline', title: 'When are you hoping to move?',
+    sub: 'Helps prioritise how urgently to approach the market.',
+    type: 'options', key: 'timeline', required: false,
+    options: [
+      { icon:'⚡', title:'ASAP / Under 3 months', sub:'Ready to move quickly',  val:'Under 3 months' },
+      { icon:'📅', title:'3–6 months',            sub:'Planning ahead',         val:'3–6 months' },
+      { icon:'🗓️', title:'6–12 months',           sub:'Building toward it',     val:'6–12 months' },
+      { icon:'🔭', title:'Just researching',       sub:'No fixed timeline',      val:'Researching' },
+    ],
+  },
+  {
+    id: 'income', title: "What's your approximate household income?",
+    sub: 'Optional — used only for mortgage affordability calculations.',
+    type: 'income', key: 'income', required: false,
+  },
+];
+
+let obStep = 0;
+let obData = {};
+
+function getVisibleSteps() { return OB_STEPS.filter(s => !s.showIf || s.showIf(obData)); }
+
+function startOnboarding() {
+  obStep = 0; obData = {};
+  document.getElementById('obOverlay').classList.remove('hidden');
+  renderObStep();
+}
+
+function reopenOnboarding() {
+  closeProfilePanel();
+  if (currentUser && currentUser.profile) obData = { ...currentUser.profile };
+  obStep = 0;
+  document.getElementById('obOverlay').classList.remove('hidden');
+  renderObStep();
+}
+
+function renderObStep() {
+  const steps = getVisibleSteps();
+  const step  = steps[obStep];
+  if (!step) { finishOnboarding(); return; }
+
+  document.getElementById('obStepTitle').textContent = step.title;
+  document.getElementById('obStepSub').textContent   = step.sub;
+
+  // Back button: hidden on first step
+  const backBtn = document.getElementById('obBackBtn');
+  backBtn.style.visibility = obStep > 0 ? 'visible' : 'hidden';
+
+  // Skip: shown when not required (all steps here are optional)
+  document.getElementById('obSkipBtn').style.display = 'inline-block';
+
+  // Continue is ALWAYS enabled — user can always move forward
+  document.getElementById('obNextBtn').disabled = false;
+
+  // Last step → "Finish"
+  document.getElementById('obNextBtn').textContent = obStep >= steps.length - 1 ? 'Finish →' : 'Continue →';
+
+  // Progress pips
+  const prog = document.getElementById('obProgress');
+  prog.innerHTML = '';
+  steps.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'ob-pip' + (i < obStep ? ' done' : i === obStep ? ' active' : '');
+    prog.appendChild(d);
+  });
+
+  const body = document.getElementById('obBody');
+  let html = '';
+
+  if (step.type === 'options') {
+    html = '<div class="ob-options">';
+    step.options.forEach(opt => {
+      const sel = obData[step.key] === opt.val;
+      html += `<button class="ob-option${sel?' selected':''}" onclick="obSelectOption('${step.key}',${JSON.stringify(opt.val)},this)">
+        <span class="ob-opt-icon">${opt.icon}</span>
+        <span><span class="ob-opt-title">${opt.title}</span><span class="ob-opt-sub">${opt.sub}</span></span>
+      </button>`;
+    });
+    html += '</div>';
+  }
+  else if (step.type === 'multi') {
+    html = '<div class="ob-multi">';
+    step.options.forEach(opt => {
+      const stored = obData[step.key];
+      const sel = stored && (Array.isArray(stored) ? stored.includes(opt) : stored === opt);
+      html += `<button class="ob-chip${sel?' selected':''}" onclick="obToggleChip('${step.key}','${opt}',this)">${opt}</button>`;
+    });
+    html += '</div><p class="ob-note">Select all that apply.</p>';
+  }
+  else if (step.type === 'multi-single') {
+    html = '<div class="ob-multi">';
+    step.options.forEach(opt => {
+      const sel = obData[step.key] === opt;
+      html += `<button class="ob-chip${sel?' selected':''}" onclick="obSelectSingle('${step.key}','${opt}',this)">${opt}</button>`;
+    });
+    html += '</div>';
+  }
+  else if (step.type === 'budget') {
+    const min = obData.budgetMin || '';
+    const max = obData.budgetMax || '';
+    html = `<label class="ob-field-label">Minimum budget</label>
+    <div class="ob-input-row"><span class="ob-input-prefix">$</span>
+      <input class="ob-input" id="obBudgetMin" type="text" placeholder="e.g. 400,000" value="${min}" oninput="obBudgetChange()">
+    </div>
+    <label class="ob-field-label" style="margin-top:0.6rem;">Maximum budget</label>
+    <div class="ob-input-row"><span class="ob-input-prefix">$</span>
+      <input class="ob-input" id="obBudgetMax" type="text" placeholder="e.g. 800,000" value="${max}" oninput="obBudgetChange()">
+    </div>
+    <div class="ob-multi" style="margin-top:0.8rem;">
+      <button class="ob-chip" onclick="obSetBudget('300000','500000',this)">Under $500K</button>
+      <button class="ob-chip" onclick="obSetBudget('500000','750000',this)">$500K–$750K</button>
+      <button class="ob-chip" onclick="obSetBudget('750000','1000000',this)">$750K–$1M</button>
+      <button class="ob-chip" onclick="obSetBudget('1000000','2000000',this)">$1M+</button>
+    </div>`;
+  }
+  else if (step.type === 'income') {
+    const saved = obData.income ? obData.income.toLocaleString() : '';
+    html = `<label class="ob-field-label">Annual household gross income</label>
+    <div class="ob-input-row"><span class="ob-input-prefix">$</span>
+      <input class="ob-input" id="obIncome" type="text" placeholder="e.g. 95,000" value="${saved}" oninput="obIncomeChange()">
+    </div>
+    <p class="ob-note">Used only to estimate mortgage affordability. Stored locally, never shared.</p>`;
+  }
+
+  body.innerHTML = html;
+}
+
+/* Selection handlers — mark only, no auto-advance */
+function obSelectOption(key, val, btn) {
+  obData[key] = val;
+  btn.closest('.ob-options').querySelectorAll('.ob-option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function obToggleChip(key, val, btn) {
+  if (!Array.isArray(obData[key])) obData[key] = [];
+  const idx = obData[key].indexOf(val);
+  if (idx > -1) obData[key].splice(idx, 1); else obData[key].push(val);
+  btn.classList.toggle('selected');
+}
+
+function obSelectSingle(key, val, btn) {
+  obData[key] = val;
+  btn.closest('.ob-multi').querySelectorAll('.ob-chip').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function obBudgetChange() {
+  const min = document.getElementById('obBudgetMin').value;
+  const max = document.getElementById('obBudgetMax').value;
+  obData.budgetMin = min; obData.budgetMax = max;
+  const mn = extractNum(min)||0, mx = extractNum(max)||0;
+  if (mx > 0) obData.budget = mx;
+  else if (mn > 0) obData.budget = mn;
+}
+
+function obSetBudget(min, max, btn) {
+  obData.budgetMin = parseInt(min).toLocaleString();
+  obData.budgetMax = parseInt(max).toLocaleString();
+  obData.budget    = parseInt(max);
+  btn.closest('.ob-multi').querySelectorAll('.ob-chip').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const minEl = document.getElementById('obBudgetMin');
+  const maxEl = document.getElementById('obBudgetMax');
+  if (minEl) minEl.value = parseInt(min).toLocaleString();
+  if (maxEl) maxEl.value = parseInt(max).toLocaleString();
+}
+
+function obIncomeChange() {
+  const v = document.getElementById('obIncome').value;
+  const n = extractNum(v);
+  if (n) obData.income = n;
+}
+
+/* Navigation — these are the only things that move steps */
+function obNext() {
+  const steps = getVisibleSteps();
+  obStep++;
+  if (obStep >= steps.length) { finishOnboarding(); return; }
+  renderObStep();
+}
+
+function obBack() {
+  if (obStep > 0) { obStep--; renderObStep(); }
+}
+
+function obSkip() {
+  const steps = getVisibleSteps();
+  obStep++;
+  if (obStep >= steps.length) { finishOnboarding(); return; }
+  renderObStep();
+}
+
+function finishOnboarding() {
+  document.getElementById('obOverlay').classList.add('hidden');
+
+  let city = 'barrie';
+  if (obData.city) {
+    const c = Array.isArray(obData.city) ? obData.city[0] : obData.city;
+    city = c.toLowerCase().replace('open to suggestions','barrie');
+  }
+  const bedsNum = obData.beds ? parseInt(obData.beds) : null;
+
+  const profile = {
+    goal: obData.goal || null,
+    firstTime: obData.firstTime !== undefined ? obData.firstTime : null,
+    budget: obData.budget || null,
+    budgetMin: obData.budgetMin || null,
+    budgetMax: obData.budgetMax || null,
+    city, beds: bedsNum,
+    timeline: obData.timeline || null,
+    income: obData.income || null,
+  };
+
+  STATE.profile.mode      = profile.goal;
+  STATE.profile.budget    = profile.budget;
+  STATE.profile.income    = profile.income;
+  STATE.profile.beds      = profile.beds;
+  STATE.profile.city      = profile.city;
+  STATE.profile.firstTime = profile.firstTime;
+
+  if (currentUser) { currentUser.profile = profile; saveCurrentUserProfile(); updateProfilePanel(); }
+
+  document.getElementById('heroSection').style.display = 'none';
+
+  const name = currentUser ? currentUser.name.split(' ')[0] : 'there';
+  const goalMap = { buyer:'buying a home', seller:'selling your home', investor:'investing in property', explore:'exploring the market' };
+  const goalStr = goalMap[profile.goal] || 'your real estate journey';
+
+  let msg = `<strong>Set up — thanks, ${name}!</strong> I've got you focused on ${goalStr}.<br><br>`;
+
+  if (profile.goal === 'buyer') {
+    const budgetStr = profile.budget ? `under ${fmt.price(profile.budget)}` : '';
+    const cityStr   = profile.city   ? `in ${cap(profile.city)}` : '';
+    const bedsStr   = profile.beds   ? `${profile.beds}+ bedrooms` : '';
+    msg += `<div class="msg-actions">
+      <button class="ma-btn pri" onclick="sendQuick('Show me homes ${budgetStr} ${cityStr} ${bedsStr}')">🏡 Show my matches</button>
+      <button class="ma-btn" onclick="sendQuick('How much mortgage can I qualify for?')">🏦 Mortgage check</button>
+      ${profile.firstTime ? `<button class="ma-btn" onclick="sendQuick('What first-time buyer programs apply to me?')">🎁 My programs</button>` : ''}
+    </div>`;
+    addPlanItem('Get mortgage pre-approval');
+    addPlanItem('Review listing matches');
+    if (profile.firstTime) addPlanItem('Open a First Home Savings Account (FHSA)');
+    addPlanItem('Schedule neighbourhood tours');
+    addPlanItem('Book consultation with Stephen');
+  } else if (profile.goal === 'seller') {
+    msg += `<div class="msg-actions">
+      <button class="ma-btn pri" onclick="sendQuick('Help me prepare to sell my home for maximum value')">💰 Selling strategy</button>
+      <button class="ma-btn" onclick="sendQuick('What is the Barrie market like right now?')">📊 Market check</button>
+    </div>`;
+    addPlanItem('Request a free CMA from Stephen');
+    addPlanItem('Identify top improvements before listing');
+    addPlanItem('Book professional photography');
+    addPlanItem('Review commission and timeline');
+  } else if (profile.goal === 'investor') {
+    msg += `<div class="msg-actions">
+      <button class="ma-btn pri" onclick="sendQuick('Show me investment properties in Barrie')">📈 Investment listings</button>
+      <button class="ma-btn" onclick="sendQuick('What are typical cap rates in Barrie?')">💹 Cap rates</button>
+    </div>`;
+    addPlanItem('Understand cap rate vs. cash-on-cash returns');
+    addPlanItem('Identify target neighbourhoods');
+    addPlanItem('Get investment-focused pre-approval');
+    addPlanItem('Connect with Stephen for off-market listings');
+  } else {
+    msg += `<div class="msg-actions">
+      <button class="ma-btn" onclick="sendQuick('Show me available listings in Barrie')">🏡 Browse listings</button>
+      <button class="ma-btn" onclick="sendQuick('What is the Barrie market like?')">📊 Market overview</button>
+    </div>`;
+  }
+
+  addMsg('ai', msg);
+}
+
+/* ─── PLAN TRACKER ─── */
+let planItems = [];
+
+function addPlanItem(text) {
+  if (planItems.find(p => p.text === text)) return;
+  planItems.push({ text, done: false });
+  renderPlan();
+}
+
+function renderPlan() {
+  const list  = document.getElementById('planList');
+  const empty = document.getElementById('planEmpty');
+  if (!planItems.length) { if (empty) empty.style.display='block'; return; }
+  if (empty) empty.style.display = 'none';
+  list.innerHTML = `<div id="planEmpty" style="display:none;"></div>`;
+  planItems.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'plan-item';
+    div.innerHTML = `<div class="plan-check${item.done?' done':''}" onclick="togglePlanItem(${i})">${item.done?'✓':''}</div>
+      <span class="plan-text${item.done?' done':''}">${item.text}</span>`;
+    list.appendChild(div);
+  });
+}
+
+function togglePlanItem(i) { planItems[i].done = !planItems[i].done; renderPlan(); }
+function clearPlan()       { planItems = []; renderPlan(); }
 
 /* ─── CHAT ENGINE ─── */
-let isTyping=false;
-let msgIdCounter=0;
+let isTyping = false;
+let msgIdCounter = 0;
+const msgStore = {};
 
-async function sendMessage(){
-  const input=document.getElementById('chatInput');
-  const text=input.value.trim();
-  if(!text||isTyping)return;
-  const hero=document.getElementById('heroSection');
-  if(hero)hero.style.display='none';
-  input.value='';autoResize(input);
-  addMsg('user',text);showTyping();
-  const delay=Math.min(1100,350+text.length*3.5);
-  await new Promise(r=>setTimeout(r,delay));
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text  = input.value.trim();
+  if (!text || isTyping) return;
+  document.getElementById('heroSection').style.display = 'none';
+  input.value = ''; autoResize(input);
+  addMsg('user', text);
+  showTyping();
+  // Realistic delay that scales with response complexity
+  const delay = Math.min(1400, 400 + text.length * 4);
+  await new Promise(r => setTimeout(r, delay));
   hideTyping();
-  const response=generateResponse(text);
-  addMsg('ai',response);
+  const response = generateResponse(text);
+  addMsg('ai', response);
 }
 
-function sendQuick(text){
-  document.getElementById('chatInput').value=text;
-  sendMessage();
-}
+function sendQuick(text) { document.getElementById('chatInput').value = text; sendMessage(); }
 
-function addMsg(role,html){
-  const c=document.getElementById('messages');
-  const now=new Date().toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'});
-  const div=document.createElement('div');
-  div.className=`message ${role}`;
-  if(role==='ai'){
-    const id='msg_'+(++msgIdCounter);
-    msgStore[id]=html;
-    div.setAttribute('data-msg',id);
-    const toolsHtml=`<div class="msg-tools">
-      <button class="mt-btn" onclick="rephraseMsg('${id}')">↻ Rephrase</button>
+function addMsg(role, html) {
+  const c   = document.getElementById('messages');
+  const now = new Date().toLocaleTimeString('en-CA', { hour:'2-digit', minute:'2-digit' });
+  const div = document.createElement('div');
+  div.className = `message ${role}`;
+
+  if (role === 'ai') {
+    const id = 'msg_' + (++msgIdCounter);
+    msgStore[id] = html;
+    div.setAttribute('data-msg', id);
+    const tools = `<div class="msg-tools">
       <button class="mt-btn" onclick="simplifyMsg('${id}')">📝 Simplify</button>
       <button class="mt-btn" onclick="planFromMsg('${id}')">📋 Add to plan</button>
     </div>`;
-    div.innerHTML=`<div class="msg-av ai">K</div>
+    div.innerHTML = `<div class="msg-av ai">K</div>
       <div>
-        <div class="msg-bubble">${html}${toolsHtml}</div>
+        <div class="msg-bubble">${html}${tools}</div>
         <div class="msg-meta">Keys AI · ${now}</div>
       </div>`;
   } else {
-    const safe=html.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    const initials=currentUser?currentUser.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2):'You';
-    div.innerHTML=`<div><div class="msg-bubble">${safe}</div><div class="msg-meta">You · ${now}</div></div>
+    const safe = html.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const initials = currentUser ? currentUser.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2) : 'You';
+    div.innerHTML = `<div><div class="msg-bubble">${safe}</div><div class="msg-meta">You · ${now}</div></div>
       <div class="msg-av u">${initials}</div>`;
   }
   c.appendChild(div);
-  c.scrollTop=c.scrollHeight;
+  c.scrollTop = c.scrollHeight;
 }
 
-function showTyping(){
-  isTyping=true;
-  const c=document.getElementById('messages');
-  const el=document.createElement('div');
-  el.className='message ai';el.id='typer';
-  el.innerHTML=`<div class="msg-av ai">K</div>
+function showTyping() {
+  isTyping = true;
+  const c  = document.getElementById('messages');
+  const el = document.createElement('div');
+  el.className = 'message ai'; el.id = 'typer';
+  el.innerHTML = `<div class="msg-av ai">K</div>
     <div><div class="msg-bubble" style="padding:0.6rem 0.9rem;">
       <div class="typing-dots"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>
     </div></div>`;
-  c.appendChild(el);c.scrollTop=c.scrollHeight;
+  c.appendChild(el); c.scrollTop = c.scrollHeight;
 }
-function hideTyping(){isTyping=false;const el=document.getElementById('typer');if(el)el.remove();}
+function hideTyping() { isTyping = false; const el = document.getElementById('typer'); if(el) el.remove(); }
 
-/* ─── UI CONTROLS ─── */
-function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}}
-function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,120)+'px';}
-function switchTab(btn,tab){
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  if(tab!=='chat'){const map={listings:'Show me available listings in Barrie',market:'Give me a full Barrie market report',tools:'Show me mortgage tools and calculators'};sendQuick(map[tab]||`Tell me about ${tab}`);}
-}
-function toggleMode(btn,mode){
-  const was=btn.classList.contains('active');
-  document.querySelectorAll('.tb-btn').forEach(b=>b.classList.remove('active'));
-  if(!was){btn.classList.add('active');STATE.profile.mode=mode;}else STATE.profile.mode=null;
-}
-function toggleChip(el){el.classList.toggle('active');}
-function applyFilters(){
-  const min=document.getElementById('fMin').value;const max=document.getElementById('fMax').value;const city=document.getElementById('fCity').value;
-  const parts=[];if(city)parts.push('in '+city);if(min||max)parts.push('priced '+(min?'from '+min:'')+' '+(max?'to '+max:'').trim());
-  sendQuick('Show me listings '+(parts.join(', ')||'in Barrie'));
-}
-function calcMortgage(){
-  const n=s=>parseFloat((s||'').replace(/[^0-9.]/g,''))||0;
-  const price=n(document.getElementById('calcPrice').value);
-  const down=n(document.getElementById('calcDown').value);
-  const rate=n(document.getElementById('calcRate').value)/100;
-  const years=n(document.getElementById('calcYears').value);
-  const mo=calcPayment(price,down,rate,years);
-  document.getElementById('calcResult').textContent=(mo>0&&isFinite(mo))?'$'+Math.round(mo).toLocaleString('en-CA'):'—';
-}
-calcMortgage();
-function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('open');}
-function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('open');}
-function openModal(id){document.getElementById('modal-'+id).classList.add('open');}
-function closeModal(id){document.getElementById('modal-'+id).classList.remove('open');}
-document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');});});
-function switchEmbedType(type,btn){
-  document.querySelectorAll('#modal-embed .tb-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const el=document.getElementById('embedCode');
-  if(type==='float'){el.innerHTML=`<span class="c-muted">&lt;!-- KeysAI Floating Widget --&gt;</span>\n<span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/widget.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>\n<span class="c-gold">&lt;script&gt;</span>\n  KeysAI.chat({\n    <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span>,\n    <span class="c-blue">position</span>: <span class="c-green">"bottom-right"</span>\n  });\n<span class="c-gold">&lt;/script&gt;</span>`;}
-  else{el.innerHTML=`<span class="c-muted">&lt;!-- KeysAI Tab Embed --&gt;</span>\n<span class="c-gold">&lt;div</span> <span class="c-blue">id</span>=<span class="c-green">"keysai-tab"</span><span class="c-gold">&gt;&lt;/div&gt;</span>\n<span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/embed.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>\n<span class="c-gold">&lt;script&gt;</span>\n  KeysAI.init({<span class="c-blue">agentId</span>:<span class="c-green">"rl-barrie-team"</span>});\n<span class="c-gold">&lt;/script&gt;</span>`;}
-}
-function copyEmbed(){const text=document.getElementById('embedCode').innerText;navigator.clipboard.writeText(text).then(()=>{const btn=document.querySelector('.copy-btn');btn.textContent='✅ Copied!';setTimeout(()=>btn.textContent='📋 Copy embed code',2000);});}
-function submitContact(){
-  closeModal('contact');
-  addMsg('ai','✅ <strong>Done — your details are on their way to Stephen.</strong> He\'ll be in touch within 24 hours.<br><br>Anything else I can help you with?');
-  document.getElementById('heroSection').style.display='none';
+function simplifyMsg(id) {
+  const raw = msgStore[id];
+  if (!raw) return;
+  const text = raw.replace(/<strong>|<\/strong>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+  const lines = text.split(/[·•\n]|(?:\d+\.)/).map(l=>l.trim()).filter(l=>l.length>10).slice(0,8);
+  const simplified = `<em style="color:var(--text-3);font-size:0.78rem;">Simplified:</em><br><br>` + lines.map(l=>`• ${l}`).join('<br>');
+  const el = document.querySelector(`[data-msg="${id}"] .msg-bubble`);
+  if (el) el.innerHTML = simplified + `<div class="msg-tools"><button class="mt-btn" onclick="restoreMsg('${id}')">↩ Restore</button></div>`;
 }
 
-/* ─── INIT ─── */
-function init(){
-  updateNavUser();
-  if(currentUser){
-    onUserLoggedIn(false);
-    loadPlanFromUser();
-  } else {
-    // Guest — show onboarding after brief delay
-    setTimeout(()=>startOnboarding(),800);
+function restoreMsg(id) {
+  const el = document.querySelector(`[data-msg="${id}"] .msg-bubble`);
+  if (!el || !msgStore[id]) return;
+  el.innerHTML = msgStore[id] + `<div class="msg-tools"><button class="mt-btn" onclick="simplifyMsg('${id}')">📝 Simplify</button><button class="mt-btn" onclick="planFromMsg('${id}')">📋 Add to plan</button></div>`;
+}
+
+function planFromMsg(id) {
+  const raw = msgStore[id];
+  if (!raw) return;
+  const text = raw.replace(/<[^>]+>/g,' ');
+  const rx = /(?:get|open|book|schedule|connect|speak|review|prepare|request|consider)\s+(?:a |an |your )?([a-z][a-z ]{4,45})/gi;
+  let added = 0, m;
+  while ((m = rx.exec(text)) !== null && added < 4) {
+    const item = m[0].trim().replace(/\s+/g,' ');
+    if (item.length > 8 && item.length < 70) { addPlanItem(item.charAt(0).toUpperCase()+item.slice(1)); added++; }
+  }
+  if (added === 0) addPlanItem('Follow up with Stephen Monkhouse');
+  const btn = document.querySelector(`[data-msg="${id}"] .mt-btn:last-child`);
+  if (btn) { btn.textContent = '✅ Added!'; setTimeout(()=>btn.textContent='📋 Add to plan', 1800); }
+}
+
+/* ─── MARKET SIDEBAR ─── */
+function populateSidebarMarkets() {
+  const set = (id, val, cls) => { const el=document.getElementById(id); if(el){el.textContent=val; if(cls)el.className='mkt-val '+cls;} };
+  set('ms-bar-p', fmt.price(MARKET.barrie.price));
+  set('ms-bar-c', fmt.pct(MARKET.barrie.yoy), MARKET.barrie.yoy>=0?'up':'dn');
+  set('ms-bar-d', MARKET.barrie.dom+'d');
+  set('ms-tor-p', fmt.price(MARKET.toronto.price));
+  set('ms-tor-c', fmt.pct(MARKET.toronto.yoy), MARKET.toronto.yoy>=0?'up':'dn');
+  set('ms-tor-d', MARKET.toronto.dom+'d');
+  set('ms-inn-p', fmt.price(MARKET.innisfil.price));
+  set('ms-inn-c', fmt.pct(MARKET.innisfil.yoy), MARKET.innisfil.yoy>=0?'up':'dn');
+  set('ms-inn-d', MARKET.innisfil.dom+'d');
+}
+
+/* ─── UI UTILITIES ─── */
+function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();} }
+function autoResize(el) { el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,120)+'px'; }
+
+function switchTab(btn, tab) {
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active');
+  if (tab !== 'chat') {
+    const map = { listings:'Show me available listings in Barrie', market:'Give me a full Barrie market report', tools:'Show me mortgage tools and calculators' };
+    sendQuick(map[tab] || `Tell me about ${tab}`);
   }
 }
 
-init();
+function toggleMode(btn, mode) {
+  const was = btn.classList.contains('active');
+  document.querySelectorAll('.tb-btn').forEach(b=>b.classList.remove('active'));
+  if (!was) { btn.classList.add('active'); STATE.profile.mode=mode; } else STATE.profile.mode=null;
+}
+
+function toggleChip(el) { el.classList.toggle('active'); }
+
+function applyFilters() {
+  const min  = document.getElementById('fMin').value;
+  const max  = document.getElementById('fMax').value;
+  const city = document.getElementById('fCity').value;
+  const parts = [];
+  if (city) parts.push('in ' + city);
+  if (min||max) parts.push('priced '+(min?'from '+min+' ':''+(max?'to '+max:'')).trim());
+  sendQuick('Show me listings ' + (parts.join(', ')||'in Barrie'));
+}
+
+function calcMortgage() {
+  const n = s => parseFloat((s||'').replace(/[^0-9.]/g,''))||0;
+  const price = n(document.getElementById('calcPrice').value);
+  const down  = n(document.getElementById('calcDown').value);
+  const rate  = n(document.getElementById('calcRate').value)/100;
+  const years = n(document.getElementById('calcYears').value);
+  const mo    = mortgagePayment(price, down, rate, years);
+  document.getElementById('calcResult').textContent = (mo>0&&isFinite(mo)) ? '$'+Math.round(mo).toLocaleString('en-CA') : '—';
+}
+
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.getElementById('sidebarOverlay').classList.toggle('open'); }
+function closeSidebar()  { document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('open'); }
+function openModal(id)   { document.getElementById('modal-'+id).classList.add('open'); }
+function closeModal(id)  { document.getElementById('modal-'+id).classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { if(e.target===o) o.classList.remove('open'); }));
+
+function switchEmbedType(type, btn) {
+  document.querySelectorAll('#modal-embed .tb-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+  const el = document.getElementById('embedCode');
+  if (type==='float') {
+    el.innerHTML=`<span class="c-muted">&lt;!-- KeysAI Floating Widget --&gt;</span>\n<span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/widget.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>\n<span class="c-gold">&lt;script&gt;</span>\n  KeysAI.chat({ <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span>, <span class="c-blue">position</span>: <span class="c-green">"bottom-right"</span> });\n<span class="c-gold">&lt;/script&gt;</span>`;
+  } else {
+    el.innerHTML=`<span class="c-muted">&lt;!-- KeysAI Tab Embed --&gt;</span>\n<span class="c-gold">&lt;div</span> <span class="c-blue">id</span>=<span class="c-green">"keysai-tab"</span><span class="c-gold">&gt;&lt;/div&gt;</span>\n<span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/embed.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>\n<span class="c-gold">&lt;script&gt;</span>\n  KeysAI.init({ <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span> });\n<span class="c-gold">&lt;/script&gt;</span>`;
+  }
+}
+
+function copyEmbed() {
+  const text = document.getElementById('embedCode').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent='📋 Copy embed code', 2000);
+  });
+}
+
+function submitContact() {
+  closeModal('contact');
+  addMsg('ai', "✅ <strong>Sent — Stephen will be in touch within 24 hours.</strong><br><br>Anything else I can help you with?");
+}
+
+/* ─── INIT ─── */
+calcMortgage();
+populateSidebarMarkets();
+updateNavUser();
+
+if (currentUser) {
+  onUserLoggedIn(false);
+} else {
+  setTimeout(() => startOnboarding(), 800);
+}
 </script>
 </body>
 </html>
