@@ -2,1530 +2,1678 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PropertyIQ — Royal LePage Advisor</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>KeysAI — Real Estate Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Royal LePage palette */
-  --rl-red:      #c8102e;
-  --rl-red2:     #e01535;
-  --rl-red-dim:  rgba(200,16,46,0.1);
-  --rl-red-glow: rgba(200,16,46,0.2);
-  --black:       #0a0a0a;
-  --black2:      #111111;
-  --black3:      #181818;
-  --black4:      #202020;
-  --black5:      #2a2a2a;
-  --white:       #ffffff;
-  --white2:      #f0f0f0;
-  --white3:      #d4d4d4;
-  --white4:      #8a8a8a;
-  --white5:      #444444;
-  --border:      #222222;
-  --border2:     #333333;
-  --border3:     #3d3d3d;
-
-  --r: 10px;
-  --rl2: 16px;
+  --gold: #C9A84C;
+  --gold-light: #E8D5A0;
+  --gold-dark: #8A6B28;
+  --navy: #1A2744;
+  --navy-mid: #243560;
+  --navy-light: #354D8A;
+  --cream: #F9F6F0;
+  --cream-mid: #F0EBE0;
+  --off-white: #FDFCFA;
+  --text-primary: #1A1A1A;
+  --text-secondary: #5A5A5A;
+  --text-muted: #9A9A9A;
+  --border: rgba(26,39,68,0.12);
+  --border-gold: rgba(201,168,76,0.3);
+  --shadow-sm: 0 1px 4px rgba(26,39,68,0.08);
+  --shadow-md: 0 4px 20px rgba(26,39,68,0.12);
+  --shadow-lg: 0 12px 48px rgba(26,39,68,0.18);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --nav-h: 56px;
+  --banner-h: 36px;
+  --sidebar-w: 256px;
+  --panel-w: 272px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; overflow: hidden; background: var(--black); color: var(--white); font-family: 'Outfit', sans-serif; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-/* ── SUBTLE DIAGONAL LINES TEXTURE ── */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0;
-  background-image: repeating-linear-gradient(
-    -55deg,
-    transparent,
-    transparent 40px,
-    rgba(255,255,255,0.012) 40px,
-    rgba(255,255,255,0.012) 41px
-  );
-  pointer-events: none;
+html,body{
+  height:100%;
+  font-family:var(--font-body);
+  background:var(--cream);
+  color:var(--text-primary);
+  overflow:hidden;
 }
+
+/* ── NAV ── */
+.nav{
+  background:var(--navy);
+  height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  padding:0 1rem;
+  gap:0.75rem;
+  border-bottom:2px solid var(--gold);
+  position:relative;
+  z-index:200;
+  flex-shrink:0;
+}
+
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.nav-logo-icon{
+  width:30px;height:30px;
+  background:var(--gold);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:var(--navy);
+}
+.nav-logo-text{
+  font-family:var(--font-display);
+  font-size:1.15rem;color:white;
+  letter-spacing:-0.01em;
+}
+.nav-logo-text span{color:var(--gold);}
+
+.nav-tabs{
+  display:flex;
+  gap:0;
+  height:100%;
+  align-items:flex-end;
+  flex:1;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.nav-tabs::-webkit-scrollbar{display:none;}
+
+.nav-tab{
+  padding:0.45rem 1rem;
+  font-size:0.8rem;font-weight:500;
+  color:rgba(255,255,255,0.55);
+  cursor:pointer;border:none;background:transparent;
+  font-family:var(--font-body);
+  letter-spacing:0.02em;
+  border-bottom:3px solid transparent;
+  transition:all 0.2s;
+  margin-bottom:-2px;
+  white-space:nowrap;
+}
+.nav-tab:hover{color:rgba(255,255,255,0.85);}
+.nav-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+.nav-right{
+  display:flex;align-items:center;gap:0.5rem;flex-shrink:0;
+}
+.nav-badge{
+  background:var(--gold);color:var(--navy);
+  font-size:0.65rem;font-weight:700;
+  padding:3px 7px;border-radius:20px;
+  letter-spacing:0.05em;text-transform:uppercase;
+  display:none;
+}
+.nav-btn{
+  padding:0.35rem 0.8rem;font-size:0.75rem;font-weight:500;
+  color:white;border:1px solid rgba(255,255,255,0.22);
+  border-radius:6px;cursor:pointer;background:transparent;
+  font-family:var(--font-body);transition:all 0.2s;
+  white-space:nowrap;
+}
+.nav-btn:hover{background:rgba(255,255,255,0.1);}
+.nav-menu-btn{
+  display:none;
+  width:34px;height:34px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:7px;cursor:pointer;
+  color:white;font-size:1.1rem;
+  align-items:center;justify-content:center;
+  font-family:var(--font-body);
+}
+
+/* ── BANNER ── */
+.embed-banner{
+  background:rgba(26,39,68,0.97);
+  color:white;font-size:0.72rem;
+  padding:0 1rem;
+  height:var(--banner-h);
+  display:flex;align-items:center;
+  justify-content:space-between;gap:0.5rem;
+  border-bottom:1px solid rgba(201,168,76,0.25);
+  flex-shrink:0;
+}
+.embed-banner-text{
+  display:flex;align-items:center;gap:6px;
+  color:rgba(255,255,255,0.65);
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+.embed-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:#4ADE80;flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+
+.embed-actions{display:flex;gap:0.4rem;flex-shrink:0;}
+.embed-code-btn{
+  padding:0.2rem 0.55rem;
+  border:1px solid rgba(201,168,76,0.45);
+  border-radius:5px;font-size:0.68rem;
+  color:var(--gold);cursor:pointer;
+  background:transparent;font-family:var(--font-body);
+  transition:all 0.2s;white-space:nowrap;
+}
+.embed-code-btn:hover{background:rgba(201,168,76,0.1);}
 
 /* ── LAYOUT ── */
-.layout {
-  position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  height: 100vh;
+.app-shell{
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  overflow:hidden;
 }
 
-/* ═══════════════════════════════
-   LEFT PANEL
-═══════════════════════════════ */
-.left-panel {
-  background: var(--black2);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
+.app-body{
+  display:flex;
+  flex:1;
+  overflow:hidden;
+  min-height:0;
 }
 
-/* Red top bar accent */
-.left-panel::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--rl-red);
-  z-index: 2;
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--sidebar-w);
+  background:white;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  flex-shrink:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  transition:transform 0.3s ease;
 }
 
-/* ── BRAND HEADER ── */
-.brand-header {
-  padding: 28px 24px 20px;
-  flex-shrink: 0;
-  border-bottom: 1px solid var(--border);
+.sidebar-section{
+  padding:1rem 0.85rem;
+  border-bottom:1px solid var(--border);
+}
+.sidebar-label{
+  font-size:0.62rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:0.6rem;
 }
 
-.rl-wordmark {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+.quick-prompt{
+  display:flex;align-items:center;gap:7px;
+  padding:0.5rem 0.6rem;
+  border-radius:var(--radius-sm);
+  cursor:pointer;transition:all 0.15s;
+  border:1px solid transparent;
+  text-align:left;background:transparent;
+  font-family:var(--font-body);width:100%;
+}
+.quick-prompt:hover{background:var(--cream);border-color:var(--border-gold);}
+.quick-prompt-icon{
+  width:26px;height:26px;border-radius:6px;
+  background:var(--cream-mid);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;flex-shrink:0;
+}
+.quick-prompt-text{font-size:0.77rem;color:var(--text-secondary);line-height:1.3;}
+
+.market-card{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:0.7rem;margin-bottom:0.45rem;
+}
+.market-card-city{font-size:0.78rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+.market-card-stats{display:flex;gap:0.75rem;}
+.market-stat{display:flex;flex-direction:column;}
+.market-stat-value{font-size:0.85rem;font-weight:700;color:var(--text-primary);}
+.market-stat-label{font-size:0.6rem;color:var(--text-muted);}
+.trend-up{color:#16803A;}
+.trend-dn{color:#B91C1C;}
+
+.agent-profile{
+  display:flex;align-items:center;gap:8px;
+  padding:0.65rem;background:var(--navy);
+  border-radius:var(--radius-sm);margin-top:0.4rem;
+  cursor:pointer;transition:opacity 0.2s;
+}
+.agent-profile:hover{opacity:0.88;}
+.agent-avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--gold);display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.8rem;color:var(--navy);flex-shrink:0;
+}
+.agent-info{flex:1;overflow:hidden;}
+.agent-name{font-size:0.8rem;font-weight:600;color:white;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.agent-title{font-size:0.65rem;color:var(--gold-light);}
+.agent-status{width:7px;height:7px;border-radius:50%;background:#4ADE80;flex-shrink:0;}
+
+/* ── CHAT ── */
+.chat-area{
+  flex:1;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  background:var(--off-white);
+  min-width:0;
 }
 
-.rl-top-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.chat-hero{
+  padding:2rem 1.5rem 1.5rem;
+  background:linear-gradient(160deg,var(--navy) 0%,var(--navy-mid) 100%);
+  position:relative;overflow:hidden;flex-shrink:0;
+}
+.chat-hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.chat-hero-content{position:relative;}
+.chat-hero-eyebrow{
+  font-size:0.68rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;
+}
+.chat-hero-title{
+  font-family:var(--font-display);font-size:1.7rem;
+  color:white;line-height:1.15;margin-bottom:0.4rem;
+}
+.chat-hero-title em{color:var(--gold);font-style:italic;}
+.chat-hero-sub{
+  font-size:0.82rem;color:rgba(255,255,255,0.5);
+  margin-bottom:1.1rem;max-width:420px;line-height:1.55;
 }
 
-/* Royal LePage shield mark */
-.rl-shield {
-  width: 28px;
-  height: 34px;
-  flex-shrink: 0;
+.hero-chips{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.hero-chip{
+  padding:0.3rem 0.75rem;border-radius:20px;
+  border:1px solid rgba(201,168,76,0.3);
+  font-size:0.7rem;color:rgba(255,255,255,0.65);
+  cursor:pointer;background:rgba(255,255,255,0.05);
+  font-family:var(--font-body);transition:all 0.2s;white-space:nowrap;
 }
-
-.rl-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.04em;
-  line-height: 1.1;
-}
-
-.rl-sub {
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--white4);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding-left: 38px;
-  margin-top: 1px;
-}
-
-.product-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 14px;
-  padding: 5px 10px;
-  background: var(--rl-red-dim);
-  border: 1px solid var(--rl-red);
-  border-radius: 4px;
-}
-
-.product-badge span {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--rl-red2);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.product-badge .dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--rl-red2);
-  animation: blink-dot 2s infinite;
-}
-
-@keyframes blink-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.2; }
-}
-
-/* ── HOUSE AVATAR ── */
-.avatar-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0 12px;
-  flex-shrink: 0;
-  position: relative;
-}
-
-/* Scanning line effect behind canvas */
-.avatar-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(200,16,46,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-#houseCanvas { display: block; position: relative; z-index: 1; }
-
-.avatar-status {
-  position: relative; z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--white4);
-  letter-spacing: 0.08em;
-  margin-top: 4px;
-}
-
-.status-orb {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
-  transition: background 0.3s, box-shadow 0.3s;
-  animation: orb-idle 3s infinite;
-}
-
-.status-orb.active {
-  background: var(--rl-red2);
-  box-shadow: 0 0 10px var(--rl-red);
-  animation: orb-active 0.5s infinite;
-}
-
-@keyframes orb-idle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-@keyframes orb-active {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
-}
-
-/* ── API KEY ── */
-.api-section {
-  padding: 0 18px 16px;
-  flex-shrink: 0;
-}
-
-.section-label {
-  font-size: 9px;
-  font-weight: 600;
-  color: var(--white5);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-.api-row { display: flex; gap: 7px; }
-
-.api-input {
-  flex: 1; min-width: 0;
-  background: var(--black3);
-  border: 1px solid var(--border2);
-  border-radius: 7px;
-  color: var(--white);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  padding: 8px 11px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.api-input:focus { border-color: var(--rl-red); }
-.api-input::placeholder { color: var(--white5); }
-
-.api-btn {
-  padding: 8px 13px;
-  background: var(--rl-red);
-  border: none;
-  border-radius: 7px;
-  color: var(--white);
-  font-family: 'Outfit', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-  letter-spacing: 0.04em;
-}
-
-.api-btn:hover { background: var(--rl-red2); }
-
-.api-msg {
-  margin-top: 5px;
-  font-size: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  min-height: 13px;
-  color: var(--white4);
-}
-
-.api-msg.ok { color: #22c55e; }
-.api-msg.err { color: var(--rl-red2); }
-
-/* ── QUICK PROMPTS ── */
-.quick-section {
-  padding: 0 18px;
-  flex: 1;
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-
-.quick-section::-webkit-scrollbar { display: none; }
-
-.quick-chips { display: flex; flex-direction: column; gap: 5px; }
-
-.quick-chip {
-  padding: 8px 11px;
-  background: var(--black3);
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  color: var(--white3);
-  font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  cursor: pointer;
-  transition: all 0.18s;
-  text-align: left;
-  line-height: 1.4;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.quick-chip .chip-icon {
-  width: 16px;
-  flex-shrink: 0;
-  text-align: center;
-  margin-top: 1px;
-  font-size: 11px;
-  opacity: 0.7;
-}
-
-.quick-chip:hover {
-  border-color: var(--rl-red);
-  color: var(--white);
-  background: var(--rl-red-dim);
-}
-
-.quick-chip:hover .chip-icon { opacity: 1; }
-
-/* ── PANEL FOOTER ── */
-.panel-footer {
-  padding: 12px 18px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-
-.panel-footer span {
-  font-size: 9px;
-  color: var(--white5);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.1em;
-}
-
-.rl-tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: 9px;
-  font-style: italic;
-  color: var(--white5);
-}
-
-/* ═══════════════════════════════
-   CHAT PANEL
-═══════════════════════════════ */
-.chat-panel {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: var(--black);
-  position: relative;
-  overflow: hidden;
-}
-
-/* ── TOP BAR ── */
-.chat-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  height: 60px;
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-  background: var(--black2);
-  position: relative;
-}
-
-/* Animated red underline on topbar */
-.chat-topbar::after {
-  content: '';
-  position: absolute;
-  bottom: -1px; left: 28px;
-  width: 60px; height: 2px;
-  background: var(--rl-red);
-}
-
-.topbar-left { display: flex; flex-direction: column; gap: 2px; }
-
-.topbar-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--white);
-  letter-spacing: 0.02em;
-}
-
-.topbar-sub {
-  font-size: 10px;
-  color: var(--white4);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.1em;
-}
-
-.topbar-right { display: flex; gap: 8px; }
-
-.topbar-btn {
-  padding: 6px 14px;
-  background: transparent;
-  border: 1px solid var(--border2);
-  border-radius: 6px;
-  color: var(--white4);
-  font-family: 'Outfit', sans-serif;
-  font-size: 11px;
-  cursor: pointer;
-  transition: all 0.18s;
-  letter-spacing: 0.04em;
-}
-
-.topbar-btn:hover { border-color: var(--rl-red); color: var(--rl-red2); background: var(--rl-red-dim); }
+.hero-chip:hover{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold);}
 
 /* ── MESSAGES ── */
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 28px 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border2) transparent;
+.messages{
+  flex:1;overflow-y:auto;
+  padding:1.25rem 1.25rem;
+  display:flex;flex-direction:column;gap:1rem;
+  scroll-behavior:smooth;
 }
 
-.messages::-webkit-scrollbar { width: 3px; }
-.messages::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+.message{display:flex;gap:8px;animation:fadeUp 0.28s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.message.user{justify-content:flex-end;}
 
-/* ── WELCOME ── */
-.welcome-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 48px 24px;
-  animation: welcome-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+.msg-avatar{
+  width:30px;height:30px;border-radius:50%;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;font-weight:700;margin-top:2px;
+}
+.msg-avatar.ai{
+  background:var(--navy);color:var(--gold);
+  border:2px solid var(--gold);
+  font-family:var(--font-display);font-size:0.85rem;font-style:italic;
+}
+.msg-avatar.user-av{
+  background:var(--cream-mid);color:var(--navy);
+  border:1.5px solid var(--border);order:1;
 }
 
-@keyframes welcome-in {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+.msg-bubble{
+  max-width:74%;padding:0.75rem 1rem;
+  border-radius:var(--radius);line-height:1.65;font-size:0.855rem;
+}
+.message.ai .msg-bubble{
+  background:white;color:var(--text-primary);
+  border:1px solid var(--border);
+  border-radius:4px var(--radius) var(--radius) var(--radius);
+  box-shadow:var(--shadow-sm);
+}
+.message.user .msg-bubble{
+  background:var(--navy);color:white;
+  border-radius:var(--radius) 4px var(--radius) var(--radius);
 }
 
-.welcome-crest {
-  position: relative;
-  width: 70px; height: 70px;
-  margin-bottom: 20px;
+.msg-meta{font-size:0.65rem;color:var(--text-muted);margin-top:3px;padding:0 2px;}
+.message.user .msg-meta{text-align:right;}
+
+.msg-actions{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.65rem;}
+.msg-action-btn{
+  padding:0.3rem 0.75rem;border:1px solid var(--border);
+  border-radius:20px;font-size:0.72rem;font-weight:500;
+  color:var(--navy);cursor:pointer;background:white;
+  font-family:var(--font-body);transition:all 0.15s;
+}
+.msg-action-btn:hover{border-color:var(--gold);background:var(--cream);color:var(--gold-dark);}
+.msg-action-btn.primary{background:var(--navy);color:white;border-color:var(--navy);}
+.msg-action-btn.primary:hover{background:var(--navy-light);}
+
+/* listings grid in message */
+.listing-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:0.6rem;margin-top:0.6rem;
+}
+.listing-card{
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  overflow:hidden;background:var(--cream);cursor:pointer;
+  transition:all 0.2s;
+}
+.listing-card:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
+.listing-img{
+  height:76px;background:var(--navy-mid);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;position:relative;
+}
+.listing-tag{
+  position:absolute;top:5px;left:5px;
+  background:var(--gold);color:var(--navy);
+  font-size:0.58rem;font-weight:800;letter-spacing:0.07em;
+  padding:2px 5px;border-radius:3px;text-transform:uppercase;
+}
+.listing-body{padding:0.5rem 0.65rem;}
+.listing-price{font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:1px;}
+.listing-addr{font-size:0.68rem;color:var(--text-secondary);margin-bottom:3px;line-height:1.3;}
+.listing-specs{display:flex;gap:0.5rem;font-size:0.64rem;color:var(--text-muted);}
+
+/* Typing indicator */
+.typing-dots{display:flex;gap:4px;align-items:center;padding:0.4rem 0;}
+.typing-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--gold);
+  animation:dotPulse 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2){animation-delay:0.2s;}
+.typing-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes dotPulse{0%,80%,100%{transform:scale(0.7);opacity:0.4;}40%{transform:scale(1);opacity:1;}}
+
+/* ── INPUT ── */
+.input-area{
+  background:white;border-top:1px solid var(--border);
+  padding:0.75rem 1rem;flex-shrink:0;
+}
+.input-toolbar{
+  display:flex;gap:0.35rem;margin-bottom:0.55rem;
+  flex-wrap:wrap;
+}
+.toolbar-btn{
+  padding:0.25rem 0.6rem;border-radius:6px;
+  border:1px solid var(--border);font-size:0.7rem;font-weight:500;
+  color:var(--text-secondary);cursor:pointer;
+  background:var(--cream);font-family:var(--font-body);
+  transition:all 0.15s;display:flex;align-items:center;gap:3px;
+  white-space:nowrap;
+}
+.toolbar-btn:hover{border-color:var(--gold);color:var(--gold-dark);background:#FDF9F1;}
+.toolbar-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
+
+.input-row{display:flex;gap:0.5rem;align-items:flex-end;}
+.input-box{flex:1;}
+.chat-input{
+  width:100%;padding:0.65rem 0.9rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  font-family:var(--font-body);font-size:0.85rem;color:var(--text-primary);
+  background:var(--cream);resize:none;line-height:1.5;
+  transition:border-color 0.2s;min-height:44px;max-height:130px;
+  overflow-y:auto;
+}
+.chat-input:focus{outline:none;border-color:var(--gold);background:white;}
+.chat-input::placeholder{color:var(--text-muted);}
+.send-btn{
+  width:44px;height:44px;border-radius:11px;
+  background:var(--navy);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;flex-shrink:0;
+}
+.send-btn:hover{background:var(--navy-light);transform:scale(1.04);}
+.send-btn:active{transform:scale(0.96);}
+.send-btn svg{width:17px;height:17px;fill:white;}
+
+.input-hint{
+  text-align:center;font-size:0.62rem;color:var(--text-muted);
+  margin-top:0.4rem;letter-spacing:0.01em;
 }
 
-.welcome-crest-ring {
-  position: absolute; inset: 0;
-  border: 1px solid var(--border2);
-  border-radius: 50%;
-  animation: ring-spin 12s linear infinite;
+/* ── RIGHT PANEL ── */
+.right-panel{
+  width:var(--panel-w);background:white;
+  border-left:1px solid var(--border);
+  display:flex;flex-direction:column;
+  flex-shrink:0;overflow-y:auto;overflow-x:hidden;
+  transition:transform 0.3s ease;
+}
+.panel-header{
+  padding:0.85rem 1rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.panel-title{font-size:0.78rem;font-weight:600;color:var(--navy);}
+.panel-sub{font-size:0.65rem;color:var(--text-muted);}
+.panel-section{padding:0.85rem 1rem;border-bottom:1px solid var(--border);}
+.panel-section-title{
+  font-size:0.6rem;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--text-muted);margin-bottom:0.6rem;
 }
 
-.welcome-crest-ring::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: 50%;
-  transform: translateX(-50%);
-  width: 4px; height: 4px;
-  background: var(--rl-red);
-  border-radius: 50%;
+.filter-group{margin-bottom:0.6rem;}
+.filter-label{font-size:0.73rem;font-weight:500;color:var(--text-secondary);margin-bottom:0.3rem;}
+.filter-input{
+  width:100%;padding:0.4rem 0.65rem;
+  border:1px solid var(--border);border-radius:6px;
+  font-family:var(--font-body);font-size:0.78rem;
+  color:var(--text-primary);background:var(--cream);
+  transition:border-color 0.2s;
+}
+.filter-input:focus{outline:none;border-color:var(--gold);}
+
+.filter-chips{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.filter-chip{
+  padding:0.22rem 0.55rem;border-radius:20px;
+  border:1px solid var(--border);font-size:0.7rem;
+  color:var(--text-secondary);cursor:pointer;
+  background:transparent;font-family:var(--font-body);transition:all 0.15s;
+}
+.filter-chip:hover,.filter-chip.active{background:var(--navy);color:white;border-color:var(--navy);}
+
+.apply-btn{
+  width:100%;padding:0.55rem;background:var(--gold);
+  color:var(--navy);border:none;border-radius:7px;
+  font-size:0.8rem;font-weight:700;cursor:pointer;
+  font-family:var(--font-body);letter-spacing:0.02em;
+  transition:all 0.2s;margin-top:0.6rem;
+}
+.apply-btn:hover{background:var(--gold-dark);color:white;}
+
+.saved-item{
+  display:flex;align-items:center;gap:7px;
+  padding:0.45rem 0;border-bottom:1px solid var(--border);cursor:pointer;
+}
+.saved-item:last-child{border-bottom:none;}
+.saved-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.saved-name{font-size:0.75rem;font-weight:500;color:var(--text-primary);flex:1;}
+.saved-count{
+  font-size:0.65rem;color:var(--text-muted);
+  background:var(--cream-mid);padding:1px 6px;border-radius:10px;
 }
 
-@keyframes ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-.welcome-crest-inner {
-  position: absolute;
-  inset: 12px;
-  background: var(--rl-red-dim);
-  border: 1px solid var(--rl-red);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+/* Mortgage calc */
+.mortgage-calc{
+  background:var(--navy);border-radius:var(--radius-sm);padding:0.85rem;
 }
-
-.welcome-crest-inner svg { width: 22px; height: 22px; color: var(--rl-red2); }
-
-.welcome-block h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: var(--white);
-  letter-spacing: 0.02em;
-  margin-bottom: 6px;
+.calc-title{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;
 }
-
-.welcome-agency {
-  font-size: 11px;
-  color: var(--rl-red2);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 600;
-  margin-bottom: 14px;
+.calc-result{text-align:center;margin:0.6rem 0;}
+.calc-monthly{font-family:var(--font-display);font-size:1.6rem;color:white;}
+.calc-monthly-label{font-size:0.63rem;color:rgba(255,255,255,0.4);letter-spacing:0.05em;}
+.calc-inputs{display:flex;flex-direction:column;gap:0.4rem;}
+.calc-row{display:flex;align-items:center;justify-content:space-between;}
+.calc-row-label{font-size:0.7rem;color:rgba(255,255,255,0.48);}
+.calc-row-input{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:5px;padding:0.28rem 0.45rem;
+  font-size:0.78rem;color:white;width:105px;
+  text-align:right;font-family:var(--font-body);
 }
+.calc-row-input:focus{outline:none;border-color:var(--gold);}
 
-.welcome-rule {
-  width: 32px; height: 1px;
-  background: var(--rl-red);
-  margin: 0 auto 14px;
+/* live indicator */
+.live-pill{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:0.6rem;font-weight:600;letter-spacing:0.07em;
+  text-transform:uppercase;color:#16803A;
+  background:#DCFCE7;padding:2px 7px;border-radius:10px;
 }
+.live-dot{width:5px;height:5px;border-radius:50%;background:#16803A;animation:pulse 1.8s infinite;}
 
-.welcome-block p {
-  font-size: 14px;
-  color: var(--white4);
-  line-height: 1.9;
-  max-width: 480px;
-  font-weight: 300;
+/* ── SCROLLBARS ── */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-light);}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.5);
+  z-index:500;display:none;align-items:center;
+  justify-content:center;padding:1rem;
 }
-
-/* ── MESSAGE ROW ── */
-.msg-row {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: msg-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.modal-overlay.open{display:flex;}
+.modal{
+  background:white;border-radius:var(--radius);
+  max-width:500px;width:100%;
+  overflow:hidden;box-shadow:var(--shadow-lg);
+  max-height:90vh;overflow-y:auto;
 }
-
-@keyframes msg-in {
-  to { opacity: 1; transform: translateY(0); }
+.modal-header{
+  background:var(--navy);padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;
 }
-
-.msg-row.user { flex-direction: row-reverse; }
-
-/* Avatar */
-.msg-av {
-  width: 34px; height: 34px;
-  border-radius: 6px;
-  flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  position: relative;
-  overflow: hidden;
+.modal-header-title{font-family:var(--font-display);font-size:1rem;color:white;}
+.modal-close{
+  width:26px;height:26px;border-radius:50%;
+  background:rgba(255,255,255,0.12);border:none;
+  cursor:pointer;color:white;font-size:0.9rem;
+  display:flex;align-items:center;justify-content:center;
 }
-
-.msg-av.ai {
-  background: var(--rl-red);
-  color: var(--white);
+.modal-body{padding:1.25rem;}
+.modal-code{
+  background:#0F172A;border-radius:var(--radius-sm);
+  padding:0.85rem;font-family:'Courier New',monospace;
+  font-size:0.72rem;color:#94A3B8;overflow-x:auto;line-height:1.7;
 }
-
-/* Shimmer on AI avatar when active */
-.msg-av.ai.pulsing::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 60%);
-  animation: av-shimmer 1s ease infinite alternate;
+.c-gold{color:var(--gold);}.c-green{color:#86EFAC;}.c-blue{color:#93C5FD;}.c-muted{color:#475569;}
+.copy-btn{
+  width:100%;margin-top:0.85rem;padding:0.6rem;
+  background:var(--navy);color:white;border:none;
+  border-radius:7px;font-size:0.8rem;font-weight:500;
+  cursor:pointer;font-family:var(--font-body);transition:background 0.2s;
 }
-
-@keyframes av-shimmer {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.msg-av.user {
-  background: var(--black4);
-  border: 1px solid var(--border2);
-  color: var(--white3);
-  font-size: 12px;
-}
-
-/* Bubble */
-.msg-bubble {
-  max-width: 66%;
-  padding: 14px 18px;
-  font-size: 14px;
-  line-height: 1.8;
-  position: relative;
-  border-radius: 12px;
-}
-
-.msg-row.ai .msg-bubble {
-  background: var(--black2);
-  border: 1px solid var(--border);
-  color: var(--white2);
-  border-top-left-radius: 3px;
-}
-
-.msg-row.user .msg-bubble {
-  background: var(--black3);
-  border: 1px solid var(--border2);
-  color: var(--white3);
-  border-top-right-radius: 3px;
-  text-align: right;
-}
-
-/* Typing animation for new AI messages */
-.msg-bubble.typing-reveal {
-  animation: bubble-reveal 0.3s ease forwards;
-}
-
-@keyframes bubble-reveal {
-  from { opacity: 0; transform: scale(0.97) translateY(4px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* Message meta */
-.msg-meta {
-  font-size: 10px;
-  color: var(--white5);
-  font-family: 'JetBrains Mono', monospace;
-  margin-top: 5px;
-  padding: 0 4px;
-  letter-spacing: 0.04em;
-}
-
-.msg-row.user .msg-meta { text-align: right; }
-
-/* Rich formatting inside bubbles */
-.msg-bubble strong { color: var(--white); font-weight: 600; }
-.msg-bubble em { color: var(--white3); font-style: italic; }
-
-.msg-bubble p { margin: 4px 0; }
-
-.msg-bubble ul {
-  list-style: none;
-  margin: 8px 0;
-  display: flex; flex-direction: column; gap: 5px;
-}
-
-.msg-bubble ul li {
-  display: flex; align-items: flex-start; gap: 9px;
-  font-size: 13.5px;
-}
-
-.msg-bubble ul li::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--rl-red);
-  flex-shrink: 0;
-  margin-top: 8px;
-}
-
-.msg-bubble .kv-block {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 4px 14px;
-  background: var(--black3);
-  border-left: 2px solid var(--rl-red);
-  border-radius: 6px;
-  padding: 10px 12px;
-  margin: 10px 0;
-  font-size: 13px;
-}
-
-.msg-bubble .kv-block .kv-key {
-  color: var(--white4);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  white-space: nowrap;
-}
-
-.msg-bubble .kv-block .kv-val { color: var(--white2); font-weight: 500; }
-
-.msg-bubble .verdict {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--rl-red-dim);
-  border: 1px solid var(--rl-red);
-  border-radius: 7px;
-  padding: 10px 14px;
-  margin: 10px 0;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--white);
-}
-
-.msg-bubble .verdict::before {
-  content: '★';
-  color: var(--rl-red2);
-  font-size: 14px;
-  flex-shrink: 0;
-}
-
-.msg-bubble .section-head {
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--white5);
-  font-family: 'JetBrains Mono', monospace;
-  margin: 14px 0 6px;
-  display: flex; align-items: center; gap: 8px;
-}
-
-.msg-bubble .section-head::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-.msg-bubble .flag-row { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
-
-.msg-bubble .flag {
-  padding: 2px 8px; border-radius: 4px;
-  font-size: 10px; font-weight: 600;
-  letter-spacing: 0.04em; text-transform: uppercase;
-}
-
-.msg-bubble .flag.g { background: rgba(34,197,94,0.1); color: #22c55e; }
-.msg-bubble .flag.y { background: rgba(234,179,8,0.1); color: #eab308; }
-.msg-bubble .flag.r { background: rgba(200,16,46,0.12); color: var(--rl-red2); }
-.msg-bubble .flag.b { background: rgba(59,130,246,0.1); color: #60a5fa; }
-
-/* ── THINKING INDICATOR ── */
-.thinking-row {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 20px;
-  animation: msg-in 0.3s ease forwards;
-}
-
-.thinking-bubble {
-  background: var(--black2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  border-top-left-radius: 3px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-/* Waveform animation */
-.wave-bars {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  height: 20px;
-}
-
-.wave-bar {
-  width: 3px;
-  border-radius: 99px;
-  background: var(--rl-red);
-  animation: wave-anim 1s ease-in-out infinite;
-}
-
-.wave-bar:nth-child(1) { height: 6px;  animation-delay: 0s; }
-.wave-bar:nth-child(2) { height: 14px; animation-delay: 0.1s; }
-.wave-bar:nth-child(3) { height: 20px; animation-delay: 0.2s; }
-.wave-bar:nth-child(4) { height: 14px; animation-delay: 0.3s; }
-.wave-bar:nth-child(5) { height: 8px;  animation-delay: 0.4s; }
-.wave-bar:nth-child(6) { height: 14px; animation-delay: 0.5s; }
-.wave-bar:nth-child(7) { height: 20px; animation-delay: 0.15s; }
-.wave-bar:nth-child(8) { height: 10px; animation-delay: 0.35s; }
-
-@keyframes wave-anim {
-  0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
-  50%       { transform: scaleY(1);   opacity: 1; }
-}
-
-.thinking-text {
-  font-size: 12px;
-  color: var(--white4);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.06em;
-}
-
-.thinking-text span {
-  color: var(--white3);
-  animation: ellipsis 1.5s infinite;
-}
-
-@keyframes ellipsis {
-  0%   { content: '.'; }
-  33%  { content: '..'; }
-  66%  { content: '...'; }
-  100% { content: ''; }
-}
-
-/* ── INPUT BAR ── */
-.input-bar {
-  padding: 16px 28px 20px;
-  border-top: 1px solid var(--border);
-  flex-shrink: 0;
-  background: var(--black2);
-}
-
-.input-outer {
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-}
-
-.input-box {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  gap: 0;
-  background: var(--black3);
-  border: 1px solid var(--border2);
-  border-radius: 12px;
-  padding: 12px 14px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Animated red bottom line on focus */
-.input-box::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%;
-  width: 0; height: 2px;
-  background: var(--rl-red);
-  transition: width 0.3s ease, left 0.3s ease;
-  border-radius: 99px;
-}
-
-.input-box:focus-within::after {
-  width: 100%; left: 0;
-}
-
-.input-box:focus-within {
-  border-color: var(--border3);
-  box-shadow: 0 0 0 3px rgba(200,16,46,0.06);
-}
-
-#chatInput {
-  flex: 1;
-  background: transparent;
-  border: none; outline: none;
-  color: var(--white);
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  resize: none;
-  min-height: 22px;
-  max-height: 130px;
-  line-height: 1.6;
-  scrollbar-width: none;
-}
-
-#chatInput::-webkit-scrollbar { display: none; }
-#chatInput::placeholder { color: var(--white5); font-weight: 300; }
-
-.char-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: var(--white5);
-  align-self: flex-end;
-  padding-bottom: 2px;
-  padding-left: 8px;
-  flex-shrink: 0;
-}
-
-.send-btn {
-  width: 46px; height: 46px;
-  background: var(--rl-red);
-  border: none;
-  border-radius: 10px;
-  color: var(--white);
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Shimmer on hover */
-.send-btn::after {
-  content: '';
-  position: absolute;
-  top: -50%; left: -60%;
-  width: 30%; height: 200%;
-  background: rgba(255,255,255,0.25);
-  transform: skewX(-20deg);
-  transition: left 0.4s ease;
-}
-
-.send-btn:hover::after { left: 160%; }
-.send-btn:hover { background: var(--rl-red2); transform: translateY(-1px); box-shadow: 0 6px 20px var(--rl-red-glow); }
-.send-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; box-shadow: none; }
-
-.send-btn svg { width: 17px; height: 17px; position: relative; z-index: 1; }
-
-.input-hint {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 9px;
-  padding: 0 2px;
-}
-
-.input-hint span {
-  font-size: 10px;
-  color: var(--white5);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.06em;
-}
-
-/* ── SCAN LINE (AI response) ── */
-@keyframes scan-in {
-  from { background-position: 0 -100%; }
-  to   { background-position: 0 200%; }
-}
-
-.scanning {
-  position: relative;
-  overflow: hidden;
-}
-
-.scanning::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(200,16,46,0.05) 50%, transparent 100%);
-  animation: scan-in 1.2s ease forwards;
-  pointer-events: none;
-}
+.copy-btn:hover{background:var(--navy-light);}
 
 /* ── RESPONSIVE ── */
-@media (max-width: 820px) {
-  .layout { grid-template-columns: 1fr; }
-  .left-panel { display: none; }
+
+/* Medium: hide right panel, compress sidebar */
+@media (max-width:1100px){
+  :root{--panel-w:0px;}
+  .right-panel{display:none;}
+}
+
+/* Tablet: sidebar becomes a drawer */
+@media (max-width:780px){
+  :root{--sidebar-w:240px;}
+  .sidebar{
+    position:fixed;
+    top:calc(var(--nav-h) + var(--banner-h));
+    left:0;
+    bottom:0;
+    z-index:150;
+    transform:translateX(-100%);
+    box-shadow:var(--shadow-lg);
+  }
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.35);
+    z-index:140;display:none;
+  }
+  .sidebar-overlay.open{display:block;}
+  .nav-menu-btn{display:flex;}
+  .nav-badge{display:inline-block;}
+  .embed-banner-text strong{display:none;}
+  .embed-code-btn:last-child{display:none;}
+}
+
+@media (max-width:600px){
+  :root{--nav-h:52px;--banner-h:34px;}
+  .nav-tabs{display:none;}
+  .nav-btn:not(:last-child){display:none;}
+  .chat-hero{padding:1.25rem 1rem 1rem;}
+  .chat-hero-title{font-size:1.35rem;}
+  .hero-chip{font-size:0.65rem;padding:0.25rem 0.6rem;}
+  .messages{padding:1rem 0.85rem;}
+  .msg-bubble{max-width:88%;font-size:0.83rem;}
+  .input-area{padding:0.6rem 0.75rem;}
+  .input-toolbar{gap:0.3rem;}
+  .toolbar-btn{font-size:0.66rem;padding:0.22rem 0.5rem;}
+  .listing-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width:420px){
+  .chat-hero-title{font-size:1.15rem;}
+  .chat-hero-sub{font-size:0.75rem;}
+  .embed-banner{display:none;}
+}
+
+/* Tall mobile: give more room to chat */
+@media (max-height:600px){
+  .chat-hero{padding:0.85rem 1rem;}
+  .chat-hero-title{font-size:1.15rem;}
+  .chat-hero-sub{display:none;}
+  .hero-chips{display:none;}
 }
 </style>
 </head>
 <body>
-<div class="layout">
 
-  <!-- ═══════════════════
-       LEFT PANEL
-  ══════════════════════ -->
-  <aside class="left-panel">
-    <div class="brand-header">
-      <div class="rl-top-line">
-        <!-- Royal LePage Shield SVG -->
-        <svg class="rl-shield" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 0L0 6V18C0 25.2 6.2 31.6 14 34C21.8 31.6 28 25.2 28 18V6L14 0Z" fill="#c8102e"/>
-          <path d="M14 3L3 8.4V18C3 23.7 7.9 28.9 14 31.2C20.1 28.9 25 23.7 25 18V8.4L14 3Z" fill="#a00d25"/>
-          <path d="M9 13H19M9 18H16M12 23H16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M14 7L11 10H17L14 7Z" fill="white"/>
-        </svg>
-        <div class="rl-name">Royal LePage</div>
+<div class="app-shell">
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-menu-btn" id="menuBtn" onclick="toggleSidebar()">☰</button>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">🏡</div>
+    <span class="nav-logo-text">Keys<span>AI</span></span>
+  </a>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab(this,'chat')">AI Assistant</button>
+    <button class="nav-tab" onclick="switchTab(this,'listings')">Listings</button>
+    <button class="nav-tab" onclick="switchTab(this,'market')">Market Insights</button>
+    <button class="nav-tab" onclick="switchTab(this,'tools')">Tools</button>
+  </div>
+  <div class="nav-right">
+    <span class="nav-badge">Powered by AI</span>
+    <button class="nav-btn" onclick="openModal('embed')">📋 Embed</button>
+    <button class="nav-btn" onclick="openModal('contact')">Book Showing</button>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<div class="embed-banner">
+  <div class="embed-banner-text">
+    <div class="embed-dot"></div>
+    <span>Live on <strong>yourteam.royallepage.ca</strong> — AI tab active for visitors</span>
+  </div>
+  <div class="embed-actions">
+    <button class="embed-code-btn" onclick="openModal('embed')">Get embed code</button>
+    <button class="embed-code-btn" onclick="openModal('embed')">Floating widget</button>
+  </div>
+</div>
+
+<!-- SIDEBAR OVERLAY (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- BODY -->
+<div class="app-body">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Quick Actions</div>
+      <button class="quick-prompt" onclick="sendQuick('What homes are available in Barrie under $700,000?');closeSidebar()">
+        <div class="quick-prompt-icon">🔍</div>
+        <span class="quick-prompt-text">Search listings by budget</span>
+      </button>
+      <button class="quick-prompt" onclick="sendQuick('What is the current Barrie real estate market like?');closeSidebar()">
+        <div class="quick-prompt-icon">📈</div>
+        <span class="quick-prompt-text">Local market conditions</span>
+      </button>
+      <button class="quick-prompt" onclick="sendQuick('How much mortgage can I qualify for with $90,000 income?');closeSidebar()">
+        <div class="quick-prompt-icon">🏦</div>
+        <span class="quick-prompt-text">Mortgage pre-qualification</span>
+      </button>
+      <button class="quick-prompt" onclick="sendQuick('What should I know as a first-time home buyer in Ontario?');closeSidebar()">
+        <div class="quick-prompt-icon">🔑</div>
+        <span class="quick-prompt-text">First-time buyer guide</span>
+      </button>
+      <button class="quick-prompt" onclick="sendQuick('Help me prepare my home to sell for maximum value.');closeSidebar()">
+        <div class="quick-prompt-icon">💰</div>
+        <span class="quick-prompt-text">Selling preparation tips</span>
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label" style="display:flex;align-items:center;justify-content:space-between;">
+        Market Snapshot
+        <span class="live-pill"><span class="live-dot"></span>Live</span>
       </div>
-      <div class="rl-sub">Real Estate Advisor</div>
-      <div class="product-badge">
-        <div class="dot"></div>
-        <span>PropertyIQ AI</span>
+      <div class="market-card" id="mcard-barrie">
+        <div class="market-card-city">Barrie, ON</div>
+        <div class="market-card-stats">
+          <div class="market-stat">
+            <span class="market-stat-value" id="ms-barrie-price">$742K</span>
+            <span class="market-stat-label">Avg. Price</span>
+          </div>
+          <div class="market-stat">
+            <span class="market-stat-value trend-up" id="ms-barrie-chg">+4.2%</span>
+            <span class="market-stat-label">YoY Change</span>
+          </div>
+          <div class="market-stat">
+            <span class="market-stat-value" id="ms-barrie-dom">18 days</span>
+            <span class="market-stat-label">Avg. DOM</span>
+          </div>
+        </div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-city">Toronto, ON</div>
+        <div class="market-card-stats">
+          <div class="market-stat">
+            <span class="market-stat-value" id="ms-tor-price">$1.12M</span>
+            <span class="market-stat-label">Avg. Price</span>
+          </div>
+          <div class="market-stat">
+            <span class="market-stat-value trend-dn" id="ms-tor-chg">-1.8%</span>
+            <span class="market-stat-label">YoY Change</span>
+          </div>
+          <div class="market-stat">
+            <span class="market-stat-value" id="ms-tor-dom">24 days</span>
+            <span class="market-stat-label">Avg. DOM</span>
+          </div>
+        </div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-city">Innisfil, ON</div>
+        <div class="market-card-stats">
+          <div class="market-stat">
+            <span class="market-stat-value" id="ms-inn-price">$864K</span>
+            <span class="market-stat-label">Avg. Price</span>
+          </div>
+          <div class="market-stat">
+            <span class="market-stat-value trend-up" id="ms-inn-chg">+6.1%</span>
+            <span class="market-stat-label">YoY Change</span>
+          </div>
+          <div class="market-stat">
+            <span class="market-stat-value" id="ms-inn-dom">14 days</span>
+            <span class="market-stat-label">Avg. DOM</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="avatar-section">
-      <canvas id="houseCanvas" width="194" height="180"></canvas>
-      <div class="avatar-status">
-        <div class="status-orb" id="statusOrb"></div>
-        <span id="statusText">Ready</span>
+    <div class="sidebar-section" style="flex:1">
+      <div class="sidebar-label">Your Agent</div>
+      <div class="agent-profile" onclick="sendQuick('I would like to schedule a call with my agent.');closeSidebar()">
+        <div class="agent-avatar">SR</div>
+        <div class="agent-info">
+          <div class="agent-name">Sarah Reynolds</div>
+          <div class="agent-title">Royal LePage · Barrie</div>
+        </div>
+        <div class="agent-status"></div>
       </div>
-    </div>
-
-    <div class="api-section">
-      <div class="section-label">OpenAI Key</div>
-      <div class="api-row">
-        <input type="password" class="api-input" id="apiKeyInput" placeholder="sk-..." />
-        <button class="api-btn" onclick="saveKey()">Save</button>
-      </div>
-      <div class="api-msg" id="apiMsg"></div>
-    </div>
-
-    <div class="quick-section">
-      <div class="section-label">Quick Topics</div>
-      <div class="quick-chips">
-        <button class="quick-chip" onclick="sendQuick('Compare these two listings for me and tell me which is the better buy: ')">
-          <span class="chip-icon">⇄</span>Compare two listings
-        </button>
-        <button class="quick-chip" onclick="sendQuick('Explain price per square foot and what makes it a useful metric when comparing homes.')">
-          <span class="chip-icon">📐</span>Price per sqft explained
-        </button>
-        <button class="quick-chip" onclick="sendQuick('What are the most important red flags to watch for when reviewing a residential listing?')">
-          <span class="chip-icon">⚑</span>Listing red flags
-        </button>
-        <button class="quick-chip" onclick="sendQuick('How do HOA fees affect the real monthly cost of owning a home? Break it down simply.')">
-          <span class="chip-icon">$</span>HOA fee impact
-        </button>
-        <button class="quick-chip" onclick="sendQuick('A home is listed as a fixer-upper or as-is. What should I investigate and how should I budget?')">
-          <span class="chip-icon">⚒</span>Evaluating fixer-uppers
-        </button>
-        <button class="quick-chip" onclick="sendQuick('This home has been on the market for over 90 days. What does that signal and how can I use it in negotiations?')">
-          <span class="chip-icon">◷</span>High days on market
-        </button>
-        <button class="quick-chip" onclick="sendQuick('What questions should I ask during a home tour? Give me a thorough checklist.')">
-          <span class="chip-icon">✓</span>Home tour checklist
-        </button>
-        <button class="quick-chip" onclick="sendQuick('What does a competitive offer look like right now for a residential home? Walk me through how to structure it.')">
-          <span class="chip-icon">✍</span>Writing a strong offer
-        </button>
-      </div>
-    </div>
-
-    <div class="panel-footer">
-      <span>PropertyIQ v2.1</span>
-      <span class="rl-tagline">Helping you is what we do.</span>
     </div>
   </aside>
 
-  <!-- ═══════════════════
-       CHAT PANEL
-  ══════════════════════ -->
-  <main class="chat-panel">
-
-    <div class="chat-topbar">
-      <div class="topbar-left">
-        <div class="topbar-title">AI Real Estate Advisor</div>
-        <div class="topbar-sub">GPT-4o · Residential Specialist · Royal LePage</div>
-      </div>
-      <div class="topbar-right">
-        <button class="topbar-btn" onclick="clearChat()">Clear Chat</button>
+  <!-- MAIN CHAT -->
+  <main class="chat-area">
+    <div class="chat-hero" id="heroSection">
+      <div class="chat-hero-content">
+        <div class="chat-hero-eyebrow">Your Royal LePage AI Concierge</div>
+        <h1 class="chat-hero-title">Find your <em>perfect home</em><br>with intelligent guidance</h1>
+        <p class="chat-hero-sub">Ask me anything — listings, mortgage estimates, neighbourhood insights, market trends, and more.</p>
+        <div class="hero-chips">
+          <button class="hero-chip" onclick="sendQuick('Show me homes near good schools in Barrie')">🏫 Near top schools</button>
+          <button class="hero-chip" onclick="sendQuick('What neighbourhoods are best for families in Barrie?')">🌳 Family neighbourhoods</button>
+          <button class="hero-chip" onclick="sendQuick('Explain the closing costs in Ontario')">📋 Closing costs</button>
+          <button class="hero-chip" onclick="sendQuick('Is now a good time to buy in Ontario?')">📊 Market timing</button>
+          <button class="hero-chip" onclick="sendQuick('What is the FHSA and how does it work?')">💵 FHSA explained</button>
+        </div>
       </div>
     </div>
 
     <div class="messages" id="messages">
-      <div class="welcome-block" id="welcomeBlock">
-        <div class="welcome-crest">
-          <div class="welcome-crest-ring"></div>
-          <div class="welcome-crest-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 9.5L12 3l9 6.5V21H3V9.5z" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9 21V13h6v8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+      <div class="message ai" id="welcomeMsg">
+        <div class="msg-avatar ai">K</div>
+        <div>
+          <div class="msg-bubble">
+            <strong>Welcome!</strong> I'm Keys, your Royal LePage AI real estate assistant for the Barrie area. I can help with listings, mortgage estimates, neighbourhood insights, market trends, closing costs, and much more.<br><br>What brings you here today?
+            <div class="msg-actions">
+              <button class="msg-action-btn" onclick="sendQuick('I am looking to buy my first home.')">🏡 I'm a buyer</button>
+              <button class="msg-action-btn" onclick="sendQuick('I want to sell my home. Where do I start?')">💰 I'm a seller</button>
+              <button class="msg-action-btn" onclick="sendQuick('I want to explore investment properties.')">📈 Investor</button>
+              <button class="msg-action-btn primary" onclick="sendQuick('Show me what you can do!')">Explore features</button>
+            </div>
           </div>
+          <div class="msg-meta">Keys AI · Just now</div>
         </div>
-        <div class="welcome-agency">Royal LePage</div>
-        <h3>Your Real Estate Advisor</h3>
-        <div class="welcome-rule"></div>
-        <p>Paste a listing for instant analysis, compare properties side by side, or ask anything about buying, selling, negotiation, and what to watch for in a home.</p>
       </div>
     </div>
 
-    <div class="input-bar">
-      <div class="input-outer">
+    <div class="input-area">
+      <div class="input-toolbar">
+        <button class="toolbar-btn" onclick="toggleMode(this,'buyer')" id="btn-buyer">🏠 Buyer</button>
+        <button class="toolbar-btn" onclick="toggleMode(this,'seller')" id="btn-seller">💰 Seller</button>
+        <button class="toolbar-btn" onclick="toggleMode(this,'investor')" id="btn-investor">📈 Investor</button>
+        <button class="toolbar-btn" onclick="sendQuick('Show me available listings in Barrie')">📋 Listings</button>
+        <button class="toolbar-btn" onclick="sendQuick('Calculate my mortgage payment')">🏦 Mortgage</button>
+      </div>
+      <div class="input-row">
         <div class="input-box">
-          <textarea id="chatInput"
-            placeholder="Paste a listing, ask about a property, compare homes…"
+          <textarea class="chat-input" id="chatInput"
+            placeholder="Ask about listings, mortgage rates, neighbourhoods…"
             rows="1"
             onkeydown="handleKey(event)"
-            oninput="onInput(this)"></textarea>
-          <span class="char-count" id="charCount"></span>
+            oninput="autoResize(this)"></textarea>
         </div>
-        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"/>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-          </svg>
+        <button class="send-btn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
-      <div class="input-hint">
-        <span>↵ Send · ⇧↵ New line</span>
-        <span id="modelTag">gpt-4o · Royal LePage PropertyIQ</span>
+      <div class="input-hint">KeysAI · Information is for guidance only and is not legal or financial advice</div>
+    </div>
+  </main>
+
+  <!-- RIGHT PANEL -->
+  <aside class="right-panel">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">Search Filters</div>
+        <div class="panel-sub">Refine your search</div>
       </div>
     </div>
 
-  </main>
+    <div class="panel-section">
+      <div class="panel-section-title">Property Type</div>
+      <div class="filter-chips">
+        <button class="filter-chip active" onclick="toggleChip(this)">All</button>
+        <button class="filter-chip" onclick="toggleChip(this)">Detached</button>
+        <button class="filter-chip" onclick="toggleChip(this)">Semi</button>
+        <button class="filter-chip" onclick="toggleChip(this)">Condo</button>
+        <button class="filter-chip" onclick="toggleChip(this)">Townhouse</button>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="panel-section-title">Budget & Bedrooms</div>
+      <div class="filter-group">
+        <div class="filter-label">Price Range</div>
+        <div style="display:flex;gap:0.35rem">
+          <input class="filter-input" id="fMin" placeholder="Min $" style="width:50%">
+          <input class="filter-input" id="fMax" placeholder="Max $" style="width:50%">
+        </div>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Bedrooms</div>
+        <div class="filter-chips">
+          <button class="filter-chip" onclick="toggleChip(this)">1+</button>
+          <button class="filter-chip active" onclick="toggleChip(this)">2+</button>
+          <button class="filter-chip" onclick="toggleChip(this)">3+</button>
+          <button class="filter-chip" onclick="toggleChip(this)">4+</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">City / Neighbourhood</div>
+        <input class="filter-input" id="fCity" placeholder="e.g. Barrie, Innisfil, Orillia">
+      </div>
+      <button class="apply-btn" onclick="applyFilters()">Apply Filters →</button>
+    </div>
+
+    <div class="panel-section">
+      <div class="panel-section-title">Saved Searches</div>
+      <div class="saved-item" onclick="sendQuick('Show me 3 bedroom homes in Barrie under $750,000')">
+        <div class="saved-dot"></div>
+        <span class="saved-name">Barrie · 3BR · Under $750K</span>
+        <span class="saved-count">12</span>
+      </div>
+      <div class="saved-item" onclick="sendQuick('Show me waterfront properties in Innisfil')">
+        <div class="saved-dot"></div>
+        <span class="saved-name">Innisfil · Waterfront</span>
+        <span class="saved-count">4</span>
+      </div>
+      <div class="saved-item" onclick="sendQuick('Show me condos in south Barrie')">
+        <div class="saved-dot" style="background:var(--text-muted)"></div>
+        <span class="saved-name">Condos · Barrie South</span>
+        <span class="saved-count">7</span>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="mortgage-calc">
+        <div class="calc-title">⚡ Mortgage Estimate</div>
+        <div class="calc-inputs">
+          <div class="calc-row">
+            <span class="calc-row-label">Home price</span>
+            <input class="calc-row-input" id="calcPrice" value="$750,000" oninput="calcMortgage()">
+          </div>
+          <div class="calc-row">
+            <span class="calc-row-label">Down payment</span>
+            <input class="calc-row-input" id="calcDown" value="$150,000" oninput="calcMortgage()">
+          </div>
+          <div class="calc-row">
+            <span class="calc-row-label">Rate (%) / yr</span>
+            <input class="calc-row-input" id="calcRate" value="5.19%" oninput="calcMortgage()">
+          </div>
+          <div class="calc-row">
+            <span class="calc-row-label">Amortization</span>
+            <input class="calc-row-input" id="calcYears" value="25 yrs" oninput="calcMortgage()">
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-monthly" id="calcResult">$3,284</div>
+          <div class="calc-monthly-label">/ MONTH ESTIMATED</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div><!-- /app-body -->
+</div><!-- /app-shell -->
+
+<!-- EMBED MODAL -->
+<div class="modal-overlay" id="modal-embed">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-header-title">Embed KeysAI on Your Website</span>
+      <button class="modal-close" onclick="closeModal('embed')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:0.85rem;line-height:1.6;">Add KeysAI as a tab or floating widget on your Royal LePage team website.</p>
+      <div style="display:flex;gap:0.4rem;margin-bottom:0.6rem">
+        <button class="toolbar-btn active" onclick="switchEmbedType('tab',this)">Tab embed</button>
+        <button class="toolbar-btn" onclick="switchEmbedType('float',this)">Floating chat</button>
+      </div>
+      <div class="modal-code" id="embedCode">
+<span class="c-muted">&lt;!-- KeysAI Tab Embed --&gt;</span>
+<span class="c-gold">&lt;div</span> <span class="c-blue">id</span>=<span class="c-green">"keysai-tab"</span><span class="c-gold">&gt;&lt;/div&gt;</span>
+<span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/embed.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>
+<span class="c-gold">&lt;script&gt;</span>
+  KeysAI.init({
+    <span class="c-blue">mode</span>: <span class="c-green">"tab"</span>,
+    <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span>,
+    <span class="c-blue">theme</span>: <span class="c-green">"royal-lepage"</span>,
+    <span class="c-blue">city</span>: <span class="c-green">"Barrie, ON"</span>
+  });
+<span class="c-gold">&lt;/script&gt;</span></div>
+      <button class="copy-btn" onclick="copyEmbed()">📋 Copy embed code</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="modal-contact">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-header-title">Book a Showing or Consultation</span>
+      <button class="modal-close" onclick="closeModal('contact')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;flex-direction:column;gap:0.65rem">
+        <div>
+          <div class="filter-label" style="margin-bottom:0.3rem">Your name</div>
+          <input class="filter-input" id="cName" placeholder="Full name">
+        </div>
+        <div>
+          <div class="filter-label" style="margin-bottom:0.3rem">Email</div>
+          <input class="filter-input" id="cEmail" placeholder="you@email.com" type="email">
+        </div>
+        <div>
+          <div class="filter-label" style="margin-bottom:0.3rem">Phone (optional)</div>
+          <input class="filter-input" placeholder="+1 (000) 000-0000" type="tel">
+        </div>
+        <div>
+          <div class="filter-label" style="margin-bottom:0.3rem">What are you looking for?</div>
+          <div class="filter-chips">
+            <button class="filter-chip active" onclick="toggleChip(this)">Buy</button>
+            <button class="filter-chip" onclick="toggleChip(this)">Sell</button>
+            <button class="filter-chip" onclick="toggleChip(this)">Invest</button>
+            <button class="filter-chip" onclick="toggleChip(this)">Just exploring</button>
+          </div>
+        </div>
+        <button class="apply-btn" style="margin-top:0.2rem" onclick="submitContact()">Send to Agent →</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════
-   3D HOUSE — Canvas 2D painter's algo renderer
-═══════════════════════════════════════════════ */
-(function() {
-  const canvas = document.getElementById('houseCanvas');
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
+/* ════════════════════════════════════════════════════
+   SELF-CONTAINED AI ENGINE
+   No external API calls. Pure rule-based + templated
+   knowledge base covering Canadian real estate.
+════════════════════════════════════════════════════ */
 
-  let angle = 0;
-  let pulseT = 0;
-  let isPulsing = false;
-  let pulseAmt = 0;
+const KNOWLEDGE = {
 
-  window._houseStartPulse = () => { isPulsing = true; };
-  window._houseStopPulse  = () => { isPulsing = false; };
+  /* ── MARKET DATA (simulated live) ── */
+  markets: {
+    barrie:   { price: 742000, yoy: 4.2,  dom: 18, inventory: 'moderate', trend: 'balanced' },
+    toronto:  { price: 1120000, yoy: -1.8, dom: 24, inventory: 'high',    trend: "buyer's" },
+    innisfil: { price: 864000, yoy: 6.1,  dom: 14, inventory: 'low',     trend: "seller's" },
+    orillia:  { price: 598000, yoy: 2.9,  dom: 22, inventory: 'moderate', trend: 'balanced' },
+    collingwood:{ price: 912000, yoy: 5.4, dom: 16, inventory: 'low',    trend: "seller's" },
+  },
 
-  // Geometry constants
-  const s  = 50;   // half-width/depth of base box
-  const bh = 42;   // half-height of base box
-  const rh = 36;   // roof pyramid height above box top
-  const cx = W / 2, cy = H / 2 + 8;
+  /* ── LISTINGS (illustrative) ── */
+  listings: [
+    { id:1, addr:'47 Hickling Trail, Barrie',      price:689000, bed:3, bath:2, sqft:1640, type:'Detached',  hood:'Allandale', emoji:'🏡', tag:'NEW' },
+    { id:2, addr:'221 Cundles Rd E, Barrie',       price:724900, bed:4, bath:3, sqft:2100, type:'Detached',  hood:'Holly',     emoji:'🏠', tag:'HOT' },
+    { id:3, addr:'88 Bradford St #412, Barrie',    price:479000, bed:2, bath:2, sqft:985,  type:'Condo',     hood:'Downtown',  emoji:'🏢', tag:'' },
+    { id:4, addr:'15 Sunnidale Pond Cres, Barrie', price:812000, bed:4, bath:3, sqft:2450, type:'Detached',  hood:'Sunnidale', emoji:'🏡', tag:'HOT' },
+    { id:5, addr:'33 Bell Farm Rd #7, Barrie',     price:564000, bed:3, bath:2, sqft:1380, type:'Townhouse', hood:'N.Shore',   emoji:'🏘', tag:'' },
+    { id:6, addr:'1042 Lakeshore Blvd, Innisfil',  price:1190000, bed:4, bath:4,sqft:2900, type:'Detached', hood:'Waterfront',emoji:'🏖', tag:'NEW' },
+    { id:7, addr:'74 Penetang St, Barrie',         price:658000, bed:3, bath:2, sqft:1520, type:'Semi',      hood:'East End',  emoji:'🏠', tag:'' },
+    { id:8, addr:'290 Essa Rd #201, Barrie',       price:399000, bed:1, bath:1, sqft:680,  type:'Condo',     hood:'S.Barrie',  emoji:'🏢', tag:'' },
+  ],
 
-  // All vertex positions (local 3D)
-  const V = {
-    // Base — bottom corners (y+ is down in screen space)
-    b0: [-s,  bh, -s], b1: [ s,  bh, -s], b2: [ s,  bh,  s], b3: [-s,  bh,  s],
-    // Base — top corners
-    t0: [-s, -bh, -s], t1: [ s, -bh, -s], t2: [ s, -bh,  s], t3: [-s, -bh,  s],
-    // Roof peak
-    pk: [ 0, -bh - rh, 0],
-    // Door (front face z=+s)
-    dr0: [-13, bh,  s], dr1: [13, bh,  s], dr2: [13, bh-38, s], dr3: [-13, bh-38, s],
-    // Window front left
-    wfl0: [-38, bh-16, s], wfl1: [-18, bh-16, s], wfl2: [-18, bh-42, s], wfl3: [-38, bh-42, s],
-    // Window front right
-    wfr0: [18, bh-16, s], wfr1: [38, bh-16, s], wfr2: [38, bh-42, s], wfr3: [18, bh-42, s],
-    // Window side right (x=+s)
-    wsr0: [s, bh-16, -24], wsr1: [s, bh-16, 24], wsr2: [s, bh-42, 24], wsr3: [s, bh-42, -24],
-  };
+  /* ── NEIGHBOURHOODS ── */
+  hoods: {
+    allandale: 'Established south Barrie neighbourhood with mature trees, quick GO Train access, and a mix of bungalows and two-storey detached homes. Great for commuters.',
+    holly: 'Family-friendly north Barrie community near top-rated schools (Willow Landing, Holly Meadows) with parks, trails, and newer builds.',
+    sunnidale: 'Prestigious area known for larger executive homes, proximity to Barrie Country Club, and quiet streets.',
+    downtown: 'Vibrant urban core with lakefront access, restaurants, and condos. Popular with young professionals.',
+    innisfil: 'Rapidly growing lake community south of Barrie. Innisfil Beach Park, waterfront lots, and strong appreciation.',
+    'north shore': 'Quiet waterfront area along Kempenfelt Bay. Premium lakefront properties with stunning views.',
+  },
 
-  function rotY(v, a) {
-    return [
-      v[0]*Math.cos(a) - v[2]*Math.sin(a),
-      v[1],
-      v[0]*Math.sin(a) + v[2]*Math.cos(a)
-    ];
-  }
+  /* ── MORTGAGE KNOWLEDGE ── */
+  mortgage: {
+    rates: { prime: 7.20, variable: 6.45, fixed5: 5.19, fixed3: 5.35, fixed1: 5.70 },
+    cmhc: { under500k: 0.04, '500to999k': 0.031, '1mplus': 'not insurable' },
+    stressTest: 5.25, // higher of 5.25% or contract+2%
+    maxGDS: 0.39, maxTDS: 0.44,
+  },
 
-  function proj(v) {
-    const fov = 310;
-    const dz = fov + v[2] + 160;
-    const d = fov / dz;
-    return [cx + v[0]*d, cy + v[1]*d, v[2]];
-  }
+  /* ── ONTARIO CLOSING COSTS ── */
+  closingCosts: {
+    ltt: 'Land Transfer Tax: 0.5% on first $55K, 1% $55K–$250K, 1.5% $250K–$400K, 2% $400K–$2M, 2.5% over $2M.',
+    torontoLTT: 'Toronto levies an additional LTT of the same rates on top of provincial.',
+    firstTimeLTT: 'First-time buyers get a provincial LTT rebate up to $4,000, and up to $4,475 in Toronto.',
+    legalFees: '$1,500–$2,500 for a real estate lawyer.',
+    titleInsurance: '$200–$400.',
+    homeinspection: '$400–$650.',
+    hst: 'HST applies to new construction; resale homes are exempt.',
+    typical: 'Budget 1.5–4% of purchase price for total closing costs.',
+  },
 
-  function xformPts(keys, a) {
-    return keys.map(k => proj(rotY(V[k], a)));
-  }
+  /* ── FIRST-TIME BUYER PROGRAMS ── */
+  programs: {
+    fhsa: 'The First Home Savings Account (FHSA) lets first-time buyers contribute up to $8,000/year (lifetime max $40,000). Contributions are tax-deductible; withdrawals for a qualifying home purchase are tax-free. You must open the account at least one calendar year before purchasing.',
+    rrspHBP: 'The RRSP Home Buyers\' Plan (HBP) lets first-time buyers withdraw up to $35,000 ($70,000 per couple) from RRSPs tax-free. Repayment required over 15 years.',
+    firstTimeRebate: 'Ontario First-Time Home Buyers Land Transfer Tax Rebate: up to $4,000 (provincial). Toronto adds up to $4,475.',
+    gst: 'New Home Rebate: partial GST/HST rebate on new homes under $450K purchase price.',
+  },
 
-  function polyZ(pts) {
-    return pts.reduce((s, p) => s + p[2], 0) / pts.length;
-  }
+  /* ── INVESTMENT KNOWLEDGE ── */
+  investment: {
+    capRate: 'Cap Rate = Net Operating Income / Purchase Price. In Barrie, typical residential cap rates run 3.5–5.5%. Aim for 5%+ for strong returns.',
+    cashOnCash: 'Cash-on-Cash Return = Annual Pre-Tax Cash Flow / Total Cash Invested. Target 6–10% for Ontario rentals.',
+    rentalDemand: 'Barrie\'s rental vacancy rate is approximately 2.1% — near historic lows, driven by GO expansion and population growth.',
+    averageRent: { oneBd: 1950, twoBd: 2450, threeBd: 2950 },
+  },
 
-  function fillPoly(pts, fill, strokeCol, lw = 0.8, alpha = 1) {
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.beginPath();
-    ctx.moveTo(pts[0][0], pts[0][1]);
-    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
-    ctx.closePath();
-    if (fill)      { ctx.fillStyle = fill; ctx.fill(); }
-    if (strokeCol) { ctx.strokeStyle = strokeCol; ctx.lineWidth = lw; ctx.stroke(); }
-    ctx.restore();
-  }
+  /* ── SELLING KNOWLEDGE ── */
+  selling: {
+    staging: ['Declutter and depersonalise every room', 'Fresh neutral paint (greige tones sell fastest in Barrie)', 'Professional photography — homes with pro photos sell 32% faster', 'Curb appeal: power wash driveway, fresh mulch, seasonal flowers', 'Kitchen and bathrooms: small upgrades (hardware, fixtures) yield high ROI', 'Pre-list home inspection to avoid surprises'],
+    pricing: 'Pricing strategy is critical. Barrie\'s market rewards well-priced homes with multiple offer situations. Overpriced listings sit and require reductions that signal weakness.',
+    timeline: 'Average sale in Barrie takes 18–25 days from list to firm. Budget 30–60 days from decision-to-list for prep work.',
+    commission: 'Typical commission in Ontario: 4–5% of sale price, split between buyer and seller agents.',
+  },
+};
 
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
+/* ─────────────────────────────────────
+   INTENT CLASSIFIER + RESPONSE ENGINE
+───────────────────────────────────── */
 
-    // Pulse easing
-    pulseAmt = isPulsing
-      ? Math.min(1, pulseAmt + 0.05)
-      : Math.max(0, pulseAmt - 0.025);
-    pulseT += 0.1;
-    const pulseWave = pulseAmt * (0.55 + 0.45 * Math.sin(pulseT));
-
-    const a = angle;
-    const sinA = Math.sin(a), cosA = Math.cos(a);
-
-    // Which faces are visible (facing camera)
-    const showFront = cosA > 0;
-    const showBack  = cosA < 0;
-    const showRight = sinA > 0;
-    const showLeft  = sinA < 0;
-
-    // Edge colours keyed to Royal LePage palette
-    const redEdge    = `rgba(200,16,46,${0.55 + pulseWave * 0.45})`;
-    const redEdgeMid = `rgba(200,16,46,${0.28 + pulseWave * 0.2})`;
-    const redEdgeDim = `rgba(200,16,46,${0.12 + pulseWave * 0.1})`;
-    const whiteEdge  = `rgba(255,255,255,${0.06 + pulseWave * 0.08})`;
-
-    // Wall fills — very dark
-    const wallFront = '#121212';
-    const wallSide  = '#0e0e0e';
-    const wallBack  = '#0b0b0b';
-    const roofFront = '#0f0f0f';
-    const roofSide  = '#0c0c0c';
-
-    const faces = [];
-
-    // ── Walls ──
-    if (showFront) faces.push({ pts: xformPts(['b3','b2','t2','t3'], a), fill: wallFront, sc: redEdge,    lw: 0.9 });
-    if (showBack)  faces.push({ pts: xformPts(['b0','b1','t1','t0'], a), fill: wallBack,  sc: redEdgeDim, lw: 0.5 });
-    if (showRight) faces.push({ pts: xformPts(['b2','b1','t1','t2'], a), fill: wallSide,  sc: redEdgeMid, lw: 0.7 });
-    if (showLeft)  faces.push({ pts: xformPts(['b0','b3','t3','t0'], a), fill: wallSide,  sc: redEdgeDim, lw: 0.5 });
-
-    // ── Base bottom ──
-    faces.push({ pts: xformPts(['b0','b1','b2','b3'], a), fill: '#090909', sc: whiteEdge, lw: 0.4 });
-
-    // ── Roof ──
-    const rfDefs = [
-      { keys: ['t3','t2','pk'], show: showFront, fill: roofFront, sc: redEdge,    lw: 0.9 },
-      { keys: ['t1','t0','pk'], show: showBack,  fill: roofBack,  sc: redEdgeDim, lw: 0.5 },
-      { keys: ['t2','t1','pk'], show: showRight, fill: roofSide,  sc: redEdgeMid, lw: 0.7 },
-      { keys: ['t0','t3','pk'], show: showLeft,  fill: roofSide,  sc: redEdgeDim, lw: 0.5 },
-    ];
-    const roofBack = '#0b0b0b';
-    rfDefs.forEach(r => {
-      if (r.show) faces.push({ pts: xformPts(r.keys, a), fill: r.fill, sc: r.sc, lw: r.lw });
-    });
-
-    // Depth sort
-    faces.sort((a, b) => polyZ(a.pts) - polyZ(b.pts));
-    faces.forEach(f => fillPoly(f.pts, f.fill, f.sc, f.lw));
-
-    // ── Door ──
-    if (showFront) {
-      const dp = xformPts(['dr0','dr1','dr2','dr3'], a);
-      fillPoly(dp, '#080808', `rgba(200,16,46,${0.6 + pulseWave * 0.4})`, 0.7);
-      // Handle
-      const hx = dp[1][0] + (dp[0][0] - dp[1][0]) * 0.22;
-      const hy = (dp[0][1] + dp[3][1]) / 2;
-      ctx.beginPath();
-      ctx.arc(hx, hy, 2.5, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(255,255,255,${0.5 + pulseWave * 0.3})`;
-      ctx.fill();
-    }
-
-    // ── Windows ──
-    const winFill   = `rgba(200,16,46,${0.07 + pulseWave * 0.1})`;
-    const winStroke = `rgba(200,16,46,${0.5  + pulseWave * 0.4})`;
-    const paneCol   = `rgba(200,16,46,${0.25 + pulseWave * 0.2})`;
-
-    function drawWindow(keys, visible) {
-      if (!visible) return;
-      const wp = xformPts(keys, a);
-      fillPoly(wp, winFill, winStroke, 0.6);
-      // Cross pane lines
-      const mx = (wp[0][0]+wp[1][0])/2, my = (wp[0][1]+wp[2][1])/2;
-      ctx.strokeStyle = paneCol; ctx.lineWidth = 0.5;
-      ctx.beginPath();
-      ctx.moveTo(mx, wp[0][1]); ctx.lineTo(mx, wp[2][1]);
-      ctx.moveTo(wp[0][0], my); ctx.lineTo(wp[1][0], my);
-      ctx.stroke();
-    }
-
-    drawWindow(['wfl0','wfl1','wfl2','wfl3'], showFront);
-    drawWindow(['wfr0','wfr1','wfr2','wfr3'], showFront);
-    drawWindow(['wsr0','wsr1','wsr2','wsr3'], showRight);
-
-    // ── Ambient glow halo ──
-    if (pulseAmt > 0.01) {
-      const grd = ctx.createRadialGradient(cx, cy, 20, cx, cy, 120);
-      grd.addColorStop(0, `rgba(200,16,46,${0.1 * pulseAmt})`);
-      grd.addColorStop(1, 'transparent');
-      ctx.fillStyle = grd;
-      ctx.fillRect(0, 0, W, H);
-    }
-
-    // ── Ground shadow ──
-    const gs = ctx.createRadialGradient(cx, H-10, 4, cx, H-10, 70);
-    gs.addColorStop(0, `rgba(200,16,46,${0.12 + pulseAmt * 0.08})`);
-    gs.addColorStop(1, 'transparent');
-    ctx.fillStyle = gs;
-    ctx.beginPath();
-    ctx.ellipse(cx, H-10, 68, 12, 0, 0, Math.PI*2);
-    ctx.fill();
-
-    // ── Ground rule ──
-    ctx.strokeStyle = `rgba(200,16,46,${0.18 + pulseAmt * 0.15})`;
-    ctx.lineWidth = 0.5;
-    ctx.beginPath();
-    ctx.moveTo(cx - 72, H-6); ctx.lineTo(cx + 72, H-6);
-    ctx.stroke();
-
-    angle += 0.007;
-    requestAnimationFrame(draw);
-  }
-
-  draw();
-})();
-
-/* ═══════════════════════════════════════════════
-   CHAT ENGINE
-═══════════════════════════════════════════════ */
-let apiKey = '';
-let busy   = false;
-let history = [];
-
-const SYSTEM = `You are PropertyIQ, a premium AI real estate advisor embedded in the Royal LePage client portal. You have expert-level knowledge of residential real estate: pricing, market analysis, negotiation, home inspection considerations, mortgage impact, HOA analysis, neighbourhood evaluation, and helping both buyers and sellers make confident, informed decisions.
-
-Tone: Confident, warm, precise. You speak like a trusted senior advisor — no jargon unless explained, always actionable. You represent Royal LePage's standard of excellence.
-
-When a user pastes listing data, always extract and analyze:
-1. Price per square foot — compare and flag high/low
-2. Property age — flag maintenance concerns for homes 20+ years old
-3. HOA fees — calculate real monthly cost impact
-4. Days on market — interpret market signal and negotiation leverage
-5. Condition signals (fixer, move-in ready, as-is)
-6. Amenities and their value contribution
-7. Overall verdict with clear reasoning
-
-Formatting rules:
-- Use **bold** for key terms and numbers
-- Use bullet lists for comparisons, checklists, and multi-point answers
-- Keep responses thorough but scannable — no padding
-- End every analytical response with 1–2 clear next steps for the client
-- When comparing properties, always give a definitive recommendation with reasoning
-
-You represent Royal LePage. Every response should feel like premium service.`;
-
-function saveKey() {
-  const inp = document.getElementById('apiKeyInput');
-  const msg = document.getElementById('apiMsg');
-  const k = inp.value.trim();
-  if (!k.startsWith('sk-')) {
-    msg.textContent = '✗ Must start with sk-';
-    msg.className = 'api-msg err';
-    return;
-  }
-  apiKey = k;
-  msg.textContent = '✓ Key saved · Ready';
-  msg.className = 'api-msg ok';
-  inp.value = '';
-  setTimeout(() => { msg.textContent = ''; }, 3000);
+function classifyIntent(msg) {
+  const m = msg.toLowerCase();
+  if (/list|availa|for sale|browse|show me|find.*home|search|properties|mls/i.test(m)) return 'listings';
+  if (/mortgage|payment|afford|qualify|borrow|amort|rate|cmhc|stress test|gds|tds/i.test(m)) return 'mortgage';
+  if (/market|trend|price|condition|now.*buy|good time|inventory|dom|days on/i.test(m)) return 'market';
+  if (/neighbour|hood|area|community|school|family|safe|transit|commute/i.test(m)) return 'neighbourhood';
+  if (/first.time|fhsa|rrsp|hbp|rebate|first home|incentive|program/i.test(m)) return 'firsttime';
+  if (/clos|land transfer|ltt|legal|lawyer|title|hst|gst|cost|fee/i.test(m)) return 'closing';
+  if (/invest|cap rate|cash.on|rental|landlord|roi|return|income property/i.test(m)) return 'investment';
+  if (/sell|list my|staging|stage|curb|commission|agent fee|what.*worth/i.test(m)) return 'selling';
+  if (/book|schedule|call|meeting|agent|sarah|contact|showing|visit/i.test(m)) return 'agent';
+  if (/feature|what can|help|do you|demo|explore|overview/i.test(m)) return 'features';
+  if (/buyer|buying|buy/i.test(m)) return 'buyer';
+  if (/seller|selling|sell/i.test(m)) return 'selling';
+  if (/investor|invest/i.test(m)) return 'investment';
+  return 'general';
 }
 
+function extractCity(msg) {
+  const m = msg.toLowerCase();
+  if (/innisfil/.test(m)) return 'innisfil';
+  if (/orillia/.test(m)) return 'orillia';
+  if (/toronto/.test(m)) return 'toronto';
+  if (/collingwood/.test(m)) return 'collingwood';
+  return 'barrie';
+}
+
+function extractBudget(msg) {
+  const match = msg.match(/\$?([\d,]+)k?/i);
+  if (!match) return null;
+  let n = parseFloat(match[1].replace(/,/g, ''));
+  if (/k/i.test(match[0])) n *= 1000;
+  return n;
+}
+
+function fmtPrice(n) {
+  if (n >= 1000000) return '$' + (n/1000000).toFixed(2).replace(/\.?0+$/, '') + 'M';
+  return '$' + Math.round(n).toLocaleString('en-CA');
+}
+
+function fmtPct(n) {
+  return (n >= 0 ? '+' : '') + n.toFixed(1) + '%';
+}
+
+/* Monthly mortgage payment */
+function calcPayment(price, down, annualRate, years) {
+  const p = price - down;
+  const r = annualRate / 12;
+  const n = years * 12;
+  if (r === 0) return p / n;
+  return p * (r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
+}
+
+/* Ontario LTT calculator */
+function calcLTT(price) {
+  let tax = 0;
+  if (price > 2000000) tax += (price - 2000000) * 0.025;
+  if (price > 400000) tax += (Math.min(price, 2000000) - 400000) * 0.02;
+  if (price > 250000) tax += (Math.min(price, 400000) - 250000) * 0.015;
+  if (price > 55000) tax += (Math.min(price, 250000) - 55000) * 0.01;
+  tax += Math.min(price, 55000) * 0.005;
+  return Math.round(tax);
+}
+
+/* ─── RESPONSE GENERATORS ─── */
+
+function respondListings(msg) {
+  const budget = extractBudget(msg);
+  const city = extractCity(msg);
+  let filtered = KNOWLEDGE.listings;
+  if (budget) filtered = filtered.filter(l => l.price <= budget * 1.05);
+  if (city !== 'barrie') filtered = filtered.filter(l => l.addr.toLowerCase().includes(city));
+  if (!filtered.length) filtered = KNOWLEDGE.listings.slice(0,4);
+  const show = filtered.slice(0,4);
+  const m = KNOWLEDGE.markets[city] || KNOWLEDGE.markets.barrie;
+
+  let html = `Here are ${show.length} illustrative listings${budget ? ` under ${fmtPrice(budget)}` : ''} in ${city.charAt(0).toUpperCase()+city.slice(1)} — representative of current active inventory:<br><br>`;
+
+  html += '<div class="listing-grid">';
+  show.forEach(l => {
+    html += `<div class="listing-card">
+      <div class="listing-img">${l.emoji}${l.tag ? `<span class="listing-tag">${l.tag}</span>` : ''}</div>
+      <div class="listing-body">
+        <div class="listing-price">${fmtPrice(l.price)}</div>
+        <div class="listing-addr">${l.addr}</div>
+        <div class="listing-specs"><span>🛏 ${l.bed}</span><span>🚿 ${l.bath}</span><span>📐 ${l.sqft.toLocaleString()} ft²</span></div>
+      </div>
+    </div>`;
+  });
+  html += '</div>';
+
+  html += `<br>The ${city} market is currently <strong>${m.trend}</strong> with avg. ${m.dom} days on market. Avg. price: <strong>${fmtPrice(m.price)}</strong> (${fmtPct(m.yoy)} YoY).<br><br>`;
+  html += `<em>These are illustrative examples. Contact Sarah Reynolds for live MLS access and private showings.</em>`;
+
+  html += '<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick(\'Tell me more about mortgage options for a home around $700,000\')">💰 Mortgage estimate</button><button class="msg-action-btn primary" onclick="openModal(\'contact\')">📅 Book a showing</button></div>';
+  return html;
+}
+
+function respondMortgage(msg) {
+  const budget = extractBudget(msg);
+  const incomeMatch = msg.match(/\$?([\d,]+)k?\s*(income|salary|earn|make|yr|year)/i);
+  const r = KNOWLEDGE.mortgage;
+
+  if (incomeMatch) {
+    let income = parseFloat(incomeMatch[1].replace(/,/g,''));
+    if (/k/i.test(incomeMatch[0])) income *= 1000;
+    const maxGDS = income * r.maxGDS / 12;
+    const taxesInsurance = 600;
+    const availForMortgage = maxGDS - taxesInsurance;
+    const rate = r.fixed5 / 100 / 12;
+    const n = 25 * 12;
+    const maxLoan = availForMortgage * (Math.pow(1+rate,n) - 1) / (rate * Math.pow(1+rate,n));
+    const maxPrice = maxLoan / 0.8;
+    const payment = Math.round(calcPayment(maxPrice, maxPrice*0.2, r.fixed5/100, 25));
+
+    return `<strong>Mortgage Pre-Qualification Estimate</strong><br><br>
+Based on <strong>${fmtPrice(income)}/year gross income</strong> at current 5-year fixed rate of <strong>${r.fixed5}%</strong>:<br><br>
+• <strong>Estimated max purchase price:</strong> ${fmtPrice(Math.round(maxPrice/1000)*1000)}<br>
+• <strong>Required down payment (20%):</strong> ${fmtPrice(Math.round(maxPrice*0.2/1000)*1000)}<br>
+• <strong>Estimated monthly payment:</strong> $${payment.toLocaleString('en-CA')}/mo<br>
+• <strong>Stress test rate used:</strong> ${Math.max(r.stressTest, r.fixed5+2)}% (OSFI qualifying rate)<br><br>
+<strong>Note:</strong> This is a simplified estimate. A lender will also factor in existing debt (TDS ratio), credit score, and property taxes. With a down payment under 20%, CMHC mortgage insurance of ${r.cmhc.under500k*100}% of the loan applies.<br><br>
+<em>Sarah Reynolds can connect you with preferred mortgage brokers who have access to 30+ lenders.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('What are the CMHC insurance rules?')">🏦 CMHC rules</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Talk to agent</button></div>`;
+  }
+
+  // Generic mortgage response
+  const price = budget || 750000;
+  const down = price * 0.2;
+  const payment = Math.round(calcPayment(price, down, r.fixed5/100, 25));
+
+  return `<strong>Current Mortgage Landscape (Canada)</strong><br><br>
+📊 <strong>Rates (as of today's estimates):</strong><br>
+• 5-year fixed: <strong>${r.fixed5}%</strong> — most popular, payment certainty<br>
+• 5-year variable: <strong>${r.variable}%</strong> — lower now, but rate risk<br>
+• 3-year fixed: <strong>${r.fixed3}%</strong> — flexibility if rates drop<br>
+• 1-year fixed: <strong>${r.fixed1}%</strong> — short commitment<br><br>
+💡 <strong>Quick example — ${fmtPrice(price)} home, 20% down:</strong><br>
+Monthly payment ≈ <strong>$${payment.toLocaleString('en-CA')}/mo</strong> at ${r.fixed5}% over 25 years.<br><br>
+⚠️ <strong>Stress test:</strong> You must qualify at ${r.stressTest}% or contract rate +2% — whichever is higher.<br><br>
+<strong>CMHC insurance:</strong> Required if down payment is under 20%. Adds 2.8–4% of loan amount, rolled into your mortgage.<br><br>
+<em>Use the mortgage calculator in the right panel to run your own numbers.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('How much can I afford on an $85,000 income?')">💼 Income qualifier</button><button class="msg-action-btn" onclick="sendQuick('What are the closing costs in Ontario?')">📋 Closing costs</button></div>`;
+}
+
+function respondMarket(msg) {
+  const city = extractCity(msg);
+  const m = KNOWLEDGE.markets[city] || KNOWLEDGE.markets.barrie;
+  const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+  const trendColour = m.yoy >= 0 ? '🟢' : '🔴';
+
+  return `<strong>${cityName} Market Report</strong> <span class="live-pill"><span class="live-dot"></span>Updated</span><br><br>
+${trendColour} <strong>Average Price:</strong> ${fmtPrice(m.price)} (${fmtPct(m.yoy)} year-over-year)<br>
+📅 <strong>Avg. Days on Market:</strong> ${m.dom} days<br>
+📦 <strong>Inventory:</strong> ${m.inventory.charAt(0).toUpperCase()+m.inventory.slice(1)}<br>
+⚖️ <strong>Market Conditions:</strong> ${m.trend.charAt(0).toUpperCase()+m.trend.slice(1)} market<br><br>
+<strong>What this means for you:</strong><br>
+${m.trend === "seller's"
+  ? `• Sellers hold the power — expect competition and over-asking offers<br>• Buyers: come with pre-approval, be decisive, and consider escalation clauses<br>• Low inventory means less choice but strong resale value`
+  : m.trend === "buyer's"
+  ? `• More negotiating room for buyers — prices are softening<br>• Longer listing times mean sellers are more motivated<br>• Great time to negotiate conditions and inspect thoroughly`
+  : `• Balanced conditions — fairer deals for both sides<br>• Reasonable negotiating room, some multiple-offer situations<br>• Steady appreciation expected`}<br><br>
+<em>Data reflects current residential market estimates. For neighbourhood-level precision, connect with Sarah Reynolds.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me listings in ${cityName}')">🏡 View listings</button><button class="msg-action-btn" onclick="sendQuick('Is now a good time to buy?')">📊 Timing advice</button></div>`;
+}
+
+function respondNeighbourhood(msg) {
+  const m = msg.toLowerCase();
+  let hood = null;
+  Object.keys(KNOWLEDGE.hoods).forEach(k => { if (m.includes(k)) hood = k; });
+
+  if (hood) {
+    return `<strong>${hood.charAt(0).toUpperCase()+hood.slice(1)}</strong><br><br>${KNOWLEDGE.hoods[hood]}<br><br>
+<em>Would you like to see available listings in this area, or get more detail on schools and amenities nearby?</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me listings in ${hood}')">🏡 Listings here</button><button class="msg-action-btn" onclick="sendQuick('What schools are near ${hood}?')">🏫 Nearby schools</button></div>`;
+  }
+
+  return `<strong>Barrie Neighbourhood Guide</strong><br><br>
+🌳 <strong>Holly (North):</strong> Top-rated schools, parks, newer builds — #1 for young families<br>
+🏡 <strong>Allandale (South):</strong> Mature trees, GO Train access, established community<br>
+🏙️ <strong>Downtown:</strong> Lakefront, condos, walkability — great for professionals<br>
+🏆 <strong>Sunnidale:</strong> Executive homes, Barrie Country Club, quiet streets<br>
+🌊 <strong>Innisfil/Friday Harbour:</strong> Lakefront living, rapid appreciation<br>
+🏘️ <strong>North Shore:</strong> Kempenfelt Bay views, premium waterfront<br><br>
+<em>Which neighbourhood interests you most? I can go deep on schools, commute times, price ranges, and more.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Tell me about the Holly neighbourhood in Barrie')">🌳 Holly</button><button class="msg-action-btn" onclick="sendQuick('Tell me about Allandale in Barrie')">🏡 Allandale</button><button class="msg-action-btn" onclick="sendQuick('Tell me about Downtown Barrie')">🏙️ Downtown</button></div>`;
+}
+
+function respondFirstTime(msg) {
+  const p = KNOWLEDGE.programs;
+  const cc = KNOWLEDGE.closingCosts;
+  return `<strong>First-Time Home Buyer Guide — Ontario</strong><br><br>
+💵 <strong>FHSA (First Home Savings Account):</strong><br>${p.fhsa}<br><br>
+💰 <strong>RRSP Home Buyers' Plan:</strong><br>${p.rrspHBP}<br><br>
+🏷️ <strong>Land Transfer Tax Rebate:</strong><br>${p.firstTimeRebate}<br><br>
+📋 <strong>Key Steps:</strong><br>
+1. Get a mortgage pre-approval first<br>
+2. Open an FHSA now — even if buying is 1–2 years away<br>
+3. Budget 1.5–4% of purchase price for closing costs<br>
+4. Work with a REALTOR® (buyer's agent is free to you)<br>
+5. Include a home inspection condition<br><br>
+<em>Sarah Reynolds specialises in first-time buyers and can walk you through every step.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('How much can I afford on a $75,000 income?')">💼 Affordability check</button><button class="msg-action-btn" onclick="sendQuick('Explain closing costs in Ontario')">📋 Closing costs</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Book consultation</button></div>`;
+}
+
+function respondClosing(msg) {
+  const budget = extractBudget(msg) || 750000;
+  const ltt = calcLTT(budget);
+  const lttFTB = Math.max(0, ltt - 4000);
+  const total = ltt + 2000 + 400 + 500; // ltt + legal + title + inspection
+  const c = KNOWLEDGE.closingCosts;
+  return `<strong>Ontario Closing Costs — ${fmtPrice(budget)} Purchase</strong><br><br>
+🏛️ <strong>Land Transfer Tax:</strong> ~${fmtPrice(ltt)}<br>
+&nbsp;&nbsp;↳ First-time buyers: rebate up to $4,000 → ~${fmtPrice(lttFTB)}<br>
+⚖️ <strong>Legal Fees:</strong> $1,500–$2,500<br>
+📄 <strong>Title Insurance:</strong> $200–$400<br>
+🔍 <strong>Home Inspection:</strong> $400–$650<br>
+🗃️ <strong>Title Search / Disbursements:</strong> $300–$600<br>
+📦 <strong>Moving Costs:</strong> $1,000–$3,000<br><br>
+<strong>Total Estimate:</strong> ~${fmtPrice(total)} – ${fmtPrice(total + 3000)} for a typical buyer<br>
+(First-timers save ~$4,000 via LTT rebate)<br><br>
+⚠️ <strong>New construction:</strong> HST (13%) applies on top of purchase price — partially rebated for primary residences.<br><br>
+${c.ltt}<br><br>
+<em>Your lawyer will provide an exact statement of adjustments before closing day.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('What first-time buyer programs are available in Ontario?')">🎁 Buyer programs</button></div>`;
+}
+
+function respondInvestment(msg) {
+  const inv = KNOWLEDGE.investment;
+  return `<strong>Barrie Investment Property Analysis</strong><br><br>
+📊 <strong>Market Fundamentals:</strong><br>
+• Vacancy rate: ~2.1% (near historic low)<br>
+• Population growth: 2.3%/yr — GO Train expansion driving demand<br>
+• Avg. rents: 1-bed $${inv.averageRent.oneBd.toLocaleString()}/mo | 2-bed $${inv.averageRent.twoBd.toLocaleString()}/mo | 3-bed $${inv.averageRent.threeBd.toLocaleString()}/mo<br><br>
+📐 <strong>Key Metrics:</strong><br>
+• ${inv.capRate}<br>
+• ${inv.cashOnCash}<br><br>
+💡 <strong>Best Bets in Barrie:</strong><br>
+• Duplexes in Allandale (value + rental income)<br>
+• Pre-construction condos near GO Station<br>
+• Innisfil cottage/short-term rental play<br><br>
+⚠️ <strong>Ontario Landlord Rules:</strong> Rent control applies to units built before Nov 2018 (max annual increase 2.5% in 2025). New builds are exempt.<br><br>
+<em>Sarah can connect you with off-market investment listings and local property managers.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me investment properties in Barrie')">🏢 View investments</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Investor consult</button></div>`;
+}
+
+function respondSelling(msg) {
+  const s = KNOWLEDGE.selling;
+  const m = KNOWLEDGE.markets.barrie;
+  return `<strong>Selling Your Home in Barrie</strong><br><br>
+📅 <strong>Market Context:</strong> ${m.trend.charAt(0).toUpperCase()+m.trend.slice(1)} market. Avg. ${m.dom} days on market at ${fmtPrice(m.price)} avg. price (+${m.yoy}% YoY).<br><br>
+✅ <strong>Staging Checklist:</strong><br>
+${s.staging.map(t => `• ${t}`).join('<br>')}<br><br>
+💰 <strong>Pricing Strategy:</strong><br>${s.pricing}<br><br>
+📆 <strong>Timeline:</strong> ${s.timeline}<br><br>
+🤝 <strong>Commission:</strong> ${s.commission}<br><br>
+<em>A comparative market analysis (CMA) from Sarah Reynolds will give you an accurate current value for your specific home.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('What is my home worth in Barrie?')">🏡 Home valuation</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 List with Sarah</button></div>`;
+}
+
+function respondAgent(msg) {
+  return `<strong>Connect with Sarah Reynolds</strong><br><br>
+👤 <strong>Sarah Reynolds</strong><br>
+🏢 Royal LePage First Contact Real Estate Brokerage<br>
+📍 Barrie, Ontario<br>
+⭐ 12+ years experience · Barrie & Simcoe County specialist<br><br>
+Sarah specialises in:<br>
+• First-time home buyers<br>
+• Move-up buyers and sellers<br>
+• Investment and rental properties<br>
+• Waterfront and cottage properties<br><br>
+<em>Use the button below to send your contact info and Sarah will reach out within 24 hours.</em>
+<div class="msg-actions"><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Book a consultation</button><button class="msg-action-btn" onclick="sendQuick('What questions should I ask my agent?')">❓ Questions to ask</button></div>`;
+}
+
+function respondFeatures(msg) {
+  return `<strong>Here's what I can help you with:</strong><br><br>
+🏡 <strong>Property Search</strong> — Ask for listings by city, budget, beds, type<br>
+💰 <strong>Mortgage Estimates</strong> — Payment calc, affordability by income, CMHC rules<br>
+📊 <strong>Market Reports</strong> — Barrie, Innisfil, Orillia, Toronto, Collingwood data<br>
+🌳 <strong>Neighbourhood Guides</strong> — Holly, Allandale, Downtown, Sunnidale & more<br>
+📋 <strong>Closing Costs</strong> — LTT, legal fees, HST — with real Ontario numbers<br>
+🎁 <strong>Buyer Programs</strong> — FHSA, RRSP HBP, first-time rebates explained<br>
+📈 <strong>Investment Analysis</strong> — Cap rates, rental demand, cash-on-cash<br>
+🔨 <strong>Selling Guidance</strong> — Staging, pricing strategy, timelines<br>
+📅 <strong>Agent Connection</strong> — Book a showing or consultation with Sarah<br><br>
+<em>Everything is powered locally — no external services needed. What would you like to explore?</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me homes in Barrie under $750,000')">🏡 Search listings</button><button class="msg-action-btn" onclick="sendQuick('How much can I afford on $85,000 income?')">💼 Affordability</button><button class="msg-action-btn" onclick="sendQuick('What is the Barrie market like right now?')">📊 Market report</button></div>`;
+}
+
+function respondBuyer(msg) {
+  return `<strong>Buying a Home — Where to Start</strong><br><br>
+Here's the typical journey for buyers in Barrie:<br><br>
+<strong>1. Get Pre-Approved</strong> — Know your budget before you fall in love with a home. Takes 1–3 business days.<br>
+<strong>2. Define Your Must-Haves</strong> — Beds, baths, neighbourhood, commute, schools.<br>
+<strong>3. Work with a REALTOR®</strong> — Buyer's agent costs you nothing (paid by seller).<br>
+<strong>4. Start Viewing</strong> — In a ${KNOWLEDGE.markets.barrie.trend} market, move thoughtfully but decisively.<br>
+<strong>5. Make an Offer</strong> — Include conditions (financing, inspection) for protection.<br>
+<strong>6. Close</strong> — Usually 30–90 days after offer accepted. Budget for closing costs.<br><br>
+<em>Barrie avg. home price: ${fmtPrice(KNOWLEDGE.markets.barrie.price)} · ${KNOWLEDGE.markets.barrie.dom} days on market avg.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('How much can I afford on $80,000 income?')">💼 Affordability</button><button class="msg-action-btn" onclick="sendQuick('Show me listings in Barrie')">🏡 Browse homes</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Book consult</button></div>`;
+}
+
+function respondGeneral(msg) {
+  const m = msg.toLowerCase();
+  if (/school|education/i.test(m)) {
+    return `<strong>Schools in Barrie</strong><br><br>
+🏫 <strong>Top-rated schools:</strong><br>
+• Holly Meadows Elementary (Holly) — highly rated<br>
+• Willow Landing Elementary (Holly) — strong EQAO scores<br>
+• Eastview Secondary — IB programme available<br>
+• St. Peter's Catholic Secondary — arts & athletics focus<br>
+• Georgian College — post-secondary, in downtown Barrie<br><br>
+The <strong>Holly neighbourhood</strong> in north Barrie consistently attracts families for its school catchments. Allandale and Painswick also have strong elementary options.<br><br>
+<em>School boundaries change — always verify with the SCDSB or SMCDSB before purchasing.</em>
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me homes near Holly school area')">🏡 Holly listings</button></div>`;
+  }
+  if (/interest rate|bank of canada|boc/i.test(m)) {
+    return `<strong>Interest Rates — Canada</strong><br><br>
+The <strong>Bank of Canada prime rate</strong> is currently <strong>${KNOWLEDGE.mortgage.rates.prime}%</strong>.<br><br>
+Mortgage rates available to borrowers (estimates):<br>
+• 5-year fixed: <strong>${KNOWLEDGE.mortgage.rates.fixed5}%</strong><br>
+• 5-year variable: <strong>${KNOWLEDGE.mortgage.rates.variable}%</strong> (prime - 0.75%)<br>
+• 3-year fixed: <strong>${KNOWLEDGE.mortgage.rates.fixed3}%</strong><br><br>
+<em>Rates shift weekly. A mortgage broker with access to 30+ lenders will find you the best available rate. Sarah can connect you with trusted brokers.</em>`;
+  }
+  if (/hello|hi|hey|good morning|good afternoon/i.test(m)) {
+    return `Hello! 👋 I'm Keys — your Royal LePage AI assistant for the Barrie area. I can help with listings, mortgage estimates, market insights, neighbourhood guides, and more.<br><br>What are you looking for today?
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me available homes in Barrie')">🏡 Browse homes</button><button class="msg-action-btn" onclick="sendQuick('What is the Barrie market like?')">📊 Market report</button><button class="msg-action-btn primary" onclick="sendQuick('Show me what you can do!')">Explore features</button></div>`;
+  }
+  return `That's a great question about Barrie real estate. Based on current market conditions:<br><br>
+• Average home price in Barrie: <strong>${fmtPrice(KNOWLEDGE.markets.barrie.price)}</strong><br>
+• Market conditions: <strong>${KNOWLEDGE.markets.barrie.trend}</strong><br>
+• Days on market: <strong>${KNOWLEDGE.markets.barrie.dom} days</strong><br><br>
+I specialise in Barrie and Simcoe County real estate. Can you tell me more about what you're looking for — buying, selling, investing, or just exploring the market?
+<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('I want to buy a home in Barrie')">🏡 Buying</button><button class="msg-action-btn" onclick="sendQuick('I want to sell my home')">💰 Selling</button><button class="msg-action-btn" onclick="sendQuick('Show me what you can do')">✨ Explore</button></div>`;
+}
+
+function generateResponse(msg) {
+  const intent = classifyIntent(msg);
+  switch(intent) {
+    case 'listings':      return respondListings(msg);
+    case 'mortgage':      return respondMortgage(msg);
+    case 'market':        return respondMarket(msg);
+    case 'neighbourhood': return respondNeighbourhood(msg);
+    case 'firsttime':     return respondFirstTime(msg);
+    case 'closing':       return respondClosing(msg);
+    case 'investment':    return respondInvestment(msg);
+    case 'selling':       return respondSelling(msg);
+    case 'agent':         return respondAgent(msg);
+    case 'features':      return respondFeatures(msg);
+    case 'buyer':         return respondBuyer(msg);
+    default:              return respondGeneral(msg);
+  }
+}
+
+/* ─────────────────────────────────────
+   SIMULATED LIVE MARKET UPDATES
+   Subtle variation every 45s to mimic
+   a live data feed experience.
+───────────────────────────────────── */
+function jitter(base, pct) {
+  return base + base * (Math.random() - 0.5) * pct;
+}
+
+function updateMarketCards() {
+  const b = KNOWLEDGE.markets.barrie;
+  const t = KNOWLEDGE.markets.toronto;
+  const i = KNOWLEDGE.markets.innisfil;
+
+  const bPrice = Math.round(jitter(b.price, 0.005) / 1000) * 1000;
+  const tPrice = Math.round(jitter(t.price, 0.004) / 1000) * 1000;
+  const iPrice = Math.round(jitter(i.price, 0.006) / 1000) * 1000;
+
+  const el = id => document.getElementById(id);
+  if(el('ms-barrie-price')) el('ms-barrie-price').textContent = fmtPrice(bPrice);
+  if(el('ms-tor-price'))    el('ms-tor-price').textContent    = fmtPrice(tPrice);
+  if(el('ms-inn-price'))    el('ms-inn-price').textContent    = fmtPrice(iPrice);
+}
+
+setInterval(updateMarketCards, 45000);
+
+/* ─────────────────────────────────────
+   CHAT ENGINE
+───────────────────────────────────── */
+let isTyping = false;
+let activeMode = null;
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text || isTyping) return;
+
+  const hero = document.getElementById('heroSection');
+  if (hero) hero.style.display = 'none';
+
+  input.value = '';
+  autoResize(input);
+  appendMessage('user', text);
+  showTyping();
+
+  // Realistic thinking delay (300–900ms based on message length)
+  const delay = Math.min(900, 300 + text.length * 3);
+  await new Promise(r => setTimeout(r, delay));
+
+  hideTyping();
+  const response = generateResponse(text);
+  appendMessage('ai', response);
+}
+
+function sendQuick(text) {
+  document.getElementById('chatInput').value = text;
+  sendMessage();
+}
+
+function appendMessage(role, html) {
+  const container = document.getElementById('messages');
+  const now = new Date().toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'});
+  const wrapper = document.createElement('div');
+  wrapper.className = `message ${role}`;
+
+  if (role === 'ai') {
+    wrapper.innerHTML = `
+      <div class="msg-avatar ai">K</div>
+      <div>
+        <div class="msg-bubble">${html}</div>
+        <div class="msg-meta">Keys AI · ${now}</div>
+      </div>`;
+  } else {
+    const safe = html.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    wrapper.innerHTML = `
+      <div>
+        <div class="msg-bubble">${safe}</div>
+        <div class="msg-meta">You · ${now}</div>
+      </div>
+      <div class="msg-avatar user-av">You</div>`;
+  }
+
+  container.appendChild(wrapper);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTyping() {
+  isTyping = true;
+  const container = document.getElementById('messages');
+  const el = document.createElement('div');
+  el.className = 'message ai'; el.id = 'typing-indicator';
+  el.innerHTML = `
+    <div class="msg-avatar ai">K</div>
+    <div><div class="msg-bubble" style="padding:0.65rem 1rem;">
+      <div class="typing-dots">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+    </div></div>`;
+  container.appendChild(el);
+  container.scrollTop = container.scrollHeight;
+}
+
+function hideTyping() {
+  isTyping = false;
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+/* ─── UI CONTROLS ─── */
 function handleKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 }
 
-function onInput(el) {
+function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 130) + 'px';
-  const n = el.value.length;
-  const cc = document.getElementById('charCount');
-  cc.textContent = n > 200 ? n : '';
 }
 
-function getTime() {
-  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
-
-function esc(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-function formatReply(text) {
-  // Bold **x**
-  let h = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  // Section headers ### and ##
-  h = h.replace(/^###\s+(.+)$/gm, '<div class="section-head">$1</div>');
-  h = h.replace(/^##\s+(.+)$/gm, '<div class="section-head">$1</div>');
-
-  const lines = h.split('\n');
-  const out = [];
-  let inList = false;
-
-  for (const raw of lines) {
-    const line = raw.trim();
-    const isBullet = /^[-•*]\s/.test(line) || /^\d+\.\s/.test(line);
-
-    if (isBullet) {
-      if (!inList) { out.push('<ul>'); inList = true; }
-      const content = line.replace(/^[-•*]\s/, '').replace(/^\d+\.\s/, '');
-      out.push(`<li>${content}</li>`);
-    } else {
-      if (inList) { out.push('</ul>'); inList = false; }
-      if (line.startsWith('<div class="section-head">')) {
-        out.push(line);
-      } else if (line) {
-        out.push(`<p>${line}</p>`);
-      } else {
-        out.push('<div style="height:5px"></div>');
-      }
-    }
+function switchTab(btn, tab) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  if (tab !== 'chat') {
+    const map = {
+      listings: 'Show me available listings in Barrie',
+      market: 'Give me a full Barrie market report',
+      tools: 'Show me the mortgage calculator and tools you offer'
+    };
+    sendQuick(map[tab] || `Tell me about the ${tab} section`);
   }
-  if (inList) out.push('</ul>');
-  return out.join('');
 }
 
-function addMsg(role, rawText, formatted) {
-  const wrap = document.getElementById('messages');
-  const wb = document.getElementById('welcomeBlock');
-  if (wb) wb.remove();
-
-  const row = document.createElement('div');
-  row.className = `msg-row ${role}`;
-
-  const avHtml = role === 'ai'
-    ? `<div class="msg-av ai" id="lastAiAv">⌂</div>`
-    : `<div class="msg-av user">U</div>`;
-
-  const bubbleExtra = role === 'ai' ? 'typing-reveal scanning' : '';
-
-  row.innerHTML = `
-    ${avHtml}
-    <div>
-      <div class="msg-bubble ${bubbleExtra}">${formatted || esc(rawText)}</div>
-      <div class="msg-meta">${getTime()}</div>
-    </div>
-  `;
-
-  wrap.appendChild(row);
-  wrap.scrollTop = wrap.scrollHeight;
-  return row;
+function toggleMode(btn, mode) {
+  const wasActive = btn.classList.contains('active');
+  document.querySelectorAll('.toolbar-btn').forEach(b => b.classList.remove('active'));
+  if (!wasActive) { btn.classList.add('active'); activeMode = mode; }
+  else { activeMode = null; }
 }
 
-function showThinking() {
-  const wrap = document.getElementById('messages');
-  const row = document.createElement('div');
-  row.className = 'thinking-row';
-  row.id = 'thinkRow';
-  row.innerHTML = `
-    <div class="msg-av ai pulsing">⌂</div>
-    <div class="thinking-bubble">
-      <div class="wave-bars">
-        <div class="wave-bar"></div><div class="wave-bar"></div>
-        <div class="wave-bar"></div><div class="wave-bar"></div>
-        <div class="wave-bar"></div><div class="wave-bar"></div>
-        <div class="wave-bar"></div><div class="wave-bar"></div>
-      </div>
-      <span class="thinking-text">Analyzing<span id="ellipsis">...</span></span>
-    </div>
-  `;
-  wrap.appendChild(row);
-  wrap.scrollTop = wrap.scrollHeight;
+function toggleChip(el) { el.classList.toggle('active'); }
 
-  // Animated ellipsis
-  const dots = ['', '.', '..', '...'];
-  let di = 0;
-  row._ellTimer = setInterval(() => {
-    const el = document.getElementById('ellipsis');
-    if (el) el.textContent = dots[++di % 4];
-  }, 400);
+function applyFilters() {
+  const min = document.getElementById('fMin').value;
+  const max = document.getElementById('fMax').value;
+  const city = document.getElementById('fCity').value;
+  const beds = document.querySelector('.filter-chip.active');
+  const parts = [];
+  if (city) parts.push(`in ${city}`);
+  if (min || max) parts.push(`priced ${min ? 'from '+min : ''} ${max ? 'to '+max : ''}`.trim());
+  if (beds) parts.push(`with ${beds.textContent} bedrooms`);
+  sendQuick(`Show me listings ${parts.join(', ') || 'in Barrie'}`);
 }
 
-function removeThinking() {
-  const r = document.getElementById('thinkRow');
-  if (r) { clearInterval(r._ellTimer); r.remove(); }
+/* ── MORTGAGE CALC ── */
+function calcMortgage() {
+  const parseNum = s => parseFloat((s||'').replace(/[^0-9.]/g,'')) || 0;
+  const price = parseNum(document.getElementById('calcPrice').value);
+  const down = parseNum(document.getElementById('calcDown').value);
+  const rate = parseNum(document.getElementById('calcRate').value) / 100;
+  const years = parseNum(document.getElementById('calcYears').value);
+  const monthly = calcPayment(price, down, rate, years);
+  document.getElementById('calcResult').textContent =
+    (monthly > 0 && isFinite(monthly))
+      ? '$' + Math.round(monthly).toLocaleString('en-CA')
+      : '—';
+}
+calcMortgage();
+
+/* ── SIDEBAR DRAWER (mobile) ── */
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
 }
 
-function setStatus(active) {
-  busy = active;
-  document.getElementById('sendBtn').disabled = active;
-  const orb = document.getElementById('statusOrb');
-  const txt = document.getElementById('statusText');
-  if (active) {
-    orb.className = 'status-orb active';
-    txt.textContent = 'Analyzing…';
-    window._houseStartPulse();
+/* ── MODALS ── */
+function openModal(id) { document.getElementById('modal-'+id).classList.add('open'); }
+function closeModal(id) { document.getElementById('modal-'+id).classList.remove('open'); }
+
+document.querySelectorAll('.modal-overlay').forEach(o => {
+  o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
+});
+
+function switchEmbedType(type, btn) {
+  document.querySelectorAll('#modal-embed .toolbar-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const el = document.getElementById('embedCode');
+  if (type === 'float') {
+    el.innerHTML = `<span class="c-muted">&lt;!-- KeysAI Floating Widget --&gt;</span>
+<span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/widget.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>
+<span class="c-gold">&lt;script&gt;</span>
+  KeysAI.chat({
+    <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span>,
+    <span class="c-blue">position</span>: <span class="c-green">"bottom-right"</span>,
+    <span class="c-blue">greeting</span>: <span class="c-green">"Hi! Looking for a home in Barrie?"</span>,
+    <span class="c-blue">color</span>: <span class="c-green">"#1A2744"</span>,
+    <span class="c-blue">accent</span>: <span class="c-green">"#C9A84C"</span>
+  });
+<span class="c-gold">&lt;/script&gt;</span>`;
   } else {
-    orb.className = 'status-orb';
-    txt.textContent = 'Ready';
-    window._houseStopPulse();
+    el.innerHTML = `<span class="c-muted">&lt;!-- KeysAI Tab Embed --&gt;</span>
+<span class="c-gold">&lt;div</span> <span class="c-blue">id</span>=<span class="c-green">"keysai-tab"</span><span class="c-gold">&gt;&lt;/div&gt;</span>
+<span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/embed.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>
+<span class="c-gold">&lt;script&gt;</span>
+  KeysAI.init({
+    <span class="c-blue">mode</span>: <span class="c-green">"tab"</span>,
+    <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span>,
+    <span class="c-blue">theme</span>: <span class="c-green">"royal-lepage"</span>,
+    <span class="c-blue">city</span>: <span class="c-green">"Barrie, ON"</span>
+  });
+<span class="c-gold">&lt;/script&gt;</span>`;
   }
 }
 
-function sendQuick(text) {
-  const inp = document.getElementById('chatInput');
-  inp.value = text;
-  onInput(inp);
-  inp.focus();
+function copyEmbed() {
+  const text = document.getElementById('embedCode').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy embed code', 2000);
+  });
 }
 
-async function sendMessage() {
-  if (busy) return;
-  const inp = document.getElementById('chatInput');
-  const text = inp.value.trim();
-  if (!text) return;
-
-  if (!apiKey) {
-    addMsg('ai', '', '<p style="color:var(--rl-red2)">⚠ Please enter your OpenAI API key in the left panel to begin.</p>');
-    return;
-  }
-
-  addMsg('user', text);
-  history.push({ role: 'user', content: text });
-  inp.value = '';
-  inp.style.height = 'auto';
-  document.getElementById('charCount').textContent = '';
-
-  setStatus(true);
-  showThinking();
-
-  try {
-    const res = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-4o',
-        messages: [
-          { role: 'system', content: SYSTEM },
-          ...history
-        ],
-        max_tokens: 1400,
-        temperature: 0.6,
-      })
-    });
-
-    const data = await res.json();
-
-    if (data.error) {
-      removeThinking();
-      addMsg('ai', '', `<p style="color:var(--rl-red2)">⚠ ${esc(data.error.message)}</p>`);
-      setStatus(false);
-      return;
-    }
-
-    const reply = data.choices[0].message.content;
-    history.push({ role: 'assistant', content: reply });
-
-    removeThinking();
-    addMsg('ai', reply, formatReply(reply));
-
-  } catch (err) {
-    removeThinking();
-    addMsg('ai', '', `<p style="color:var(--rl-red2)">⚠ Network error — check your key and connection.</p>`);
-  }
-
-  setStatus(false);
-}
-
-function clearChat() {
-  history = [];
-  const wrap = document.getElementById('messages');
-  wrap.innerHTML = `
-    <div class="welcome-block" id="welcomeBlock">
-      <div class="welcome-crest">
-        <div class="welcome-crest-ring"></div>
-        <div class="welcome-crest-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M3 9.5L12 3l9 6.5V21H3V9.5z" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9 21V13h6v8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
-      <div class="welcome-agency">Royal LePage</div>
-      <h3>Your Real Estate Advisor</h3>
-      <div class="welcome-rule"></div>
-      <p>Paste a listing for instant analysis, compare properties side by side, or ask anything about buying, selling, negotiation, and what to watch for in a home.</p>
-    </div>
-  `;
+function submitContact() {
+  closeModal('contact');
+  appendMessage('ai', `✅ <strong>Request sent!</strong> Your information has been forwarded to Sarah Reynolds at Royal LePage. She'll be in touch within 24 hours to discuss your needs and arrange a showing.<br><br>Is there anything else I can help you prepare?`);
+  const hero = document.getElementById('heroSection');
+  if (hero) hero.style.display = 'none';
 }
 </script>
 </body>
