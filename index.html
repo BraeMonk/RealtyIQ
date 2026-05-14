@@ -2,652 +2,704 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>KeysAI — Real Estate Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --gold: #C9A84C;
-  --gold-light: #E8D5A0;
-  --gold-dark: #8A6B28;
-  --navy: #1A2744;
-  --navy-mid: #243560;
-  --navy-light: #354D8A;
-  --cream: #F9F6F0;
-  --cream-mid: #F0EBE0;
-  --off-white: #FDFCFA;
-  --text-primary: #1A1A1A;
-  --text-secondary: #5A5A5A;
-  --text-muted: #9A9A9A;
-  --border: rgba(26,39,68,0.12);
-  --border-gold: rgba(201,168,76,0.3);
-  --shadow-sm: 0 1px 4px rgba(26,39,68,0.08);
-  --shadow-md: 0 4px 20px rgba(26,39,68,0.12);
-  --shadow-lg: 0 12px 48px rgba(26,39,68,0.18);
-  --radius: 14px;
-  --radius-sm: 8px;
-  --font-display: 'DM Serif Display', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
-  --nav-h: 56px;
-  --banner-h: 36px;
-  --sidebar-w: 256px;
-  --panel-w: 272px;
+  --gold:        #B8972A;
+  --gold-mid:    #C9A84C;
+  --gold-light:  #E8D5A0;
+  --gold-xlight: #F5EDD3;
+  --navy:        #121C35;
+  --navy-mid:    #1C2B50;
+  --navy-light:  #243668;
+  --navy-hover:  #1A2744;
+  --cream:       #FAF8F4;
+  --cream-mid:   #F2EDE2;
+  --cream-dark:  #E8E0D0;
+  --white:       #FFFFFF;
+  --text-1:      #18181B;
+  --text-2:      #52525B;
+  --text-3:      #A1A1AA;
+  --border:      rgba(24,24,27,0.09);
+  --border-gold: rgba(184,151,42,0.25);
+  --shadow-xs:   0 1px 3px rgba(18,28,53,0.07);
+  --shadow-sm:   0 2px 8px rgba(18,28,53,0.10);
+  --shadow-md:   0 6px 24px rgba(18,28,53,0.13);
+  --shadow-lg:   0 16px 56px rgba(18,28,53,0.20);
+  --r-sm:        6px;
+  --r:           10px;
+  --r-lg:        16px;
+  --font-d:      'Cormorant Garamond', Georgia, serif;
+  --font-b:      'DM Sans', system-ui, sans-serif;
+  --nav-h:       54px;
+  --banner-h:    34px;
+  --sidebar-w:   252px;
+  --panel-w:     268px;
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
-html,body{
+html{
   height:100%;
-  font-family:var(--font-body);
+  height:-webkit-fill-available;
+}
+body{
+  height:100%;
+  height:-webkit-fill-available;
+  font-family:var(--font-b);
   background:var(--cream);
-  color:var(--text-primary);
+  color:var(--text-1);
   overflow:hidden;
+  -webkit-font-smoothing:antialiased;
 }
 
-/* ── NAV ── */
+/* ══ NAV ══ */
 .nav{
   background:var(--navy);
   height:var(--nav-h);
-  display:flex;
-  align-items:center;
-  padding:0 1rem;
-  gap:0.75rem;
-  border-bottom:2px solid var(--gold);
-  position:relative;
-  z-index:200;
-  flex-shrink:0;
+  display:flex;align-items:center;
+  padding:0 1rem;gap:0.65rem;
+  border-bottom:1px solid rgba(184,151,42,0.35);
+  position:relative;z-index:200;flex-shrink:0;
 }
-
 .nav-logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  text-decoration:none;
-  flex-shrink:0;
+  display:flex;align-items:center;gap:9px;
+  text-decoration:none;flex-shrink:0;
 }
-.nav-logo-icon{
-  width:30px;height:30px;
-  background:var(--gold);
-  border-radius:7px;
+.nav-logo-mark{
+  width:28px;height:28px;
+  background:linear-gradient(135deg,var(--gold-mid),var(--gold));
+  border-radius:6px;
   display:flex;align-items:center;justify-content:center;
-  font-size:15px;color:var(--navy);
+  font-size:13px;color:var(--navy);font-weight:800;
+  letter-spacing:-0.03em;font-family:var(--font-d);
+  box-shadow:0 2px 8px rgba(184,151,42,0.3);
 }
 .nav-logo-text{
-  font-family:var(--font-display);
-  font-size:1.15rem;color:white;
-  letter-spacing:-0.01em;
+  font-family:var(--font-d);font-size:1.25rem;font-weight:600;
+  color:white;letter-spacing:0.01em;line-height:1;
 }
-.nav-logo-text span{color:var(--gold);}
+.nav-logo-text em{color:var(--gold-mid);font-style:italic;}
 
 .nav-tabs{
-  display:flex;
-  gap:0;
-  height:100%;
-  align-items:flex-end;
-  flex:1;
-  overflow-x:auto;
-  scrollbar-width:none;
+  display:flex;height:100%;align-items:flex-end;
+  flex:1;overflow-x:auto;scrollbar-width:none;gap:0;
 }
 .nav-tabs::-webkit-scrollbar{display:none;}
-
 .nav-tab{
-  padding:0.45rem 1rem;
-  font-size:0.8rem;font-weight:500;
-  color:rgba(255,255,255,0.55);
+  padding:0 1rem 0;height:100%;
+  display:flex;align-items:center;
+  font-size:0.775rem;font-weight:500;
+  color:rgba(255,255,255,0.45);
   cursor:pointer;border:none;background:transparent;
-  font-family:var(--font-body);
-  letter-spacing:0.02em;
-  border-bottom:3px solid transparent;
-  transition:all 0.2s;
-  margin-bottom:-2px;
-  white-space:nowrap;
+  font-family:var(--font-b);letter-spacing:0.02em;
+  border-bottom:2px solid transparent;
+  transition:all 0.2s;white-space:nowrap;
+  margin-bottom:0;
 }
-.nav-tab:hover{color:rgba(255,255,255,0.85);}
-.nav-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.nav-tab:hover{color:rgba(255,255,255,0.8);}
+.nav-tab.active{color:var(--gold-mid);border-bottom-color:var(--gold-mid);}
 
-.nav-right{
-  display:flex;align-items:center;gap:0.5rem;flex-shrink:0;
-}
-.nav-badge{
-  background:var(--gold);color:var(--navy);
-  font-size:0.65rem;font-weight:700;
-  padding:3px 7px;border-radius:20px;
-  letter-spacing:0.05em;text-transform:uppercase;
+.nav-right{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
+.nav-pill{
+  background:rgba(184,151,42,0.15);
+  border:1px solid rgba(184,151,42,0.3);
+  color:var(--gold-light);
+  font-size:0.62rem;font-weight:600;
+  padding:3px 8px;border-radius:20px;
+  letter-spacing:0.07em;text-transform:uppercase;
   display:none;
 }
 .nav-btn{
-  padding:0.35rem 0.8rem;font-size:0.75rem;font-weight:500;
-  color:white;border:1px solid rgba(255,255,255,0.22);
-  border-radius:6px;cursor:pointer;background:transparent;
-  font-family:var(--font-body);transition:all 0.2s;
-  white-space:nowrap;
+  padding:0.32rem 0.75rem;font-size:0.72rem;font-weight:500;
+  color:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:var(--r-sm);cursor:pointer;background:transparent;
+  font-family:var(--font-b);transition:all 0.2s;white-space:nowrap;
 }
-.nav-btn:hover{background:rgba(255,255,255,0.1);}
+.nav-btn:hover{background:rgba(255,255,255,0.08);color:white;}
+.nav-btn.primary-btn{
+  background:var(--gold);color:var(--navy);
+  border-color:var(--gold);font-weight:600;
+}
+.nav-btn.primary-btn:hover{background:var(--gold-mid);}
 .nav-menu-btn{
-  display:none;
-  width:34px;height:34px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.18);
-  border-radius:7px;cursor:pointer;
-  color:white;font-size:1.1rem;
+  display:none;width:32px;height:32px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:var(--r-sm);cursor:pointer;
+  color:white;font-size:1rem;
   align-items:center;justify-content:center;
-  font-family:var(--font-body);
+  font-family:var(--font-b);flex-shrink:0;
 }
 
-/* ── BANNER ── */
+/* ══ BANNER ══ */
 .embed-banner{
-  background:rgba(26,39,68,0.97);
-  color:white;font-size:0.72rem;
+  background:rgba(18,28,53,0.96);
+  backdrop-filter:blur(8px);
+  color:white;font-size:0.7rem;
   padding:0 1rem;
   height:var(--banner-h);
   display:flex;align-items:center;
   justify-content:space-between;gap:0.5rem;
-  border-bottom:1px solid rgba(201,168,76,0.25);
+  border-bottom:1px solid rgba(184,151,42,0.18);
   flex-shrink:0;
 }
-.embed-banner-text{
-  display:flex;align-items:center;gap:6px;
-  color:rgba(255,255,255,0.65);
+.banner-left{
+  display:flex;align-items:center;gap:7px;
+  color:rgba(255,255,255,0.5);
   overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+  font-size:0.7rem;
 }
-.embed-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:#4ADE80;flex-shrink:0;
-  animation:pulse 2s ease-in-out infinite;
+.live-dot-sm{
+  width:5px;height:5px;border-radius:50%;
+  background:#22C55E;flex-shrink:0;
+  box-shadow:0 0 6px #22C55E;
+  animation:glow 2s ease-in-out infinite;
 }
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
-
-.embed-actions{display:flex;gap:0.4rem;flex-shrink:0;}
-.embed-code-btn{
-  padding:0.2rem 0.55rem;
-  border:1px solid rgba(201,168,76,0.45);
-  border-radius:5px;font-size:0.68rem;
-  color:var(--gold);cursor:pointer;
-  background:transparent;font-family:var(--font-body);
+@keyframes glow{0%,100%{opacity:1;box-shadow:0 0 6px #22C55E;}50%{opacity:0.5;box-shadow:0 0 2px #22C55E;}}
+.banner-actions{display:flex;gap:0.35rem;flex-shrink:0;}
+.banner-btn{
+  padding:0.18rem 0.5rem;
+  border:1px solid rgba(184,151,42,0.4);
+  border-radius:4px;font-size:0.66rem;
+  color:var(--gold-mid);cursor:pointer;
+  background:transparent;font-family:var(--font-b);
   transition:all 0.2s;white-space:nowrap;
 }
-.embed-code-btn:hover{background:rgba(201,168,76,0.1);}
+.banner-btn:hover{background:rgba(184,151,42,0.12);}
 
-/* ── LAYOUT ── */
+/* ══ LAYOUT ══ */
 .app-shell{
-  display:flex;
-  flex-direction:column;
-  height:100vh;
+  display:flex;flex-direction:column;
+  height:100dvh;
   overflow:hidden;
 }
-
 .app-body{
-  display:flex;
-  flex:1;
-  overflow:hidden;
-  min-height:0;
+  display:flex;flex:1;
+  overflow:hidden;min-height:0;
 }
 
-/* ── SIDEBAR ── */
+/* ══ SIDEBAR ══ */
 .sidebar{
   width:var(--sidebar-w);
-  background:white;
+  background:var(--white);
   border-right:1px solid var(--border);
   display:flex;flex-direction:column;
-  flex-shrink:0;
-  overflow-y:auto;
-  overflow-x:hidden;
-  transition:transform 0.3s ease;
+  flex-shrink:0;overflow-y:auto;overflow-x:hidden;
+  transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);
 }
-
 .sidebar-section{
-  padding:1rem 0.85rem;
+  padding:1rem 0.9rem;
   border-bottom:1px solid var(--border);
 }
 .sidebar-label{
-  font-size:0.62rem;font-weight:700;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--text-muted);margin-bottom:0.6rem;
+  font-size:0.6rem;font-weight:600;
+  letter-spacing:0.13em;text-transform:uppercase;
+  color:var(--text-3);margin-bottom:0.65rem;
 }
 
 .quick-prompt{
-  display:flex;align-items:center;gap:7px;
-  padding:0.5rem 0.6rem;
-  border-radius:var(--radius-sm);
+  display:flex;align-items:center;gap:8px;
+  padding:0.45rem 0.55rem;
+  border-radius:var(--r-sm);
   cursor:pointer;transition:all 0.15s;
   border:1px solid transparent;
   text-align:left;background:transparent;
-  font-family:var(--font-body);width:100%;
+  font-family:var(--font-b);width:100%;
 }
 .quick-prompt:hover{background:var(--cream);border-color:var(--border-gold);}
-.quick-prompt-icon{
-  width:26px;height:26px;border-radius:6px;
+.qp-icon{
+  width:24px;height:24px;border-radius:5px;
   background:var(--cream-mid);
   display:flex;align-items:center;justify-content:center;
-  font-size:13px;flex-shrink:0;
+  font-size:12px;flex-shrink:0;
 }
-.quick-prompt-text{font-size:0.77rem;color:var(--text-secondary);line-height:1.3;}
+.qp-text{font-size:0.75rem;color:var(--text-2);line-height:1.3;}
 
-.market-card{
-  background:var(--cream);border:1px solid var(--border);
-  border-radius:var(--radius-sm);padding:0.7rem;margin-bottom:0.45rem;
+/* Market snapshot */
+.mkt-card{
+  background:var(--cream);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  padding:0.65rem 0.75rem;
+  margin-bottom:0.4rem;
 }
-.market-card-city{font-size:0.78rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
-.market-card-stats{display:flex;gap:0.75rem;}
-.market-stat{display:flex;flex-direction:column;}
-.market-stat-value{font-size:0.85rem;font-weight:700;color:var(--text-primary);}
-.market-stat-label{font-size:0.6rem;color:var(--text-muted);}
-.trend-up{color:#16803A;}
-.trend-dn{color:#B91C1C;}
+.mkt-city{
+  font-size:0.75rem;font-weight:600;
+  color:var(--navy);margin-bottom:0.3rem;
+}
+.mkt-stats{display:flex;gap:0.8rem;}
+.mkt-stat{}
+.mkt-val{font-size:0.83rem;font-weight:700;color:var(--text-1);}
+.mkt-lbl{font-size:0.58rem;color:var(--text-3);margin-top:1px;}
+.up{color:#15803D;}.dn{color:#B91C1C;}
 
-.agent-profile{
-  display:flex;align-items:center;gap:8px;
-  padding:0.65rem;background:var(--navy);
-  border-radius:var(--radius-sm);margin-top:0.4rem;
-  cursor:pointer;transition:opacity 0.2s;
+/* Agent card */
+.agent-card{
+  background:var(--navy);
+  border-radius:var(--r-sm);
+  padding:0.7rem 0.75rem;
+  display:flex;align-items:center;gap:9px;
+  cursor:pointer;transition:opacity 0.18s;
+  margin-top:0.35rem;
 }
-.agent-profile:hover{opacity:0.88;}
-.agent-avatar{
-  width:34px;height:34px;border-radius:50%;
-  background:var(--gold);display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:0.8rem;color:var(--navy);flex-shrink:0;
+.agent-card:hover{opacity:0.87;}
+.agent-av{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-mid),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.75rem;
+  color:var(--navy);flex-shrink:0;
+  font-family:var(--font-b);
 }
 .agent-info{flex:1;overflow:hidden;}
-.agent-name{font-size:0.8rem;font-weight:600;color:white;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.agent-title{font-size:0.65rem;color:var(--gold-light);}
-.agent-status{width:7px;height:7px;border-radius:50%;background:#4ADE80;flex-shrink:0;}
+.agent-name{font-size:0.78rem;font-weight:600;color:white;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.agent-title{font-size:0.62rem;color:var(--gold-light);margin-top:1px;}
+.agent-online{width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0;}
 
-/* ── CHAT ── */
+.live-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:0.58rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:#15803D;
+  background:#DCFCE7;padding:2px 6px;border-radius:20px;
+}
+
+/* ══ CHAT AREA ══ */
 .chat-area{
   flex:1;
   display:flex;flex-direction:column;
   overflow:hidden;
-  background:var(--off-white);
+  background:var(--cream);
   min-width:0;
+  position:relative;
 }
 
+/* Hero */
 .chat-hero{
-  padding:2rem 1.5rem 1.5rem;
-  background:linear-gradient(160deg,var(--navy) 0%,var(--navy-mid) 100%);
+  padding:1.75rem 1.5rem 1.4rem;
+  background:linear-gradient(155deg,var(--navy) 0%,var(--navy-mid) 60%,#1f3060 100%);
   position:relative;overflow:hidden;flex-shrink:0;
 }
-.chat-hero::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+.hero-bg-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(184,151,42,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(184,151,42,0.06) 1px,transparent 1px);
+  background-size:48px 48px;
 }
-.chat-hero-content{position:relative;}
-.chat-hero-eyebrow{
-  font-size:0.68rem;font-weight:600;letter-spacing:0.15em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;
+.hero-bg-glow{
+  position:absolute;
+  bottom:-60px;right:-60px;
+  width:260px;height:260px;
+  background:radial-gradient(circle,rgba(184,151,42,0.10) 0%,transparent 70%);
 }
-.chat-hero-title{
-  font-family:var(--font-display);font-size:1.7rem;
-  color:white;line-height:1.15;margin-bottom:0.4rem;
+.hero-content{position:relative;}
+.hero-eyebrow{
+  font-size:0.64rem;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--gold-mid);
+  margin-bottom:0.5rem;display:flex;align-items:center;gap:6px;
 }
-.chat-hero-title em{color:var(--gold);font-style:italic;}
-.chat-hero-sub{
-  font-size:0.82rem;color:rgba(255,255,255,0.5);
-  margin-bottom:1.1rem;max-width:420px;line-height:1.55;
+.hero-eyebrow::before{
+  content:'';width:16px;height:1px;background:var(--gold-mid);display:inline-block;
 }
-
+.hero-title{
+  font-family:var(--font-d);
+  font-size:2rem;font-weight:500;
+  color:white;line-height:1.12;
+  margin-bottom:0.45rem;
+  letter-spacing:-0.01em;
+}
+.hero-title em{color:var(--gold-mid);font-style:italic;}
+.hero-sub{
+  font-size:0.8rem;color:rgba(255,255,255,0.45);
+  margin-bottom:1.1rem;max-width:400px;line-height:1.6;
+}
 .hero-chips{display:flex;gap:0.4rem;flex-wrap:wrap;}
 .hero-chip{
-  padding:0.3rem 0.75rem;border-radius:20px;
-  border:1px solid rgba(201,168,76,0.3);
-  font-size:0.7rem;color:rgba(255,255,255,0.65);
-  cursor:pointer;background:rgba(255,255,255,0.05);
-  font-family:var(--font-body);transition:all 0.2s;white-space:nowrap;
+  padding:0.28rem 0.7rem;border-radius:20px;
+  border:1px solid rgba(184,151,42,0.25);
+  font-size:0.68rem;color:rgba(255,255,255,0.55);
+  cursor:pointer;background:rgba(255,255,255,0.04);
+  font-family:var(--font-b);transition:all 0.2s;white-space:nowrap;
 }
-.hero-chip:hover{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold);}
+.hero-chip:hover{
+  background:rgba(184,151,42,0.14);
+  border-color:var(--gold-mid);
+  color:var(--gold-light);
+}
 
-/* ── MESSAGES ── */
+/* ══ MESSAGES ══ */
 .messages{
   flex:1;overflow-y:auto;
-  padding:1.25rem 1.25rem;
-  display:flex;flex-direction:column;gap:1rem;
+  padding:1.1rem 1.1rem;
+  display:flex;flex-direction:column;gap:0.85rem;
   scroll-behavior:smooth;
+  overscroll-behavior:contain;
 }
-
-.message{display:flex;gap:8px;animation:fadeUp 0.28s ease;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.message{display:flex;gap:8px;animation:fadeUp 0.25s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(5px);}to{opacity:1;}}
 .message.user{justify-content:flex-end;}
 
-.msg-avatar{
-  width:30px;height:30px;border-radius:50%;
+.msg-av{
+  width:28px;height:28px;border-radius:50%;
   flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  font-size:0.7rem;font-weight:700;margin-top:2px;
+  font-size:0.68rem;font-weight:600;margin-top:3px;
 }
-.msg-avatar.ai{
-  background:var(--navy);color:var(--gold);
-  border:2px solid var(--gold);
-  font-family:var(--font-display);font-size:0.85rem;font-style:italic;
+.msg-av.ai{
+  background:var(--navy);color:var(--gold-mid);
+  border:1.5px solid rgba(184,151,42,0.5);
+  font-family:var(--font-d);font-size:0.9rem;font-style:italic;font-weight:500;
 }
-.msg-avatar.user-av{
+.msg-av.u{
   background:var(--cream-mid);color:var(--navy);
-  border:1.5px solid var(--border);order:1;
+  border:1.5px solid var(--border);order:1;font-size:0.6rem;
 }
 
 .msg-bubble{
-  max-width:74%;padding:0.75rem 1rem;
-  border-radius:var(--radius);line-height:1.65;font-size:0.855rem;
+  max-width:73%;padding:0.7rem 0.9rem;
+  border-radius:var(--r-lg);
+  line-height:1.65;font-size:0.845rem;
 }
 .message.ai .msg-bubble{
-  background:white;color:var(--text-primary);
+  background:var(--white);color:var(--text-1);
   border:1px solid var(--border);
-  border-radius:4px var(--radius) var(--radius) var(--radius);
-  box-shadow:var(--shadow-sm);
+  border-radius:3px var(--r-lg) var(--r-lg) var(--r-lg);
+  box-shadow:var(--shadow-xs);
 }
 .message.user .msg-bubble{
-  background:var(--navy);color:white;
-  border-radius:var(--radius) 4px var(--radius) var(--radius);
+  background:var(--navy);color:rgba(255,255,255,0.92);
+  border-radius:var(--r-lg) 3px var(--r-lg) var(--r-lg);
+  font-size:0.835rem;
 }
-
-.msg-meta{font-size:0.65rem;color:var(--text-muted);margin-top:3px;padding:0 2px;}
+.msg-meta{
+  font-size:0.6rem;color:var(--text-3);
+  margin-top:3px;padding:0 3px;
+}
 .message.user .msg-meta{text-align:right;}
 
-.msg-actions{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.65rem;}
-.msg-action-btn{
-  padding:0.3rem 0.75rem;border:1px solid var(--border);
-  border-radius:20px;font-size:0.72rem;font-weight:500;
-  color:var(--navy);cursor:pointer;background:white;
-  font-family:var(--font-body);transition:all 0.15s;
+.msg-actions{
+  display:flex;flex-wrap:wrap;gap:0.35rem;
+  margin-top:0.6rem;
 }
-.msg-action-btn:hover{border-color:var(--gold);background:var(--cream);color:var(--gold-dark);}
-.msg-action-btn.primary{background:var(--navy);color:white;border-color:var(--navy);}
-.msg-action-btn.primary:hover{background:var(--navy-light);}
+.ma-btn{
+  padding:0.27rem 0.68rem;
+  border:1px solid var(--border);
+  border-radius:20px;font-size:0.7rem;font-weight:500;
+  color:var(--navy);cursor:pointer;background:var(--white);
+  font-family:var(--font-b);transition:all 0.15s;
+}
+.ma-btn:hover{border-color:var(--gold-mid);background:var(--cream);color:var(--gold);}
+.ma-btn.pri{
+  background:var(--navy);color:white;
+  border-color:var(--navy);
+}
+.ma-btn.pri:hover{background:var(--navy-light);}
 
-/* listings grid in message */
+/* Listing grid */
 .listing-grid{
   display:grid;grid-template-columns:repeat(2,1fr);
-  gap:0.6rem;margin-top:0.6rem;
+  gap:0.5rem;margin-top:0.55rem;
 }
-.listing-card{
-  border:1px solid var(--border);border-radius:var(--radius-sm);
+.l-card{
+  border:1px solid var(--border);border-radius:var(--r-sm);
   overflow:hidden;background:var(--cream);cursor:pointer;
-  transition:all 0.2s;
+  transition:all 0.18s;
 }
-.listing-card:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
-.listing-img{
-  height:76px;background:var(--navy-mid);
+.l-card:hover{border-color:var(--gold-mid);transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+.l-img{
+  height:72px;
+  background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));
   display:flex;align-items:center;justify-content:center;
-  font-size:1.6rem;position:relative;
+  font-size:1.5rem;position:relative;
 }
-.listing-tag{
+.l-tag{
   position:absolute;top:5px;left:5px;
   background:var(--gold);color:var(--navy);
-  font-size:0.58rem;font-weight:800;letter-spacing:0.07em;
+  font-size:0.55rem;font-weight:800;letter-spacing:0.08em;
   padding:2px 5px;border-radius:3px;text-transform:uppercase;
 }
-.listing-body{padding:0.5rem 0.65rem;}
-.listing-price{font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:1px;}
-.listing-addr{font-size:0.68rem;color:var(--text-secondary);margin-bottom:3px;line-height:1.3;}
-.listing-specs{display:flex;gap:0.5rem;font-size:0.64rem;color:var(--text-muted);}
+.l-body{padding:0.5rem 0.6rem;}
+.l-price{font-size:0.84rem;font-weight:700;color:var(--navy);margin-bottom:1px;}
+.l-addr{font-size:0.66rem;color:var(--text-2);margin-bottom:3px;line-height:1.3;}
+.l-specs{display:flex;gap:0.45rem;font-size:0.62rem;color:var(--text-3);}
 
-/* Typing indicator */
-.typing-dots{display:flex;gap:4px;align-items:center;padding:0.4rem 0;}
-.typing-dot{
-  width:6px;height:6px;border-radius:50%;background:var(--gold);
-  animation:dotPulse 1.4s ease-in-out infinite;
+/* Typing */
+.typing-dots{display:flex;gap:4px;align-items:center;padding:0.25rem 0;}
+.t-dot{
+  width:5px;height:5px;border-radius:50%;background:var(--gold-mid);
+  animation:dotpop 1.3s ease-in-out infinite;
 }
-.typing-dot:nth-child(2){animation-delay:0.2s;}
-.typing-dot:nth-child(3){animation-delay:0.4s;}
-@keyframes dotPulse{0%,80%,100%{transform:scale(0.7);opacity:0.4;}40%{transform:scale(1);opacity:1;}}
+.t-dot:nth-child(2){animation-delay:0.18s;}
+.t-dot:nth-child(3){animation-delay:0.36s;}
+@keyframes dotpop{0%,80%,100%{transform:scale(0.65);opacity:0.35;}40%{transform:scale(1);opacity:1;}}
 
-/* ── INPUT ── */
+/* ══ INPUT AREA — FIXED TO BOTTOM ══ */
 .input-area{
-  background:white;border-top:1px solid var(--border);
-  padding:0.75rem 1rem;flex-shrink:0;
+  background:var(--white);
+  border-top:1px solid var(--border);
+  padding:0.65rem 0.9rem;
+  padding-bottom:calc(0.65rem + env(safe-area-inset-bottom, 0px));
+  flex-shrink:0;
+  /* Ensure it's always visible */
+  position:relative;
+  z-index:10;
 }
-.input-toolbar{
-  display:flex;gap:0.35rem;margin-bottom:0.55rem;
-  flex-wrap:wrap;
+.toolbar{
+  display:flex;gap:0.3rem;
+  margin-bottom:0.5rem;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
 }
-.toolbar-btn{
-  padding:0.25rem 0.6rem;border-radius:6px;
-  border:1px solid var(--border);font-size:0.7rem;font-weight:500;
-  color:var(--text-secondary);cursor:pointer;
-  background:var(--cream);font-family:var(--font-body);
+.toolbar::-webkit-scrollbar{display:none;}
+.tb-btn{
+  padding:0.24rem 0.6rem;border-radius:20px;
+  border:1px solid var(--border);font-size:0.69rem;font-weight:500;
+  color:var(--text-2);cursor:pointer;
+  background:var(--cream);font-family:var(--font-b);
   transition:all 0.15s;display:flex;align-items:center;gap:3px;
-  white-space:nowrap;
+  white-space:nowrap;flex-shrink:0;
 }
-.toolbar-btn:hover{border-color:var(--gold);color:var(--gold-dark);background:#FDF9F1;}
-.toolbar-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
+.tb-btn:hover{border-color:var(--gold-mid);color:var(--gold);background:var(--gold-xlight);}
+.tb-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
 
 .input-row{display:flex;gap:0.5rem;align-items:flex-end;}
-.input-box{flex:1;}
+.input-wrap{flex:1;}
 .chat-input{
-  width:100%;padding:0.65rem 0.9rem;
-  border:1.5px solid var(--border);border-radius:var(--radius);
-  font-family:var(--font-body);font-size:0.85rem;color:var(--text-primary);
+  width:100%;padding:0.6rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--r);
+  font-family:var(--font-b);font-size:0.84rem;color:var(--text-1);
   background:var(--cream);resize:none;line-height:1.5;
-  transition:border-color 0.2s;min-height:44px;max-height:130px;
-  overflow-y:auto;
+  transition:border-color 0.2s,background 0.2s;
+  min-height:42px;max-height:120px;overflow-y:auto;
 }
-.chat-input:focus{outline:none;border-color:var(--gold);background:white;}
-.chat-input::placeholder{color:var(--text-muted);}
+.chat-input:focus{outline:none;border-color:var(--gold-mid);background:white;}
+.chat-input::placeholder{color:var(--text-3);}
 .send-btn{
-  width:44px;height:44px;border-radius:11px;
+  width:42px;height:42px;border-radius:var(--r);
   background:var(--navy);border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  transition:all 0.2s;flex-shrink:0;
+  transition:all 0.18s;flex-shrink:0;
 }
 .send-btn:hover{background:var(--navy-light);transform:scale(1.04);}
-.send-btn:active{transform:scale(0.96);}
-.send-btn svg{width:17px;height:17px;fill:white;}
+.send-btn:active{transform:scale(0.95);}
+.send-btn svg{width:16px;height:16px;fill:white;}
 
 .input-hint{
-  text-align:center;font-size:0.62rem;color:var(--text-muted);
-  margin-top:0.4rem;letter-spacing:0.01em;
+  text-align:center;font-size:0.59rem;color:var(--text-3);
+  margin-top:0.35rem;letter-spacing:0.01em;
 }
 
-/* ── RIGHT PANEL ── */
+/* ══ RIGHT PANEL ══ */
 .right-panel{
-  width:var(--panel-w);background:white;
+  width:var(--panel-w);background:var(--white);
   border-left:1px solid var(--border);
   display:flex;flex-direction:column;
   flex-shrink:0;overflow-y:auto;overflow-x:hidden;
-  transition:transform 0.3s ease;
 }
-.panel-header{
-  padding:0.85rem 1rem;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  flex-shrink:0;
+.rp-header{
+  padding:0.85rem 1rem 0.75rem;
+  border-bottom:1px solid var(--border);flex-shrink:0;
 }
-.panel-title{font-size:0.78rem;font-weight:600;color:var(--navy);}
-.panel-sub{font-size:0.65rem;color:var(--text-muted);}
-.panel-section{padding:0.85rem 1rem;border-bottom:1px solid var(--border);}
-.panel-section-title{
-  font-size:0.6rem;font-weight:700;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--text-muted);margin-bottom:0.6rem;
+.rp-title{font-size:0.78rem;font-weight:600;color:var(--navy);}
+.rp-sub{font-size:0.63rem;color:var(--text-3);margin-top:1px;}
+.rp-section{padding:0.8rem 1rem;border-bottom:1px solid var(--border);}
+.rp-section-title{
+  font-size:0.59rem;font-weight:700;letter-spacing:0.11em;
+  text-transform:uppercase;color:var(--text-3);margin-bottom:0.55rem;
 }
 
-.filter-group{margin-bottom:0.6rem;}
-.filter-label{font-size:0.73rem;font-weight:500;color:var(--text-secondary);margin-bottom:0.3rem;}
-.filter-input{
-  width:100%;padding:0.4rem 0.65rem;
-  border:1px solid var(--border);border-radius:6px;
-  font-family:var(--font-body);font-size:0.78rem;
-  color:var(--text-primary);background:var(--cream);
-  transition:border-color 0.2s;
+.filt-group{margin-bottom:0.55rem;}
+.filt-label{font-size:0.71rem;font-weight:500;color:var(--text-2);margin-bottom:0.28rem;}
+.filt-input{
+  width:100%;padding:0.38rem 0.6rem;
+  border:1px solid var(--border);border-radius:var(--r-sm);
+  font-family:var(--font-b);font-size:0.76rem;color:var(--text-1);
+  background:var(--cream);transition:border-color 0.2s;
 }
-.filter-input:focus{outline:none;border-color:var(--gold);}
+.filt-input:focus{outline:none;border-color:var(--gold-mid);}
 
-.filter-chips{display:flex;flex-wrap:wrap;gap:0.3rem;}
-.filter-chip{
-  padding:0.22rem 0.55rem;border-radius:20px;
-  border:1px solid var(--border);font-size:0.7rem;
-  color:var(--text-secondary);cursor:pointer;
-  background:transparent;font-family:var(--font-body);transition:all 0.15s;
+.chips{display:flex;flex-wrap:wrap;gap:0.28rem;}
+.chip{
+  padding:0.2rem 0.5rem;border-radius:20px;
+  border:1px solid var(--border);font-size:0.68rem;
+  color:var(--text-2);cursor:pointer;
+  background:transparent;font-family:var(--font-b);transition:all 0.14s;
 }
-.filter-chip:hover,.filter-chip.active{background:var(--navy);color:white;border-color:var(--navy);}
+.chip:hover,.chip.active{background:var(--navy);color:white;border-color:var(--navy);}
 
 .apply-btn{
-  width:100%;padding:0.55rem;background:var(--gold);
-  color:var(--navy);border:none;border-radius:7px;
-  font-size:0.8rem;font-weight:700;cursor:pointer;
-  font-family:var(--font-body);letter-spacing:0.02em;
-  transition:all 0.2s;margin-top:0.6rem;
+  width:100%;padding:0.5rem;background:var(--gold);
+  color:var(--navy);border:none;border-radius:var(--r-sm);
+  font-size:0.78rem;font-weight:700;cursor:pointer;
+  font-family:var(--font-b);letter-spacing:0.02em;
+  transition:all 0.2s;margin-top:0.55rem;
 }
-.apply-btn:hover{background:var(--gold-dark);color:white;}
+.apply-btn:hover{background:var(--gold-mid);}
 
-.saved-item{
+.saved-row{
   display:flex;align-items:center;gap:7px;
-  padding:0.45rem 0;border-bottom:1px solid var(--border);cursor:pointer;
+  padding:0.4rem 0;border-bottom:1px solid var(--border);cursor:pointer;
 }
-.saved-item:last-child{border-bottom:none;}
-.saved-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-.saved-name{font-size:0.75rem;font-weight:500;color:var(--text-primary);flex:1;}
+.saved-row:last-child{border-bottom:none;}
+.saved-dot{width:6px;height:6px;border-radius:50%;background:var(--gold-mid);flex-shrink:0;}
+.saved-name{font-size:0.72rem;font-weight:500;color:var(--text-1);flex:1;}
 .saved-count{
-  font-size:0.65rem;color:var(--text-muted);
-  background:var(--cream-mid);padding:1px 6px;border-radius:10px;
+  font-size:0.62rem;color:var(--text-3);
+  background:var(--cream-mid);padding:1px 5px;border-radius:8px;
 }
 
-/* Mortgage calc */
-.mortgage-calc{
-  background:var(--navy);border-radius:var(--radius-sm);padding:0.85rem;
+/* Mortgage widget */
+.mort-widget{
+  background:var(--navy);border-radius:var(--r);
+  padding:0.85rem;
 }
-.calc-title{
-  font-size:0.68rem;font-weight:700;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;
+.mort-title{
+  font-size:0.63rem;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--gold-mid);margin-bottom:0.6rem;
 }
-.calc-result{text-align:center;margin:0.6rem 0;}
-.calc-monthly{font-family:var(--font-display);font-size:1.6rem;color:white;}
-.calc-monthly-label{font-size:0.63rem;color:rgba(255,255,255,0.4);letter-spacing:0.05em;}
-.calc-inputs{display:flex;flex-direction:column;gap:0.4rem;}
-.calc-row{display:flex;align-items:center;justify-content:space-between;}
-.calc-row-label{font-size:0.7rem;color:rgba(255,255,255,0.48);}
-.calc-row-input{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.14);
-  border-radius:5px;padding:0.28rem 0.45rem;
-  font-size:0.78rem;color:white;width:105px;
-  text-align:right;font-family:var(--font-body);
+.mort-result{text-align:center;margin:0.65rem 0;}
+.mort-amount{
+  font-family:var(--font-d);font-size:1.65rem;
+  font-weight:500;color:white;line-height:1;
 }
-.calc-row-input:focus{outline:none;border-color:var(--gold);}
+.mort-lbl{font-size:0.6rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;margin-top:3px;}
+.mort-row{
+  display:flex;align-items:center;
+  justify-content:space-between;margin-bottom:0.35rem;
+}
+.mort-row:last-child{margin-bottom:0;}
+.mort-row-lbl{font-size:0.68rem;color:rgba(255,255,255,0.4);}
+.mort-row-input{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:5px;padding:0.25rem 0.42rem;
+  font-size:0.76rem;color:white;width:105px;
+  text-align:right;font-family:var(--font-b);
+}
+.mort-row-input:focus{outline:none;border-color:var(--gold-mid);}
 
-/* live indicator */
-.live-pill{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:0.6rem;font-weight:600;letter-spacing:0.07em;
-  text-transform:uppercase;color:#16803A;
-  background:#DCFCE7;padding:2px 7px;border-radius:10px;
-}
-.live-dot{width:5px;height:5px;border-radius:50%;background:#16803A;animation:pulse 1.8s infinite;}
-
-/* ── SCROLLBARS ── */
-::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
-::-webkit-scrollbar-thumb:hover{background:var(--gold-light);}
-
-/* ── MODAL ── */
+/* ══ MODALS ══ */
 .modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,0.5);
-  z-index:500;display:none;align-items:center;
-  justify-content:center;padding:1rem;
+  position:fixed;inset:0;background:rgba(0,0,0,0.55);
+  z-index:600;display:none;align-items:center;justify-content:center;padding:1rem;
+  backdrop-filter:blur(4px);
 }
 .modal-overlay.open{display:flex;}
 .modal{
-  background:white;border-radius:var(--radius);
-  max-width:500px;width:100%;
+  background:white;border-radius:var(--r-lg);
+  max-width:480px;width:100%;
   overflow:hidden;box-shadow:var(--shadow-lg);
-  max-height:90vh;overflow-y:auto;
+  max-height:90dvh;overflow-y:auto;
 }
-.modal-header{
-  background:var(--navy);padding:1rem 1.25rem;
+.modal-hdr{
+  background:var(--navy);padding:0.95rem 1.2rem;
   display:flex;align-items:center;justify-content:space-between;
 }
-.modal-header-title{font-family:var(--font-display);font-size:1rem;color:white;}
+.modal-hdr-title{font-family:var(--font-d);font-size:1.1rem;font-weight:500;color:white;}
 .modal-close{
-  width:26px;height:26px;border-radius:50%;
-  background:rgba(255,255,255,0.12);border:none;
-  cursor:pointer;color:white;font-size:0.9rem;
-  display:flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(255,255,255,0.1);border:none;
+  cursor:pointer;color:rgba(255,255,255,0.7);
+  display:flex;align-items:center;justify-content:center;font-size:0.85rem;
+  transition:background 0.15s;
 }
-.modal-body{padding:1.25rem;}
+.modal-close:hover{background:rgba(255,255,255,0.2);}
+.modal-body{padding:1.2rem;}
 .modal-code{
-  background:#0F172A;border-radius:var(--radius-sm);
+  background:#0D1526;border-radius:var(--r-sm);
   padding:0.85rem;font-family:'Courier New',monospace;
-  font-size:0.72rem;color:#94A3B8;overflow-x:auto;line-height:1.7;
+  font-size:0.71rem;color:#94A3B8;overflow-x:auto;line-height:1.75;
+  border:1px solid rgba(255,255,255,0.06);
 }
-.c-gold{color:var(--gold);}.c-green{color:#86EFAC;}.c-blue{color:#93C5FD;}.c-muted{color:#475569;}
+.c-gold{color:var(--gold-mid);}.c-green{color:#86EFAC;}.c-blue{color:#93C5FD;}.c-muted{color:#475569;}
 .copy-btn{
-  width:100%;margin-top:0.85rem;padding:0.6rem;
+  width:100%;margin-top:0.8rem;padding:0.58rem;
   background:var(--navy);color:white;border:none;
-  border-radius:7px;font-size:0.8rem;font-weight:500;
-  cursor:pointer;font-family:var(--font-body);transition:background 0.2s;
+  border-radius:var(--r-sm);font-size:0.78rem;font-weight:500;
+  cursor:pointer;font-family:var(--font-b);transition:background 0.2s;
 }
 .copy-btn:hover{background:var(--navy-light);}
 
-/* ── RESPONSIVE ── */
+/* ══ SCROLLBARS ══ */
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--cream-dark);border-radius:2px;}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-light);}
 
-/* Medium: hide right panel, compress sidebar */
-@media (max-width:1100px){
+/* ══ RESPONSIVE ══ */
+@media(max-width:1100px){
   :root{--panel-w:0px;}
   .right-panel{display:none;}
 }
 
-/* Tablet: sidebar becomes a drawer */
-@media (max-width:780px){
+@media(max-width:780px){
   :root{--sidebar-w:240px;}
   .sidebar{
     position:fixed;
     top:calc(var(--nav-h) + var(--banner-h));
-    left:0;
-    bottom:0;
-    z-index:150;
+    left:0;bottom:0;z-index:150;
     transform:translateX(-100%);
     box-shadow:var(--shadow-lg);
   }
   .sidebar.open{transform:translateX(0);}
   .sidebar-overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,0.35);
+    position:fixed;inset:0;background:rgba(0,0,0,0.4);
     z-index:140;display:none;
   }
   .sidebar-overlay.open{display:block;}
   .nav-menu-btn{display:flex;}
-  .nav-badge{display:inline-block;}
-  .embed-banner-text strong{display:none;}
-  .embed-code-btn:last-child{display:none;}
+  .nav-pill{display:inline-block;}
+  .banner-left strong{display:none;}
 }
 
-@media (max-width:600px){
-  :root{--nav-h:52px;--banner-h:34px;}
+@media(max-width:600px){
+  :root{--nav-h:50px;--banner-h:32px;}
   .nav-tabs{display:none;}
-  .nav-btn:not(:last-child){display:none;}
-  .chat-hero{padding:1.25rem 1rem 1rem;}
-  .chat-hero-title{font-size:1.35rem;}
-  .hero-chip{font-size:0.65rem;padding:0.25rem 0.6rem;}
-  .messages{padding:1rem 0.85rem;}
-  .msg-bubble{max-width:88%;font-size:0.83rem;}
-  .input-area{padding:0.6rem 0.75rem;}
-  .input-toolbar{gap:0.3rem;}
-  .toolbar-btn{font-size:0.66rem;padding:0.22rem 0.5rem;}
+  .nav-btn:not(.primary-btn){display:none;}
+  .chat-hero{padding:1.1rem 1rem 1rem;}
+  .hero-title{font-size:1.6rem;}
+  .hero-sub{font-size:0.77rem;}
+  .hero-chips{gap:0.3rem;}
+  .hero-chip{font-size:0.64rem;}
+  .messages{padding:0.9rem 0.8rem;}
+  .msg-bubble{max-width:87%;font-size:0.82rem;}
+  .input-area{padding:0.55rem 0.7rem;padding-bottom:calc(0.55rem + env(safe-area-inset-bottom,0px));}
   .listing-grid{grid-template-columns:1fr;}
 }
 
-@media (max-width:420px){
-  .chat-hero-title{font-size:1.15rem;}
-  .chat-hero-sub{font-size:0.75rem;}
-  .embed-banner{display:none;}
+@media(max-width:420px){
+  .hero-title{font-size:1.4rem;}
+  .hero-sub{display:none;}
 }
 
-/* Tall mobile: give more room to chat */
-@media (max-height:600px){
-  .chat-hero{padding:0.85rem 1rem;}
-  .chat-hero-title{font-size:1.15rem;}
-  .chat-hero-sub{display:none;}
+@media(max-height:620px){
+  .chat-hero{padding:0.7rem 1rem;}
+  .hero-title{font-size:1.3rem;}
+  .hero-sub{display:none;}
   .hero-chips{display:none;}
+}
+
+/* Portrait mobile — guarantee input never hides behind browser chrome */
+@supports(height:100dvh){
+  .app-shell{height:100dvh;}
 }
 </style>
 </head>
 <body>
-
 <div class="app-shell">
 
 <!-- NAV -->
 <nav class="nav">
   <button class="nav-menu-btn" id="menuBtn" onclick="toggleSidebar()">☰</button>
   <a class="nav-logo" href="#">
-    <div class="nav-logo-icon">🏡</div>
-    <span class="nav-logo-text">Keys<span>AI</span></span>
+    <div class="nav-logo-mark">K</div>
+    <span class="nav-logo-text">Keys<em>AI</em></span>
   </a>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="switchTab(this,'chat')">AI Assistant</button>
@@ -656,25 +708,25 @@ html,body{
     <button class="nav-tab" onclick="switchTab(this,'tools')">Tools</button>
   </div>
   <div class="nav-right">
-    <span class="nav-badge">Powered by AI</span>
-    <button class="nav-btn" onclick="openModal('embed')">📋 Embed</button>
-    <button class="nav-btn" onclick="openModal('contact')">Book Showing</button>
+    <span class="nav-pill">AI Powered</span>
+    <button class="nav-btn" onclick="openModal('embed')">Embed</button>
+    <button class="nav-btn primary-btn" onclick="openModal('contact')">Book Showing</button>
   </div>
 </nav>
 
 <!-- BANNER -->
 <div class="embed-banner">
-  <div class="embed-banner-text">
-    <div class="embed-dot"></div>
-    <span>Live on <strong>yourteam.royallepage.ca</strong> — AI tab active for visitors</span>
+  <div class="banner-left">
+    <div class="live-dot-sm"></div>
+    <span>Live on <strong>yourteam.royallepage.ca</strong> · AI assistant active</span>
   </div>
-  <div class="embed-actions">
-    <button class="embed-code-btn" onclick="openModal('embed')">Get embed code</button>
-    <button class="embed-code-btn" onclick="openModal('embed')">Floating widget</button>
+  <div class="banner-actions">
+    <button class="banner-btn" onclick="openModal('embed')">Get embed code</button>
+    <button class="banner-btn" onclick="openModal('embed')">Floating widget</button>
   </div>
 </div>
 
-<!-- SIDEBAR OVERLAY (mobile) -->
+<!-- SIDEBAR OVERLAY -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
 <!-- BODY -->
@@ -685,108 +737,79 @@ html,body{
     <div class="sidebar-section">
       <div class="sidebar-label">Quick Actions</div>
       <button class="quick-prompt" onclick="sendQuick('What homes are available in Barrie under $700,000?');closeSidebar()">
-        <div class="quick-prompt-icon">🔍</div>
-        <span class="quick-prompt-text">Search listings by budget</span>
+        <div class="qp-icon">🔍</div><span class="qp-text">Search listings by budget</span>
       </button>
       <button class="quick-prompt" onclick="sendQuick('What is the current Barrie real estate market like?');closeSidebar()">
-        <div class="quick-prompt-icon">📈</div>
-        <span class="quick-prompt-text">Local market conditions</span>
+        <div class="qp-icon">📈</div><span class="qp-text">Local market conditions</span>
       </button>
       <button class="quick-prompt" onclick="sendQuick('How much mortgage can I qualify for with $90,000 income?');closeSidebar()">
-        <div class="quick-prompt-icon">🏦</div>
-        <span class="quick-prompt-text">Mortgage pre-qualification</span>
+        <div class="qp-icon">🏦</div><span class="qp-text">Mortgage pre-qualification</span>
       </button>
       <button class="quick-prompt" onclick="sendQuick('What should I know as a first-time home buyer in Ontario?');closeSidebar()">
-        <div class="quick-prompt-icon">🔑</div>
-        <span class="quick-prompt-text">First-time buyer guide</span>
+        <div class="qp-icon">🔑</div><span class="qp-text">First-time buyer guide</span>
       </button>
       <button class="quick-prompt" onclick="sendQuick('Help me prepare my home to sell for maximum value.');closeSidebar()">
-        <div class="quick-prompt-icon">💰</div>
-        <span class="quick-prompt-text">Selling preparation tips</span>
+        <div class="qp-icon">💰</div><span class="qp-text">Selling preparation tips</span>
       </button>
     </div>
 
     <div class="sidebar-section">
       <div class="sidebar-label" style="display:flex;align-items:center;justify-content:space-between;">
         Market Snapshot
-        <span class="live-pill"><span class="live-dot"></span>Live</span>
+        <span class="live-badge"><span class="live-dot-sm" style="width:4px;height:4px;box-shadow:none;"></span>Live</span>
       </div>
-      <div class="market-card" id="mcard-barrie">
-        <div class="market-card-city">Barrie, ON</div>
-        <div class="market-card-stats">
-          <div class="market-stat">
-            <span class="market-stat-value" id="ms-barrie-price">$742K</span>
-            <span class="market-stat-label">Avg. Price</span>
-          </div>
-          <div class="market-stat">
-            <span class="market-stat-value trend-up" id="ms-barrie-chg">+4.2%</span>
-            <span class="market-stat-label">YoY Change</span>
-          </div>
-          <div class="market-stat">
-            <span class="market-stat-value" id="ms-barrie-dom">18 days</span>
-            <span class="market-stat-label">Avg. DOM</span>
-          </div>
+      <div class="mkt-card">
+        <div class="mkt-city">Barrie, ON</div>
+        <div class="mkt-stats">
+          <div class="mkt-stat"><div class="mkt-val" id="ms-bar-p">$742K</div><div class="mkt-lbl">Avg. Price</div></div>
+          <div class="mkt-stat"><div class="mkt-val up" id="ms-bar-c">+4.2%</div><div class="mkt-lbl">YoY</div></div>
+          <div class="mkt-stat"><div class="mkt-val">18d</div><div class="mkt-lbl">Avg. DOM</div></div>
         </div>
       </div>
-      <div class="market-card">
-        <div class="market-card-city">Toronto, ON</div>
-        <div class="market-card-stats">
-          <div class="market-stat">
-            <span class="market-stat-value" id="ms-tor-price">$1.12M</span>
-            <span class="market-stat-label">Avg. Price</span>
-          </div>
-          <div class="market-stat">
-            <span class="market-stat-value trend-dn" id="ms-tor-chg">-1.8%</span>
-            <span class="market-stat-label">YoY Change</span>
-          </div>
-          <div class="market-stat">
-            <span class="market-stat-value" id="ms-tor-dom">24 days</span>
-            <span class="market-stat-label">Avg. DOM</span>
-          </div>
+      <div class="mkt-card">
+        <div class="mkt-city">Toronto, ON</div>
+        <div class="mkt-stats">
+          <div class="mkt-stat"><div class="mkt-val" id="ms-tor-p">$1.12M</div><div class="mkt-lbl">Avg. Price</div></div>
+          <div class="mkt-stat"><div class="mkt-val dn">-1.8%</div><div class="mkt-lbl">YoY</div></div>
+          <div class="mkt-stat"><div class="mkt-val">24d</div><div class="mkt-lbl">Avg. DOM</div></div>
         </div>
       </div>
-      <div class="market-card">
-        <div class="market-card-city">Innisfil, ON</div>
-        <div class="market-card-stats">
-          <div class="market-stat">
-            <span class="market-stat-value" id="ms-inn-price">$864K</span>
-            <span class="market-stat-label">Avg. Price</span>
-          </div>
-          <div class="market-stat">
-            <span class="market-stat-value trend-up" id="ms-inn-chg">+6.1%</span>
-            <span class="market-stat-label">YoY Change</span>
-          </div>
-          <div class="market-stat">
-            <span class="market-stat-value" id="ms-inn-dom">14 days</span>
-            <span class="market-stat-label">Avg. DOM</span>
-          </div>
+      <div class="mkt-card">
+        <div class="mkt-city">Innisfil, ON</div>
+        <div class="mkt-stats">
+          <div class="mkt-stat"><div class="mkt-val" id="ms-inn-p">$864K</div><div class="mkt-lbl">Avg. Price</div></div>
+          <div class="mkt-stat"><div class="mkt-val up">+6.1%</div><div class="mkt-lbl">YoY</div></div>
+          <div class="mkt-stat"><div class="mkt-val">14d</div><div class="mkt-lbl">Avg. DOM</div></div>
         </div>
       </div>
     </div>
 
     <div class="sidebar-section" style="flex:1">
       <div class="sidebar-label">Your Agent</div>
-      <div class="agent-profile" onclick="sendQuick('I would like to schedule a call with my agent.');closeSidebar()">
-        <div class="agent-avatar">SM</div>
+      <div class="agent-card" onclick="sendQuick('I would like to schedule a call with my agent.');closeSidebar()">
+        <div class="agent-av">SM</div>
         <div class="agent-info">
           <div class="agent-name">Stephen Monkhouse</div>
           <div class="agent-title">Royal LePage · Barrie</div>
         </div>
-        <div class="agent-status"></div>
+        <div class="agent-online"></div>
       </div>
     </div>
   </aside>
 
   <!-- MAIN CHAT -->
   <main class="chat-area">
+
     <div class="chat-hero" id="heroSection">
-      <div class="chat-hero-content">
-        <div class="chat-hero-eyebrow">Your Royal LePage AI Concierge</div>
-        <h1 class="chat-hero-title">Find your <em>perfect home</em><br>with intelligent guidance</h1>
-        <p class="chat-hero-sub">Ask me anything — listings, mortgage estimates, neighbourhood insights, market trends, and more.</p>
+      <div class="hero-bg-lines"></div>
+      <div class="hero-bg-glow"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Royal LePage AI Concierge · Barrie</div>
+        <h1 class="hero-title">Find your <em>perfect home</em><br>with expert guidance</h1>
+        <p class="hero-sub">Ask me anything — listings, mortgage estimates, neighbourhood insights, market trends, and more.</p>
         <div class="hero-chips">
           <button class="hero-chip" onclick="sendQuick('Show me homes near good schools in Barrie')">🏫 Near top schools</button>
-          <button class="hero-chip" onclick="sendQuick('What neighbourhoods are best for families in Barrie?')">🌳 Family neighbourhoods</button>
+          <button class="hero-chip" onclick="sendQuick('What neighbourhoods are best for families in Barrie?')">🌳 Family areas</button>
           <button class="hero-chip" onclick="sendQuick('Explain the closing costs in Ontario')">📋 Closing costs</button>
           <button class="hero-chip" onclick="sendQuick('Is now a good time to buy in Ontario?')">📊 Market timing</button>
           <button class="hero-chip" onclick="sendQuick('What is the FHSA and how does it work?')">💵 FHSA explained</button>
@@ -795,16 +818,16 @@ html,body{
     </div>
 
     <div class="messages" id="messages">
-      <div class="message ai" id="welcomeMsg">
-        <div class="msg-avatar ai">K</div>
+      <div class="message ai">
+        <div class="msg-av ai">K</div>
         <div>
           <div class="msg-bubble">
-            <strong>Hey, welcome!</strong> I'm Keys — the AI assistant working alongside Stephen Monkhouse at Royal LePage in Barrie. Whether you're just starting to look around or you're ready to make a move, I'm here to help make sense of it all.<br><br>What's on your mind today?
+            <strong>Welcome — I'm Keys.</strong> I work alongside Stephen Monkhouse at Royal LePage in Barrie. Whether you're just starting to explore or you're ready to make a move, I can help you make sense of the market, run numbers, and find the right fit.<br><br>What brings you here today?
             <div class="msg-actions">
-              <button class="msg-action-btn" onclick="sendQuick('I am looking to buy my first home.')">🏡 I'm a buyer</button>
-              <button class="msg-action-btn" onclick="sendQuick('I want to sell my home. Where do I start?')">💰 I'm a seller</button>
-              <button class="msg-action-btn" onclick="sendQuick('I want to explore investment properties.')">📈 Investor</button>
-              <button class="msg-action-btn primary" onclick="sendQuick('Show me what you can do!')">Explore features</button>
+              <button class="ma-btn" onclick="sendQuick('I am looking to buy my first home.')">🏡 Buying</button>
+              <button class="ma-btn" onclick="sendQuick('I want to sell my home. Where do I start?')">💰 Selling</button>
+              <button class="ma-btn" onclick="sendQuick('I want to explore investment properties.')">📈 Investing</button>
+              <button class="ma-btn pri" onclick="sendQuick('Show me what you can do!')">Explore features →</button>
             </div>
           </div>
           <div class="msg-meta">Keys AI · Just now</div>
@@ -813,136 +836,117 @@ html,body{
     </div>
 
     <div class="input-area">
-      <div class="input-toolbar">
-        <button class="toolbar-btn" onclick="toggleMode(this,'buyer')" id="btn-buyer">🏠 Buyer</button>
-        <button class="toolbar-btn" onclick="toggleMode(this,'seller')" id="btn-seller">💰 Seller</button>
-        <button class="toolbar-btn" onclick="toggleMode(this,'investor')" id="btn-investor">📈 Investor</button>
-        <button class="toolbar-btn" onclick="sendQuick('Show me available listings in Barrie')">📋 Listings</button>
-        <button class="toolbar-btn" onclick="sendQuick('Calculate my mortgage payment')">🏦 Mortgage</button>
+      <div class="toolbar">
+        <button class="tb-btn" onclick="toggleMode(this,'buyer')" id="btn-buyer">🏠 Buyer</button>
+        <button class="tb-btn" onclick="toggleMode(this,'seller')" id="btn-seller">💰 Seller</button>
+        <button class="tb-btn" onclick="toggleMode(this,'investor')" id="btn-investor">📈 Investor</button>
+        <button class="tb-btn" onclick="sendQuick('Show me available listings in Barrie')">📋 Listings</button>
+        <button class="tb-btn" onclick="sendQuick('Calculate my mortgage payment')">🏦 Mortgage</button>
+        <button class="tb-btn" onclick="sendQuick('What neighbourhoods are best for families in Barrie?')">🌳 Areas</button>
       </div>
       <div class="input-row">
-        <div class="input-box">
+        <div class="input-wrap">
           <textarea class="chat-input" id="chatInput"
             placeholder="Ask about listings, mortgage rates, neighbourhoods…"
             rows="1"
             onkeydown="handleKey(event)"
             oninput="autoResize(this)"></textarea>
         </div>
-        <button class="send-btn" onclick="sendMessage()">
+        <button class="send-btn" onclick="sendMessage()" aria-label="Send">
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
-      <div class="input-hint">KeysAI · Information is for guidance only and is not legal or financial advice</div>
+      <div class="input-hint">Information is for guidance only and does not constitute legal or financial advice</div>
     </div>
   </main>
 
   <!-- RIGHT PANEL -->
   <aside class="right-panel">
-    <div class="panel-header">
-      <div>
-        <div class="panel-title">Search Filters</div>
-        <div class="panel-sub">Refine your search</div>
+    <div class="rp-header">
+      <div class="rp-title">Search Filters</div>
+      <div class="rp-sub">Refine your results</div>
+    </div>
+    <div class="rp-section">
+      <div class="rp-section-title">Property Type</div>
+      <div class="chips">
+        <button class="chip active" onclick="toggleChip(this)">All</button>
+        <button class="chip" onclick="toggleChip(this)">Detached</button>
+        <button class="chip" onclick="toggleChip(this)">Semi</button>
+        <button class="chip" onclick="toggleChip(this)">Condo</button>
+        <button class="chip" onclick="toggleChip(this)">Townhouse</button>
       </div>
     </div>
-
-    <div class="panel-section">
-      <div class="panel-section-title">Property Type</div>
-      <div class="filter-chips">
-        <button class="filter-chip active" onclick="toggleChip(this)">All</button>
-        <button class="filter-chip" onclick="toggleChip(this)">Detached</button>
-        <button class="filter-chip" onclick="toggleChip(this)">Semi</button>
-        <button class="filter-chip" onclick="toggleChip(this)">Condo</button>
-        <button class="filter-chip" onclick="toggleChip(this)">Townhouse</button>
-      </div>
-    </div>
-
-    <div class="panel-section">
-      <div class="panel-section-title">Budget & Bedrooms</div>
-      <div class="filter-group">
-        <div class="filter-label">Price Range</div>
-        <div style="display:flex;gap:0.35rem">
-          <input class="filter-input" id="fMin" placeholder="Min $" style="width:50%">
-          <input class="filter-input" id="fMax" placeholder="Max $" style="width:50%">
+    <div class="rp-section">
+      <div class="rp-section-title">Budget & Bedrooms</div>
+      <div class="filt-group">
+        <div class="filt-label">Price Range</div>
+        <div style="display:flex;gap:0.3rem">
+          <input class="filt-input" id="fMin" placeholder="Min $" style="width:50%">
+          <input class="filt-input" id="fMax" placeholder="Max $" style="width:50%">
         </div>
       </div>
-      <div class="filter-group">
-        <div class="filter-label">Bedrooms</div>
-        <div class="filter-chips">
-          <button class="filter-chip" onclick="toggleChip(this)">1+</button>
-          <button class="filter-chip active" onclick="toggleChip(this)">2+</button>
-          <button class="filter-chip" onclick="toggleChip(this)">3+</button>
-          <button class="filter-chip" onclick="toggleChip(this)">4+</button>
+      <div class="filt-group">
+        <div class="filt-label">Bedrooms</div>
+        <div class="chips">
+          <button class="chip" onclick="toggleChip(this)">1+</button>
+          <button class="chip active" onclick="toggleChip(this)">2+</button>
+          <button class="chip" onclick="toggleChip(this)">3+</button>
+          <button class="chip" onclick="toggleChip(this)">4+</button>
         </div>
       </div>
-      <div class="filter-group">
-        <div class="filter-label">City / Neighbourhood</div>
-        <input class="filter-input" id="fCity" placeholder="e.g. Barrie, Innisfil, Orillia">
+      <div class="filt-group">
+        <div class="filt-label">City / Neighbourhood</div>
+        <input class="filt-input" id="fCity" placeholder="e.g. Barrie, Innisfil, Orillia">
       </div>
       <button class="apply-btn" onclick="applyFilters()">Apply Filters →</button>
     </div>
-
-    <div class="panel-section">
-      <div class="panel-section-title">Saved Searches</div>
-      <div class="saved-item" onclick="sendQuick('Show me 3 bedroom homes in Barrie under $750,000')">
+    <div class="rp-section">
+      <div class="rp-section-title">Saved Searches</div>
+      <div class="saved-row" onclick="sendQuick('Show me 3 bedroom homes in Barrie under $750,000')">
         <div class="saved-dot"></div>
         <span class="saved-name">Barrie · 3BR · Under $750K</span>
         <span class="saved-count">12</span>
       </div>
-      <div class="saved-item" onclick="sendQuick('Show me waterfront properties in Innisfil')">
+      <div class="saved-row" onclick="sendQuick('Show me waterfront properties in Innisfil')">
         <div class="saved-dot"></div>
         <span class="saved-name">Innisfil · Waterfront</span>
         <span class="saved-count">4</span>
       </div>
-      <div class="saved-item" onclick="sendQuick('Show me condos in south Barrie')">
-        <div class="saved-dot" style="background:var(--text-muted)"></div>
+      <div class="saved-row" onclick="sendQuick('Show me condos in south Barrie')">
+        <div class="saved-dot" style="background:var(--text-3)"></div>
         <span class="saved-name">Condos · Barrie South</span>
         <span class="saved-count">7</span>
       </div>
     </div>
-
-    <div class="panel-section">
-      <div class="mortgage-calc">
-        <div class="calc-title">⚡ Mortgage Estimate</div>
-        <div class="calc-inputs">
-          <div class="calc-row">
-            <span class="calc-row-label">Home price</span>
-            <input class="calc-row-input" id="calcPrice" value="$750,000" oninput="calcMortgage()">
-          </div>
-          <div class="calc-row">
-            <span class="calc-row-label">Down payment</span>
-            <input class="calc-row-input" id="calcDown" value="$150,000" oninput="calcMortgage()">
-          </div>
-          <div class="calc-row">
-            <span class="calc-row-label">Rate (%) / yr</span>
-            <input class="calc-row-input" id="calcRate" value="5.19%" oninput="calcMortgage()">
-          </div>
-          <div class="calc-row">
-            <span class="calc-row-label">Amortization</span>
-            <input class="calc-row-input" id="calcYears" value="25 yrs" oninput="calcMortgage()">
-          </div>
-        </div>
-        <div class="calc-result">
-          <div class="calc-monthly" id="calcResult">$3,284</div>
-          <div class="calc-monthly-label">/ MONTH ESTIMATED</div>
+    <div class="rp-section">
+      <div class="mort-widget">
+        <div class="mort-title">⚡ Mortgage Estimate</div>
+        <div class="mort-row"><span class="mort-row-lbl">Home price</span><input class="mort-row-input" id="calcPrice" value="$750,000" oninput="calcMortgage()"></div>
+        <div class="mort-row"><span class="mort-row-lbl">Down payment</span><input class="mort-row-input" id="calcDown" value="$150,000" oninput="calcMortgage()"></div>
+        <div class="mort-row"><span class="mort-row-lbl">Rate (%) / yr</span><input class="mort-row-input" id="calcRate" value="5.19%" oninput="calcMortgage()"></div>
+        <div class="mort-row"><span class="mort-row-lbl">Amortization</span><input class="mort-row-input" id="calcYears" value="25 yrs" oninput="calcMortgage()"></div>
+        <div class="mort-result">
+          <div class="mort-amount" id="calcResult">$3,284</div>
+          <div class="mort-lbl">/ MONTH ESTIMATED</div>
         </div>
       </div>
     </div>
   </aside>
-</div><!-- /app-body -->
-</div><!-- /app-shell -->
+</div>
+</div>
 
-<!-- EMBED MODAL -->
+<!-- MODALS -->
 <div class="modal-overlay" id="modal-embed">
   <div class="modal">
-    <div class="modal-header">
-      <span class="modal-header-title">Embed KeysAI on Your Website</span>
+    <div class="modal-hdr">
+      <span class="modal-hdr-title">Embed KeysAI on Your Website</span>
       <button class="modal-close" onclick="closeModal('embed')">✕</button>
     </div>
     <div class="modal-body">
-      <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:0.85rem;line-height:1.6;">Add KeysAI as a tab or floating widget on your Royal LePage team website.</p>
-      <div style="display:flex;gap:0.4rem;margin-bottom:0.6rem">
-        <button class="toolbar-btn active" onclick="switchEmbedType('tab',this)">Tab embed</button>
-        <button class="toolbar-btn" onclick="switchEmbedType('float',this)">Floating chat</button>
+      <p style="font-size:0.8rem;color:var(--text-2);margin-bottom:0.8rem;line-height:1.6;">Add KeysAI as a tab or floating widget on your Royal LePage team website.</p>
+      <div style="display:flex;gap:0.35rem;margin-bottom:0.6rem">
+        <button class="tb-btn active" onclick="switchEmbedType('tab',this)">Tab embed</button>
+        <button class="tb-btn" onclick="switchEmbedType('float',this)">Floating chat</button>
       </div>
       <div class="modal-code" id="embedCode">
 <span class="c-muted">&lt;!-- KeysAI Tab Embed --&gt;</span>
@@ -961,562 +965,842 @@ html,body{
   </div>
 </div>
 
-<!-- CONTACT MODAL -->
 <div class="modal-overlay" id="modal-contact">
   <div class="modal">
-    <div class="modal-header">
-      <span class="modal-header-title">Book a Showing or Consultation</span>
+    <div class="modal-hdr">
+      <span class="modal-hdr-title">Book a Showing or Consultation</span>
       <button class="modal-close" onclick="closeModal('contact')">✕</button>
     </div>
     <div class="modal-body">
-      <div style="display:flex;flex-direction:column;gap:0.65rem">
+      <div style="display:flex;flex-direction:column;gap:0.6rem">
         <div>
-          <div class="filter-label" style="margin-bottom:0.3rem">Your name</div>
-          <input class="filter-input" id="cName" placeholder="Full name">
+          <div class="filt-label" style="margin-bottom:0.28rem">Full name</div>
+          <input class="filt-input" placeholder="Your name">
         </div>
         <div>
-          <div class="filter-label" style="margin-bottom:0.3rem">Email</div>
-          <input class="filter-input" id="cEmail" placeholder="you@email.com" type="email">
+          <div class="filt-label" style="margin-bottom:0.28rem">Email</div>
+          <input class="filt-input" type="email" placeholder="you@email.com">
         </div>
         <div>
-          <div class="filter-label" style="margin-bottom:0.3rem">Phone (optional)</div>
-          <input class="filter-input" placeholder="+1 (000) 000-0000" type="tel">
+          <div class="filt-label" style="margin-bottom:0.28rem">Phone (optional)</div>
+          <input class="filt-input" type="tel" placeholder="+1 (000) 000-0000">
         </div>
         <div>
-          <div class="filter-label" style="margin-bottom:0.3rem">What are you looking for?</div>
-          <div class="filter-chips">
-            <button class="filter-chip active" onclick="toggleChip(this)">Buy</button>
-            <button class="filter-chip" onclick="toggleChip(this)">Sell</button>
-            <button class="filter-chip" onclick="toggleChip(this)">Invest</button>
-            <button class="filter-chip" onclick="toggleChip(this)">Just exploring</button>
+          <div class="filt-label" style="margin-bottom:0.28rem">I'm looking to…</div>
+          <div class="chips">
+            <button class="chip active" onclick="toggleChip(this)">Buy</button>
+            <button class="chip" onclick="toggleChip(this)">Sell</button>
+            <button class="chip" onclick="toggleChip(this)">Invest</button>
+            <button class="chip" onclick="toggleChip(this)">Just exploring</button>
           </div>
         </div>
-        <button class="apply-btn" style="margin-top:0.2rem" onclick="submitContact()">Send to Agent →</button>
+        <button class="apply-btn" style="margin-top:0.25rem" onclick="submitContact()">Send to Stephen →</button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-/* ════════════════════════════════════════════════════
-   SELF-CONTAINED AI ENGINE
-   Rule-based + templated knowledge base covering
-   Canadian real estate for the Barrie / Simcoe area.
-════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   KEYSAI — UPGRADED AI ENGINE v2
+   Multi-turn conversation state, intent confidence scoring,
+   follow-up memory, contextual clarification, richer answers.
+═══════════════════════════════════════════════════════════ */
 
-const KNOWLEDGE = {
-
-  /* ── MARKET DATA (simulated live) ── */
+/* ─── KNOWLEDGE BASE ─── */
+const KB = {
   markets: {
-    barrie:     { price: 742000,  yoy: 4.2,  dom: 18, inventory: 'moderate', trend: 'balanced' },
-    toronto:    { price: 1120000, yoy: -1.8, dom: 24, inventory: 'high',     trend: "buyer's" },
-    innisfil:   { price: 864000,  yoy: 6.1,  dom: 14, inventory: 'low',      trend: "seller's" },
-    orillia:    { price: 598000,  yoy: 2.9,  dom: 22, inventory: 'moderate', trend: 'balanced' },
-    collingwood:{ price: 912000,  yoy: 5.4,  dom: 16, inventory: 'low',      trend: "seller's" },
+    barrie:      { price:742000,  yoy:4.2,  dom:18, inv:'moderate', trend:'balanced',    region:'Simcoe County' },
+    toronto:     { price:1120000, yoy:-1.8, dom:24, inv:'high',     trend:"buyer's",     region:'GTA' },
+    innisfil:    { price:864000,  yoy:6.1,  dom:14, inv:'low',      trend:"seller's",    region:'Simcoe County' },
+    orillia:     { price:598000,  yoy:2.9,  dom:22, inv:'moderate', trend:'balanced',    region:'Simcoe County' },
+    collingwood: { price:912000,  yoy:5.4,  dom:16, inv:'low',      trend:"seller's",    region:'Simcoe County' },
+    essa:        { price:820000,  yoy:3.7,  dom:20, inv:'low',      trend:"seller's",    region:'Simcoe County' },
   },
 
-  /* ── LISTINGS (illustrative) ── */
   listings: [
-    { id:1, addr:'47 Hickling Trail, Barrie',      price:689000,  bed:3, bath:2, sqft:1640, type:'Detached',  hood:'Allandale', emoji:'🏡', tag:'NEW' },
-    { id:2, addr:'221 Cundles Rd E, Barrie',       price:724900,  bed:4, bath:3, sqft:2100, type:'Detached',  hood:'Holly',     emoji:'🏠', tag:'HOT' },
-    { id:3, addr:'88 Bradford St #412, Barrie',    price:479000,  bed:2, bath:2, sqft:985,  type:'Condo',     hood:'Downtown',  emoji:'🏢', tag:'' },
-    { id:4, addr:'15 Sunnidale Pond Cres, Barrie', price:812000,  bed:4, bath:3, sqft:2450, type:'Detached',  hood:'Sunnidale', emoji:'🏡', tag:'HOT' },
-    { id:5, addr:'33 Bell Farm Rd #7, Barrie',     price:564000,  bed:3, bath:2, sqft:1380, type:'Townhouse', hood:'N.Shore',   emoji:'🏘', tag:'' },
-    { id:6, addr:'1042 Lakeshore Blvd, Innisfil',  price:1190000, bed:4, bath:4, sqft:2900, type:'Detached',  hood:'Waterfront',emoji:'🏖', tag:'NEW' },
-    { id:7, addr:'74 Penetang St, Barrie',         price:658000,  bed:3, bath:2, sqft:1520, type:'Semi',      hood:'East End',  emoji:'🏠', tag:'' },
-    { id:8, addr:'290 Essa Rd #201, Barrie',       price:399000,  bed:1, bath:1, sqft:680,  type:'Condo',     hood:'S.Barrie',  emoji:'🏢', tag:'' },
+    { id:1, addr:'47 Hickling Trail',     city:'Barrie', price:689000,  bed:3, bath:2, sqft:1640, type:'Detached',  hood:'Allandale', emoji:'🏡', tag:'NEW',  features:['GO Train access','mature lot','updated kitchen'] },
+    { id:2, addr:'221 Cundles Rd E',      city:'Barrie', price:724900,  bed:4, bath:3, sqft:2100, type:'Detached',  hood:'Holly',     emoji:'🏠', tag:'HOT',  features:['top-rated school catchment','double garage','4 beds'] },
+    { id:3, addr:'88 Bradford St #412',   city:'Barrie', price:479000,  bed:2, bath:2, sqft:985,  type:'Condo',     hood:'Downtown',  emoji:'🏢', tag:'',     features:['lakefront views','walkable core','low maintenance'] },
+    { id:4, addr:'15 Sunnidale Pond Cres',city:'Barrie', price:812000,  bed:4, bath:3, sqft:2450, type:'Detached',  hood:'Sunnidale', emoji:'🏡', tag:'HOT',  features:['executive area','quiet street','double car garage'] },
+    { id:5, addr:'33 Bell Farm Rd #7',    city:'Barrie', price:564000,  bed:3, bath:2, sqft:1380, type:'Townhouse', hood:'N.Shore',   emoji:'🏘', tag:'',     features:['bay views nearby','3 bed','low condo fees'] },
+    { id:6, addr:'1042 Lakeshore Blvd',   city:'Innisfil',price:1190000,bed:4, bath:4, sqft:2900, type:'Detached',  hood:'Waterfront',emoji:'🏖', tag:'NEW',  features:['direct water access','4 bed 4 bath','dock'] },
+    { id:7, addr:'74 Penetang St',        city:'Barrie', price:658000,  bed:3, bath:2, sqft:1520, type:'Semi',      hood:'East End',  emoji:'🏠', tag:'',     features:['great value','large backyard','close to transit'] },
+    { id:8, addr:'290 Essa Rd #201',      city:'Barrie', price:399000,  bed:1, bath:1, sqft:680,  type:'Condo',     hood:'S.Barrie',  emoji:'🏢', tag:'',     features:['entry level','in-suite laundry','south Barrie'] },
+    { id:9, addr:'812 Yonge St N',        city:'Barrie', price:938000,  bed:5, bath:4, sqft:3100, type:'Detached',  hood:'Sunnidale', emoji:'🏡', tag:'NEW',  features:['5 bed executive','large lot','triple garage'] },
+    { id:10,addr:'55 Mapleview Dr E #304',city:'Barrie', price:519000,  bed:2, bath:2, sqft:1050, type:'Condo',     hood:'S.Barrie',  emoji:'🏢', tag:'',     features:['modern finishes','2 parking','near big box'] },
   ],
 
-  /* ── NEIGHBOURHOODS ── */
   hoods: {
-    allandale:    'Established south Barrie neighbourhood with mature trees, quick GO Train access, and a mix of bungalows and two-storey detached homes. Great for commuters.',
-    holly:        'Family-friendly north Barrie community near top-rated schools (Willow Landing, Holly Meadows) with parks, trails, and newer builds.',
-    sunnidale:    'Prestigious area known for larger executive homes, proximity to Barrie Country Club, and quiet streets.',
-    downtown:     'Vibrant urban core with lakefront access, restaurants, and condos. Popular with young professionals.',
-    innisfil:     'Rapidly growing lake community south of Barrie. Innisfil Beach Park, waterfront lots, and strong appreciation.',
-    'north shore':'Quiet waterfront area along Kempenfelt Bay. Premium lakefront properties with stunning views.',
+    allandale:    { desc:'Established south Barrie neighbourhood with mature trees, quick GO Train access, and a mix of bungalows and two-storey detached homes. Highly popular with Toronto commuters.', avgPrice:680000, schools:'Allandale Heights PS, Barrie North CI', transit:'GO Train (Barrie South)', vibe:'Commuter-friendly, mature neighbourhood' },
+    holly:        { desc:'Family-favourite north Barrie community with top-rated elementary schools (Willow Landing, Holly Meadows), parks, trails, and newer builds. Where most families end up.', avgPrice:740000, schools:'Holly Meadows ES, Willow Landing PS, Innisdale SS', transit:'Bus routes to downtown', vibe:'Families with children, newer homes' },
+    sunnidale:    { desc:'Prestigious executive area known for larger homes, proximity to Barrie Country Club, and quiet tree-lined streets. The premium end of the Barrie market.', avgPrice:880000, schools:'Sunnidale ES, Barrie French Immersion', transit:'Limited — car dependent', vibe:'Executive, upscale, quiet' },
+    downtown:     { desc:'Vibrant lakefront core with restaurants, bars, and walkable amenities. Condos and character homes popular with young professionals. The area has seen major investment.', avgPrice:540000, schools:'Various within drive', transit:'Bus terminal, GO station nearby', vibe:'Urban, walkable, professional' },
+    innisfil:     { desc:'Rapidly growing lake community south of Barrie. Innisfil Beach Park, waterfront lots, Friday Harbour resort community, and strong year-over-year appreciation.', avgPrice:860000, schools:'Nantyr Shores SS, various elementaries', transit:'Innisfil Transit app-based service', vibe:'Lake life, growing community, appreciation play' },
+    'north shore':{ desc:'Quiet waterfront area along Kempenfelt Bay. Premium lakefront properties with stunning views. The most coveted and expensive addresses in the Barrie area.', avgPrice:1200000, schools:'Various Barrie schools', transit:'Car dependent', vibe:'Waterfront luxury, views, exclusivity' },
   },
 
-  /* ── MORTGAGE KNOWLEDGE ── */
   mortgage: {
-    rates: { prime: 7.20, variable: 6.45, fixed5: 5.19, fixed3: 5.35, fixed1: 5.70 },
-    cmhc: { under500k: 0.04, '500to999k': 0.031, '1mplus': 'not insurable' },
-    stressTest: 5.25,
-    maxGDS: 0.39, maxTDS: 0.44,
+    prime:5.45, variable:5.45, fixed5:5.19, fixed3:5.35, fixed1:5.70,
+    cmhc_5_10:0.04, cmhc_10_15:0.031, cmhc_15_20:0.028,
+    stressTest:5.25,
+    maxGDS:0.39, maxTDS:0.44,
   },
 
-  /* ── ONTARIO CLOSING COSTS ── */
-  closingCosts: {
-    ltt:          'Land Transfer Tax: 0.5% on first $55K, 1% $55K–$250K, 1.5% $250K–$400K, 2% $400K–$2M, 2.5% over $2M.',
-    torontoLTT:   'Toronto levies an additional LTT of the same rates on top of provincial.',
-    firstTimeLTT: 'First-time buyers get a provincial LTT rebate up to $4,000, and up to $4,475 in Toronto.',
-    legalFees:    '$1,500–$2,500 for a real estate lawyer.',
-    titleInsurance:'$200–$400.',
-    homeinspection:'$400–$650.',
-    hst:          'HST applies to new construction; resale homes are exempt.',
-    typical:      'Budget 1.5–4% of purchase price for total closing costs.',
+  closingCosts:{
+    legalFees:'$1,500–$2,500',
+    titleInsurance:'$200–$400',
+    homeInspection:'$400–$650',
+    titleSearch:'$300–$600',
+    moving:'$1,000–$3,000',
+    totalPct:'1.5–4%',
   },
 
-  /* ── FIRST-TIME BUYER PROGRAMS ── */
-  programs: {
-    fhsa:           'The First Home Savings Account (FHSA) lets first-time buyers contribute up to $8,000/year (lifetime max $40,000). Contributions are tax-deductible; withdrawals for a qualifying home purchase are tax-free. You must open the account at least one calendar year before purchasing.',
-    rrspHBP:        "The RRSP Home Buyers' Plan (HBP) lets first-time buyers withdraw up to $35,000 ($70,000 per couple) from RRSPs tax-free. Repayment required over 15 years.",
-    firstTimeRebate:'Ontario First-Time Home Buyers Land Transfer Tax Rebate: up to $4,000 (provincial). Toronto adds up to $4,475.',
-    gst:            'New Home Rebate: partial GST/HST rebate on new homes under $450K purchase price.',
+  programs:{
+    fhsa:      { name:'First Home Savings Account (FHSA)', annual:8000, lifetime:40000, benefit:'Tax-deductible contributions, tax-free withdrawals for home purchase', note:'Must hold account for minimum 1 calendar year before using' },
+    rrspHBP:   { name:'RRSP Home Buyers\' Plan', single:35000, couple:70000, repay:'15 years', benefit:'Withdraw RRSP funds tax-free for first home' },
+    lttRebate: { provincial:4000, toronto:4475, note:'Ontario first-time buyer land transfer tax rebate' },
   },
 
-  /* ── INVESTMENT KNOWLEDGE ── */
-  investment: {
-    capRate:      'Cap Rate = Net Operating Income / Purchase Price. In Barrie, typical residential cap rates run 3.5–5.5%. Aim for 5%+ for strong returns.',
-    cashOnCash:   'Cash-on-Cash Return = Annual Pre-Tax Cash Flow / Total Cash Invested. Target 6–10% for Ontario rentals.',
-    rentalDemand: "Barrie's rental vacancy rate is approximately 2.1% — near historic lows, driven by GO expansion and population growth.",
-    averageRent:  { oneBd: 1950, twoBd: 2450, threeBd: 2950 },
+  investment:{
+    vacancyRate:2.1,
+    popGrowth:2.3,
+    capRateRange:'3.5–5.5%',
+    targetCapRate:5,
+    cashOnCashTarget:'6–10%',
+    rents:{ oneBd:1950, twoBd:2450, threeBd:2950 },
+    rentControl:'Applies to units built before Nov 15, 2018. Max 2.5% increase (2025). New builds exempt.',
+    hotSpots:['Allandale duplexes (strong demand, good value)','Pre-construction near GO Station','Innisfil for short-term/cottage plays'],
   },
 
-  /* ── SELLING KNOWLEDGE ── */
-  selling: {
-    staging:    [
-      'Declutter and depersonalise every room',
-      'Fresh neutral paint — greige tones tend to sell fastest in this market',
-      'Professional photography — homes with pro photos sell 32% faster on average',
-      'Curb appeal matters: power wash the driveway, fresh mulch, seasonal flowers',
-      'Kitchen and bathrooms: small hardware and fixture upgrades deliver strong ROI',
-      'Consider a pre-list inspection — it removes uncertainty and builds buyer confidence'
+  selling:{
+    avgDOM:18,
+    stagingROI:'Staged homes sell 32% faster on average',
+    commissionRange:'4–5%',
+    prepTimeline:'Allow 30–60 days from decision to list',
+    stagingTips:[
+      'Declutter and depersonalise — buyers need to picture their own life here',
+      'Fresh neutral paint (greige tones sell fastest in this market)',
+      'Professional photography — a non-negotiable in 2025',
+      'Curb appeal: power wash driveway, fresh mulch, seasonal flowers',
+      'Kitchen and bathroom hardware updates deliver strong ROI relative to cost',
+      'Pre-list home inspection removes buyer uncertainty and builds confidence',
     ],
-    pricing:    "Pricing strategy is everything. Well-priced homes in Barrie still attract competition and multiple offers. Price too high and you'll sit — and price reductions send the wrong signal to buyers.",
-    timeline:   'Average sale in Barrie runs 18–25 days from list to firm. Budget 30–60 days from decision-to-list if you want time to properly prep.',
-    commission: 'Typical commission in Ontario is 4–5% of sale price, split between buyer and seller agents.',
+    pricingAdvice:"Pricing is the single most powerful lever you have. Well-priced homes in Barrie still attract competition and multiple offers. Price too high and you'll sit — and price reductions send the wrong signal.",
   },
 };
 
-/* ─────────────────────────────────────
-   INTENT CLASSIFIER + RESPONSE ENGINE
-───────────────────────────────────── */
+/* ─── CONVERSATION STATE ─── */
+const STATE = {
+  history: [],          // {role, text, intent, data}
+  profile: {            // builds up over the conversation
+    mode: null,         // buyer / seller / investor
+    budget: null,
+    income: null,
+    beds: null,
+    city: null,
+    hood: null,
+    firstTime: null,
+    propertyType: null,
+  },
+  lastIntent: null,
+  lastCity: null,
+  turnCount: 0,
+};
 
-function classifyIntent(msg) {
-  const m = msg.toLowerCase();
-  if (/list|availa|for sale|browse|show me|find.*home|search|properties|mls/i.test(m)) return 'listings';
-  if (/mortgage|payment|afford|qualify|borrow|amort|rate|cmhc|stress test|gds|tds/i.test(m)) return 'mortgage';
-  if (/market|trend|price|condition|now.*buy|good time|inventory|dom|days on/i.test(m)) return 'market';
-  if (/neighbour|hood|area|community|school|family|safe|transit|commute/i.test(m)) return 'neighbourhood';
-  if (/first.time|fhsa|rrsp|hbp|rebate|first home|incentive|program/i.test(m)) return 'firsttime';
-  if (/clos|land transfer|ltt|legal|lawyer|title|hst|gst|cost|fee/i.test(m)) return 'closing';
-  if (/invest|cap rate|cash.on|rental|landlord|roi|return|income property/i.test(m)) return 'investment';
-  if (/sell|list my|staging|stage|curb|commission|agent fee|what.*worth/i.test(m)) return 'selling';
-  if (/book|schedule|call|meeting|agent|stephen|monkhouse|contact|showing|visit/i.test(m)) return 'agent';
-  if (/feature|what can|help|do you|demo|explore|overview/i.test(m)) return 'features';
-  if (/buyer|buying|buy/i.test(m)) return 'buyer';
-  if (/seller|selling|sell/i.test(m)) return 'selling';
-  if (/investor|invest/i.test(m)) return 'investment';
-  return 'general';
-}
+/* ─── HELPERS ─── */
+const fmt = {
+  price: n => {
+    if(!n) return '—';
+    if(n>=1000000) return '$' + (n/1000000).toFixed(2).replace(/\.?0+$/,'') + 'M';
+    return '$' + Math.round(n).toLocaleString('en-CA');
+  },
+  pct: n => (n>=0?'+':'') + n.toFixed(1) + '%',
+  num: n => n.toLocaleString('en-CA'),
+};
 
-function extractCity(msg) {
-  const m = msg.toLowerCase();
-  if (/innisfil/.test(m)) return 'innisfil';
-  if (/orillia/.test(m)) return 'orillia';
-  if (/toronto/.test(m)) return 'toronto';
-  if (/collingwood/.test(m)) return 'collingwood';
-  return 'barrie';
-}
-
-function extractBudget(msg) {
-  const match = msg.match(/\$?([\d,]+)k?/i);
-  if (!match) return null;
-  let n = parseFloat(match[1].replace(/,/g, ''));
-  if (/k/i.test(match[0])) n *= 1000;
+function extractNum(str) {
+  if(!str) return null;
+  const m = str.match(/\$?([\d,]+\.?\d*)\s*([kKmM]?)/);
+  if(!m) return null;
+  let n = parseFloat(m[1].replace(/,/g,''));
+  if(/k/i.test(m[2])) n *= 1000;
+  if(/m/i.test(m[2])) n *= 1000000;
   return n;
 }
 
-function fmtPrice(n) {
-  if (n >= 1000000) return '$' + (n/1000000).toFixed(2).replace(/\.?0+$/, '') + 'M';
-  return '$' + Math.round(n).toLocaleString('en-CA');
+function extractIncome(str) {
+  const m = str.match(/\$?([\d,]+\.?\d*)\s*[kKmM]?\s*(income|salary|earn|make|\/yr|a year|per year|gross)/i)
+            || str.match(/(income|salary|earning|make)[^\d]*\$?([\d,]+\.?\d*)\s*[kKmM]?/i);
+  if(!m) return null;
+  const raw = m[1] || m[2];
+  return extractNum((m[0].match(/\$?([\d,]+\.?\d*)\s*[kKmM]?/)||[''])[0]);
 }
 
-function fmtPct(n) {
-  return (n >= 0 ? '+' : '') + n.toFixed(1) + '%';
+function extractCity(str) {
+  const s = str.toLowerCase();
+  const cities = ['innisfil','orillia','toronto','collingwood','essa'];
+  for(const c of cities) if(s.includes(c)) return c;
+  return 'barrie';
 }
 
-/* Monthly mortgage payment */
-function calcPayment(price, down, annualRate, years) {
+function extractBeds(str) {
+  const m = str.match(/(\d)\s*(?:bed|br|bedroom)/i);
+  return m ? parseInt(m[1]) : null;
+}
+
+function extractBudget(str) {
+  const m = str.match(/under|below|max|budget|less than|up to/i);
+  if(m) return extractNum(str);
+  const n = extractNum(str);
+  return n > 50000 ? n : null; // ignore small numbers
+}
+
+function calcPayment(price, down, annRate, years) {
   const p = price - down;
-  const r = annualRate / 12;
+  const r = annRate / 12;
   const n = years * 12;
-  if (r === 0) return p / n;
-  return p * (r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
+  if(r === 0) return p/n;
+  return p * (r * Math.pow(1+r,n)) / (Math.pow(1+r,n) - 1);
 }
 
-/* Ontario LTT calculator */
 function calcLTT(price) {
-  let tax = 0;
-  if (price > 2000000) tax += (price - 2000000) * 0.025;
-  if (price > 400000)  tax += (Math.min(price, 2000000) - 400000) * 0.02;
-  if (price > 250000)  tax += (Math.min(price, 400000)  - 250000) * 0.015;
-  if (price > 55000)   tax += (Math.min(price, 250000)  - 55000)  * 0.01;
-  tax += Math.min(price, 55000) * 0.005;
-  return Math.round(tax);
+  let t = 0;
+  if(price>2000000) t += (price-2000000)*0.025;
+  if(price>400000)  t += (Math.min(price,2000000)-400000)*0.02;
+  if(price>250000)  t += (Math.min(price,400000)-250000)*0.015;
+  if(price>55000)   t += (Math.min(price,250000)-55000)*0.01;
+  t += Math.min(price,55000)*0.005;
+  return Math.round(t);
+}
+
+/* ─── INTENT CLASSIFIER ─── */
+function classify(msg) {
+  const m = msg.toLowerCase();
+  const scores = {};
+  const add = (intent, pts) => scores[intent] = (scores[intent]||0) + pts;
+
+  // Strong signals
+  if(/\blist|availa|for sale|browse|show me.*home|search.*home|find.*home|mls\b/i.test(m)) add('listings',4);
+  if(/\bshow me\b.*\bunder\b|\bunder \$|\bbedroom|bed.*barrie|homes.*for sale\b/i.test(m)) add('listings',3);
+  if(/\bmortgage|payment|afford|qualify|borrow|amort|stress test|gds|tds|cmhc\b/i.test(m)) add('mortgage',4);
+  if(/\bmarket|trend|condition|good time|inventory|dom|days on market|price.*drop|rising\b/i.test(m)) add('market',4);
+  if(/\bneighbour|hood|area|community|best.*area|where.*live|family.*area\b/i.test(m)) add('neighbourhood',4);
+  if(/\bfhsa|first home savings|rrsp.*home|hbp|first.time.*buy|first.*buyer|programs|rebate|incentive\b/i.test(m)) add('firsttime',4);
+  if(/\bclos|land transfer|ltt|legal fee|lawyer|title insurance|hst.*new|closing cost\b/i.test(m)) add('closing',4);
+  if(/\binvest|cap rate|cash.on|rental|landlord|roi|income property|duplex\b/i.test(m)) add('investment',4);
+  if(/\bstage|staging|sell|listing my|commission|what.*worth|prepare.*sell\b/i.test(m)) add('selling',4);
+  if(/\bbook|schedule|call|meeting|stephen|monkhouse|contact|showing|visit|agent\b/i.test(m)) add('agent',4);
+  if(/\bfeature|what can you|help me|show me what|overview|explore|demo\b/i.test(m)) add('features',3);
+
+  // Moderate signals
+  if(/\brate|interest|bank of canada|prime\b/i.test(m)) add('mortgage',2);
+  if(/\bdown payment|deposit\b/i.test(m)) add('mortgage',2);
+  if(/\bschool|education|daycare\b/i.test(m)) add('neighbourhood',2);
+  if(/\bbuy|buying|purchase\b/i.test(m)) add('buyer',2);
+  if(/\bsell|selling\b/i.test(m)) add('selling',2);
+  if(/\bincome|salary|earn\b/i.test(m)) add('mortgage',2);
+
+  // Context — if follow-up, boost last intent slightly
+  if(STATE.lastIntent && STATE.turnCount > 0) add(STATE.lastIntent, 1);
+
+  let best = 'general', bestScore = 0;
+  for(const [k,v] of Object.entries(scores)) { if(v>bestScore){bestScore=v;best=k;} }
+  return best;
 }
 
 /* ─── RESPONSE GENERATORS ─── */
 
-function respondListings(msg) {
-  const budget = extractBudget(msg);
-  const city = extractCity(msg);
-  let filtered = KNOWLEDGE.listings;
-  if (budget) filtered = filtered.filter(l => l.price <= budget * 1.05);
-  if (city !== 'barrie') filtered = filtered.filter(l => l.addr.toLowerCase().includes(city));
-  if (!filtered.length) filtered = KNOWLEDGE.listings.slice(0,4);
+function rListings(msg) {
+  const budget = extractBudget(msg) || STATE.profile.budget;
+  const city   = extractCity(msg) || STATE.profile.city || 'barrie';
+  const beds   = extractBeds(msg) || STATE.profile.beds;
+  const type   = /condo/i.test(msg)?'Condo':/townhouse/i.test(msg)?'Townhouse':/semi/i.test(msg)?'Semi':null;
+
+  // Update profile
+  if(budget) STATE.profile.budget = budget;
+  if(beds)   STATE.profile.beds   = beds;
+  STATE.profile.city = city;
+
+  let filtered = [...KB.listings];
+  if(city !== 'barrie') filtered = filtered.filter(l => l.city.toLowerCase().includes(city));
+  if(budget) filtered = filtered.filter(l => l.price <= budget * 1.08);
+  if(beds)   filtered = filtered.filter(l => l.bed >= beds);
+  if(type)   filtered = filtered.filter(l => l.type === type);
+  if(!filtered.length) filtered = KB.listings.slice(0,4);
+
   const show = filtered.slice(0,4);
-  const m = KNOWLEDGE.markets[city] || KNOWLEDGE.markets.barrie;
-  const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+  const m = KB.markets[city] || KB.markets.barrie;
+  const cityName = city.charAt(0).toUpperCase()+city.slice(1);
 
-  let html = `Good news — there's some solid inventory to work with${budget ? ` in the ${fmtPrice(budget)} range` : ''} in ${cityName} right now. Here's a representative sample of what's active:<br><br>`;
+  let filtersApplied = [];
+  if(budget) filtersApplied.push(`under ${fmt.price(budget)}`);
+  if(beds)   filtersApplied.push(`${beds}+ bedrooms`);
+  if(type)   filtersApplied.push(type.toLowerCase()+'s');
 
+  let intro = `Here's a look at ${show.length} properties in <strong>${cityName}</strong>`;
+  if(filtersApplied.length) intro += ` matching your filters (${filtersApplied.join(', ')})`;
+  intro += ':';
+
+  let html = intro + '<br><br>';
   html += '<div class="listing-grid">';
   show.forEach(l => {
-    html += `<div class="listing-card">
-      <div class="listing-img">${l.emoji}${l.tag ? `<span class="listing-tag">${l.tag}</span>` : ''}</div>
-      <div class="listing-body">
-        <div class="listing-price">${fmtPrice(l.price)}</div>
-        <div class="listing-addr">${l.addr}</div>
-        <div class="listing-specs"><span>🛏 ${l.bed}</span><span>🚿 ${l.bath}</span><span>📐 ${l.sqft.toLocaleString()} ft²</span></div>
+    const featureStr = l.features.slice(0,2).join(' · ');
+    html += `<div class="l-card" onclick="sendQuick('Tell me more about ${l.addr}, ${l.city}')">
+      <div class="l-img">${l.emoji}${l.tag?`<span class="l-tag">${l.tag}</span>`:''}</div>
+      <div class="l-body">
+        <div class="l-price">${fmt.price(l.price)}</div>
+        <div class="l-addr">${l.addr}, ${l.city}</div>
+        <div class="l-specs"><span>🛏 ${l.bed}</span><span>🚿 ${l.bath}</span><span>📐 ${fmt.num(l.sqft)} ft²</span></div>
       </div>
     </div>`;
   });
   html += '</div>';
 
-  const trendNote = m.trend === "seller's"
-    ? `Heads up — ${cityName} is moving fast right now (avg. ${m.dom} days on market). If something catches your eye, you don't want to sleep on it.`
-    : m.trend === "buyer's"
-    ? `The good news for you: ${cityName} is a buyer's market right now, so there's more room to negotiate than there has been in a while.`
-    : `${cityName} is fairly balanced right now — avg. ${m.dom} days on market — so you have time to be thoughtful without losing out.`;
+  // Market context
+  const trendLine = m.trend==="seller's"
+    ? `⚠️ ${cityName} is a <strong>seller's market</strong> right now — homes averaging only ${m.dom} days. If something catches your eye, come prepared to move.`
+    : m.trend==="buyer's"
+    ? `✅ Good news: ${cityName} currently favours buyers — there's more inventory and more room to negotiate than we've seen in a while.`
+    : `⚖️ ${cityName} is in <strong>balanced territory</strong> (avg. ${m.dom} days on market) — you have breathing room, but well-priced homes still move.`;
 
-  html += `<br>${trendNote} Avg. price sitting at <strong>${fmtPrice(m.price)}</strong> (${fmtPct(m.yoy)} YoY).<br><br>`;
-  html += `<em>These are illustrative examples pulled from current inventory patterns. Stephen can pull the live MLS feed and arrange private showings for anything that interests you.</em>`;
-  html += '<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick(\'Tell me more about mortgage options for a home around $700,000\')">💰 Mortgage estimate</button><button class="msg-action-btn primary" onclick="openModal(\'contact\')">📅 Book a showing</button></div>';
+  html += `<br>${trendLine} Average price: <strong>${fmt.price(m.price)}</strong> (${fmt.pct(m.yoy)} YoY).<br><br>`;
+
+  // Smart follow-up based on what we know
+  if(!STATE.profile.income) {
+    html += `<em>These are illustrative examples representative of current inventory. Want me to check what's financially within reach based on your income?</em>`;
+  } else {
+    const maxBuy = (STATE.profile.budget||0) || (STATE.profile.income * 5);
+    html += `<em>Based on our conversation, your target range looks like ${fmt.price(show[0].price)}–${fmt.price(Math.min(show[show.length-1].price+50000, maxBuy))}. Stephen can pull the live MLS feed for anything here.</em>`;
+  }
+
+  html += `<div class="msg-actions">
+    <button class="ma-btn" onclick="sendQuick('Tell me about the ${show[0].hood} neighbourhood')">🌳 About ${show[0].hood}</button>
+    <button class="ma-btn" onclick="sendQuick('What are the closing costs on a ${fmt.price(show[0].price)} purchase?')">📋 Closing costs</button>
+    <button class="ma-btn pri" onclick="openModal('contact')">📅 Book showing</button>
+  </div>`;
+
   return html;
 }
 
-function respondMortgage(msg) {
-  const budget = extractBudget(msg);
-  const incomeMatch = msg.match(/\$?([\d,]+)k?\s*(income|salary|earn|make|yr|year)/i);
-  const r = KNOWLEDGE.mortgage;
+function rListingDetail(msg) {
+  // Try to match a specific listing
+  const matched = KB.listings.find(l =>
+    msg.toLowerCase().includes(l.addr.toLowerCase().split(',')[0].toLowerCase())
+  );
+  if(!matched) return rListings(msg);
 
-  if (incomeMatch) {
-    let income = parseFloat(incomeMatch[1].replace(/,/g,''));
-    if (/k/i.test(incomeMatch[0])) income *= 1000;
-    const maxGDS = income * r.maxGDS / 12;
-    const taxesInsurance = 600;
-    const availForMortgage = maxGDS - taxesInsurance;
+  const m = KB.markets[(matched.city||'barrie').toLowerCase()] || KB.markets.barrie;
+  const payment = Math.round(calcPayment(matched.price, matched.price*0.2, KB.mortgage.fixed5/100, 25));
+  const ltt = calcLTT(matched.price);
+
+  return `<strong>${matched.addr}, ${matched.city}</strong> · ${matched.type}<br><br>
+💰 <strong>Asking Price:</strong> ${fmt.price(matched.price)}<br>
+🛏 <strong>Bedrooms:</strong> ${matched.bed} &nbsp;|&nbsp; 🚿 <strong>Bathrooms:</strong> ${matched.bath} &nbsp;|&nbsp; 📐 <strong>Size:</strong> ${fmt.num(matched.sqft)} ft²<br>
+🏘 <strong>Neighbourhood:</strong> ${matched.hood}<br><br>
+✨ <strong>Key features:</strong> ${matched.features.join(', ')}<br><br>
+📊 <strong>Financial snapshot (20% down, 5-yr fixed):</strong><br>
+&nbsp;• Monthly payment: ~<strong>${fmt.num(payment)}/mo</strong><br>
+&nbsp;• Down payment (20%): <strong>${fmt.price(matched.price*0.2)}</strong><br>
+&nbsp;• Land Transfer Tax: <strong>${fmt.price(ltt)}</strong> (first-time buyers save up to $4,000)<br><br>
+The ${matched.hood} area in ${matched.city} is seeing average DOM of <strong>${m.dom} days</strong> — ${m.trend==="seller's"?"this one won't sit long.":m.trend==="buyer's"?"you have time to be deliberate.":"a reasonable window to act."}<br><br>
+<em>Prices and details are illustrative. Stephen can arrange a private showing and provide a full CMA for comparable sales.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Tell me about the ${matched.hood} neighbourhood')">🌳 ${matched.hood} area</button>
+  <button class="ma-btn" onclick="sendQuick('How much mortgage can I qualify for a $${matched.price} home?')">🏦 Mortgage check</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Book showing</button>
+</div>`;
+}
+
+function rMortgage(msg) {
+  const income = extractIncome(msg) || STATE.profile.income;
+  const budget = extractBudget(msg) || STATE.profile.budget;
+  const r = KB.mortgage;
+
+  if(income) {
+    STATE.profile.income = income;
+    const maxGDS_monthly = income * r.maxGDS / 12;
+    const taxesIns = 650;
+    const availForMort = maxGDS_monthly - taxesIns;
     const rate = r.fixed5 / 100 / 12;
     const n = 25 * 12;
-    const maxLoan = availForMortgage * (Math.pow(1+rate,n) - 1) / (rate * Math.pow(1+rate,n));
-    const maxPrice = maxLoan / 0.8;
-    const payment = Math.round(calcPayment(maxPrice, maxPrice*0.2, r.fixed5/100, 25));
+    const maxLoan = availForMort * (Math.pow(1+rate,n)-1) / (rate*Math.pow(1+rate,n));
+    const withCMHC_20 = maxLoan / 0.8;
+    const withCMHC_10 = maxLoan / 0.9;
+    const payment20 = Math.round(calcPayment(withCMHC_20, withCMHC_20*0.2, r.fixed5/100, 25));
+    const payment10 = Math.round(calcPayment(withCMHC_10, withCMHC_10*0.1, r.fixed5/100, 25));
+    const stressRate = Math.max(r.stressTest, r.fixed5+2);
+    STATE.profile.budget = Math.round(withCMHC_20/1000)*1000;
 
-    return `Here's a ballpark based on <strong>${fmtPrice(income)}/year gross income</strong> — this is what the math looks like at today's 5-year fixed rate of <strong>${r.fixed5}%</strong>:<br><br>
-• <strong>Max purchase price (estimate):</strong> ${fmtPrice(Math.round(maxPrice/1000)*1000)}<br>
-• <strong>Down payment needed (20%):</strong> ${fmtPrice(Math.round(maxPrice*0.2/1000)*1000)}<br>
-• <strong>Monthly payment (est.):</strong> $${payment.toLocaleString('en-CA')}/mo<br>
-• <strong>Stress test rate:</strong> ${Math.max(r.stressTest, r.fixed5+2)}% — that's the OSFI qualifying rate lenders must use<br><br>
-Keep in mind this is a simplified estimate — lenders will also look at your existing debt load (your TDS ratio), credit score, and property tax estimates. If your down payment is under 20%, you'd also be looking at CMHC insurance of ${r.cmhc.under500k*100}% of the loan, which gets rolled into the mortgage.<br><br>
-The best next step is a proper pre-approval — it takes a day or two and gives you real numbers to shop with. Stephen works with some excellent mortgage brokers who have access to 30+ lenders, so you're not just stuck with your bank's posted rate.
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('What are the CMHC insurance rules?')">🏦 CMHC rules</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Talk to Stephen</button></div>`;
+    return `<strong>Affordability Estimate for ${fmt.price(income)}/year</strong><br><br>
+At today's 5-year fixed rate of <strong>${r.fixed5}%</strong>, here's what the numbers look like:<br><br>
+🏡 <strong>With 20% down:</strong><br>
+&nbsp;• Max purchase price: ~<strong>${fmt.price(Math.round(withCMHC_20/5000)*5000)}</strong><br>
+&nbsp;• Down payment needed: <strong>${fmt.price(Math.round(withCMHC_20*0.2/1000)*1000)}</strong><br>
+&nbsp;• Monthly payment (est.): <strong>${fmt.num(payment20)}/mo</strong><br><br>
+🏡 <strong>With 10% down:</strong><br>
+&nbsp;• Max purchase price: ~<strong>${fmt.price(Math.round(withCMHC_10/5000)*5000)}</strong><br>
+&nbsp;• Monthly payment (est.): <strong>${fmt.num(payment10)}/mo</strong> (includes CMHC premium)<br><br>
+⚠️ <strong>The stress test:</strong> You need to qualify at <strong>${stressRate}%</strong> — not ${r.fixed5}%. That's the rate that actually determines your maximum.<br><br>
+📌 <strong>Key limits lenders use:</strong><br>
+&nbsp;• GDS (Gross Debt Service): max 39% of gross income<br>
+&nbsp;• TDS (Total Debt Service): max 44% — includes all existing debts<br><br>
+If your down payment is under 20%, CMHC insurance applies: ${r.cmhc_5_10*100}% (5–10% down), ${r.cmhc_10_15*100}% (10–15%), ${r.cmhc_15_20*100}% (15–20%). This gets rolled into your mortgage, not paid upfront.<br><br>
+<em>These are estimates. A licensed mortgage broker with access to 30+ lenders will almost always beat your bank's posted rate — Stephen can connect you with a few trusted ones.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me homes under ${fmt.price(Math.round(withCMHC_20/50000)*50000)}')">🏡 Browse in range</button>
+  <button class="ma-btn" onclick="sendQuick('What are the closing costs in Ontario?')">📋 Closing costs</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button>
+</div>`;
   }
 
   // Generic mortgage response
   const price = budget || 750000;
-  const down = price * 0.2;
-  const payment = Math.round(calcPayment(price, down, r.fixed5/100, 25));
+  const down  = price * 0.2;
+  const pay   = Math.round(calcPayment(price, down, r.fixed5/100, 25));
+  const payV  = Math.round(calcPayment(price, down, r.variable/100, 25));
 
-  return `Let me give you a real picture of where mortgage rates sit right now:<br><br>
+  return `<strong>Mortgage Rates & Payments — Ontario 2025</strong><br><br>
+Here's an honest picture of where rates and payments sit right now:<br><br>
 📊 <strong>Current rate estimates:</strong><br>
-• 5-year fixed: <strong>${r.fixed5}%</strong> — the most popular choice right now; predictable payments, peace of mind<br>
-• 5-year variable: <strong>${r.variable}%</strong> — lower today, but you're riding the Bank of Canada's decisions<br>
-• 3-year fixed: <strong>${r.fixed3}%</strong> — a middle ground if you think rates will drop in the next few years<br>
-• 1-year fixed: <strong>${r.fixed1}%</strong> — maximum flexibility, renewed annually<br><br>
-💡 <strong>Quick example:</strong> A ${fmtPrice(price)} home with 20% down at ${r.fixed5}% over 25 years works out to roughly <strong>$${payment.toLocaleString('en-CA')}/month</strong>.<br><br>
-⚠️ One thing a lot of buyers don't expect: you'll be stress-tested at ${r.stressTest}% or your contract rate +2%, whichever is higher. That's the rate you need to <em>qualify</em> at, not what you actually pay.<br><br>
-If your down payment is under 20%, CMHC insurance kicks in — it adds 2.8–4% of the loan amount, but it gets rolled into your mortgage rather than paid upfront.<br><br>
-<em>The calculator in the right panel is great for running your own scenarios. Want me to estimate affordability based on your actual income?</em>
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('How much can I afford on an $85,000 income?')">💼 Income qualifier</button><button class="msg-action-btn" onclick="sendQuick('What are the closing costs in Ontario?')">📋 Closing costs</button></div>`;
+&nbsp;• 5-yr fixed: <strong>${r.fixed5}%</strong> — most popular; predictable payments, peace of mind<br>
+&nbsp;• 5-yr variable: <strong>${r.variable}%</strong> — moves with Bank of Canada prime (${r.prime}%)<br>
+&nbsp;• 3-yr fixed: <strong>${r.fixed3}%</strong> — hedge if you expect rates to fall mid-term<br>
+&nbsp;• 1-yr fixed: <strong>${r.fixed1}%</strong> — maximum flexibility, renewed annually<br><br>
+💡 <strong>Quick example for ${fmt.price(price)} with 20% down:</strong><br>
+&nbsp;• Fixed 5-yr: <strong>${fmt.num(pay)}/mo</strong><br>
+&nbsp;• Variable: <strong>${fmt.num(payV)}/mo</strong> (rate can change)<br><br>
+⚠️ <strong>Stress test:</strong> You must qualify at ${Math.max(r.stressTest,r.fixed5+2)}% — that's what determines your actual maximum, not the rate you pay.<br><br>
+🔑 <strong>CMHC insurance:</strong> Required if your down payment is under 20%. Adds 2.8–4% of the loan amount — but it's rolled into your mortgage, not an upfront payment.<br><br>
+<em>Want a personalised estimate? Share your income and I'll run the actual qualifying numbers for you.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('How much can I afford on $90,000 income?')">💼 Run my numbers</button>
+  <button class="ma-btn" onclick="sendQuick('Explain CMHC insurance')">🏦 CMHC explained</button>
+  <button class="ma-btn" onclick="sendQuick('What are closing costs in Ontario?')">📋 Closing costs</button>
+</div>`;
 }
 
-function respondMarket(msg) {
+function rMarket(msg) {
   const city = extractCity(msg);
-  const m = KNOWLEDGE.markets[city] || KNOWLEDGE.markets.barrie;
-  const cityName = city.charAt(0).toUpperCase() + city.slice(1);
-  const trendColour = m.yoy >= 0 ? '🟢' : '🔴';
+  STATE.profile.city = city;
+  const m = KB.markets[city] || KB.markets.barrie;
+  const cityName = city.charAt(0).toUpperCase()+city.slice(1);
+  const icon = m.yoy >= 0 ? '🟢' : '🔴';
 
-  let advice = '';
-  if (m.trend === "seller's") {
-    advice = `Right now, sellers are in the driver's seat in ${cityName}. Inventory is tight, homes are moving in ${m.dom} days on average, and buyers are competing. If you're buying, come with a pre-approval in hand and be ready to move — conditional offers are harder to get accepted in this kind of market. If you're selling, it's a great window to list.`;
-  } else if (m.trend === "buyer's") {
-    advice = `${cityName} has shifted in buyers' favour. More inventory, longer days on market, and sellers who are more open to negotiation than they've been in years. If you've been waiting for conditions to improve, this is worth paying attention to. Take your time, include conditions, and don't be afraid to negotiate.`;
-  } else {
-    advice = `${cityName} is in balanced territory right now — neither side has a major edge. You'll still find some competitive situations on well-priced homes, but there's also room to negotiate and include reasonable conditions. A fair market for careful buyers and realistic sellers.`;
-  }
+  const buyerAdvice = {
+    "seller's": `Right now, sellers have the upper hand in ${cityName}. Inventory is tight, homes are moving in <strong>${m.dom} days</strong> on average, and buyers are competing. Come with your pre-approval confirmed and be ready to act — conditional offers are harder to get accepted in this kind of market.`,
+    "buyer's":  `${cityName} has tilted toward buyers. More inventory, longer days on market, sellers more open to negotiation. If you've been waiting for conditions to shift in your favour, this is worth paying attention to. Take your time, include conditions, and don't be afraid to negotiate.`,
+    balanced:   `${cityName} is in balanced territory — neither side has a major edge. Well-priced homes still attract interest, but there's also room to negotiate and include reasonable conditions.`,
+  };
 
-  return `<strong>${cityName} Market Snapshot</strong> <span class="live-pill"><span class="live-dot"></span>Updated</span><br><br>
-${trendColour} <strong>Average Price:</strong> ${fmtPrice(m.price)} (${fmtPct(m.yoy)} year-over-year)<br>
+  // Compare to nearby markets
+  const comparison = city === 'barrie'
+    ? `<br><br>📍 <strong>Regional context:</strong> Compared to Toronto (avg. ${fmt.price(KB.markets.toronto.price)}, ${fmt.pct(KB.markets.toronto.yoy)} YoY) and Innisfil (${fmt.price(KB.markets.innisfil.price)}, ${fmt.pct(KB.markets.innisfil.yoy)} YoY), Barrie continues to offer strong value for buyers priced out of the GTA.`
+    : '';
+
+  return `<strong>${cityName} Real Estate Market</strong> <span class="live-badge"><span class="live-dot-sm" style="width:4px;height:4px;box-shadow:none;"></span>Current</span><br><br>
+${icon} <strong>Average Price:</strong> ${fmt.price(m.price)} (${fmt.pct(m.yoy)} year-over-year)<br>
 📅 <strong>Avg. Days on Market:</strong> ${m.dom} days<br>
-📦 <strong>Inventory:</strong> ${m.inventory.charAt(0).toUpperCase()+m.inventory.slice(1)}<br>
-⚖️ <strong>Conditions:</strong> ${m.trend.charAt(0).toUpperCase()+m.trend.slice(1)} market<br><br>
-${advice}<br><br>
-<em>These are estimated figures based on current trends. For a detailed neighbourhood-by-neighbourhood breakdown, Stephen can pull a full comparative market analysis.</em>
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me listings in ${cityName}')">🏡 View listings</button><button class="msg-action-btn" onclick="sendQuick('Is now a good time to buy?')">📊 Timing advice</button></div>`;
+📦 <strong>Inventory Level:</strong> ${m.inv.charAt(0).toUpperCase()+m.inv.slice(1)}<br>
+⚖️ <strong>Market Conditions:</strong> ${m.trend.charAt(0).toUpperCase()+m.trend.slice(1)} market<br>
+🗺️ <strong>Region:</strong> ${m.region}<br><br>
+${buyerAdvice[m.trend] || buyerAdvice.balanced}${comparison}<br><br>
+<em>Figures are based on current trend analysis. Stephen can prepare a full Comparative Market Analysis for specific neighbourhoods or property types.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me listings in ${cityName}')">🏡 View listings</button>
+  <button class="ma-btn" onclick="sendQuick('What neighbourhoods are best in ${cityName}?')">🌳 Neighbourhoods</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📊 Get a CMA</button>
+</div>`;
 }
 
-function respondNeighbourhood(msg) {
+function rNeighbourhood(msg) {
   const m = msg.toLowerCase();
-  let hood = null;
-  Object.keys(KNOWLEDGE.hoods).forEach(k => { if (m.includes(k)) hood = k; });
+  let hoodKey = null;
+  for(const k of Object.keys(KB.hoods)) { if(m.includes(k)) { hoodKey=k; break; } }
 
-  if (hood) {
-    return `<strong>${hood.charAt(0).toUpperCase()+hood.slice(1)}</strong><br><br>${KNOWLEDGE.hoods[hood]}<br><br>
-Want to dig deeper? I can pull listings in this area, or talk through schools, commute times, and what the price range actually looks like on the ground right now.
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me listings in ${hood}')">🏡 Listings here</button><button class="msg-action-btn" onclick="sendQuick('What schools are near ${hood}?')">🏫 Nearby schools</button></div>`;
+  if(hoodKey) {
+    const h = KB.hoods[hoodKey];
+    const name = hoodKey.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
+    return `<strong>${name}, Barrie</strong><br><br>
+${h.desc}<br><br>
+📊 <strong>Average price:</strong> ${fmt.price(h.avgPrice)}<br>
+🏫 <strong>Schools:</strong> ${h.schools}<br>
+🚌 <strong>Transit:</strong> ${h.transit}<br>
+👥 <strong>Best suited for:</strong> ${h.vibe}<br><br>
+<em>Want to see what's currently listed in ${name}?</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me listings in ${hoodKey}')">🏡 Listings here</button>
+  <button class="ma-btn" onclick="sendQuick('What schools are near ${hoodKey}?')">🏫 Schools</button>
+  <button class="ma-btn" onclick="sendQuick('What neighbourhoods are best for families in Barrie?')">🌳 Compare areas</button>
+</div>`;
   }
 
+  // General neighbourhood guide
   return `<strong>Barrie Neighbourhood Guide</strong><br><br>
-Barrie has some really distinct pockets — here's the honest breakdown:<br><br>
-🌳 <strong>Holly (North):</strong> The family favourite. Top-rated elementary schools, newer builds, lots of parks and trails. If schools are a priority, this is where most families land.<br>
-🏡 <strong>Allandale (South):</strong> Mature, established, with great GO Train access. Solid value for commuters who need to get to Toronto or the GTA regularly.<br>
-🏙️ <strong>Downtown:</strong> Lakefront, walkable, condos and character homes. It's had real investment in the last few years — a good pick for professionals who want urban convenience.<br>
-🏆 <strong>Sunnidale:</strong> Executive territory — larger homes, Barrie Country Club nearby, quieter streets. The premium end of the Barrie market.<br>
-🌊 <strong>Innisfil / Friday Harbour:</strong> If lake life is what you're after, this is it. Rapid appreciation, waterfront lots, and a growing community south of the city.<br>
-🏘️ <strong>North Shore:</strong> Kempenfelt Bay views, premium waterfront properties, and a peaceful atmosphere. The most coveted addresses in the area.<br><br>
-Which of these speaks to you? I can go deeper on any of them.
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Tell me about the Holly neighbourhood in Barrie')">🌳 Holly</button><button class="msg-action-btn" onclick="sendQuick('Tell me about Allandale in Barrie')">🏡 Allandale</button><button class="msg-action-btn" onclick="sendQuick('Tell me about Downtown Barrie')">🏙️ Downtown</button></div>`;
+Here's an honest breakdown of Barrie's main communities:<br><br>
+🌳 <strong>Holly</strong> · ${fmt.price(KB.hoods.holly.avgPrice)} avg.<br>
+The family favourite. Top-rated schools (Willow Landing, Holly Meadows), newer builds, parks and trails. Where most families land.<br><br>
+🏡 <strong>Allandale</strong> · ${fmt.price(KB.hoods.allandale.avgPrice)} avg.<br>
+Mature, established, great GO Train access. Best value for Toronto commuters. Strong rental demand.<br><br>
+🏙️ <strong>Downtown</strong> · ${fmt.price(KB.hoods.downtown.avgPrice)} avg.<br>
+Lakefront, walkable, genuine investment in recent years. Popular with professionals who want urban convenience.<br><br>
+🏆 <strong>Sunnidale</strong> · ${fmt.price(KB.hoods.sunnidale.avgPrice)} avg.<br>
+Executive tier — larger homes, Country Club nearby, quiet streets. The premium end of the Barrie market.<br><br>
+🌊 <strong>Innisfil / Friday Harbour</strong> · ${fmt.price(KB.hoods.innisfil.avgPrice)} avg.<br>
+Lake life, rapid appreciation, growing community south of the city. The strongest YoY gains in the region (${fmt.pct(KB.markets.innisfil.yoy)}).<br><br>
+🏖 <strong>North Shore</strong> · ${fmt.price(KB.hoods["north shore"].avgPrice)}+ avg.<br>
+Kempenfelt Bay waterfront. Premium addresses, stunning views, and the most exclusive properties in the area.<br><br>
+Which area speaks to you? I can go deeper on any of them.
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Tell me about the Holly neighbourhood')">🌳 Holly</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about the Allandale neighbourhood')">🏡 Allandale</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about Downtown Barrie')">🏙️ Downtown</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about Innisfil')">🌊 Innisfil</button>
+</div>`;
 }
 
-function respondFirstTime(msg) {
-  const p = KNOWLEDGE.programs;
-  return `<strong>First-Time Buyer Guide — Ontario</strong><br><br>
-Good news: there are some solid programs available that a lot of first-time buyers don't fully take advantage of. Here's what you should know:<br><br>
-💵 <strong>FHSA (First Home Savings Account)</strong><br>
-This one's worth opening right now even if you're not buying for another year or two. You can contribute up to $8,000/year (lifetime max $40,000), it's tax-deductible going in, and completely tax-free coming out when you buy. The catch: you need to have the account open for at least one calendar year before you can use it toward a purchase.<br><br>
-💰 <strong>RRSP Home Buyers' Plan (HBP)</strong><br>
-You can pull up to $35,000 from your RRSP tax-free — $70,000 as a couple. You do have to repay it over 15 years, but it can be a meaningful chunk of your down payment if you've been contributing to an RRSP.<br><br>
+function rFirstTime(msg) {
+  STATE.profile.firstTime = true;
+  const p = KB.programs;
+  return `<strong>First-Time Buyer Guide — Ontario 2025</strong><br><br>
+There are some meaningful programs available that a lot of first-time buyers don't fully take advantage of. Here's what you should know:<br><br>
+💵 <strong>FHSA — First Home Savings Account</strong><br>
+Open one now, even if you're not buying for a year or two. Contribute up to $${fmt.num(p.fhsa.annual)}/yr (lifetime max $${fmt.num(p.fhsa.lifetime)}). Contributions are tax-deductible coming in, and completely tax-free going out toward a qualifying home purchase. The catch: the account must be open for at least one calendar year before you can use the funds.<br><br>
+💰 <strong>RRSP Home Buyers' Plan</strong><br>
+Withdraw up to $${fmt.num(p.rrspHBP.single)} from your RRSP tax-free ($${fmt.num(p.rrspHBP.couple)} per couple). Repayment required over ${p.rrspHBP.repay} — but it's interest-free.<br><br>
 🏷️ <strong>Land Transfer Tax Rebate</strong><br>
-As a first-time buyer in Ontario, you get a rebate of up to $4,000 on the provincial land transfer tax. In Toronto, that stacks with a municipal rebate of up to $4,475.<br><br>
-📋 <strong>The honest path forward:</strong><br>
-1. Open an FHSA immediately if you haven't — every month you wait is money left on the table<br>
+Ontario first-time buyers get up to $${fmt.num(p.lttRebate.provincial)} back on the provincial LTT. In Toronto, there's an additional $${fmt.num(p.lttRebate.toronto)} municipal rebate on top of that.<br><br>
+📋 <strong>Practical path forward:</strong><br>
+1. Open an FHSA today if you haven't — every month you wait is lost contribution room<br>
 2. Get a mortgage pre-approval so you're shopping with real numbers<br>
-3. Budget 1.5–4% of purchase price for closing costs on top of your down payment<br>
-4. Your buyer's agent costs you nothing — the seller covers that fee<br><br>
-Stephen works with a lot of first-time buyers and can walk you through all of this in plain language.
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('How much can I afford on a $75,000 income?')">💼 Affordability check</button><button class="msg-action-btn" onclick="sendQuick('Explain closing costs in Ontario')">📋 Closing costs</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Book consultation</button></div>`;
+3. Budget an extra 1.5–4% on top of your down payment for closing costs<br>
+4. Your buyer's agent costs you nothing — the seller covers that commission<br><br>
+<em>What stage are you at? I can go deeper on any of these programs.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('How much can I afford on $75,000 income?')">💼 Affordability</button>
+  <button class="ma-btn" onclick="sendQuick('Explain closing costs in Ontario')">📋 Closing costs</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Book consultation</button>
+</div>`;
 }
 
-function respondClosing(msg) {
-  const budget = extractBudget(msg) || 750000;
+function rClosing(msg) {
+  const budget = extractBudget(msg) || STATE.profile.budget || 750000;
   const ltt = calcLTT(budget);
-  const lttFTB = Math.max(0, ltt - 4000);
-  const total = ltt + 2000 + 400 + 500;
-  const c = KNOWLEDGE.closingCosts;
-  return `<strong>Closing Costs — ${fmtPrice(budget)} Purchase in Ontario</strong><br><br>
-Closing costs are one of those things that surprise first-time buyers. Here's what you're actually looking at:<br><br>
-🏛️ <strong>Land Transfer Tax:</strong> ~${fmtPrice(ltt)}<br>
-&nbsp;&nbsp;↳ First-time buyer rebate knocks that down to ~${fmtPrice(lttFTB)} after the $4,000 provincial credit<br>
-⚖️ <strong>Legal Fees:</strong> $1,500–$2,500 — don't skimp here; a good real estate lawyer earns their fee<br>
-📄 <strong>Title Insurance:</strong> $200–$400<br>
-🔍 <strong>Home Inspection:</strong> $400–$650 — I'd always recommend including this<br>
-🗃️ <strong>Title Search / Disbursements:</strong> $300–$600<br>
-📦 <strong>Moving Costs:</strong> $1,000–$3,000 depending on distance and how much stuff you have<br><br>
-<strong>Total to budget:</strong> Roughly ${fmtPrice(total)}–${fmtPrice(total + 3000)} for a typical buyer. First-timers save ~$4,000 via the LTT rebate.<br><br>
-⚠️ <strong>Important for new construction:</strong> HST (13%) applies on top of the purchase price. There's a partial rebate for primary residences, but it's complicated — something to flag with your lawyer upfront.<br><br>
-${c.ltt}<br><br>
-<em>Your lawyer will give you an exact statement of adjustments before closing day so there are no surprises.</em>
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('What first-time buyer programs are available in Ontario?')">🎁 Buyer programs</button></div>`;
+  const lttAfterRebate = Math.max(0, ltt - KB.programs.lttRebate.provincial);
+  const legal = 2000;
+  const title = 300;
+  const inspection = 525;
+  const disbursements = 450;
+  const totalLow  = Math.round((ltt + legal + title + inspection + disbursements) / 500)*500;
+  const totalHigh = totalLow + 3000;
+  const c = KB.closingCosts;
+
+  return `<strong>Closing Costs — ${fmt.price(budget)} Ontario Purchase</strong><br><br>
+This is what you actually need to budget on top of your down payment:<br><br>
+🏛️ <strong>Land Transfer Tax: ${fmt.price(ltt)}</strong><br>
+&nbsp;↳ First-time buyer? That drops to <strong>${fmt.price(lttAfterRebate)}</strong> after the $4,000 provincial rebate<br>
+&nbsp;↳ Toronto adds its own LTT of the same rates on top (non-Toronto purchases are exempt)<br><br>
+⚖️ <strong>Legal Fees: ${c.legalFees}</strong><br>
+&nbsp;↳ Don't go cheap here — a good real estate lawyer earns their fee<br><br>
+📄 <strong>Title Insurance: ${c.titleInsurance}</strong> — protects against title defects<br><br>
+🔍 <strong>Home Inspection: ${c.homeInspection}</strong> — always worth it on resale<br><br>
+🗃️ <strong>Title Search & Disbursements: ${c.titleSearch}</strong><br><br>
+📦 <strong>Moving Costs: ${c.moving}</strong><br><br>
+<strong>Total to budget: ${fmt.price(totalLow)}–${fmt.price(totalHigh)}</strong><br>
+First-time buyers save ~$4,000 via the LTT rebate.<br><br>
+⚠️ <strong>New construction note:</strong> HST (13%) applies on top of the purchase price. There's a partial rebate for primary residences, but it's complicated — your lawyer should flag this before you sign.<br><br>
+<em>Your lawyer will give you an exact Statement of Adjustments before closing day so there are no last-minute surprises.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('What first-time buyer programs are available?')">🎁 Buyer programs</button>
+  <button class="ma-btn" onclick="sendQuick('What mortgage can I qualify for?')">🏦 Mortgage</button>
+</div>`;
 }
 
-function respondInvestment(msg) {
-  const inv = KNOWLEDGE.investment;
-  return `<strong>Barrie Investment Property — What the Numbers Look Like</strong><br><br>
-Barrie has been one of the more interesting investment markets in Ontario over the last few years. Here's the honest picture:<br><br>
-📊 <strong>Why Barrie makes sense for investors:</strong><br>
-• Vacancy rate: ~2.1% — that's near historic lows, and it's structural, driven by GO expansion and population growth<br>
-• Population growing at 2.3%/yr — demand isn't slowing down<br>
-• Rents: 1-bed ~$${inv.averageRent.oneBd.toLocaleString()}/mo · 2-bed ~$${inv.averageRent.twoBd.toLocaleString()}/mo · 3-bed ~$${inv.averageRent.threeBd.toLocaleString()}/mo<br><br>
-📐 <strong>Key metrics to know:</strong><br>
-• ${inv.capRate}<br>
-• ${inv.cashOnCash}<br><br>
-💡 <strong>Where Stephen sees the best plays right now:</strong><br>
-• Duplexes in Allandale — solid value, strong rental demand, good bones<br>
-• Pre-construction condos near the GO Station — riding the commuter wave<br>
-• Innisfil for short-term rental or cottage plays — high season demand is strong<br><br>
-⚠️ <strong>Know the rules:</strong> Ontario rent control applies to units built before November 2018, with a max annual increase of 2.5% in 2025. New construction is exempt — which is worth factoring into your strategy.<br><br>
-Stephen can connect you with off-market investment listings and has relationships with local property managers if you want a more hands-off approach.
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me investment properties in Barrie')">🏢 View investments</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Investor consult</button></div>`;
+function rInvestment(msg) {
+  const inv = KB.investment;
+  const city = extractCity(msg);
+  const m = KB.markets[city] || KB.markets.barrie;
+
+  // Calculate sample deal
+  const samplePrice = 650000;
+  const sampleDown  = samplePrice * 0.25;
+  const sampleMort  = calcPayment(samplePrice, sampleDown, KB.mortgage.fixed5/100, 25);
+  const sampleRent  = inv.rents.twoBd + inv.rents.oneBd; // duplex
+  const sampleNOI   = (sampleRent * 12) - (samplePrice * 0.025); // rough 2.5% opex
+  const sampleCap   = ((sampleNOI / samplePrice)*100).toFixed(1);
+  const sampleCash  = (((sampleRent*12 - sampleMort*12 - samplePrice*0.02) / sampleDown)*100).toFixed(1);
+
+  return `<strong>Barrie Investment Property Analysis</strong><br><br>
+Here's the honest picture on Barrie as an investment market:<br><br>
+📊 <strong>Why Barrie works for investors:</strong><br>
+&nbsp;• Vacancy rate: <strong>~${inv.vacancyRate}%</strong> — near historic lows; structural shortage driven by GO expansion and population growth<br>
+&nbsp;• Population growth: <strong>${inv.popGrowth}%/yr</strong> — demand isn't slowing<br>
+&nbsp;• Avg. market appreciation: <strong>${fmt.pct(m.yoy)} YoY</strong><br><br>
+💰 <strong>Rental rates (Barrie, 2025):</strong><br>
+&nbsp;• 1-bedroom: ~<strong>$${fmt.num(inv.rents.oneBd)}/mo</strong><br>
+&nbsp;• 2-bedroom: ~<strong>$${fmt.num(inv.rents.twoBd)}/mo</strong><br>
+&nbsp;• 3-bedroom: ~<strong>$${fmt.num(inv.rents.threeBd)}/mo</strong><br><br>
+📐 <strong>Sample deal — Allandale duplex at ${fmt.price(samplePrice)}:</strong><br>
+&nbsp;• Down payment (25%): ${fmt.price(sampleDown)}<br>
+&nbsp;• Total monthly rent: ~$${fmt.num(inv.rents.oneBd + inv.rents.twoBd)}/mo<br>
+&nbsp;• Estimated cap rate: ~${sampleCap}% (target: ${inv.targetCapRate}%+)<br>
+&nbsp;• Cash-on-cash (rough): ~${sampleCash}%<br><br>
+🏆 <strong>Best plays Stephen sees right now:</strong><br>
+${inv.hotSpots.map(s=>`&nbsp;• ${s}`).join('<br>')}<br><br>
+⚠️ <strong>Rent control:</strong> ${inv.rentControl}<br><br>
+<em>Stephen has off-market investment listings and relationships with local property managers for a more hands-off approach.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me investment properties in Barrie')">🏢 View listings</button>
+  <button class="ma-btn" onclick="sendQuick('What is the Innisfil rental market like?')">🌊 Innisfil plays</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Investor consult</button>
+</div>`;
 }
 
-function respondSelling(msg) {
-  const s = KNOWLEDGE.selling;
-  const m = KNOWLEDGE.markets.barrie;
-  return `<strong>Selling in Barrie — Here's What Actually Moves the Needle</strong><br><br>
-The market is ${m.trend} right now, with an average of ${m.dom} days on market and prices sitting around ${fmtPrice(m.price)} (up ${m.yoy}% year-over-year). There's a real opportunity here if you go in prepared.<br><br>
-✅ <strong>What to tackle before you list:</strong><br>
-${s.staging.map(t => `• ${t}`).join('<br>')}<br><br>
-💰 <strong>Pricing is the single biggest lever you have.</strong><br>${s.pricing}<br><br>
-📆 <strong>Realistic timeline:</strong> ${s.timeline}<br><br>
-🤝 <strong>On commission:</strong> ${s.commission}<br><br>
-The most valuable thing Stephen can do for you before you decide anything is a proper Comparative Market Analysis — a real look at what homes like yours have actually sold for recently, not just what's listed. That's free and carries no obligation.
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('What is my home worth in Barrie?')">🏡 Get a valuation</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Talk to Stephen</button></div>`;
+function rSelling(msg) {
+  const s = KB.selling;
+  const m = KB.markets.barrie;
+  return `<strong>Selling in Barrie — What Actually Moves the Needle</strong><br><br>
+The market is <strong>${m.trend}</strong> right now — avg. ${m.dom} days on market, prices at ${fmt.price(m.price)} (${fmt.pct(m.yoy)} YoY). Here's how to make the most of it:<br><br>
+✅ <strong>Before you list — in order of impact:</strong><br>
+${s.stagingTips.map((t,i)=>`${i+1}. ${t}`).join('<br>')}<br><br>
+💰 <strong>Pricing is everything.</strong><br>
+${s.pricingAdvice}<br><br>
+📅 <strong>Realistic timeline:</strong> ${s.prepTimeline}. Average sale runs ${s.avgDOM} days from list to firm — sometimes faster in the right neighbourhood.<br><br>
+🤝 <strong>Commission:</strong> ${s.commissionRange} of the sale price, split between both agents. As a seller, you cover both sides.<br><br>
+📊 <strong>The highest-value first step:</strong> A proper Comparative Market Analysis — what homes like yours have actually sold for recently, not just what's listed. That's free, carries no obligation, and is what a good pricing strategy is built on.<br><br>
+<em>${s.stagingROI}. Professional photography is a non-negotiable in this market.</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('What is my home worth in Barrie?')">🏡 Get a valuation</button>
+  <button class="ma-btn" onclick="sendQuick('What are the closing costs when selling in Ontario?')">💰 Selling costs</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button>
+</div>`;
 }
 
-function respondAgent(msg) {
-  return `<strong>Stephen Monkhouse</strong><br><br>
-👤 Stephen Monkhouse<br>
+function rAgent(msg) {
+  return `<strong>Stephen Monkhouse — Royal LePage First Contact</strong><br><br>
+👤 <strong>Stephen Monkhouse</strong><br>
 🏢 Royal LePage First Contact Real Estate Brokerage<br>
-📍 Barrie, Ontario<br>
-⭐ Barrie & Simcoe County specialist<br><br>
-Whether you're buying your first home, selling and moving up, or exploring investment properties — Stephen's approach is straightforward: no pressure, just honest advice and a clear plan.<br><br>
-He works with:<br>
-• First-time buyers navigating the process for the first time<br>
-• Move-up buyers and sellers in the Barrie area<br>
-• Investors looking at rental and income properties<br>
-• Waterfront and cottage property buyers<br><br>
-Fill out the form below and Stephen will be in touch within 24 hours.
-<div class="msg-actions"><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Book a consultation</button><button class="msg-action-btn" onclick="sendQuick('What questions should I ask my agent?')">❓ Questions to ask</button></div>`;
+📍 Barrie, Ontario · Simcoe County specialist<br><br>
+Stephen's approach is direct: no pressure, honest advice, and a clear plan tailored to your situation. He's worked with first-time buyers navigating the process for the first time, move-up buyers and sellers, investors looking at income properties, and waterfront/cottage buyers across the Simcoe region.<br><br>
+📊 <strong>What Stephen offers:</strong><br>
+&nbsp;• Comparative Market Analysis (CMA) — free, no obligation<br>
+&nbsp;• Live MLS access and private showing bookings<br>
+&nbsp;• Mortgage broker connections (30+ lenders)<br>
+&nbsp;• Off-market investment listings<br>
+&nbsp;• Full transaction support from search to closing<br><br>
+Fill in the form and he'll be in touch within 24 hours.
+<div class="msg-actions">
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Book a consultation</button>
+  <button class="ma-btn" onclick="sendQuick('What questions should I ask my agent?')">❓ Questions to ask</button>
+</div>`;
 }
 
-function respondFeatures(msg) {
-  return `Here's what I can help you work through:<br><br>
-🏡 <strong>Property Search</strong> — Ask for listings by city, budget, beds, or property type and I'll pull up what's active<br>
-💰 <strong>Mortgage Estimates</strong> — Monthly payments, affordability by income, CMHC insurance rules — with real Ontario numbers<br>
-📊 <strong>Market Reports</strong> — What's actually happening in Barrie, Innisfil, Orillia, Toronto, and Collingwood right now<br>
-🌳 <strong>Neighbourhood Guides</strong> — The honest take on Holly, Allandale, Downtown, Sunnidale, Innisfil, and more<br>
-📋 <strong>Closing Costs</strong> — Land transfer tax, legal fees, HST — broken down so there are no surprises<br>
-🎁 <strong>Buyer Programs</strong> — FHSA, RRSP HBP, first-time rebates — explained clearly, not just listed<br>
-📈 <strong>Investment Analysis</strong> — Cap rates, rental demand, cash-on-cash returns for the Barrie market<br>
-🔨 <strong>Selling Guidance</strong> — Staging, pricing strategy, what actually moves the needle<br>
-📅 <strong>Connect with Stephen</strong> — Book a showing, get a CMA, or just have a no-pressure conversation<br><br>
-What would be most useful to start with?
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me homes in Barrie under $750,000')">🏡 Search listings</button><button class="msg-action-btn" onclick="sendQuick('How much can I afford on $85,000 income?')">💼 Affordability</button><button class="msg-action-btn" onclick="sendQuick('What is the Barrie market like right now?')">📊 Market report</button></div>`;
+function rFeatures(msg) {
+  return `Here's what I can help you with — all in plain language, no fluff:<br><br>
+🏡 <strong>Property Search</strong> — Listings by city, budget, beds, type, or neighbourhood<br>
+💰 <strong>Mortgage & Affordability</strong> — Monthly payments, income-based qualifying, CMHC rules, stress test<br>
+📊 <strong>Market Reports</strong> — Current conditions for Barrie, Innisfil, Orillia, Toronto, Collingwood<br>
+🌳 <strong>Neighbourhood Guides</strong> — Detailed breakdowns: pricing, schools, transit, vibe<br>
+📋 <strong>Closing Cost Estimates</strong> — Land transfer tax, legal fees, inspection — no surprises<br>
+🎁 <strong>First-Time Buyer Programs</strong> — FHSA, RRSP HBP, LTT rebates explained clearly<br>
+📈 <strong>Investment Analysis</strong> — Cap rates, cash-on-cash returns, rental demand data<br>
+🔨 <strong>Selling Guidance</strong> — Staging priorities, pricing strategy, commission breakdown<br>
+📅 <strong>Connect with Stephen</strong> — Book showings, get a CMA, ask questions<br><br>
+The more context you give me — budget, income, what you're looking for — the more useful I can be. What's the situation?
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me homes in Barrie under $750,000')">🏡 Search listings</button>
+  <button class="ma-btn" onclick="sendQuick('How much can I afford on $85,000 income?')">💼 Affordability</button>
+  <button class="ma-btn" onclick="sendQuick('What is the Barrie market like right now?')">📊 Market report</button>
+</div>`;
 }
 
-function respondBuyer(msg) {
+function rBuyer(msg) {
+  const m = KB.markets.barrie;
   return `<strong>Buying in Barrie — The Honest Roadmap</strong><br><br>
-Here's how the process typically plays out, and where most buyers either get tripped up or get ahead:<br><br>
-<strong>1. Pre-Approval First</strong><br>
-Don't fall in love with a home before you know your number. Pre-approval takes 1–3 business days and gives you real buying power — not a rough guess.<br><br>
-<strong>2. Define What You Actually Need</strong><br>
-Beds, baths, neighbourhood, commute, schools — be honest about must-haves vs. nice-to-haves. That list will shift as you see more homes.<br><br>
+Here's how the process actually plays out, and where buyers either get tripped up or get ahead:<br><br>
+<strong>1. Pre-approval first</strong><br>
+Don't fall in love with a home before you know your number. Pre-approval takes 1–3 days and gives you real buying power — not a rough guess. It also shows sellers you're serious.<br><br>
+<strong>2. Define what you actually need</strong><br>
+Beds, neighbourhood, commute, schools, outdoor space — be honest about must-haves vs. nice-to-haves. That list will shift as you see more homes, and that's normal.<br><br>
 <strong>3. Work with a REALTOR®</strong><br>
-Your buyer's agent costs you nothing — the seller pays that commission. There's no reason not to have professional representation.<br><br>
-<strong>4. Start Viewing</strong><br>
-In a ${KNOWLEDGE.markets.barrie.trend} market like Barrie right now, you have a bit of breathing room — but well-priced homes still move. Come prepared to be decisive when the right one shows up.<br><br>
-<strong>5. Make a Smart Offer</strong><br>
-Include conditions when you can — financing and inspection especially. They protect you. Stephen can advise on when to push hard and when to hold back.<br><br>
-<strong>6. Closing</strong><br>
-Usually 30–90 days after the offer is accepted. Budget an extra 1.5–4% for closing costs on top of your down payment.<br><br>
-<em>Average Barrie home price: ${fmtPrice(KNOWLEDGE.markets.barrie.price)} · ${KNOWLEDGE.markets.barrie.dom} days on market average</em>
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('How much can I afford on $80,000 income?')">💼 Affordability</button><button class="msg-action-btn" onclick="sendQuick('Show me listings in Barrie')">🏡 Browse homes</button><button class="msg-action-btn primary" onclick="openModal('contact')">📅 Talk to Stephen</button></div>`;
+Your buyer's agent costs you nothing — the seller pays that commission. You get professional representation, MLS access, and market expertise at no cost to you.<br><br>
+<strong>4. Start viewing, be ready to act</strong><br>
+Barrie is in <strong>${m.trend} territory</strong> right now (avg. ${m.dom} days on market) — you have some breathing room, but well-priced homes in popular areas still attract competition. Come prepared.<br><br>
+<strong>5. Make a smart offer</strong><br>
+Include conditions when you can — financing and inspection especially. They protect you. Stephen can advise on when to push and when to hold back.<br><br>
+<strong>6. The path to closing</strong><br>
+Usually 30–90 days after the offer is accepted. Budget 1.5–4% extra for closing costs on top of your down payment.<br><br>
+<em>Avg. Barrie home price: ${fmt.price(m.price)} · ${m.dom} days on market average</em>
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('How much can I afford on $80,000 income?')">💼 Affordability</button>
+  <button class="ma-btn" onclick="sendQuick('Show me listings in Barrie')">🏡 Browse homes</button>
+  <button class="ma-btn" onclick="sendQuick('What should first-time buyers know about Ontario programs?')">🎁 Programs</button>
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button>
+</div>`;
 }
 
-function respondGeneral(msg) {
+function rGeneral(msg) {
   const m = msg.toLowerCase();
-  if (/school|education/i.test(m)) {
+
+  if(/school|education|daycare/i.test(m)) {
     return `<strong>Schools in the Barrie Area</strong><br><br>
-School quality is one of the top things families ask about, and for good reason. Here's the honest lay of the land:<br><br>
-🏫 <strong>Strong elementary options:</strong><br>
-• Holly Meadows Elementary (Holly) — consistently highly rated, great community feel<br>
-• Willow Landing Elementary (Holly) — strong EQAO scores, popular with families in north Barrie<br>
-• Eastview Secondary — offers an IB programme, solid academic track record<br>
-• St. Peter's Catholic Secondary — arts and athletics focus, well-regarded<br>
-• Georgian College is also in downtown Barrie for post-secondary<br><br>
-The <strong>Holly neighbourhood</strong> in north Barrie is where most families with school-age kids end up landing — the catchment schools are genuinely good. Allandale and Painswick also have solid elementary options if south Barrie fits your commute better.<br><br>
-One important note: school boundaries do change, so always verify the catchment for a specific address with the SCDSB (public) or SMCDSB (Catholic) before you finalize a purchase.
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me homes near Holly school area')">🏡 Holly listings</button></div>`;
+School quality is one of the most common factors that drives which neighbourhood families choose. Here's the honest picture:<br><br>
+🏫 <strong>Top-rated elementary:</strong><br>
+&nbsp;• Holly Meadows Elementary — consistently strong EQAO, excellent community reputation<br>
+&nbsp;• Willow Landing PS — popular in the Holly catchment, strong academics<br>
+&nbsp;• Allandale Heights PS — solid elementary in south Barrie<br><br>
+🎓 <strong>Secondary:</strong><br>
+&nbsp;• Eastview Secondary — IB programme, strong academics<br>
+&nbsp;• Innisdale Secondary — well-rounded, good extracurriculars<br>
+&nbsp;• St. Peter's Catholic SS — arts and athletics focus<br><br>
+🏛️ <strong>Post-secondary:</strong> Georgian College (downtown Barrie) for trades, technology, and business programs.<br><br>
+The <strong>Holly neighbourhood</strong> in north Barrie is where most families with school-age kids settle — the catchment schools are genuinely good. Allandale offers solid options with better transit for commuting parents.<br><br>
+⚠️ School boundaries change — always verify the catchment for a specific address with the SCDSB (public) or SMCDSB (Catholic) before finalising a purchase.
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me homes in the Holly neighbourhood')">🏡 Holly listings</button>
+  <button class="ma-btn" onclick="sendQuick('Compare Holly vs Allandale for families')">⚖️ Compare areas</button>
+</div>`;
   }
-  if (/interest rate|bank of canada|boc/i.test(m)) {
+
+  if(/cmhc|mortgage insurance/i.test(m)) {
+    const r = KB.mortgage;
+    return `<strong>CMHC Mortgage Insurance — How It Works</strong><br><br>
+CMHC insurance is required any time your down payment is less than 20% of the purchase price. Here's the breakdown:<br><br>
+📊 <strong>Insurance premium rates:</strong><br>
+&nbsp;• 5–9.99% down: <strong>${r.cmhc_5_10*100}% of the loan amount</strong><br>
+&nbsp;• 10–14.99% down: <strong>${r.cmhc_10_15*100}%</strong><br>
+&nbsp;• 15–19.99% down: <strong>${r.cmhc_15_20*100}%</strong><br><br>
+💡 <strong>Important to understand:</strong><br>
+&nbsp;• The premium is added to your mortgage, not paid upfront<br>
+&nbsp;• It protects the lender, not you — but it allows lower-down-payment buyers to access the market<br>
+&nbsp;• You still pay PST (8% in Ontario) on the premium at closing — that IS paid upfront<br>
+&nbsp;• Not available on homes over $1.5M<br><br>
+<strong>Example:</strong> 10% down on a $700,000 home = $630,000 loan × ${r.cmhc_10_15*100}% = ~$${fmt.num(Math.round(630000*r.cmhc_10_15))} premium added to your mortgage.<br><br>
+<em>Putting 20%+ down avoids this cost entirely — often worth planning for.</em>`;
+  }
+
+  if(/interest rate|bank of canada|prime rate/i.test(m)) {
+    const r = KB.mortgage;
     return `<strong>Interest Rates — Where Things Stand</strong><br><br>
-The <strong>Bank of Canada prime rate</strong> is currently sitting at <strong>${KNOWLEDGE.mortgage.rates.prime}%</strong>. Here's how that translates to actual mortgage rates buyers are seeing:<br><br>
-• 5-year fixed: <strong>${KNOWLEDGE.mortgage.rates.fixed5}%</strong> — most popular right now; people want the certainty<br>
-• 5-year variable: <strong>${KNOWLEDGE.mortgage.rates.variable}%</strong> (approximately prime minus 0.75%) — lower today but you're exposed to Bank of Canada decisions<br>
-• 3-year fixed: <strong>${KNOWLEDGE.mortgage.rates.fixed3}%</strong> — a reasonable middle ground if you expect rates to drop<br><br>
-Rates move weekly, and the difference between lenders can be meaningful over a 25-year amortization. A mortgage broker with access to 30+ lenders will almost always beat a bank's posted rate. Stephen can connect you with a few trusted ones.`;
+The <strong>Bank of Canada prime rate</strong> is currently at <strong>${r.prime}%</strong>. Here's how that translates:<br><br>
+&nbsp;• 5-yr fixed: <strong>${r.fixed5}%</strong> — predictable, popular, most buyers choose this right now<br>
+&nbsp;• 5-yr variable: ~<strong>${r.variable}%</strong> (roughly prime minus a spread; moves with BoC decisions)<br>
+&nbsp;• 3-yr fixed: <strong>${r.fixed3}%</strong> — a reasonable middle ground if you expect rates to ease<br>
+&nbsp;• 1-yr fixed: <strong>${r.fixed1}%</strong> — maximum flexibility, renewed every 12 months<br><br>
+The difference between lenders on the same product can be meaningful over a 25-year amortization — a good broker with access to 30+ lenders will almost always beat the posted bank rate. Stephen can connect you with a few trusted ones.`;
   }
-  if (/hello|hi|hey|good morning|good afternoon/i.test(m)) {
-    return `Hey! Good to hear from you. I'm Keys — the AI assistant working alongside Stephen Monkhouse at Royal LePage in Barrie. I can help with listings, mortgage numbers, market conditions, neighbourhood advice, and more.<br><br>What are you working through today?
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('Show me available homes in Barrie')">🏡 Browse homes</button><button class="msg-action-btn" onclick="sendQuick('What is the Barrie market like?')">📊 Market report</button><button class="msg-action-btn primary" onclick="sendQuick('Show me what you can do!')">Explore features</button></div>`;
+
+  if(/hello|hi\b|hey\b|good morning|good afternoon|good evening/i.test(m)) {
+    const greets = [
+      "Hey — welcome to KeysAI. I work with Stephen Monkhouse at Royal LePage in Barrie. What's on your mind?",
+      "Hi there! I'm Keys — the AI assistant working alongside Stephen at Royal LePage Barrie. Buying, selling, or just exploring?",
+      "Hello! I can help with listings, mortgage estimates, market conditions, and more across the Barrie and Simcoe County area. What would be most useful?",
+    ];
+    return greets[STATE.turnCount % greets.length] + `
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('Show me available homes in Barrie')">🏡 Browse homes</button>
+  <button class="ma-btn" onclick="sendQuick('What is the Barrie market like?')">📊 Market</button>
+  <button class="ma-btn pri" onclick="sendQuick('Show me what you can do!')">Explore features →</button>
+</div>`;
   }
-  return `Good question. Here's where the Barrie market sits right now:<br><br>
-• Average home price: <strong>${fmtPrice(KNOWLEDGE.markets.barrie.price)}</strong><br>
-• Market conditions: <strong>${KNOWLEDGE.markets.barrie.trend}</strong><br>
-• Average days on market: <strong>${KNOWLEDGE.markets.barrie.dom} days</strong><br><br>
-I'm set up to help with the Barrie and Simcoe County area specifically — listings, mortgage estimates, neighbourhoods, closing costs, selling strategy, and more. What's the situation you're trying to figure out?
-<div class="msg-actions"><button class="msg-action-btn" onclick="sendQuick('I want to buy a home in Barrie')">🏡 Buying</button><button class="msg-action-btn" onclick="sendQuick('I want to sell my home')">💰 Selling</button><button class="msg-action-btn" onclick="sendQuick('Show me what you can do')">✨ Explore</button></div>`;
+
+  if(/questions.*ask.*agent|ask.*realtor/i.test(m)) {
+    return `<strong>Questions Worth Asking Your Agent</strong><br><br>
+Good questions separate confident buyers from ones who get caught off guard:<br><br>
+<strong>When buying:</strong><br>
+&nbsp;• How long has this been listed, and has the price changed?<br>
+&nbsp;• Why is the seller selling — and when do they want to close?<br>
+&nbsp;• What have comparable homes sold for in the last 90 days?<br>
+&nbsp;• Are there any known issues with the property?<br>
+&nbsp;• What conditions should I include in my offer?<br><br>
+<strong>When selling:</strong><br>
+&nbsp;• What's your pricing strategy, and what data supports it?<br>
+&nbsp;• What's your marketing plan beyond MLS?<br>
+&nbsp;• What would you change about this home before listing?<br>
+&nbsp;• What's realistic for timeline and final price in this market?<br><br>
+<strong>About the agent themselves:</strong><br>
+&nbsp;• How many transactions have you done in this area in the past 12 months?<br>
+&nbsp;• Do you work solo or with a team, and who will I be working with day-to-day?<br><br>
+Stephen is happy to answer any of these directly.
+<div class="msg-actions">
+  <button class="ma-btn pri" onclick="openModal('contact')">📅 Talk to Stephen</button>
+</div>`;
+  }
+
+  // Fallback
+  const bm = KB.markets.barrie;
+  return `The Barrie market right now in a snapshot: avg. price <strong>${fmt.price(bm.price)}</strong>, <strong>${bm.trend} conditions</strong>, ${bm.dom} days on market average.<br><br>
+I specialise in the Barrie and Simcoe County area — listings, mortgage numbers, neighbourhood guides, first-time buyer programs, selling strategy, and more. What's the situation you're working through?
+<div class="msg-actions">
+  <button class="ma-btn" onclick="sendQuick('I want to buy a home in Barrie')">🏡 Buying</button>
+  <button class="ma-btn" onclick="sendQuick('I want to sell my home')">💰 Selling</button>
+  <button class="ma-btn" onclick="sendQuick('Tell me about the Barrie real estate market')">📊 Market</button>
+</div>`;
 }
 
+/* ─── MAIN ROUTER ─── */
 function generateResponse(msg) {
-  const intent = classifyIntent(msg);
+  STATE.turnCount++;
+  const intent = classify(msg);
+  STATE.lastIntent = intent;
+
+  // Specific listing detail
+  if(intent==='listings' && KB.listings.some(l=>msg.toLowerCase().includes(l.addr.toLowerCase().split(',')[0].toLowerCase()))) {
+    return rListingDetail(msg);
+  }
+
   switch(intent) {
-    case 'listings':      return respondListings(msg);
-    case 'mortgage':      return respondMortgage(msg);
-    case 'market':        return respondMarket(msg);
-    case 'neighbourhood': return respondNeighbourhood(msg);
-    case 'firsttime':     return respondFirstTime(msg);
-    case 'closing':       return respondClosing(msg);
-    case 'investment':    return respondInvestment(msg);
-    case 'selling':       return respondSelling(msg);
-    case 'agent':         return respondAgent(msg);
-    case 'features':      return respondFeatures(msg);
-    case 'buyer':         return respondBuyer(msg);
-    default:              return respondGeneral(msg);
+    case 'listings':      return rListings(msg);
+    case 'mortgage':      return rMortgage(msg);
+    case 'market':        return rMarket(msg);
+    case 'neighbourhood': return rNeighbourhood(msg);
+    case 'firsttime':     return rFirstTime(msg);
+    case 'closing':       return rClosing(msg);
+    case 'investment':    return rInvestment(msg);
+    case 'selling':       return rSelling(msg);
+    case 'agent':         return rAgent(msg);
+    case 'features':      return rFeatures(msg);
+    case 'buyer':         return rBuyer(msg);
+    default:              return rGeneral(msg);
   }
 }
 
-/* ─────────────────────────────────────
-   SIMULATED LIVE MARKET UPDATES
-───────────────────────────────────── */
-function jitter(base, pct) {
-  return base + base * (Math.random() - 0.5) * pct;
+/* ═══════════════════════════════════════
+   SIMULATED LIVE MARKET TICKS
+═══════════════════════════════════════ */
+function jitter(base, pct) { return base + base*(Math.random()-0.5)*pct; }
+function updateTickers() {
+  const get = id => document.getElementById(id);
+  if(get('ms-bar-p')) get('ms-bar-p').textContent = fmt.price(Math.round(jitter(KB.markets.barrie.price,0.005)/1000)*1000);
+  if(get('ms-tor-p')) get('ms-tor-p').textContent = fmt.price(Math.round(jitter(KB.markets.toronto.price,0.004)/1000)*1000);
+  if(get('ms-inn-p')) get('ms-inn-p').textContent = fmt.price(Math.round(jitter(KB.markets.innisfil.price,0.006)/1000)*1000);
 }
+setInterval(updateTickers, 40000);
 
-function updateMarketCards() {
-  const b = KNOWLEDGE.markets.barrie;
-  const t = KNOWLEDGE.markets.toronto;
-  const i = KNOWLEDGE.markets.innisfil;
-
-  const bPrice = Math.round(jitter(b.price, 0.005) / 1000) * 1000;
-  const tPrice = Math.round(jitter(t.price, 0.004) / 1000) * 1000;
-  const iPrice = Math.round(jitter(i.price, 0.006) / 1000) * 1000;
-
-  const el = id => document.getElementById(id);
-  if(el('ms-barrie-price')) el('ms-barrie-price').textContent = fmtPrice(bPrice);
-  if(el('ms-tor-price'))    el('ms-tor-price').textContent    = fmtPrice(tPrice);
-  if(el('ms-inn-price'))    el('ms-inn-price').textContent    = fmtPrice(iPrice);
-}
-
-setInterval(updateMarketCards, 45000);
-
-/* ─────────────────────────────────────
+/* ═══════════════════════════════════════
    CHAT ENGINE
-───────────────────────────────────── */
+═══════════════════════════════════════ */
 let isTyping = false;
-let activeMode = null;
 
 async function sendMessage() {
   const input = document.getElementById('chatInput');
   const text = input.value.trim();
-  if (!text || isTyping) return;
+  if(!text || isTyping) return;
 
   const hero = document.getElementById('heroSection');
-  if (hero) hero.style.display = 'none';
+  if(hero) hero.style.display = 'none';
 
   input.value = '';
   autoResize(input);
-  appendMessage('user', text);
+  addMsg('user', text);
   showTyping();
 
-  const delay = Math.min(900, 300 + text.length * 3);
+  const delay = Math.min(1100, 350 + text.length * 3.5);
   await new Promise(r => setTimeout(r, delay));
 
   hideTyping();
   const response = generateResponse(text);
-  appendMessage('ai', response);
+  addMsg('ai', response);
 }
 
 function sendQuick(text) {
@@ -1524,117 +1808,106 @@ function sendQuick(text) {
   sendMessage();
 }
 
-function appendMessage(role, html) {
-  const container = document.getElementById('messages');
+function addMsg(role, html) {
+  const c = document.getElementById('messages');
   const now = new Date().toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'});
-  const wrapper = document.createElement('div');
-  wrapper.className = `message ${role}`;
+  const div = document.createElement('div');
+  div.className = `message ${role}`;
 
-  if (role === 'ai') {
-    wrapper.innerHTML = `
-      <div class="msg-avatar ai">K</div>
+  if(role === 'ai') {
+    div.innerHTML = `
+      <div class="msg-av ai">K</div>
       <div>
         <div class="msg-bubble">${html}</div>
         <div class="msg-meta">Keys AI · ${now}</div>
       </div>`;
   } else {
     const safe = html.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    wrapper.innerHTML = `
+    div.innerHTML = `
       <div>
         <div class="msg-bubble">${safe}</div>
         <div class="msg-meta">You · ${now}</div>
       </div>
-      <div class="msg-avatar user-av">You</div>`;
+      <div class="msg-av u">You</div>`;
   }
-
-  container.appendChild(wrapper);
-  container.scrollTop = container.scrollHeight;
+  c.appendChild(div);
+  c.scrollTop = c.scrollHeight;
 }
 
 function showTyping() {
   isTyping = true;
-  const container = document.getElementById('messages');
+  const c = document.getElementById('messages');
   const el = document.createElement('div');
-  el.className = 'message ai'; el.id = 'typing-indicator';
-  el.innerHTML = `
-    <div class="msg-avatar ai">K</div>
-    <div><div class="msg-bubble" style="padding:0.65rem 1rem;">
+  el.className='message ai'; el.id='typer';
+  el.innerHTML=`
+    <div class="msg-av ai">K</div>
+    <div><div class="msg-bubble" style="padding:0.6rem 0.9rem;">
       <div class="typing-dots">
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
+        <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
       </div>
     </div></div>`;
-  container.appendChild(el);
-  container.scrollTop = container.scrollHeight;
+  c.appendChild(el);
+  c.scrollTop = c.scrollHeight;
 }
 
 function hideTyping() {
   isTyping = false;
-  const el = document.getElementById('typing-indicator');
-  if (el) el.remove();
+  const el = document.getElementById('typer');
+  if(el) el.remove();
 }
 
-/* ─── UI CONTROLS ─── */
+/* ── UI controls ── */
 function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendMessage(); }
 }
 
 function autoResize(el) {
   el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 130) + 'px';
+  el.style.height = Math.min(el.scrollHeight,120)+'px';
 }
 
 function switchTab(btn, tab) {
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  if (tab !== 'chat') {
-    const map = {
-      listings: 'Show me available listings in Barrie',
-      market:   'Give me a full Barrie market report',
-      tools:    'Show me the mortgage calculator and tools you offer'
-    };
-    sendQuick(map[tab] || `Tell me about the ${tab} section`);
+  if(tab!=='chat'){
+    const map={listings:'Show me available listings in Barrie',market:'Give me a full Barrie market report',tools:'Show me mortgage tools and calculators'};
+    sendQuick(map[tab]||`Tell me about ${tab}`);
   }
 }
 
 function toggleMode(btn, mode) {
-  const wasActive = btn.classList.contains('active');
-  document.querySelectorAll('.toolbar-btn').forEach(b => b.classList.remove('active'));
-  if (!wasActive) { btn.classList.add('active'); activeMode = mode; }
-  else { activeMode = null; }
+  const was = btn.classList.contains('active');
+  document.querySelectorAll('.tb-btn').forEach(b=>b.classList.remove('active'));
+  if(!was){ btn.classList.add('active'); STATE.profile.mode=mode; }
+  else STATE.profile.mode=null;
 }
 
-function toggleChip(el) { el.classList.toggle('active'); }
+function toggleChip(el){ el.classList.toggle('active'); }
 
 function applyFilters() {
   const min  = document.getElementById('fMin').value;
   const max  = document.getElementById('fMax').value;
   const city = document.getElementById('fCity').value;
-  const beds = document.querySelector('.filter-chip.active');
-  const parts = [];
-  if (city) parts.push(`in ${city}`);
-  if (min || max) parts.push(`priced ${min ? 'from '+min : ''} ${max ? 'to '+max : ''}`.trim());
-  if (beds) parts.push(`with ${beds.textContent} bedrooms`);
-  sendQuick(`Show me listings ${parts.join(', ') || 'in Barrie'}`);
+  const parts=[];
+  if(city) parts.push(`in ${city}`);
+  if(min||max) parts.push(`priced ${min?'from '+min:''} ${max?'to '+max:''}`.trim());
+  sendQuick(`Show me listings ${parts.join(', ')||'in Barrie'}`);
 }
 
-/* ── MORTGAGE CALC ── */
+/* ── Mortgage calc ── */
 function calcMortgage() {
-  const parseNum = s => parseFloat((s||'').replace(/[^0-9.]/g,'')) || 0;
-  const price  = parseNum(document.getElementById('calcPrice').value);
-  const down   = parseNum(document.getElementById('calcDown').value);
-  const rate   = parseNum(document.getElementById('calcRate').value) / 100;
-  const years  = parseNum(document.getElementById('calcYears').value);
-  const monthly = calcPayment(price, down, rate, years);
+  const n = s => parseFloat((s||'').replace(/[^0-9.]/g,''))||0;
+  const price = n(document.getElementById('calcPrice').value);
+  const down  = n(document.getElementById('calcDown').value);
+  const rate  = n(document.getElementById('calcRate').value)/100;
+  const years = n(document.getElementById('calcYears').value);
+  const mo = calcPayment(price, down, rate, years);
   document.getElementById('calcResult').textContent =
-    (monthly > 0 && isFinite(monthly))
-      ? '$' + Math.round(monthly).toLocaleString('en-CA')
-      : '—';
+    (mo>0&&isFinite(mo)) ? '$'+Math.round(mo).toLocaleString('en-CA') : '—';
 }
 calcMortgage();
 
-/* ── SIDEBAR DRAWER (mobile) ── */
+/* ── Sidebar ── */
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('sidebarOverlay').classList.toggle('open');
@@ -1644,32 +1917,31 @@ function closeSidebar() {
   document.getElementById('sidebarOverlay').classList.remove('open');
 }
 
-/* ── MODALS ── */
+/* ── Modals ── */
 function openModal(id)  { document.getElementById('modal-'+id).classList.add('open'); }
 function closeModal(id) { document.getElementById('modal-'+id).classList.remove('open'); }
-
-document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{ if(e.target===o) o.classList.remove('open'); });
 });
 
 function switchEmbedType(type, btn) {
-  document.querySelectorAll('#modal-embed .toolbar-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#modal-embed .tb-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   const el = document.getElementById('embedCode');
-  if (type === 'float') {
-    el.innerHTML = `<span class="c-muted">&lt;!-- KeysAI Floating Widget --&gt;</span>
+  if(type==='float') {
+    el.innerHTML=`<span class="c-muted">&lt;!-- KeysAI Floating Widget --&gt;</span>
 <span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/widget.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>
 <span class="c-gold">&lt;script&gt;</span>
   KeysAI.chat({
     <span class="c-blue">agentId</span>: <span class="c-green">"rl-barrie-team"</span>,
     <span class="c-blue">position</span>: <span class="c-green">"bottom-right"</span>,
     <span class="c-blue">greeting</span>: <span class="c-green">"Hi! Looking for a home in Barrie?"</span>,
-    <span class="c-blue">color</span>: <span class="c-green">"#1A2744"</span>,
+    <span class="c-blue">color</span>: <span class="c-green">"#121C35"</span>,
     <span class="c-blue">accent</span>: <span class="c-green">"#C9A84C"</span>
   });
 <span class="c-gold">&lt;/script&gt;</span>`;
   } else {
-    el.innerHTML = `<span class="c-muted">&lt;!-- KeysAI Tab Embed --&gt;</span>
+    el.innerHTML=`<span class="c-muted">&lt;!-- KeysAI Tab Embed --&gt;</span>
 <span class="c-gold">&lt;div</span> <span class="c-blue">id</span>=<span class="c-green">"keysai-tab"</span><span class="c-gold">&gt;&lt;/div&gt;</span>
 <span class="c-gold">&lt;script</span> <span class="c-blue">src</span>=<span class="c-green">"https://keysai.app/embed.js"</span><span class="c-gold">&gt;&lt;/script&gt;</span>
 <span class="c-gold">&lt;script&gt;</span>
@@ -1685,18 +1957,18 @@ function switchEmbedType(type, btn) {
 
 function copyEmbed() {
   const text = document.getElementById('embedCode').innerText;
-  navigator.clipboard.writeText(text).then(() => {
+  navigator.clipboard.writeText(text).then(()=>{
     const btn = document.querySelector('.copy-btn');
-    btn.textContent = '✅ Copied!';
-    setTimeout(() => btn.textContent = '📋 Copy embed code', 2000);
+    btn.textContent='✅ Copied!';
+    setTimeout(()=>btn.textContent='📋 Copy embed code',2000);
   });
 }
 
 function submitContact() {
   closeModal('contact');
-  appendMessage('ai', `✅ <strong>Done — your info is on its way to Stephen.</strong> He'll reach out within 24 hours to discuss what you're looking for and get a showing on the calendar if there's something worth seeing.<br><br>Anything else I can help you prepare in the meantime?`);
+  addMsg('ai','✅ <strong>Done — your details are on their way to Stephen.</strong> He\'ll be in touch within 24 hours to discuss what you\'re looking for and arrange a showing if there\'s something worth seeing.<br><br>Anything else I can help you with in the meantime?');
   const hero = document.getElementById('heroSection');
-  if (hero) hero.style.display = 'none';
+  if(hero) hero.style.display='none';
 }
 </script>
 </body>
